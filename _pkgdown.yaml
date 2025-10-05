@@ -1,0 +1,13 @@
+url: https://y-sunflower.github.io/rtyp/
+template:
+  bootstrap: 5
+  bootswatch: flatly
+  github: https://github.com/y-sunflower/rtyp
+  light-switch: true
+  bslib:
+    base_font: { google: "Roboto" }
+    heading_font: { google: "Roboto Slab" }
+    code_font: { google: "JetBrains Mono" }
+
+pkgdown:
+  as_is: yes

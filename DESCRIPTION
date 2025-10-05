@@ -1,0 +1,10 @@
+Package: rtyp
+Title: An R package to generate Typst code
+Version: 0.0.0.9000
+Authors@R: 
+    person("Joseph", "Barbier", , "joseph.barbierdarnal@gmail.com", role = c("aut", "cre"))
+Description: What the package does (one paragraph).
+License: MIT + file LICENSE
+Encoding: UTF-8
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.3.2
