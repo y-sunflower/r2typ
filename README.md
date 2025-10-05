@@ -6,8 +6,8 @@ With `{rtyp}`, you can dynamically generate Typst code. It supports:
 - `set` rules
 - conversions from R types to Typst (`TRUE` -> `true`, `NULL` -> `none`, etc.)
 - Typst units with helper functions
-- an **extremely simple syntax**
-- **no dependencies**
+- an extremely **simple syntax**
+- **no** dependencies
 
 Check out the [documentation](https://y-sunflower.github.io/rtyp/).
 
