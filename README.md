@@ -14,7 +14,10 @@ With `{rtyp}`, you can generate Typst code dynamically. It has support for:
 library("rtyp")
 
 heading(level = 2, numbering = "1.1", "Hello world")
+> "#heading(level: 2, numbering: \"1.1\")[Hello world]"
+
 text(font = "Libertinus Serif", "I love cookies")
+> "#text(font: \"Libertinus Serif\")[Hello world]"
 ```
 
 <br>
