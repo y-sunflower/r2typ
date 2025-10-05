@@ -1,3 +1,13 @@
+#' @title Typst function generator
+#'
+#' @description
+#' Base function used to generate
+#' higher level functions.
+#'
+#' @param name Function name like `heading()` or `text()`
+#' @param ... Additional arguments pasted to typst functions.
+#'
+#' @keywords internal
 typst_call <- function(name, ...) {
   args <- list(...)
   named <- names(args)
@@ -33,14 +43,3 @@ typst_call <- function(name, ...) {
     sprintf("#%s[%s]", name, unnamed_str)
   }
 }
-
-
-heading <- function(...) typst_call("heading", ...)
-text <- function(...) typst_call("text", ...)
-
-heading(level = 2, numbering = "1.1", "Hello world")
-heading("Just text")
-heading(level = 3, "Intro", "More text")
-
-text(font = "Libertinus Serif", "Hello world")
-text("Just text")
