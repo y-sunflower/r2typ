@@ -1,8 +1,9 @@
 url: https://y-sunflower.github.io/rtyp/
 template:
   bootstrap: 5
-  bootswatch: litera
+  bootswatch: journal
   github: https://github.com/y-sunflower/rtyp
+  light-switch: true
 
 pkgdown:
   as_is: yes
