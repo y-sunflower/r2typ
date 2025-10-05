@@ -9,13 +9,26 @@ parse_typst_args <- function(name, ...) {
   named_args <- args[nzchar(named)]
   unnamed_args <- args[!nzchar(named)]
 
-  format_named <- function(x) {
-    if (is.character(x) && length(x) == 1) paste0("\"", x, "\"") else deparse(x)
+  format_typst_value <- function(x, named) {
+    if (inherits(x, "typst_unit")) {
+      paste0(x, attr(x, "unit"))
+    } else if (is.logical(x)) {
+      tolower(as.character(x))
+    } else if (is.null(x) || (length(x) == 1 && is.na(x))) {
+      "none"
+    } else if (is.character(x) && length(x) == 1 && x == "auto") {
+      "auto"
+    } else if (is.character(x) && length(x) == 1 && named) {
+      paste0("\"", x, "\"")
+    } else if (is.character(x) && length(x) == 1 && !named) {
+      x
+    } else {
+      deparse(x)
+    }
   }
 
-  format_unnamed <- function(x) {
-    if (is.character(x) && length(x) == 1) x else deparse(x)
-  }
+  format_named <- function(x) format_typst_value(x, named = TRUE)
+  format_unnamed <- function(x) format_typst_value(x, named = FALSE)
 
   named_str <- if (length(named_args)) {
     paste(

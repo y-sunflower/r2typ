@@ -15,4 +15,18 @@ test_that("Test text function", {
 
   out <- text("Just text")
   expect_equal(out, "#text[Just text]")
+
+  out <- text(
+    size = pt(12),
+    w = percent(80),
+    a = TRUE,
+    c = NULL,
+    d = em(17),
+    e = "auto",
+    "hello"
+  )
+  expect_equal(
+    out,
+    "#text(size: 12pt, w: 80%, a: true, c: none, d: 17em, e: auto)[hello]"
+  )
 })
