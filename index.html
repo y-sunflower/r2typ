@@ -56,16 +56,18 @@
   <main id="main" class="col-md-9"><div class="section level1">
 <div class="page-header"><h1 id="rtyp-an-r-package-for-generating-typst-code">rtyp: an R package for generating Typst code<a class="anchor" aria-label="anchor" href="#rtyp-an-r-package-for-generating-typst-code"></a>
 </h1></div>
-<p>With <a href="https://y-sunflower.github.io/rtyp/">rtyp</a>, you can generate Typst code dynamically. It supports:</p>
+<p>With <a href="https://y-sunflower.github.io/rtyp/">rtyp</a>, you can dynamically generate Typst code. It supports:</p>
 <ul>
 <li>all the most basic Typst functions</li>
 <li>
 <code>set</code> rules</li>
-<li>has an <strong>extremely simple syntax</strong>
+<li>conversions from R types to Typst (<code>TRUE</code> -&gt; <code>true</code>, <code>NULL</code> -&gt; <code>none</code>, etc.)</li>
+<li>Typst units with helper functions</li>
+<li>an <strong>extremely simple syntax</strong>
 </li>
-<li>has <strong>no dependencies</strong>
-</li>
+<li><strong>no dependencies</strong></li>
 </ul>
+<p>Check out the <a href="https://y-sunflower.github.io/rtyp/">documentation</a>.</p>
 <p><br></p>
 <div class="section level2">
 <h2 id="quick-start">Quick start<a class="anchor" aria-label="anchor" href="#quick-start"></a>
@@ -73,10 +75,13 @@
 <div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" tabindex="-1"></a><span class="fu">library</span>(rtyp)</span>
 <span id="cb1-2"><a href="#cb1-2" tabindex="-1"></a></span>
 <span id="cb1-3"><a href="#cb1-3" tabindex="-1"></a><span class="fu">heading</span>(<span class="at">level =</span> <span class="dv">2</span>, <span class="at">numbering =</span> <span class="st">"1.1"</span>, <span class="st">"Hello world"</span>)</span>
-<span id="cb1-4"><a href="#cb1-4" tabindex="-1"></a><span class="sc">&gt;</span> <span class="st">"#heading(level: 2, numbering: </span><span class="sc">\"</span><span class="st">1.1</span><span class="sc">\"</span><span class="st">)[Hello world]"</span></span>
+<span id="cb1-4"><a href="#cb1-4" tabindex="-1"></a><span class="sc">&gt;</span> <span class="co">#heading(level: 2, numbering: "1.1")[Hello world]</span></span>
 <span id="cb1-5"><a href="#cb1-5" tabindex="-1"></a></span>
 <span id="cb1-6"><a href="#cb1-6" tabindex="-1"></a><span class="fu">text</span>(<span class="at">font =</span> <span class="st">"Libertinus Serif"</span>, <span class="st">"I love cookies"</span>)</span>
-<span id="cb1-7"><a href="#cb1-7" tabindex="-1"></a><span class="sc">&gt;</span> <span class="st">"#text(font: </span><span class="sc">\"</span><span class="st">Libertinus Serif</span><span class="sc">\"</span><span class="st">)[Hello world]"</span></span></code></pre></div>
+<span id="cb1-7"><a href="#cb1-7" tabindex="-1"></a><span class="sc">&gt;</span> <span class="co">#text(font: "Libertinus Serif")[Hello world]</span></span>
+<span id="cb1-8"><a href="#cb1-8" tabindex="-1"></a></span>
+<span id="cb1-9"><a href="#cb1-9" tabindex="-1"></a><span class="fu">text</span>(<span class="at">size =</span> <span class="fu">pt</span>(<span class="dv">12</span>), <span class="at">baseline =</span> <span class="fu">em</span>(<span class="fl">1.2</span>), <span class="at">overhang =</span> <span class="cn">FALSE</span>, <span class="st">"hello"</span>)</span>
+<span id="cb1-10"><a href="#cb1-10" tabindex="-1"></a><span class="sc">&gt;</span> <span class="co">#text(size: 12pt, baseline: 1.2em, overhang: false)[hello]</span></span></code></pre></div>
 <p><br></p>
 </div>
 <div class="section level2">
@@ -89,7 +94,7 @@
 <div class="section level2">
 <h2 id="writing-and-compiling">Writing and compiling<a class="anchor" aria-label="anchor" href="#writing-and-compiling"></a>
 </h2>
-<p>If you want to write and compile your typst files, check out the <a href="https://github.com/christopherkenny/typr/" class="external-link"><code>{typr}</code> package</a>.</p>
+<p>If you want to write and compile your typst files from R, check out the <a href="https://github.com/christopherkenny/typr/" class="external-link"><code>{typr}</code> package</a>.</p>
 </div>
 </div>
   </main><aside class="col-md-3"><div class="license">
