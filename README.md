@@ -3,9 +3,9 @@
 With `{rtyp}`, you can generate Typst code dynamically. It supports:
 
 - all the most basic Typst functions
-- `set` and `show` rules
+- `set` rules
 - has an **extremely simple syntax**
-- has no dependencies
+- has **no dependencies**
 
 <br>
 

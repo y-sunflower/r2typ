@@ -15,7 +15,7 @@
 #' heading("Just text")
 #'
 #' @export
-heading <- function(...) typst_call("heading", ...)
+heading <- function(...) typst_function("heading", ...)
 
 #' Create a Typst Text Element
 #'
@@ -34,4 +34,4 @@ heading <- function(...) typst_call("heading", ...)
 #' text("Just text")
 #'
 #' @export
-text <- function(...) typst_call("text", ...)
+text <- function(...) typst_function("text", ...)

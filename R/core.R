@@ -1,14 +1,5 @@
-#' @title Typst function generator
-#'
-#' @description
-#' Base function used to generate
-#' higher level functions.
-#'
-#' @param name Function name like `heading()` or `text()`
-#' @param ... Additional arguments pasted to typst functions.
-#'
 #' @keywords internal
-typst_call <- function(name, ...) {
+parse_typst_args <- function(name, ...) {
   args <- list(...)
   named <- names(args)
   if (is.null(named)) {
@@ -37,9 +28,42 @@ typst_call <- function(name, ...) {
 
   unnamed_str <- paste(sapply(unnamed_args, format_unnamed), collapse = " ")
 
-  if (named_str != "") {
-    sprintf("#%s(%s)[%s]", name, named_str, unnamed_str)
+  output <- list(name = name, named_str = named_str, unnamed_str = unnamed_str)
+  return(output)
+}
+
+#' @keywords internal
+typst_function <- function(name, ...) {
+  parsed_args <- parse_typst_args(name, ...)
+
+  if (parsed_args$named_str != "") {
+    sprintf(
+      "#%s(%s)[%s]",
+      parsed_args$name,
+      parsed_args$named_str,
+      parsed_args$unnamed_str
+    )
   } else {
-    sprintf("#%s[%s]", name, unnamed_str)
+    sprintf("#%s[%s]", parsed_args$name, parsed_args$unnamed_str)
+  }
+}
+
+#' @keywords internal
+typst_set <- function(name, ...) {
+  parsed_args <- parse_typst_args(name, ...)
+
+  if (parsed_args$named_str != "" && parsed_args$unnamed_str != "") {
+    sprintf(
+      "#set %s(%s, %s)",
+      parsed_args$name,
+      parsed_args$named_str,
+      parsed_args$unnamed_str
+    )
+  } else if (parsed_args$named_str != "") {
+    sprintf("#set %s(%s)", parsed_args$name, parsed_args$named_str)
+  } else if (parsed_args$unnamed_str != "") {
+    sprintf("#set %s(%s)", parsed_args$name, parsed_args$unnamed_str)
+  } else {
+    sprintf("#set %s()", parsed_args$name)
   }
 }
