@@ -4,12 +4,15 @@
 \alias{typst_functions}
 \alias{heading}
 \alias{text}
+\alias{place}
 \alias{image}
 \title{Create a Typst function}
 \usage{
 heading(...)
 
 text(...)
+
+place(...)
 
 image(...)
 }

@@ -10,7 +10,7 @@
 \alias{center}
 \alias{left}
 \alias{right}
-\title{Create Typst Alignment}
+\title{(not working yet) Create Typst Alignment}
 \format{
 An object of class \code{typst_alignment} of length 1.
 

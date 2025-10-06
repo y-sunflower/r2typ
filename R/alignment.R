@@ -1,4 +1,4 @@
-#' @title Create Typst Alignment
+#' @title (not working yet) Create Typst Alignment
 #'
 #' @description
 #' These functions generate special objects representing alignment in Typst code.

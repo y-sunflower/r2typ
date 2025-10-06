@@ -4,11 +4,17 @@
 \alias{typst_set}
 \alias{set_heading}
 \alias{set_text}
+\alias{set_image}
+\alias{set_place}
 \title{Create a Typst set rules}
 \usage{
 set_heading(...)
 
 set_text(...)
+
+set_image(...)
+
+set_place(...)
 }
 \arguments{
 \item{...}{Named or unnamed arguments passed to the Typst function.
