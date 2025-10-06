@@ -1,3 +1,11 @@
+> [!WARNING]  
+> **Not functional yet**
+
+<br>
+<br>
+<br>
+<br>
+
 # rtyp: an R package for generating Typst code
 
 With `{rtyp}`, you can dynamically generate Typst code. It supports:
