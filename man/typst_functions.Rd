@@ -4,11 +4,14 @@
 \alias{typst_functions}
 \alias{heading}
 \alias{text}
+\alias{image}
 \title{Create a Typst function}
 \usage{
 heading(...)
 
 text(...)
+
+image(...)
 }
 \arguments{
 \item{...}{Named or unnamed arguments passed to the Typst function.

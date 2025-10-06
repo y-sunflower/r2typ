@@ -1,5 +1,6 @@
-#' Create a Typst set rules
+#' @title Create a Typst set rules
 #'
+#' @description
 #' Generates Typst set rules for a given function. Named arguments are included
 #' as Typst keyword arguments (e.g. `level`, `numbering`), and unnamed arguments
 #' are used as the heading content.
@@ -24,3 +25,11 @@ set_heading <- function(...) typst_set("heading", ...)
 #' @rdname typst_set
 #' @export
 set_text <- function(...) typst_set("text", ...)
+
+#' @rdname typst_set
+#' @export
+set_image <- function(...) typst_set("image", ...)
+
+#' @rdname typst_set
+#' @export
+set_place <- function(...) typst_set("place", ...)

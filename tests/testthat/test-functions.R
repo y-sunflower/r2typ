@@ -30,3 +30,11 @@ test_that("Test text function", {
     "#text(size: 12pt, w: 80%, a: true, c: none, d: 17em, e: auto)[hello]"
   )
 })
+
+test_that("Test image function", {
+  out <- image("../docs/link.svg")
+  expect_equal(out, "#image(\"../docs/link.svg\")")
+
+  out <- image(width = percent(80), height = "auto", "../docs/link.svg")
+  expect_equal(out, "#image(width: 80%, height: auto, \"../docs/link.svg\")")
+})

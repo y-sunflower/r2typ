@@ -11,7 +11,9 @@ parse_typst_args <- function(name, ...) {
 
   format_typst_value <- function(x, named) {
     if (inherits(x, "typst_unit")) {
-      paste0(x, attr(x, "unit"))
+      paste0(unclass(x), attr(x, "unit"))
+    } else if (inherits(x, "typst_alignment")) {
+      unclass(x)
     } else if (is.logical(x)) {
       tolower(as.character(x))
     } else if (is.null(x) || (length(x) == 1 && is.na(x))) {
@@ -41,23 +43,46 @@ parse_typst_args <- function(name, ...) {
 
   unnamed_str <- paste(sapply(unnamed_args, format_unnamed), collapse = " ")
 
-  output <- list(name = name, named_str = named_str, unnamed_str = unnamed_str)
-  return(output)
+  list(name = name, named_str = named_str, unnamed_str = unnamed_str)
 }
 
 #' @keywords internal
 typst_function <- function(name, ...) {
   parsed_args <- parse_typst_args(name, ...)
 
-  if (parsed_args$named_str != "") {
-    sprintf(
-      "#%s(%s)[%s]",
-      parsed_args$name,
-      parsed_args$named_str,
-      parsed_args$unnamed_str
-    )
+  # For #image, everything goes inside ()
+  if (name == "image") {
+    # unnamed strings should be quoted for image paths
+    format_path <- function(x) {
+      if (is.character(x) && length(x) == 1) paste0("\"", x, "\"") else x
+    }
+
+    unnamed <- list(...)
+    named <- names(unnamed)
+    if (is.null(named)) {
+      named <- rep("", length(unnamed))
+    }
+    unnamed_args <- unnamed[!nzchar(named)]
+    unnamed_values <- unnamed_args
+
+    # recompute unnamed_str for image
+    unnamed_str <- paste(sapply(unnamed_values, format_path), collapse = ", ")
+    both <- c(parsed_args$named_str, unnamed_str)
+    both <- both[both != ""]
+
+    sprintf("#%s(%s)", name, paste(both, collapse = ", "))
   } else {
-    sprintf("#%s[%s]", parsed_args$name, parsed_args$unnamed_str)
+    # normal typst functions
+    if (parsed_args$named_str != "") {
+      sprintf(
+        "#%s(%s)[%s]",
+        name,
+        parsed_args$named_str,
+        parsed_args$unnamed_str
+      )
+    } else {
+      sprintf("#%s[%s]", name, parsed_args$unnamed_str)
+    }
   }
 }
 

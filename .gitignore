@@ -2,3 +2,5 @@
 *cache*
 .Rproj.user
 docs
+*.typ
+sandbox/

@@ -26,3 +26,11 @@ heading <- function(...) typst_function("heading", ...)
 #' @rdname typst_functions
 #' @export
 text <- function(...) typst_function("text", ...)
+
+#' @rdname typst_functions
+#' @export
+place <- function(...) typst_function("place", ...)
+
+#' @rdname typst_functions
+#' @export
+image <- function(...) typst_function("image", ...)
