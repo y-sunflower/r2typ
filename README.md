@@ -1,3 +1,5 @@
+<br>
+
 > [!WARNING]  
 > **Not functional yet**
 
@@ -49,3 +51,15 @@ remotes::install_github("y-sunflower/rtyp")
 ## Writing and compiling
 
 If you want to write and compile your typst files from R, check out the [`{typr}` package](https://github.com/christopherkenny/typr/).
+
+<br>
+
+## TODO
+
+- ✅ Text
+- ❌ Foundations
+- ❌ Model
+- ❌ Math
+- ❌ Symbols
+- ❌ Layout
+- ❌ Visualize

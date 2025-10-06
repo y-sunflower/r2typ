@@ -6,6 +6,17 @@
 \alias{text}
 \alias{place}
 \alias{image}
+\alias{linebreak}
+\alias{highlight}
+\alias{lower}
+\alias{overline}
+\alias{smallcaps}
+\alias{smartquote}
+\alias{strike}
+\alias{sub}
+\alias{super}
+\alias{underline}
+\alias{upper}
 \title{Create a Typst function}
 \usage{
 heading(...)
@@ -15,6 +26,28 @@ text(...)
 place(...)
 
 image(...)
+
+linebreak(...)
+
+highlight(...)
+
+lower(...)
+
+overline(...)
+
+smallcaps(...)
+
+smartquote(...)
+
+strike(...)
+
+sub(...)
+
+super(...)
+
+underline(...)
+
+upper(...)
 }
 \arguments{
 \item{...}{Named or unnamed arguments passed to the Typst function.
