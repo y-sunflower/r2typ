@@ -22,10 +22,10 @@ heading(level = 2, numbering = "1.1", "Hello world")
 > #heading(level: 2, numbering: "1.1")[Hello world]
 
 text(font = "Libertinus Serif", "I love cookies")
-> #text(font: "Libertinus Serif")[Hello world]
+> #text(font: "Libertinus Serif")[I love cookies]
 
-text(size = pt(12), baseline = em(1.2), overhang = FALSE, "hello")
-> #text(size: 12pt, baseline: 1.2em, overhang: false)[hello]
+text(size = pt(12), baseline = em(1.2), overhang = FALSE, "hey there")
+> #text(size: 12pt, baseline: 1.2em, overhang: false)[hey there]
 ```
 
 <br>

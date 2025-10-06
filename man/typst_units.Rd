@@ -32,6 +32,5 @@ em(1.5)      # Represents 1.5em
 percent(80)  # Represents 80\%
 
 text(size = pt(12), "Hello world")
-text(width = percent(50), font_size = em(1.2), "Hi")
 
 }
