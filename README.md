@@ -15,8 +15,8 @@ With `{rtyp}`, you can dynamically generate Typst code. It supports:
 - all the most basic Typst functions
 - `set` rules
 - conversions from R types to Typst (`TRUE` -> `true`, `NULL` -> `none`, etc.)
-- Typst units with helper functions
-- Typst colors natively
+- Typst **units** with helper functions
+- Typst **colors** natively
 - an extremely **simple syntax**
 - **no** dependencies
 

@@ -23,41 +23,41 @@
 \alias{lime}
 \title{Create Typst Color}
 \format{
-An object of class \code{character} of length 1.
+An object of class \code{typst_color} of length 1.
 
-An object of class \code{character} of length 1.
+An object of class \code{typst_color} of length 1.
 
-An object of class \code{character} of length 1.
+An object of class \code{typst_color} of length 1.
 
-An object of class \code{character} of length 1.
+An object of class \code{typst_color} of length 1.
 
-An object of class \code{character} of length 1.
+An object of class \code{typst_color} of length 1.
 
-An object of class \code{character} of length 1.
+An object of class \code{typst_color} of length 1.
 
-An object of class \code{character} of length 1.
+An object of class \code{typst_color} of length 1.
 
-An object of class \code{character} of length 1.
+An object of class \code{typst_color} of length 1.
 
-An object of class \code{character} of length 1.
+An object of class \code{typst_color} of length 1.
 
-An object of class \code{character} of length 1.
+An object of class \code{typst_color} of length 1.
 
-An object of class \code{character} of length 1.
+An object of class \code{typst_color} of length 1.
 
-An object of class \code{character} of length 1.
+An object of class \code{typst_color} of length 1.
 
-An object of class \code{character} of length 1.
+An object of class \code{typst_color} of length 1.
 
-An object of class \code{character} of length 1.
+An object of class \code{typst_color} of length 1.
 
-An object of class \code{character} of length 1.
+An object of class \code{typst_color} of length 1.
 
-An object of class \code{character} of length 1.
+An object of class \code{typst_color} of length 1.
 
-An object of class \code{character} of length 1.
+An object of class \code{typst_color} of length 1.
 
-An object of class \code{character} of length 1.
+An object of class \code{typst_color} of length 1.
 }
 \usage{
 silver

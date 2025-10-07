@@ -10,7 +10,7 @@
 \alias{center}
 \alias{left}
 \alias{right}
-\title{(not working yet) Create Typst Alignment}
+\title{Create Typst Alignment}
 \format{
 An object of class \code{typst_alignment} of length 1.
 
@@ -25,7 +25,7 @@ An object of class \code{typst_alignment} of length 1.
 An object of class \code{typst_alignment} of length 1.
 }
 \usage{
-\method{+}{typst_alignment}(e1, e2)
+\method{+}{typst_alignment}(left_align, right_align)
 
 horizon
 
@@ -40,9 +40,9 @@ left
 right
 }
 \arguments{
-\item{e1}{A typst alignment}
+\item{left_align}{A typst alignment}
 
-\item{e2}{A typst alignment}
+\item{right_align}{A typst alignment}
 }
 \value{
 An object of class \code{typst_alignment}.
