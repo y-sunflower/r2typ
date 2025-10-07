@@ -18,7 +18,6 @@
 #' @name typst_functions
 NULL
 
-
 #' @rdname typst_functions
 #' @export
 heading <- function(...) typst_function("heading", ...)
