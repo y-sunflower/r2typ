@@ -38,3 +38,40 @@ test_that("Test image function", {
   out <- image(width = percent(80), height = "auto", "../docs/link.svg")
   expect_equal(out, "#image(width: 80%, height: auto, \"../docs/link.svg\")")
 })
+
+test_that("Test other text functions", {
+  out <- linebreak()
+  expect_equal(out, "#linebreak()")
+  out <- linebreak(justify = TRUE)
+  expect_equal(out, "#linebreak(justify: true)")
+
+  out <- highlight(`top-edge` = "ascender", "hey")
+  expect_equal(out, "#highlight(top-edge: \"ascender\")[hey]")
+
+  out <- lower("hey")
+  expect_equal(out, "#lower[hey]")
+
+  out <- upper("you")
+  expect_equal(out, "#upper[you]")
+
+  out <- overline(offset = em(-1.2), "ice cream")
+  expect_equal(out, "#overline(offset: -1.2em)[ice cream]")
+
+  out <- smallcaps(all = TRUE, "UNICEF")
+  expect_equal(out, "#smallcaps(all: true)[UNICEF]")
+
+  out <- smartquote("smart", double = FALSE)
+  expect_equal(out, "#smartquote(double: false)[smart]")
+
+  out <- strike("smart", double = FALSE)
+  expect_equal(out, "#strike(double: false)[smart]")
+
+  out <- sub("smart", double = FALSE)
+  expect_equal(out, "#sub(double: false)[smart]")
+
+  out <- super("smart", double = FALSE)
+  expect_equal(out, "#super(double: false)[smart]")
+
+  out <- underline("under", offset = "auto")
+  expect_equal(out, "#underline(offset: auto)[under]")
+})

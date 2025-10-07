@@ -57,6 +57,7 @@ If you want to write and compile your typst files from R, check out the [`{typr}
 ## TODO
 
 - ✅ Text
+  - ❌ `raw`: https://typst.app/docs/reference/text/raw/
 - ❌ Foundations
 - ❌ Model
 - ❌ Math

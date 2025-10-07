@@ -48,8 +48,8 @@ parse_typst_args <- function(name, ...) {
 typst_function <- function(name, ...) {
   parsed_args <- parse_typst_args(name, ...)
 
-  # For #image, everything goes inside ()
-  if (name == "image") {
+  # edgecases, everything goes inside ()
+  if (name %in% c("image", "linebreak")) {
     # unnamed strings should be quoted for image paths
     format_path <- function(x) {
       if (is.character(x) && length(x) == 1) paste0("\"", x, "\"") else x
