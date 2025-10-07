@@ -12,6 +12,8 @@ parse_typst_args <- function(name, ...) {
   format_typst_value <- function(x, named) {
     if (inherits(x, "typst_unit")) {
       paste0(unclass(x), attr(x, "unit"))
+    } else if (inherits(x, "typst_color")) {
+      unclass(x)
     } else if (is.logical(x)) {
       tolower(as.character(x))
     } else if (is.null(x) || (length(x) == 1 && is.na(x))) {
@@ -49,10 +51,29 @@ typst_function <- function(name, ...) {
   parsed_args <- parse_typst_args(name, ...)
 
   # edgecases, everything goes inside ()
-  if (name %in% c("image", "linebreak")) {
-    # unnamed strings should be quoted for image paths
-    format_path <- function(x) {
-      if (is.character(x) && length(x) == 1) paste0("\"", x, "\"") else x
+  no_bracket_functions <- c(
+    "image",
+    "linebreak",
+    "bibliography",
+    "list_",
+    "figure",
+    "document",
+    "outline",
+    "parbreak"
+  )
+  kwargs_bracket_functions <- c("list_", "enum", "table")
+
+  if (name %in% no_bracket_functions) {
+    if (name %in% kwargs_bracket_functions) {
+      # unnamed strings should be in brackets
+      format_path <- function(x) {
+        if (is.character(x) && length(x) == 1) paste0("[", x, "]") else x
+      }
+    } else {
+      # unnamed strings should be quoted
+      format_path <- function(x) {
+        if (is.character(x) && length(x) == 1) paste0("\"", x, "\"") else x
+      }
     }
 
     unnamed <- list(...)
@@ -63,7 +84,7 @@ typst_function <- function(name, ...) {
     unnamed_args <- unnamed[!nzchar(named)]
     unnamed_values <- unnamed_args
 
-    # recompute unnamed_str for image
+    # recompute unnamed_str
     unnamed_str <- paste(sapply(unnamed_values, format_path), collapse = ", ")
     both <- c(parsed_args$named_str, unnamed_str)
     both <- both[both != ""]

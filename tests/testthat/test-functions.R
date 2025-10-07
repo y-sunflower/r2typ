@@ -74,4 +74,7 @@ test_that("Test other text functions", {
 
   out <- underline("under", offset = "auto")
   expect_equal(out, "#underline(offset: auto)[under]")
+
+  out <- circle(fill = blue, "hey")
+  expect_equal(out, "#circle(fill: blue)[hey]")
 })

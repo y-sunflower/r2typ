@@ -16,6 +16,7 @@ With `{rtyp}`, you can dynamically generate Typst code. It supports:
 - `set` rules
 - conversions from R types to Typst (`TRUE` -> `true`, `NULL` -> `none`, etc.)
 - Typst units with helper functions
+- Typst colors natively
 - an extremely **simple syntax**
 - **no** dependencies
 
@@ -36,6 +37,12 @@ text(size = pt(12), baseline = em(1.2), overhang = FALSE, "hey there")
 
 image(width = percent(80), height = "auto", "link.svg")
 > #image(width: 80%, height: auto, "link.svg")
+
+circle(fill = blue, "hey")
+> #circle(fill: blue)[hey]
+
+circle(radius = pt(100), "hey", linebreak(), "there")
+> #circle(radius: 100pt)[hey #linebreak() there]
 ```
 
 <br>
@@ -58,8 +65,12 @@ If you want to write and compile your typst files from R, check out the [`{typr}
 
 - ✅ Text
   - ❌ `raw`: https://typst.app/docs/reference/text/raw/
-- ❌ Foundations
-- ❌ Model
+- ✅ Model
+  - ❌ `cite`: https://typst.app/docs/reference/model/cite/
+  - ❌ `link`: https://typst.app/docs/reference/model/link/
+  - ❌ `numbering`: https://typst.app/docs/reference/model/numbering/
+  - ❌ `ref`: https://typst.app/docs/reference/model/ref/
+  - ❌ `terms`: https://typst.app/docs/reference/model/terms/
 - ❌ Math
 - ❌ Symbols
 - ❌ Layout
