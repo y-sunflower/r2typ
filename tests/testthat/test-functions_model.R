@@ -11,8 +11,11 @@ test_that("Test model functions", {
   out <- bibliography(arg = 1, "more cookies...")
   expect_equal(out, "#bibliography(arg: 1, \"more cookies...\")")
 
-  out <- list_("please", "more", "cookies...")
+  out <- lst("please", "more", "cookies...")
   expect_equal(out, "#list([please], [more], [cookies...])")
+
+  out <- lst("please", "more", linebreak())
+  expect_equal(out, "#list([please], [more], [#linebreak()])")
 
   out <- document(arg = 1, "more cookies...")
   expect_equal(out, "#document(arg: 1, \"more cookies...\")")

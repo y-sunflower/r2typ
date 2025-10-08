@@ -7,7 +7,7 @@
 \alias{h}
 \alias{v}
 \alias{bibliography}
-\alias{list_}
+\alias{lst}
 \alias{document}
 \alias{emph}
 \alias{figure}
@@ -48,7 +48,7 @@ v(...)
 
 bibliography(...)
 
-list_(...)
+lst(...)
 
 document(...)
 
