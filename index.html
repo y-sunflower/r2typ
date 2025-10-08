@@ -38,7 +38,7 @@
   <ul class="dropdown-menu" aria-labelledby="dropdown-articles">
 <li><hr class="dropdown-divider"></li>
     <li><h6 class="dropdown-header" data-toc-skip>Guides</h6></li>
-    <li><a class="dropdown-item" href="articles/typst-validation.html">UNKNOWN TITLE</a></li>
+    <li><a class="dropdown-item" href="articles/typst-validation.html">Typst validation</a></li>
   </ul>
 </li>
       </ul>
@@ -69,13 +69,13 @@
 <li>all the most basic Typst functions</li>
 <li>
 <code>set</code> rules</li>
-<li>conversions from R types to Typst (<code>TRUE</code> -&gt; <code>true</code>, <code>NULL</code> -&gt; <code>none</code>, etc.)</li>
+<li>conversions from R types to Typst (<code>NULL</code> -&gt; <code>none</code>, <code>TRUE</code> -&gt; <code>true</code>, etc.)</li>
 <li>Typst <strong>units</strong> with helper functions</li>
 <li>Typst <strong>colors</strong> natively</li>
+<li>Typst <strong>alignment</strong> natively</li>
 <li>an extremely <strong>simple syntax</strong>
 </li>
-<li>
-<strong>no</strong> dependencies</li>
+<li>and <strong>zero</strong> dependencies</li>
 </ul>
 <p>Check out the <a href="https://y-sunflower.github.io/rtyp/">documentation</a>.</p>
 <blockquote>
@@ -100,7 +100,10 @@
 <span id="cb1-13"><a href="#cb1-13" tabindex="-1"></a><span class="sc">&gt;</span> <span class="co">#circle(fill: blue)[hey]</span></span>
 <span id="cb1-14"><a href="#cb1-14" tabindex="-1"></a></span>
 <span id="cb1-15"><a href="#cb1-15" tabindex="-1"></a><span class="fu">circle</span>(<span class="at">radius =</span> <span class="fu">pt</span>(<span class="dv">100</span>), <span class="st">"hey"</span>, <span class="fu">linebreak</span>(), <span class="st">"there"</span>)</span>
-<span id="cb1-16"><a href="#cb1-16" tabindex="-1"></a><span class="sc">&gt;</span> <span class="co">#circle(radius: 100pt)[hey #linebreak() there]</span></span></code></pre></div>
+<span id="cb1-16"><a href="#cb1-16" tabindex="-1"></a><span class="sc">&gt;</span> <span class="co">#circle(radius: 100pt)[hey #linebreak() there]</span></span>
+<span id="cb1-17"><a href="#cb1-17" tabindex="-1"></a></span>
+<span id="cb1-18"><a href="#cb1-18" tabindex="-1"></a><span class="fu">place</span>(top <span class="sc">+</span> left, <span class="at">dy =</span> <span class="fu">pt</span>(<span class="dv">15</span>), <span class="fu">square</span>(<span class="at">size =</span> <span class="fu">pt</span>(<span class="dv">35</span>), <span class="at">fill =</span> red))</span>
+<span id="cb1-19"><a href="#cb1-19" tabindex="-1"></a><span class="sc">&gt;</span> <span class="co">#place(top + left, dy: 15pt)[#square(size: 35pt, fill: red)]</span></span></code></pre></div>
 <p><br></p>
 </div>
 <div class="section level2">
@@ -120,12 +123,7 @@
 <h2 id="todo">TODO<a class="anchor" aria-label="anchor" href="#todo"></a>
 </h2>
 <ul>
-<li>✅ Text
-<ul>
-<li>❌ <code>raw</code>: <a href="https://typst.app/docs/reference/text/raw/" class="external-link uri">https://typst.app/docs/reference/text/raw/</a>
-</li>
-</ul>
-</li>
+<li>✅ Text</li>
 <li>✅ Model
 <ul>
 <li>❌ <code>cite</code>: <a href="https://typst.app/docs/reference/model/cite/" class="external-link uri">https://typst.app/docs/reference/model/cite/</a>
