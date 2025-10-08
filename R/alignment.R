@@ -24,29 +24,32 @@
     as.character(right_align),
     sep = " + "
   )
-  structure(result, class = "typst_alignment")
+  structure(result, class = c("typst_alignment", "typst_expression"))
 }
 
 #' @rdname typst_alignments
 #' @export
-horizon <- structure("horizon", class = "typst_alignment")
+horizon <- structure(
+  "horizon",
+  class = c("typst_alignment", "typst_expression")
+)
 
 #' @rdname typst_alignments
 #' @export
-top <- structure("top", class = "typst_alignment")
+top <- structure("top", class = c("typst_alignment", "typst_expression"))
 
 #' @rdname typst_alignments
 #' @export
-bottom <- structure("bottom", class = "typst_alignment")
+bottom <- structure("bottom", class = c("typst_alignment", "typst_expression"))
 
 #' @rdname typst_alignments
 #' @export
-center <- structure("center", class = "typst_alignment")
+center <- structure("center", class = c("typst_alignment", "typst_expression"))
 
 #' @rdname typst_alignments
 #' @export
-left <- structure("left", class = "typst_alignment")
+left <- structure("left", class = c("typst_alignment", "typst_expression"))
 
 #' @rdname typst_alignments
 #' @export
-right <- structure("right", class = "typst_alignment")
+right <- structure("right", class = c("typst_alignment", "typst_expression"))

@@ -17,72 +17,72 @@ NULL
 
 #' @rdname typst_colors
 #' @export
-silver <- structure("silver", class = "typst_color")
+silver <- structure("silver", class = c("typst_color", "typst_expression"))
 
 #' @rdname typst_colors
 #' @export
-grey <- structure("grey", class = "typst_color")
+grey <- structure("grey", class = c("typst_color", "typst_expression"))
 
 #' @rdname typst_colors
 #' @export
-black <- structure("black", class = "typst_color")
+black <- structure("black", class = c("typst_color", "typst_expression"))
 
 #' @rdname typst_colors
 #' @export
-white <- structure("white", class = "typst_color")
+white <- structure("white", class = c("typst_color", "typst_expression"))
 
 #' @rdname typst_colors
 #' @export
-navy <- structure("navy", class = "typst_color")
+navy <- structure("navy", class = c("typst_color", "typst_expression"))
 
 #' @rdname typst_colors
 #' @export
-blue <- structure("blue", class = "typst_color")
+blue <- structure("blue", class = c("typst_color", "typst_expression"))
 
 #' @rdname typst_colors
 #' @export
-aqua <- structure("aqua", class = "typst_color")
+aqua <- structure("aqua", class = c("typst_color", "typst_expression"))
 
 #' @rdname typst_colors
 #' @export
-teal <- structure("teal", class = "typst_color")
+teal <- structure("teal", class = c("typst_color", "typst_expression"))
 
 #' @rdname typst_colors
 #' @export
-eastern <- structure("eastern", class = "typst_color")
+eastern <- structure("eastern", class = c("typst_color", "typst_expression"))
 
 #' @rdname typst_colors
 #' @export
-purple <- structure("purple", class = "typst_color")
+purple <- structure("purple", class = c("typst_color", "typst_expression"))
 
 #' @rdname typst_colors
 #' @export
-fuchsia <- structure("fuchsia", class = "typst_color")
+fuchsia <- structure("fuchsia", class = c("typst_color", "typst_expression"))
 
 #' @rdname typst_colors
 #' @export
-maroon <- structure("maroon", class = "typst_color")
+maroon <- structure("maroon", class = c("typst_color", "typst_expression"))
 
 #' @rdname typst_colors
 #' @export
-red <- structure("red", class = "typst_color")
+red <- structure("red", class = c("typst_color", "typst_expression"))
 
 #' @rdname typst_colors
 #' @export
-orange <- structure("orange", class = "typst_color")
+orange <- structure("orange", class = c("typst_color", "typst_expression"))
 
 #' @rdname typst_colors
 #' @export
-yellow <- structure("yellow", class = "typst_color")
+yellow <- structure("yellow", class = c("typst_color", "typst_expression"))
 
 #' @rdname typst_colors
 #' @export
-olive <- structure("olive", class = "typst_color")
+olive <- structure("olive", class = c("typst_color", "typst_expression"))
 
 #' @rdname typst_colors
 #' @export
-green <- structure("green", class = "typst_color")
+green <- structure("green", class = c("typst_color", "typst_expression"))
 
 #' @rdname typst_colors
 #' @export
-lime <- structure("lime", class = "typst_color")
+lime <- structure("lime", class = c("typst_color", "typst_expression"))

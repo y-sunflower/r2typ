@@ -24,20 +24,40 @@ NULL
 
 #' @rdname typst_units
 #' @export
-pt <- function(x) structure(x, class = "typst_unit", unit = "pt")
+pt <- function(x) {
+  structure(x, class = c("typst_unit", "typst_expression"), unit = "pt")
+}
 
 #' @rdname typst_units
 #' @export
-em <- function(x) structure(x, class = "typst_unit", unit = "em")
+em <- function(x) {
+  structure(x, class = c("typst_unit", "typst_expression"), unit = "em")
+}
 
 #' @rdname typst_units
 #' @export
-percent <- function(x) structure(x, class = "typst_unit", unit = "%")
+percent <- function(x) {
+  structure(x, class = c("typst_unit", "typst_expression"), unit = "%")
+}
 
 #' @rdname typst_units
 #' @export
-fr <- function(x) structure(x, class = "typst_unit", unit = "fr")
+fr <- function(x) {
+  structure(x, class = c("typst_unit", "typst_expression"), unit = "fr")
+}
 
 #' @rdname typst_units
 #' @export
-deg <- function(x) structure(x, class = "typst_unit", unit = "deg")
+deg <- function(x) {
+  structure(x, class = c("typst_unit", "typst_expression"), unit = "deg")
+}
+
+#' @export
+`+.typst_expression` <- function(left_expression, right_expression) {
+  result <- paste(
+    as.character(left_expression),
+    as.character(right_expression),
+    sep = " + "
+  )
+  structure(result, class = "typst_expression")
+}

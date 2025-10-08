@@ -12,17 +12,17 @@
 \alias{right}
 \title{Create Typst Alignment}
 \format{
-An object of class \code{typst_alignment} of length 1.
+An object of class \code{typst_alignment} (inherits from \code{typst_expression}) of length 1.
 
-An object of class \code{typst_alignment} of length 1.
+An object of class \code{typst_alignment} (inherits from \code{typst_expression}) of length 1.
 
-An object of class \code{typst_alignment} of length 1.
+An object of class \code{typst_alignment} (inherits from \code{typst_expression}) of length 1.
 
-An object of class \code{typst_alignment} of length 1.
+An object of class \code{typst_alignment} (inherits from \code{typst_expression}) of length 1.
 
-An object of class \code{typst_alignment} of length 1.
+An object of class \code{typst_alignment} (inherits from \code{typst_expression}) of length 1.
 
-An object of class \code{typst_alignment} of length 1.
+An object of class \code{typst_alignment} (inherits from \code{typst_expression}) of length 1.
 }
 \usage{
 \method{+}{typst_alignment}(left_align, right_align)
