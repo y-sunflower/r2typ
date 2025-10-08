@@ -86,7 +86,10 @@ typst_function <- function(name, ...) {
     "figure",
     "document",
     "outline",
-    "parbreak"
+    "parbreak",
+    "h",
+    "v",
+    "line"
   )
 
   kwargs_bracket_functions <- c("list_", "enum", "table")

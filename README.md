@@ -1,13 +1,3 @@
-<br>
-
-> [!WARNING]  
-> **Not functional yet**
-
-<br>
-<br>
-<br>
-<br>
-
 # rtyp: an R package for generating Typst code
 
 With `{rtyp}`, you can dynamically generate Typst code. It supports:
@@ -21,6 +11,9 @@ With `{rtyp}`, you can dynamically generate Typst code. It supports:
 - **no** dependencies
 
 Check out the [documentation](https://y-sunflower.github.io/rtyp/).
+
+> [!WARNING]  
+> **Not functional yet**
 
 <br>
 
@@ -71,7 +64,12 @@ If you want to write and compile your typst files from R, check out the [`{typr}
   - ❌ `numbering`: https://typst.app/docs/reference/model/numbering/
   - ❌ `ref`: https://typst.app/docs/reference/model/ref/
   - ❌ `terms`: https://typst.app/docs/reference/model/terms/
+- ✅ Visualize
+  - ❌ `curve`: https://typst.app/docs/reference/visualize/curve/
+  - ❌ `gradient`: https://typst.app/docs/reference/visualize/gradient/
+  - ❌ `path`: https://typst.app/docs/reference/visualize/path/
+  - ❌ `stroke`: https://typst.app/docs/reference/visualize/stroke/
+  - ❌ `polygon`: https://typst.app/docs/reference/visualize/polygon/
+  - ❌ `tiling`: https://typst.app/docs/reference/visualize/tiling/
 - ❌ Math
-- ❌ Symbols
 - ❌ Layout
-- ❌ Visualize

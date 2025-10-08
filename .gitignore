@@ -4,3 +4,4 @@
 docs
 *.typ
 sandbox/
+inst/doc

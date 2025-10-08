@@ -15,6 +15,7 @@
 #' pt(12)       # Represents 12pt
 #' em(1.5)      # Represents 1.5em
 #' percent(80)  # Represents 80%
+#' fr(2)        # Represents 2fr
 #'
 #' text(size = pt(12), "Hello world")
 #'
@@ -32,3 +33,11 @@ em <- function(x) structure(x, class = "typst_unit", unit = "em")
 #' @rdname typst_units
 #' @export
 percent <- function(x) structure(x, class = "typst_unit", unit = "%")
+
+#' @rdname typst_units
+#' @export
+fr <- function(x) structure(x, class = "typst_unit", unit = "fr")
+
+#' @rdname typst_units
+#' @export
+deg <- function(x) structure(x, class = "typst_unit", unit = "deg")

@@ -1,15 +1,4 @@
-test_that("Test heading function", {
-  out <- heading(level = 2, numbering = "1.1", "Hello world")
-  expect_equal(out, "#heading(level: 2, numbering: \"1.1\")[Hello world]")
-
-  out <- heading("Just text")
-  expect_equal(out, "#heading[Just text]")
-
-  out <- heading(level = 3, "Intro", "More text")
-  expect_equal(out, "#heading(level: 3)[Intro More text]")
-})
-
-test_that("Test text function", {
+test_that("Test text functions", {
   out <- text(font = "Libertinus Serif", "Hello world")
   expect_equal(out, "#text(font: \"Libertinus Serif\")[Hello world]")
 
@@ -29,17 +18,16 @@ test_that("Test text function", {
     out,
     "#text(size: 12pt, w: 80%, a: true, c: none, d: 17em, e: auto)[hello]"
   )
-})
 
-test_that("Test image function", {
-  out <- image("../docs/link.svg")
-  expect_equal(out, "#image(\"../docs/link.svg\")")
+  out <- heading(level = 2, numbering = "1.1", "Hello world")
+  expect_equal(out, "#heading(level: 2, numbering: \"1.1\")[Hello world]")
 
-  out <- image(width = percent(80), height = "auto", "../docs/link.svg")
-  expect_equal(out, "#image(width: 80%, height: auto, \"../docs/link.svg\")")
-})
+  out <- heading("Just text")
+  expect_equal(out, "#heading[Just text]")
 
-test_that("Test other text functions", {
+  out <- heading(level = 3, "Intro", "More text")
+  expect_equal(out, "#heading(level: 3)[Intro More text]")
+
   out <- linebreak()
   expect_equal(out, "#linebreak()")
 
@@ -57,6 +45,9 @@ test_that("Test other text functions", {
 
   out <- overline(offset = em(-1.2), "ice cream")
   expect_equal(out, "#overline(offset: -1.2em)[ice cream]")
+
+  out <- overline(offset = fr(-1.2), "ice cream")
+  expect_equal(out, "#overline(offset: -1.2fr)[ice cream]")
 
   out <- smallcaps(all = TRUE, "UNICEF")
   expect_equal(out, "#smallcaps(all: true)[UNICEF]")

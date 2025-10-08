@@ -7,3 +7,9 @@ template:
 
 pkgdown:
   as_is: yes
+
+articles:
+  - title: Guides
+    navbar: Guides
+    contents:
+      - typst-validation

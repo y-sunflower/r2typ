@@ -5,6 +5,7 @@
 \alias{pt}
 \alias{em}
 \alias{percent}
+\alias{fr}
 \title{Create Typst Unit Values}
 \usage{
 pt(x)
@@ -12,6 +13,8 @@ pt(x)
 em(x)
 
 percent(x)
+
+fr(x)
 }
 \arguments{
 \item{x}{Numeric value of the unit.}

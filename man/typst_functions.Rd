@@ -4,6 +4,8 @@
 \name{typst_functions}
 \alias{typst_functions}
 \alias{place}
+\alias{h}
+\alias{v}
 \alias{bibliography}
 \alias{list_}
 \alias{document}
@@ -32,9 +34,17 @@
 \alias{upper}
 \alias{image}
 \alias{circle}
+\alias{ellipse}
+\alias{line}
+\alias{rect}
+\alias{square}
 \title{Create a Typst function}
 \usage{
 place(...)
+
+h(...)
+
+v(...)
 
 bibliography(...)
 
@@ -91,6 +101,14 @@ upper(...)
 image(...)
 
 circle(...)
+
+ellipse(...)
+
+line(...)
+
+rect(...)
+
+square(...)
 }
 \arguments{
 \item{...}{Named or unnamed arguments passed to the Typst function.
