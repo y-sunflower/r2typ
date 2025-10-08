@@ -33,6 +33,14 @@
     <div id="navbar" class="collapse navbar-collapse ms-3">
       <ul class="navbar-nav me-auto">
 <li class="nav-item"><a class="nav-link" href="reference/index.html">Reference</a></li>
+<li class="nav-item dropdown">
+  <button class="nav-link dropdown-toggle" type="button" id="dropdown-articles" data-bs-toggle="dropdown" aria-expanded="false" aria-haspopup="true">Articles</button>
+  <ul class="dropdown-menu" aria-labelledby="dropdown-articles">
+<li><hr class="dropdown-divider"></li>
+    <li><h6 class="dropdown-header" data-toc-skip>Guides</h6></li>
+    <li><a class="dropdown-item" href="articles/typst-validation.html">UNKNOWN TITLE</a></li>
+  </ul>
+</li>
       </ul>
 <ul class="navbar-nav">
 <li class="nav-item"><form class="form-inline" role="search">
@@ -53,12 +61,7 @@
   </div>
 </nav><div class="container template-home">
 <div class="row">
-  <main id="main" class="col-md-9"><p><br></p>
-<blockquote>
-<p>[!WARNING]<br><strong>Not functional yet</strong></p>
-</blockquote>
-<p><br><br><br><br></p>
-<div class="section level1">
+  <main id="main" class="col-md-9"><div class="section level1">
 <div class="page-header"><h1 id="rtyp-an-r-package-for-generating-typst-code">rtyp: an R package for generating Typst code<a class="anchor" aria-label="anchor" href="#rtyp-an-r-package-for-generating-typst-code"></a>
 </h1></div>
 <p>With <a href="https://y-sunflower.github.io/rtyp/">rtyp</a>, you can dynamically generate Typst code. It supports:</p>
@@ -67,13 +70,17 @@
 <li>
 <code>set</code> rules</li>
 <li>conversions from R types to Typst (<code>TRUE</code> -&gt; <code>true</code>, <code>NULL</code> -&gt; <code>none</code>, etc.)</li>
-<li>Typst units with helper functions</li>
+<li>Typst <strong>units</strong> with helper functions</li>
+<li>Typst <strong>colors</strong> natively</li>
 <li>an extremely <strong>simple syntax</strong>
 </li>
 <li>
 <strong>no</strong> dependencies</li>
 </ul>
 <p>Check out the <a href="https://y-sunflower.github.io/rtyp/">documentation</a>.</p>
+<blockquote>
+<p>[!WARNING]<br><strong>Not functional yet</strong></p>
+</blockquote>
 <p><br></p>
 <div class="section level2">
 <h2 id="quick-start">Quick start<a class="anchor" aria-label="anchor" href="#quick-start"></a>
@@ -87,7 +94,13 @@
 <span id="cb1-7"><a href="#cb1-7" tabindex="-1"></a><span class="sc">&gt;</span> <span class="co">#text(size: 12pt, baseline: 1.2em, overhang: false)[hey there]</span></span>
 <span id="cb1-8"><a href="#cb1-8" tabindex="-1"></a></span>
 <span id="cb1-9"><a href="#cb1-9" tabindex="-1"></a><span class="fu">image</span>(<span class="at">width =</span> <span class="fu">percent</span>(<span class="dv">80</span>), <span class="at">height =</span> <span class="st">"auto"</span>, <span class="st">"link.svg"</span>)</span>
-<span id="cb1-10"><a href="#cb1-10" tabindex="-1"></a><span class="sc">&gt;</span> <span class="co">#image(width: 80%, height: auto, "link.svg")</span></span></code></pre></div>
+<span id="cb1-10"><a href="#cb1-10" tabindex="-1"></a><span class="sc">&gt;</span> <span class="co">#image(width: 80%, height: auto, "link.svg")</span></span>
+<span id="cb1-11"><a href="#cb1-11" tabindex="-1"></a></span>
+<span id="cb1-12"><a href="#cb1-12" tabindex="-1"></a><span class="fu">circle</span>(<span class="at">fill =</span> blue, <span class="st">"hey"</span>)</span>
+<span id="cb1-13"><a href="#cb1-13" tabindex="-1"></a><span class="sc">&gt;</span> <span class="co">#circle(fill: blue)[hey]</span></span>
+<span id="cb1-14"><a href="#cb1-14" tabindex="-1"></a></span>
+<span id="cb1-15"><a href="#cb1-15" tabindex="-1"></a><span class="fu">circle</span>(<span class="at">radius =</span> <span class="fu">pt</span>(<span class="dv">100</span>), <span class="st">"hey"</span>, <span class="fu">linebreak</span>(), <span class="st">"there"</span>)</span>
+<span id="cb1-16"><a href="#cb1-16" tabindex="-1"></a><span class="sc">&gt;</span> <span class="co">#circle(radius: 100pt)[hey #linebreak() there]</span></span></code></pre></div>
 <p><br></p>
 </div>
 <div class="section level2">
@@ -107,17 +120,47 @@
 <h2 id="todo">TODO<a class="anchor" aria-label="anchor" href="#todo"></a>
 </h2>
 <ul>
-<li>✅ Text</li>
-<li>❌ Foundations</li>
-<li>❌ Model</li>
+<li>✅ Text
+<ul>
+<li>❌ <code>raw</code>: <a href="https://typst.app/docs/reference/text/raw/" class="external-link uri">https://typst.app/docs/reference/text/raw/</a>
+</li>
+</ul>
+</li>
+<li>✅ Model
+<ul>
+<li>❌ <code>cite</code>: <a href="https://typst.app/docs/reference/model/cite/" class="external-link uri">https://typst.app/docs/reference/model/cite/</a>
+</li>
+<li>❌ <code>link</code>: <a href="https://typst.app/docs/reference/model/link/" class="external-link uri">https://typst.app/docs/reference/model/link/</a>
+</li>
+<li>❌ <code>numbering</code>: <a href="https://typst.app/docs/reference/model/numbering/" class="external-link uri">https://typst.app/docs/reference/model/numbering/</a>
+</li>
+<li>❌ <code>ref</code>: <a href="https://typst.app/docs/reference/model/ref/" class="external-link uri">https://typst.app/docs/reference/model/ref/</a>
+</li>
+<li>❌ <code>terms</code>: <a href="https://typst.app/docs/reference/model/terms/" class="external-link uri">https://typst.app/docs/reference/model/terms/</a>
+</li>
+</ul>
+</li>
+<li>✅ Visualize
+<ul>
+<li>❌ <code>curve</code>: <a href="https://typst.app/docs/reference/visualize/curve/" class="external-link uri">https://typst.app/docs/reference/visualize/curve/</a>
+</li>
+<li>❌ <code>gradient</code>: <a href="https://typst.app/docs/reference/visualize/gradient/" class="external-link uri">https://typst.app/docs/reference/visualize/gradient/</a>
+</li>
+<li>❌ <code>path</code>: <a href="https://typst.app/docs/reference/visualize/path/" class="external-link uri">https://typst.app/docs/reference/visualize/path/</a>
+</li>
+<li>❌ <code>stroke</code>: <a href="https://typst.app/docs/reference/visualize/stroke/" class="external-link uri">https://typst.app/docs/reference/visualize/stroke/</a>
+</li>
+<li>❌ <code>polygon</code>: <a href="https://typst.app/docs/reference/visualize/polygon/" class="external-link uri">https://typst.app/docs/reference/visualize/polygon/</a>
+</li>
+<li>❌ <code>tiling</code>: <a href="https://typst.app/docs/reference/visualize/tiling/" class="external-link uri">https://typst.app/docs/reference/visualize/tiling/</a>
+</li>
+</ul>
+</li>
 <li>❌ Math</li>
-<li>❌ Symbols</li>
 <li>❌ Layout</li>
-<li>❌ Visualize</li>
 </ul>
 </div>
 </div>
-
   </main><aside class="col-md-3"><div class="license">
 <h2 data-toc-skip>License</h2>
 <ul class="list-unstyled">

@@ -20,6 +20,12 @@ produce properly formatted Typst code."></head><body>
 
     <div id="navbar" class="collapse navbar-collapse ms-3">
       <ul class="navbar-nav me-auto"><li class="active nav-item"><a class="nav-link" href="../reference/index.html">Reference</a></li>
+<li class="nav-item dropdown">
+  <button class="nav-link dropdown-toggle" type="button" id="dropdown-articles" data-bs-toggle="dropdown" aria-expanded="false" aria-haspopup="true">Articles</button>
+  <ul class="dropdown-menu" aria-labelledby="dropdown-articles"><li><hr class="dropdown-divider"></li>
+    <li><h6 class="dropdown-header" data-toc-skip>Guides</h6></li>
+    <li><a class="dropdown-item" href="../articles/typst-validation.html">UNKNOWN TITLE</a></li>
+  </ul></li>
       </ul><ul class="navbar-nav"><li class="nav-item"><form class="form-inline" role="search">
  <input class="form-control" type="search" name="search-input" id="search-input" autocomplete="off" aria-label="Search site" placeholder="Search for" data-search-index="../search.json"></form></li>
 <li class="nav-item dropdown">
@@ -53,7 +59,11 @@ produce properly formatted Typst code.</p>
 <span></span>
 <span><span class="fu">em</span><span class="op">(</span><span class="va">x</span><span class="op">)</span></span>
 <span></span>
-<span><span class="fu">percent</span><span class="op">(</span><span class="va">x</span><span class="op">)</span></span></code></pre></div>
+<span><span class="fu">percent</span><span class="op">(</span><span class="va">x</span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu">fr</span><span class="op">(</span><span class="va">x</span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu">deg</span><span class="op">(</span><span class="va">x</span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div class="section level2">
@@ -91,6 +101,12 @@ appropriate unit string (e.g., <code>12pt</code>, <code>1.5em</code>, <code>80%<
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] "typst_unit"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> attr(,"unit")</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] "%"</span>
+<span class="r-in"><span><span class="fu">fr</span><span class="op">(</span><span class="fl">2</span><span class="op">)</span>        <span class="co"># Represents 2fr</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] 2</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> attr(,"class")</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "typst_unit"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> attr(,"unit")</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "fr"</span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="fu"><a href="typst_functions.html">text</a></span><span class="op">(</span>size <span class="op">=</span> <span class="fu">pt</span><span class="op">(</span><span class="fl">12</span><span class="op">)</span>, <span class="st">"Hello world"</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] "#text(size: 12pt)[Hello world]"</span>

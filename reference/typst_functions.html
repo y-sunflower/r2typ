@@ -20,6 +20,12 @@ are used as the heading content."></head><body>
 
     <div id="navbar" class="collapse navbar-collapse ms-3">
       <ul class="navbar-nav me-auto"><li class="active nav-item"><a class="nav-link" href="../reference/index.html">Reference</a></li>
+<li class="nav-item dropdown">
+  <button class="nav-link dropdown-toggle" type="button" id="dropdown-articles" data-bs-toggle="dropdown" aria-expanded="false" aria-haspopup="true">Articles</button>
+  <ul class="dropdown-menu" aria-labelledby="dropdown-articles"><li><hr class="dropdown-divider"></li>
+    <li><h6 class="dropdown-header" data-toc-skip>Guides</h6></li>
+    <li><a class="dropdown-item" href="../articles/typst-validation.html">UNKNOWN TITLE</a></li>
+  </ul></li>
       </ul><ul class="navbar-nav"><li class="nav-item"><form class="form-inline" role="search">
  <input class="form-control" type="search" name="search-input" id="search-input" autocomplete="off" aria-label="Search site" placeholder="Search for" data-search-index="../search.json"></form></li>
 <li class="nav-item dropdown">
@@ -49,13 +55,41 @@ are used as the heading content.</p>
 
     <div class="section level2">
     <h2 id="ref-usage">Usage<a class="anchor" aria-label="anchor" href="#ref-usage"></a></h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">heading</span><span class="op">(</span><span class="va">...</span><span class="op">)</span></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">place</span><span class="op">(</span><span class="va">...</span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu">h</span><span class="op">(</span><span class="va">...</span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu">v</span><span class="op">(</span><span class="va">...</span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu">bibliography</span><span class="op">(</span><span class="va">...</span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu">lst</span><span class="op">(</span><span class="va">...</span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu">document</span><span class="op">(</span><span class="va">...</span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu">emph</span><span class="op">(</span><span class="va">...</span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu">figure</span><span class="op">(</span><span class="va">...</span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu">footnote</span><span class="op">(</span><span class="va">...</span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu">heading</span><span class="op">(</span><span class="va">...</span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu">enum</span><span class="op">(</span><span class="va">...</span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu">outline</span><span class="op">(</span><span class="va">...</span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu">par</span><span class="op">(</span><span class="va">...</span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu">parbreak</span><span class="op">(</span><span class="va">...</span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu">quote</span><span class="op">(</span><span class="va">...</span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu">strong</span><span class="op">(</span><span class="va">...</span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu">table</span><span class="op">(</span><span class="va">...</span><span class="op">)</span></span>
 <span></span>
 <span><span class="fu">text</span><span class="op">(</span><span class="va">...</span><span class="op">)</span></span>
-<span></span>
-<span><span class="fu">place</span><span class="op">(</span><span class="va">...</span><span class="op">)</span></span>
-<span></span>
-<span><span class="fu">image</span><span class="op">(</span><span class="va">...</span><span class="op">)</span></span>
 <span></span>
 <span><span class="fu">linebreak</span><span class="op">(</span><span class="va">...</span><span class="op">)</span></span>
 <span></span>
@@ -77,7 +111,19 @@ are used as the heading content.</p>
 <span></span>
 <span><span class="fu">underline</span><span class="op">(</span><span class="va">...</span><span class="op">)</span></span>
 <span></span>
-<span><span class="fu">upper</span><span class="op">(</span><span class="va">...</span><span class="op">)</span></span></code></pre></div>
+<span><span class="fu">upper</span><span class="op">(</span><span class="va">...</span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu">image</span><span class="op">(</span><span class="va">...</span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu">circle</span><span class="op">(</span><span class="va">...</span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu">ellipse</span><span class="op">(</span><span class="va">...</span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu">line</span><span class="op">(</span><span class="va">...</span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu">rect</span><span class="op">(</span><span class="va">...</span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu">square</span><span class="op">(</span><span class="va">...</span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div class="section level2">
@@ -104,6 +150,16 @@ while unnamed arguments form the body inside <code>[...]</code>.</p></dd>
 <span class="r-in"><span><span class="fu">text</span><span class="op">(</span><span class="st">"No arguments"</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] "#text[No arguments]"</span>
 <span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="fu">place</span><span class="op">(</span>dx <span class="op">=</span> <span class="fu"><a href="typst_units.html">pt</a></span><span class="op">(</span><span class="fl">50</span><span class="op">)</span>, <span class="st">"pasta"</span><span class="op">)</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "#place(dx: 50pt)[pasta]"</span>
+<span class="r-in"><span><span class="fu">h</span><span class="op">(</span><span class="fu"><a href="typst_units.html">fr</a></span><span class="op">(</span><span class="fl">3</span><span class="op">)</span><span class="op">)</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "#h(3)"</span>
+<span class="r-in"><span><span class="fu">v</span><span class="op">(</span><span class="fu"><a href="typst_units.html">percent</a></span><span class="op">(</span><span class="fl">3</span><span class="op">)</span>, weak <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "#v(weak: true, 3)"</span>
+<span class="r-in"><span><span class="fu">highlight</span><span class="op">(</span>extent <span class="op">=</span> <span class="fu"><a href="typst_units.html">pt</a></span><span class="op">(</span><span class="fl">3</span><span class="op">)</span>, <span class="st">"hey"</span><span class="op">)</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "#highlight(extent: 3pt)[hey]"</span>
+<span class="r-in"><span><span class="fu">lower</span><span class="op">(</span><span class="st">"hey"</span><span class="op">)</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "#lower[hey]"</span>
 </code></pre></div>
     </div>
   </main><aside class="col-md-3"><nav id="toc" aria-label="Table of contents"><h2>On this page</h2>
