@@ -4,6 +4,7 @@
 \name{typst_functions}
 \alias{typst_functions}
 \alias{place}
+\alias{align}
 \alias{h}
 \alias{v}
 \alias{bibliography}
@@ -41,6 +42,8 @@
 \title{Create a Typst function}
 \usage{
 place(...)
+
+align(...)
 
 h(...)
 
@@ -129,6 +132,7 @@ text(font = "Libertinus Serif", "Hello world")
 text("No arguments")
 
 place(dx = pt(50), "pasta")
+align(center + horizon, "hey")
 h(fr(3))
 v(percent(3), weak = TRUE)
 highlight(extent = pt(3), "hey")

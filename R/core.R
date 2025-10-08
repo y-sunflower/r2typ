@@ -136,14 +136,22 @@ typst_function <- function(name, ...) {
 
     print(glue::glue("positional_parts = {positional_parts}"))
     if (length(positional_parts) > 0) {
-      sprintf(
-        "#%s(%s)[%s]",
-        name,
-        paste(positional_parts, collapse = ", "),
-        parsed_args$unnamed_str
-      )
+      if (parsed_args$unnamed_str == "" || parsed_args$unnamed_str == "none") {
+        sprintf("#%s(%s)", name, paste(positional_parts, collapse = ", "))
+      } else {
+        sprintf(
+          "#%s(%s)[%s]",
+          name,
+          paste(positional_parts, collapse = ", "),
+          parsed_args$unnamed_str
+        )
+      }
     } else {
-      sprintf("#%s[%s]", name, parsed_args$unnamed_str)
+      if (parsed_args$unnamed_str == "" || parsed_args$unnamed_str == "none") {
+        sprintf("#%s()", name)
+      } else {
+        sprintf("#%s[%s]", name, parsed_args$unnamed_str)
+      }
     }
   }
 }
