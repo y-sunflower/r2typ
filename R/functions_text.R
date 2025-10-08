@@ -49,3 +49,9 @@ underline <- function(...) typst_function("underline", ...)
 #' @rdname typst_functions
 #' @export
 upper <- function(...) typst_function("upper", ...)
+
+#' @rdname typst_functions
+#' @export
+#' @examples
+#' raw("print('hello world')", lang = "python", block = TRUE)
+raw <- function(...) typst_function("raw", ...)

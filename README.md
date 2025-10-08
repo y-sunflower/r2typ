@@ -4,11 +4,12 @@ With `{rtyp}`, you can dynamically generate Typst code. It supports:
 
 - all the most basic Typst functions
 - `set` rules
-- conversions from R types to Typst (`TRUE` -> `true`, `NULL` -> `none`, etc.)
+- conversions from R types to Typst (`NULL` -> `none`, `TRUE` -> `true`, etc.)
 - Typst **units** with helper functions
 - Typst **colors** natively
+- Typst **alignment** natively
 - an extremely **simple syntax**
-- **no** dependencies
+- and **zero** dependencies
 
 Check out the [documentation](https://y-sunflower.github.io/rtyp/).
 
@@ -36,6 +37,9 @@ circle(fill = blue, "hey")
 
 circle(radius = pt(100), "hey", linebreak(), "there")
 > #circle(radius: 100pt)[hey #linebreak() there]
+
+place(top + left, dy = pt(15), square(size = pt(35), fill = red))
+> #place(top + left, dy: 15pt)[#square(size: 35pt, fill: red)]
 ```
 
 <br>
@@ -57,7 +61,6 @@ If you want to write and compile your typst files from R, check out the [`{typr}
 ## TODO
 
 - ✅ Text
-  - ❌ `raw`: https://typst.app/docs/reference/text/raw/
 - ✅ Model
   - ❌ `cite`: https://typst.app/docs/reference/model/cite/
   - ❌ `link`: https://typst.app/docs/reference/model/link/

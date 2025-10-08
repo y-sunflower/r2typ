@@ -57,4 +57,16 @@ test_that("Test text functions", {
 
   out <- underline("under", offset = "auto")
   expect_equal(out, "#underline(offset: auto)[under]")
+
+  out <- raw("print('hello world')", lang = "python", block = TRUE)
+  expect_equal(
+    out,
+    "#raw(lang: \"python\", block: true, \"print('hello world')\")"
+  )
+
+  out <- raw(lang = "python", block = TRUE, "print('hello world')")
+  expect_equal(
+    out,
+    "#raw(lang: \"python\", block: true, \"print('hello world')\")"
+  )
 })

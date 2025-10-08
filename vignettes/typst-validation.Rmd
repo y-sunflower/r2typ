@@ -1,4 +1,5 @@
 ---
+title: Typst validation
 output: rmarkdown::html_vignette
 vignette: >
   %\VignetteIndexEntry{typst-validation}
@@ -13,6 +14,6 @@ knitr::opts_chunk$set(
 )
 ```
 
-## Typst validation
+
 
 `{rtyp}` does not do any kind validation and will accept any arguments you're passing to it.

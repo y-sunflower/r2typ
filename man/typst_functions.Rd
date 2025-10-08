@@ -33,6 +33,7 @@
 \alias{super}
 \alias{underline}
 \alias{upper}
+\alias{raw}
 \alias{image}
 \alias{circle}
 \alias{ellipse}
@@ -101,6 +102,8 @@ underline(...)
 
 upper(...)
 
+raw(...)
+
 image(...)
 
 circle(...)
@@ -137,4 +140,5 @@ h(fr(3))
 v(percent(3), weak = TRUE)
 highlight(extent = pt(3), "hey")
 lower("hey")
+raw("print('hello world')", lang = "python", block = TRUE)
 }

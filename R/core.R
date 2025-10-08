@@ -86,6 +86,7 @@ typst_function <- function(name, ...) {
     "table",
     "enum",
     "parbreak",
+    "raw",
     "h",
     "v",
     "line"
