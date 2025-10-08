@@ -82,17 +82,19 @@ typst_function <- function(name, ...) {
     "image",
     "linebreak",
     "bibliography",
-    "list_",
+    "list",
     "figure",
     "document",
     "outline",
+    "table",
+    "enum",
     "parbreak",
     "h",
     "v",
     "line"
   )
 
-  kwargs_bracket_functions <- c("list_", "enum", "table")
+  kwargs_bracket_functions <- c("list", "enum", "table")
 
   if (name %in% no_bracket_functions) {
     if (name %in% kwargs_bracket_functions) {

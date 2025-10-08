@@ -128,6 +128,9 @@ heading(level = 2, numbering = "1.1", "Hello world")
 text(font = "Libertinus Serif", "Hello world")
 text("No arguments")
 
+place(dx = pt(50), "pasta")
+h(fr(3))
+v(percent(3), weak = TRUE)
 highlight(extent = pt(3), "hey")
 lower("hey")
 }

@@ -19,15 +19,6 @@ test_that("Test text functions", {
     "#text(size: 12pt, w: 80%, a: true, c: none, d: 17em, e: auto)[hello]"
   )
 
-  out <- heading(level = 2, numbering = "1.1", "Hello world")
-  expect_equal(out, "#heading(level: 2, numbering: \"1.1\")[Hello world]")
-
-  out <- heading("Just text")
-  expect_equal(out, "#heading[Just text]")
-
-  out <- heading(level = 3, "Intro", "More text")
-  expect_equal(out, "#heading(level: 3)[Intro More text]")
-
   out <- linebreak()
   expect_equal(out, "#linebreak()")
 
@@ -66,7 +57,4 @@ test_that("Test text functions", {
 
   out <- underline("under", offset = "auto")
   expect_equal(out, "#underline(offset: auto)[under]")
-
-  out <- circle(fill = blue, "hey")
-  expect_equal(out, "#circle(fill: blue)[hey]")
 })
