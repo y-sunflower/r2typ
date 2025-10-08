@@ -42,6 +42,7 @@ test_that("Test image function", {
 test_that("Test other text functions", {
   out <- linebreak()
   expect_equal(out, "#linebreak()")
+
   out <- linebreak(justify = TRUE)
   expect_equal(out, "#linebreak(justify: true)")
 
