@@ -20,6 +20,9 @@ test_that("Test visualize functions", {
   out <- line(length = percent(80), angle = deg(20))
   expect_equal(out, "#line(length: 80%, angle: 20deg)")
 
+  out <- line(stroke = pt(2) + blue)
+  expect_equal(out, "#line(stroke: 2pt + blue)")
+
   out <- square(size = pt(5), fill = "red")
   expect_equal(out, "#square(size: 5pt, fill: \"red\")")
 })

@@ -54,6 +54,20 @@ deg <- function(x) {
 
 #' @export
 `+.typst_expression` <- function(left_expression, right_expression) {
+  if (inherits(left_expression, "typst_unit")) {
+    left_expression <- paste0(
+      unclass(left_expression),
+      attr(left_expression, "unit")
+    )
+  }
+
+  if (inherits(right_expression, "typst_unit")) {
+    right_expression <- paste0(
+      unclass(right_expression),
+      attr(right_expression, "unit")
+    )
+  }
+
   result <- paste(
     as.character(left_expression),
     as.character(right_expression),

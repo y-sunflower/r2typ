@@ -21,9 +21,7 @@ parse_typst_args <- function(name, ...) {
   format_typst_value <- function(x, named) {
     if (inherits(x, "typst_unit")) {
       paste0(unclass(x), attr(x, "unit"))
-    } else if (inherits(x, "typst_color")) {
-      unclass(x)
-    } else if (inherits(x, "typst_alignment")) {
+    } else if (inherits(x, "typst_expression")) {
       unclass(x)
     } else if (is.logical(x)) {
       tolower(as.character(x))
