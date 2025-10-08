@@ -57,6 +57,8 @@ are used as the heading content.</p>
     <h2 id="ref-usage">Usage<a class="anchor" aria-label="anchor" href="#ref-usage"></a></h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">place</span><span class="op">(</span><span class="va">...</span><span class="op">)</span></span>
 <span></span>
+<span><span class="fu">align</span><span class="op">(</span><span class="va">...</span><span class="op">)</span></span>
+<span></span>
 <span><span class="fu">h</span><span class="op">(</span><span class="va">...</span><span class="op">)</span></span>
 <span></span>
 <span><span class="fu">v</span><span class="op">(</span><span class="va">...</span><span class="op">)</span></span>
@@ -171,6 +173,13 @@ while unnamed arguments form the body inside <code>[...]</code>.</p></dd>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] "Normal typst function"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> positional_parts = dx: 50pt</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] "#place(dx: 50pt)[pasta]"</span>
+<span class="r-in"><span><span class="fu">align</span><span class="op">(</span><span class="va">center</span> <span class="op">+</span> <span class="va">horizon</span>, <span class="st">"hey"</span><span class="op">)</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> named_str = </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> unnamed_str = hey</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> alignment_str = center + horizon</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "Normal typst function"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> positional_parts = center + horizon</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "#align(center + horizon)[hey]"</span>
 <span class="r-in"><span><span class="fu">h</span><span class="op">(</span><span class="fu"><a href="typst_units.html">fr</a></span><span class="op">(</span><span class="fl">3</span><span class="op">)</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> named_str = </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> unnamed_str = 3fr</span>
