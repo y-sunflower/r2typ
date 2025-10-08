@@ -63,7 +63,7 @@ are used as the heading content.</p>
 <span></span>
 <span><span class="fu">bibliography</span><span class="op">(</span><span class="va">...</span><span class="op">)</span></span>
 <span></span>
-<span><span class="fu">lst</span><span class="op">(</span><span class="va">...</span><span class="op">)</span></span>
+<span><span class="fu">list_</span><span class="op">(</span><span class="va">...</span><span class="op">)</span></span>
 <span></span>
 <span><span class="fu">document</span><span class="op">(</span><span class="va">...</span><span class="op">)</span></span>
 <span></span>
@@ -144,21 +144,60 @@ while unnamed arguments form the body inside <code>[...]</code>.</p></dd>
     <div class="section level2">
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="fu">heading</span><span class="op">(</span>level <span class="op">=</span> <span class="fl">2</span>, numbering <span class="op">=</span> <span class="st">"1.1"</span>, <span class="st">"Hello world"</span><span class="op">)</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> named_str = level: 2, numbering: "1.1"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> unnamed_str = Hello world</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> alignment_str = </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "Normal typst function"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> positional_parts = level: 2, numbering: "1.1"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] "#heading(level: 2, numbering: \"1.1\")[Hello world]"</span>
 <span class="r-in"><span><span class="fu">text</span><span class="op">(</span>font <span class="op">=</span> <span class="st">"Libertinus Serif"</span>, <span class="st">"Hello world"</span><span class="op">)</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> named_str = font: "Libertinus Serif"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> unnamed_str = Hello world</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> alignment_str = </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "Normal typst function"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> positional_parts = font: "Libertinus Serif"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] "#text(font: \"Libertinus Serif\")[Hello world]"</span>
 <span class="r-in"><span><span class="fu">text</span><span class="op">(</span><span class="st">"No arguments"</span><span class="op">)</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> named_str = </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> unnamed_str = No arguments</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> alignment_str = </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "Normal typst function"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] "#text[No arguments]"</span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="fu">place</span><span class="op">(</span>dx <span class="op">=</span> <span class="fu"><a href="typst_units.html">pt</a></span><span class="op">(</span><span class="fl">50</span><span class="op">)</span>, <span class="st">"pasta"</span><span class="op">)</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> named_str = dx: 50pt</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> unnamed_str = pasta</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> alignment_str = </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "Normal typst function"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> positional_parts = dx: 50pt</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] "#place(dx: 50pt)[pasta]"</span>
 <span class="r-in"><span><span class="fu">h</span><span class="op">(</span><span class="fu"><a href="typst_units.html">fr</a></span><span class="op">(</span><span class="fl">3</span><span class="op">)</span><span class="op">)</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> named_str = </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> unnamed_str = 3fr</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> alignment_str = </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "No bracket function"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> parts = 3</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] "#h(3)"</span>
 <span class="r-in"><span><span class="fu">v</span><span class="op">(</span><span class="fu"><a href="typst_units.html">percent</a></span><span class="op">(</span><span class="fl">3</span><span class="op">)</span>, weak <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> named_str = weak: true</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> unnamed_str = 3%</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> alignment_str = </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "No bracket function"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> parts = weak: true</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> parts = 3</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] "#v(weak: true, 3)"</span>
 <span class="r-in"><span><span class="fu">highlight</span><span class="op">(</span>extent <span class="op">=</span> <span class="fu"><a href="typst_units.html">pt</a></span><span class="op">(</span><span class="fl">3</span><span class="op">)</span>, <span class="st">"hey"</span><span class="op">)</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> named_str = extent: 3pt</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> unnamed_str = hey</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> alignment_str = </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "Normal typst function"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> positional_parts = extent: 3pt</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] "#highlight(extent: 3pt)[hey]"</span>
 <span class="r-in"><span><span class="fu">lower</span><span class="op">(</span><span class="st">"hey"</span><span class="op">)</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> named_str = </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> unnamed_str = hey</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> alignment_str = </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "Normal typst function"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] "#lower[hey]"</span>
 </code></pre></div>
     </div>
