@@ -4,7 +4,7 @@ bibliography <- function(...) typst_function("bibliography", ...)
 
 #' @rdname typst_functions
 #' @export
-lst <- function(...) typst_function("list", ...)
+list_ <- function(...) typst_function("list", ...)
 
 #' @rdname typst_functions
 #' @export

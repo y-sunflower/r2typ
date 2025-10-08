@@ -11,11 +11,17 @@ test_that("Test model functions", {
   out <- bibliography(arg = 1, "more cookies...")
   expect_equal(out, "#bibliography(arg: 1, \"more cookies...\")")
 
-  out <- lst("please", "more", "cookies...")
+  out <- list_("please", "more", "cookies...")
   expect_equal(out, "#list([please], [more], [cookies...])")
 
-  out <- lst("please", "more", linebreak())
+  out <- list_("please", "more", linebreak())
   expect_equal(out, "#list([please], [more], [#linebreak()])")
+
+  out <- list_(center + horizon, tight = TRUE, "I", "need", "a cat")
+  expect_equal(
+    out,
+    "#list(center + horizon, tight: true, [I], [need], [a cat])"
+  )
 
   out <- document(arg = 1, "more cookies...")
   expect_equal(out, "#document(arg: 1, \"more cookies...\")")
@@ -49,4 +55,7 @@ test_that("Test model functions", {
 
   out <- table(arg = 1, "please", "more", "cookies")
   expect_equal(out, "#table(arg: 1, [please], [more], [cookies])")
+
+  out <- table(align = center, inset = pt(10), "a", "b", "c", "d")
+  expect_equal(out, "#table(align: center, inset: 10pt, [a], [b], [c], [d])")
 })

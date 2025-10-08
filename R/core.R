@@ -64,6 +64,10 @@ parse_typst_args <- function(name, ...) {
     collapse = " "
   )
 
+  print(glue::glue("named_str = {named_str}"))
+  print(glue::glue("unnamed_str = {unnamed_str}"))
+  print(glue::glue("alignment_str = {alignment_str}"))
+
   list(
     name = name,
     named_str = named_str,
@@ -72,7 +76,6 @@ parse_typst_args <- function(name, ...) {
   )
 }
 
-#' @keywords internal
 #' @keywords internal
 typst_function <- function(name, ...) {
   parsed_args <- parse_typst_args(name, ...)
@@ -97,6 +100,7 @@ typst_function <- function(name, ...) {
   kwargs_bracket_functions <- c("list", "enum", "table")
 
   if (name %in% no_bracket_functions) {
+    print("No bracket function")
     if (name %in% kwargs_bracket_functions) {
       format_path <- function(x) {
         if (is.character(x) && length(x) == 1) paste0("[", x, "]") else x
@@ -113,16 +117,24 @@ typst_function <- function(name, ...) {
       named <- rep("", length(unnamed))
     }
     unnamed_args <- unnamed[!nzchar(named)]
+    unnamed_args <- unnamed_args[
+      !sapply(unnamed_args, inherits, "typst_alignment")
+    ]
     unnamed_values <- unnamed_args
     unnamed_str <- paste(sapply(unnamed_values, format_path), collapse = ", ")
-    both <- c(parsed_args$named_str, unnamed_str)
-    both <- both[both != ""]
-    sprintf("#%s(%s)", name, paste(both, collapse = ", "))
+
+    parts <- c(parsed_args$alignment_str, parsed_args$named_str, unnamed_str)
+    parts <- parts[parts != ""]
+
+    print(glue::glue("parts = {parts}"))
+    sprintf("#%s(%s)", name, paste(parts, collapse = ", "))
   } else {
+    print("Normal typst function")
     # normal typst functions - alignments go as positional args
     positional_parts <- c(parsed_args$alignment_str, parsed_args$named_str)
     positional_parts <- positional_parts[positional_parts != ""]
 
+    print(glue::glue("positional_parts = {positional_parts}"))
     if (length(positional_parts) > 0) {
       sprintf(
         "#%s(%s)[%s]",

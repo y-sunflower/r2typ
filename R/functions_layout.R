@@ -7,6 +7,12 @@ place <- function(...) typst_function("place", ...)
 #' @rdname typst_functions
 #' @export
 #' @examples
+#' align(center + horizon, "hey")
+align <- function(...) typst_function("align", ...)
+
+#' @rdname typst_functions
+#' @export
+#' @examples
 #' h(fr(3))
 h <- function(...) typst_function("h", ...)
 
