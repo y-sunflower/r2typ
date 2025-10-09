@@ -30,6 +30,7 @@
 
     <div id="navbar" class="collapse navbar-collapse ms-3">
       <ul class="navbar-nav me-auto">
+<li class="nav-item"><a class="nav-link" href="../articles/rtyp.html">Get started</a></li>
 <li class="nav-item"><a class="nav-link" href="../reference/index.html">Reference</a></li>
 <li class="active nav-item dropdown">
   <button class="nav-link dropdown-toggle" type="button" id="dropdown-articles" data-bs-toggle="dropdown" aria-expanded="false" aria-haspopup="true">Articles</button>
@@ -76,6 +77,41 @@
     
 <p><a href="https://y-sunflower.github.io/rtyp/">rtyp</a> does not do any kind validation and will accept
 any arguments you’re passing to it.</p>
+<p>For example, in Typst the <code>#linebreak()</code> function only
+accepts a <code>justify: bool</code> argument, but in
+<a href="https://y-sunflower.github.io/rtyp/">rtyp</a> you can do:</p>
+<div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://y-sunflower.github.io/rtyp/">rtyp</a></span><span class="op">)</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; Attaching package: 'rtyp'</span></span>
+<span><span class="co">#&gt; The following objects are masked from 'package:stats':</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt;     line, pt</span></span>
+<span><span class="co">#&gt; The following objects are masked from 'package:graphics':</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt;     image, par, rect, text</span></span>
+<span><span class="co">#&gt; The following object is masked from 'package:utils':</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt;     cite</span></span>
+<span><span class="co">#&gt; The following objects are masked from 'package:base':</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt;     quote, raw, sub, table</span></span>
+<span></span>
+<span><span class="fu"><a href="../reference/typst_functions.html">linebreak</a></span><span class="op">(</span><span class="op">)</span></span>
+<span><span class="co">#&gt; [1] "#linebreak()"</span></span>
+<span><span class="fu"><a href="../reference/typst_functions.html">linebreak</a></span><span class="op">(</span>justify <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
+<span><span class="co">#&gt; [1] "#linebreak(justify: true)"</span></span>
+<span><span class="fu"><a href="../reference/typst_functions.html">linebreak</a></span><span class="op">(</span>any_other_args <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span> <span class="co"># this works!</span></span>
+<span><span class="co">#&gt; [1] "#linebreak(any_other_args: true)"</span></span></code></pre></div>
+<p>It’s considered to be the job of the user to make sure the arguments
+they use make sense. The main reason for this is to reduce (a lot)
+maintenance cost and make <a href="https://y-sunflower.github.io/rtyp/">rtyp</a> more easily up to date
+with new Typst versions in the future.</p>
+<blockquote>
+<p>Please note that a <code>is_valid_typst()</code> function is
+something planned to automatically check that Typst output is valid.
+See: <a href="https://github.com/y-sunflower/rtyp/issues/16" class="external-link uri">https://github.com/y-sunflower/rtyp/issues/16</a></p>
+</blockquote>
   </main>
 </div>
 
