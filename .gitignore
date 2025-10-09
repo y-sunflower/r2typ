@@ -6,3 +6,4 @@ docs
 sandbox/
 inst/doc
 *.sh
+*.pdf
