@@ -3,7 +3,10 @@ name: Release
 on:
   push:
     tags:
-      - "v*" # triggers when you push a tag like v1.0.0
+      - "v*"
+
+permissions:
+  contents: write # REQUIRED for creating releases
 
 jobs:
   release:
