@@ -1,16 +1,15 @@
 # Workflow derived from https://github.com/r-lib/actions/tree/v2/examples
-# Need help debugging build failures? Start at https://github.com/r-lib/actions#where-to-find-help
 on:
   push:
     branches: [main, master]
   pull_request:
 
-name: test-coverage.yaml
+name: test-units.yaml
 
 permissions: read-all
 
 jobs:
-  test-coverage:
+  test-units:
     runs-on: ubuntu-latest
     env:
       GITHUB_PAT: ${{ secrets.GITHUB_TOKEN }}
@@ -24,23 +23,15 @@ jobs:
 
       - uses: r-lib/actions/setup-r-dependencies@v2
         with:
-          extra-packages: any::covr, any::xml2
-          needs: coverage
+          extra-packages: any::testthat, any::xml2
 
-      - name: Test coverage
+      - name: Run unit tests
         run: |
-          cov <- covr::package_coverage(
-            quiet = FALSE,
-            clean = FALSE,
-            install_path = file.path(normalizePath(Sys.getenv("RUNNER_TEMP"), winslash = "/"), "package")
-          )
-          print(cov)
-          covr::to_cobertura(cov)
+          testthat::test_dir("tests/testthat", stop_on_failure = TRUE)
         shell: Rscript {0}
 
       - name: Show testthat output
         if: always()
         run: |
-          ## --------------------------------------------------------------------
           find '${{ runner.temp }}/package' -name 'testthat.Rout*' -exec cat '{}' \; || true
         shell: bash

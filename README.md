@@ -1,4 +1,4 @@
-# rtyp: an R package for generating Typst code
+# rtyp: an R package designed to generate markup Typst code
 
 With `{rtyp}`, you can dynamically generate Typst code. It supports:
 

@@ -1,5 +1,5 @@
 # Workflow derived from https://github.com/posit-dev/setup-air/tree/main/examples
-name: Check that code style is consistent
+name: Run air format
 
 on:
   pull_request:
