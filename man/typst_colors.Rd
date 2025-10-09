@@ -21,7 +21,7 @@
 \alias{olive}
 \alias{green}
 \alias{lime}
-\title{Create Typst Color}
+\title{Typst Color}
 \format{
 An object of class \code{typst_color} (inherits from \code{typst_expression}) of length 1.
 

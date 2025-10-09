@@ -4,6 +4,13 @@ bibliography <- function(...) typst_function("bibliography", ...)
 
 #' @rdname typst_functions
 #' @export
+#' @note
+#' Does not work yet because `label` type is not implemented yet.
+#' See https://github.com/y-sunflower/rtyp/issues/10
+cite <- function(...) typst_function("cite", ...)
+
+#' @rdname typst_functions
+#' @export
 list_ <- function(...) typst_function("list", ...)
 
 #' @rdname typst_functions

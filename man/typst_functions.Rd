@@ -8,6 +8,7 @@
 \alias{h}
 \alias{v}
 \alias{bibliography}
+\alias{cite}
 \alias{list_}
 \alias{document}
 \alias{emph}
@@ -40,7 +41,7 @@
 \alias{line}
 \alias{rect}
 \alias{square}
-\title{Create a Typst function}
+\title{Typst function}
 \usage{
 place(...)
 
@@ -51,6 +52,8 @@ h(...)
 v(...)
 
 bibliography(...)
+
+cite(...)
 
 list_(...)
 
@@ -128,6 +131,12 @@ A character string containing the generated Typst code.
 Generates Typst code with element. Named arguments are included
 as Typst keyword arguments (e.g. \code{level}, \code{numbering}), and unnamed arguments
 are used as the heading content.
+But please note that this behavior might be different in some functions
+to respect true Typst syntax (such as \verb{#table()} for instance).
+}
+\note{
+Does not work yet because \code{label} type is not implemented yet.
+See https://github.com/y-sunflower/rtyp/issues/10
 }
 \examples{
 heading(level = 2, numbering = "1.1", "Hello world")

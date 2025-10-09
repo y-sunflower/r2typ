@@ -1,4 +1,4 @@
-#' @title Create Typst Color
+#' @title Typst Color
 #'
 #' @description
 #' These functions generate special objects representing colors in Typst code.

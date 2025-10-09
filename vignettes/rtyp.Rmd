@@ -1,0 +1,145 @@
+---
+title: "Get started"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{rtyp}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+`{rtyp}` is an R package meant to generate **markup Typst code**. You can use it as is, but it works well with [Quarto](https://quarto.org/) too.
+
+Right now, it supports most Typst functions, types, colors, alignment and units, with an extremely simple syntax, but it's not fully functional yet.
+
+## Installation
+
+You can install it with:
+
+```r
+remotes::install_github("y-sunflower/rtyp")
+```
+
+## Quick start
+
+All functions accept any kind of positional or named arguments:
+
+```{r}
+library(rtyp)
+
+heading(level = 2, "A title")
+
+text(weight = 500, "Some text")
+```
+
+But in Typst, not all functions work the same in terms of positional and named arguments. For this reason, `{rtyp}` will adjust the behavior when it's needed.
+
+For example, the `list_()` function will put everything in a list format:
+
+```{r}
+list_(tight = FALSE, "hey", "you", "!")
+```
+
+> Note that the function is `list_()` and not `list()` because `list()` is a base R function.
+
+The same thing happens for the `table()`:
+
+```{r}
+table("hey", "you", "!")
+```
+
+## Typst units
+
+Typst has a unique way of working with units as they are not quoted.
+
+`{rtyp}` offers a few utility functions to make working with Typst units a breeze:
+
+```{r}
+text(size = pt(20), "Ice cream")
+```
+
+This works with all Typst units:
+
+```{r}
+image("image.png", width = percent(80))
+```
+
+## Typst colors
+
+Typst offers a large number of predefined colors such as `red` or `blue`. `{rtyp}` does the same:
+
+```{r}
+text(fill = green, "Green text")
+```
+
+All built-in Typst colors are available inside `{rtyp}`. You can find them [here](../reference/typst_colors.html).
+
+## Typst alignment
+
+Similarly to colors, Typst has specific objects to handle alignment. They works well in `{rtyp}`:
+
+```{r}
+place(
+  center,
+  dy = pt(15),
+  "hello"
+)
+```
+
+You can add them to mimic Typst syntax:
+
+```{r}
+place(
+  top + left,
+  dy = pt(15),
+  "hello"
+)
+```
+
+And you can even combine them with colors, which is often useful for stroke:
+
+```{r}
+line(stroke = pt(2) + blue)
+```
+
+## Convert R types to Typst types
+
+`{rtyp}` will convert some R types to Typst types:
+
+- `NULL` becomes `none`
+
+```{r}
+image("image.png", width = percent(80), alt = NULL)
+```
+
+- `TRUE`/`FALSE` become `true`/`false`
+
+```{r}
+list_(tight = FALSE, "hey", "you")
+```
+
+> Note that the goal here is only to translate R data types that have an equivalent in Typst, not to be exhaustive.
+
+Other Typst types that need to be implemented:
+
+- label
+- array
+- dict
+
+## Nested function calls
+
+Calling function within function works as well:
+
+```{r}
+place(
+  center + horizon,
+  dy = pt(15),
+  square(size = pt(35), fill = red)
+)
+```

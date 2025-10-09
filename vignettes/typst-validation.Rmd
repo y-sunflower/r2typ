@@ -17,3 +17,17 @@ knitr::opts_chunk$set(
 
 
 `{rtyp}` does not do any kind validation and will accept any arguments you're passing to it.
+
+For example, in Typst the `#linebreak()` function only accepts a `justify: bool` argument, but in `{rtyp}` you can do:
+
+```{r}
+library(rtyp)
+
+linebreak()
+linebreak(justify = TRUE)
+linebreak(any_other_args = TRUE) # this works!
+```
+
+It's considered to be the job of the user to make sure the arguments they use make sense. The main reason for this is to reduce (a lot) maintenance cost and make `{rtyp}` more easily up to date with new Typst versions in the future.
+
+> Please note that a `is_valid_typst()` function is something planned to automatically check that Typst output is valid. See: https://github.com/y-sunflower/rtyp/issues/16

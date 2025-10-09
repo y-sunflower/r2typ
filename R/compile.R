@@ -7,9 +7,21 @@
 #' @param file_or_chr Path to a file (must end with ".typ") or a character vector.
 #' @param output Optional path for the output file (default NULL).
 #'
-#' @export
+#' @returns Output file path, invisibly.
 #'
-#' @rdname typst_compilation
+#' @note
+#' It requires to have the Typst compiler installed.
+#' See https://typst.app/open-source/
+#'
+#' @examples
+#' \dontrun{
+#' typst_compile("example.typ")
+#'
+#' typst_code <- c("= Hello World", "This is a Typst document.")
+#' typst_compile(typst_code, output = "my_output.pdf")
+#' }
+#'
+#' @export
 typst_compile <- function(file_or_chr, output = NULL) {
   if (
     is.character(file_or_chr) &&

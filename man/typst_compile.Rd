@@ -11,7 +11,23 @@ typst_compile(file_or_chr, output = NULL)
 
 \item{output}{Optional path for the output file (default NULL).}
 }
+\value{
+Output file path, invisibly.
+}
 \description{
 Call the Typst CLI compiler and compile a file (.typ)
 or a character vector.
+}
+\note{
+It requires to have the Typst compiler installed.
+See https://typst.app/open-source/
+}
+\examples{
+\dontrun{
+typst_compile("example.typ")
+
+typst_code <- c("= Hello World", "This is a Typst document.")
+typst_compile(typst_code, output = "my_output.pdf")
+}
+
 }
