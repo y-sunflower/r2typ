@@ -14,9 +14,9 @@ knitr::opts_chunk$set(
 )
 ```
 
-`{rtyp}` is an R package meant to generate **markup Typst code**. You can use it as is, but it works well with [Quarto](https://quarto.org/) too.
+`{rtyp}` is an R package designed to generate **markup Typst code**. You can use it as is, but it also works well with [Quarto](https://quarto.org/).
 
-Right now, it supports most Typst functions, types, colors, alignment and units, with an extremely simple syntax, but it's not fully functional yet.
+At the moment, it supports most Typst functions, types, colors, alignment, and units with a very simple syntax, but it is not yet fully functional.
 
 ## Installation
 
@@ -38,7 +38,7 @@ heading(level = 2, "A title")
 text(weight = 500, "Some text")
 ```
 
-But in Typst, not all functions work the same in terms of positional and named arguments. For this reason, `{rtyp}` will adjust the behavior when it's needed.
+However, in Typst, not all functions behave the same way regarding positional and named arguments. For this reason, `{rtyp}` adjusts the behavior when necessary.
 
 For example, the `list_()` function will put everything in a list format:
 
@@ -48,7 +48,7 @@ list_(tight = FALSE, "hey", "you", "!")
 
 > Note that the function is `list_()` and not `list()` because `list()` is a base R function.
 
-The same thing happens for the `table()`:
+The same applies to the `table()` function:
 
 ```{r}
 table("hey", "you", "!")
@@ -56,9 +56,9 @@ table("hey", "you", "!")
 
 ## Typst units
 
-Typst has a unique way of working with units as they are not quoted.
+Typst uses a unique approach for units, as they are not quoted.
 
-`{rtyp}` offers a few utility functions to make working with Typst units a breeze:
+`{rtyp}` provides several utility functions to make working with Typst units easy:
 
 ```{r}
 text(size = pt(20), "Ice cream")
@@ -72,17 +72,17 @@ image("image.png", width = percent(80))
 
 ## Typst colors
 
-Typst offers a large number of predefined colors such as `red` or `blue`. `{rtyp}` does the same:
+Typst offers a large set of predefined colors such as `red` or `blue`. `{rtyp}` provides the same:
 
 ```{r}
 text(fill = green, "Green text")
 ```
 
-All built-in Typst colors are available inside `{rtyp}`. You can find them [here](../reference/typst_colors.html).
+All built-in Typst colors are available in `{rtyp}`. You can find them [here](../reference/typst_colors.html).
 
 ## Typst alignment
 
-Similarly to colors, Typst has specific objects to handle alignment. They works well in `{rtyp}`:
+Similarly to colors, Typst includes specific objects for alignment. They work well in `{rtyp}`:
 
 ```{r}
 place(
@@ -92,7 +92,7 @@ place(
 )
 ```
 
-You can add them to mimic Typst syntax:
+You can combine them to mimic Typst syntax:
 
 ```{r}
 place(
@@ -102,7 +102,7 @@ place(
 )
 ```
 
-And you can even combine them with colors, which is often useful for stroke:
+You can even combine them with colors, which is often useful for strokes:
 
 ```{r}
 line(stroke = pt(2) + blue)
@@ -110,7 +110,7 @@ line(stroke = pt(2) + blue)
 
 ## Convert R types to Typst types
 
-`{rtyp}` will convert some R types to Typst types:
+`{rtyp}` converts some R types into Typst types:
 
 - `NULL` becomes `none`
 
@@ -126,7 +126,7 @@ list_(tight = FALSE, "hey", "you")
 
 > Note that the goal here is only to translate R data types that have an equivalent in Typst, not to be exhaustive.
 
-Other Typst types that need to be implemented:
+Other Typst types that still need to be implemented:
 
 - label
 - array
@@ -134,7 +134,7 @@ Other Typst types that need to be implemented:
 
 ## Nested function calls
 
-Calling function within function works as well:
+Calling a function within another function works as well:
 
 ```{r}
 place(
