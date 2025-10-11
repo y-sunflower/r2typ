@@ -86,12 +86,11 @@ functional.</p>
 </h2>
 <p>You can install it with:</p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu">remotes</span><span class="fu">::</span><span class="fu">install_github</span><span class="op">(</span><span class="st">"y-sunflower/rtyp"</span><span class="op">)</span></span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu">remotes</span><span class="fu">::</span><span class="fu"><a href="https://remotes.r-lib.org/reference/install_github.html" class="external-link">install_github</a></span><span class="op">(</span><span class="st">"y-sunflower/rtyp"</span><span class="op">)</span></span></code></pre></div>
 </div>
 <div class="section level2">
 <h2 id="quick-start">Quick start<a class="anchor" aria-label="anchor" href="#quick-start"></a>
 </h2>
-<p>All functions accept any kind of positional or named arguments:</p>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://y-sunflower.github.io/rtyp/">rtyp</a></span><span class="op">)</span></span>
 <span><span class="co">#&gt; </span></span>
@@ -107,9 +106,10 @@ functional.</p>
 <span><span class="co">#&gt;     cite</span></span>
 <span><span class="co">#&gt; The following objects are masked from 'package:base':</span></span>
 <span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt;     quote, raw, sub, table</span></span>
-<span></span>
-<span><span class="fu"><a href="../reference/typst_functions.html">heading</a></span><span class="op">(</span>level <span class="op">=</span> <span class="fl">2</span>, <span class="st">"A title"</span><span class="op">)</span></span>
+<span><span class="co">#&gt;     quote, raw, sub, table</span></span></code></pre></div>
+<p>All functions accept any kind of positional or named arguments:</p>
+<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="../reference/typst_functions.html">heading</a></span><span class="op">(</span>level <span class="op">=</span> <span class="fl">2</span>, <span class="st">"A title"</span><span class="op">)</span></span>
 <span><span class="co">#&gt; [1] "#heading(level: 2)[A title]"</span></span>
 <span></span>
 <span><span class="fu"><a href="../reference/typst_functions.html">text</a></span><span class="op">(</span>weight <span class="op">=</span> <span class="fl">500</span>, <span class="st">"Some text"</span><span class="op">)</span></span>
@@ -119,7 +119,7 @@ positional and named arguments. For this reason, <a href="https://y-sunflower.gi
 adjusts the behavior when necessary.</p>
 <p>For example, the <code><a href="../reference/typst_functions.html">list_()</a></code> function will put everything in
 a list format:</p>
-<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="../reference/typst_functions.html">list_</a></span><span class="op">(</span>tight <span class="op">=</span> <span class="cn">FALSE</span>, <span class="st">"hey"</span>, <span class="st">"you"</span>, <span class="st">"!"</span><span class="op">)</span></span>
 <span><span class="co">#&gt; [1] "#list(tight: false, [hey], [you], [!])"</span></span></code></pre></div>
 <blockquote>
@@ -128,7 +128,7 @@ a list format:</p>
 function.</p>
 </blockquote>
 <p>The same applies to the <code><a href="../reference/typst_functions.html">table()</a></code> function:</p>
-<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="../reference/typst_functions.html">table</a></span><span class="op">(</span><span class="st">"hey"</span>, <span class="st">"you"</span>, <span class="st">"!"</span><span class="op">)</span></span>
 <span><span class="co">#&gt; [1] "#table([hey], [you], [!])"</span></span></code></pre></div>
 </div>
@@ -138,11 +138,11 @@ function.</p>
 <p>Typst uses a unique approach for units, as they are not quoted.</p>
 <p><a href="https://y-sunflower.github.io/rtyp/">rtyp</a> provides several utility functions to make
 working with Typst units easy:</p>
-<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="../reference/typst_functions.html">text</a></span><span class="op">(</span>size <span class="op">=</span> <span class="fu"><a href="../reference/typst_units.html">pt</a></span><span class="op">(</span><span class="fl">20</span><span class="op">)</span>, <span class="st">"Ice cream"</span><span class="op">)</span></span>
 <span><span class="co">#&gt; [1] "#text(size: 20pt)[Ice cream]"</span></span></code></pre></div>
 <p>This works with all Typst units:</p>
-<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="../reference/typst_functions.html">image</a></span><span class="op">(</span><span class="st">"image.png"</span>, width <span class="op">=</span> <span class="fu"><a href="../reference/typst_units.html">percent</a></span><span class="op">(</span><span class="fl">80</span><span class="op">)</span><span class="op">)</span></span>
 <span><span class="co">#&gt; [1] "#image(width: 80%, \"image.png\")"</span></span></code></pre></div>
 </div>
@@ -152,7 +152,7 @@ working with Typst units easy:</p>
 <p>Typst offers a large set of predefined colors such as
 <code>red</code> or <code>blue</code>. <a href="https://y-sunflower.github.io/rtyp/">rtyp</a> provides the
 same:</p>
-<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="../reference/typst_functions.html">text</a></span><span class="op">(</span>fill <span class="op">=</span> <span class="va">green</span>, <span class="st">"Green text"</span><span class="op">)</span></span>
 <span><span class="co">#&gt; [1] "#text(fill: green)[Green text]"</span></span></code></pre></div>
 <p>All built-in Typst colors are available in <a href="https://y-sunflower.github.io/rtyp/">rtyp</a>. You
@@ -163,7 +163,7 @@ can find them <a href="../reference/typst_colors.html">here</a>.</p>
 </h2>
 <p>Similarly to colors, Typst includes specific objects for alignment.
 They work well in <a href="https://y-sunflower.github.io/rtyp/">rtyp</a>:</p>
-<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="../reference/typst_functions.html">place</a></span><span class="op">(</span></span>
 <span>  <span class="va">center</span>,</span>
 <span>  dy <span class="op">=</span> <span class="fu"><a href="../reference/typst_units.html">pt</a></span><span class="op">(</span><span class="fl">15</span><span class="op">)</span>,</span>
@@ -171,7 +171,7 @@ They work well in <a href="https://y-sunflower.github.io/rtyp/">rtyp</a>:</p>
 <span><span class="op">)</span></span>
 <span><span class="co">#&gt; [1] "#place(center, dy: 15pt)[hello]"</span></span></code></pre></div>
 <p>You can combine them to mimic Typst syntax:</p>
-<div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="../reference/typst_functions.html">place</a></span><span class="op">(</span></span>
 <span>  <span class="va">top</span> <span class="op">+</span> <span class="va">left</span>,</span>
 <span>  dy <span class="op">=</span> <span class="fu"><a href="../reference/typst_units.html">pt</a></span><span class="op">(</span><span class="fl">15</span><span class="op">)</span>,</span>
@@ -180,7 +180,7 @@ They work well in <a href="https://y-sunflower.github.io/rtyp/">rtyp</a>:</p>
 <span><span class="co">#&gt; [1] "#place(top + left, dy: 15pt)[hello]"</span></span></code></pre></div>
 <p>You can even combine them with colors, which is often useful for
 strokes:</p>
-<div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb11"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="../reference/typst_functions.html">line</a></span><span class="op">(</span>stroke <span class="op">=</span> <span class="fu"><a href="../reference/typst_units.html">pt</a></span><span class="op">(</span><span class="fl">2</span><span class="op">)</span> <span class="op">+</span> <span class="va">blue</span><span class="op">)</span></span>
 <span><span class="co">#&gt; [1] "#line(stroke: 2pt + blue)"</span></span></code></pre></div>
 </div>
@@ -193,7 +193,7 @@ strokes:</p>
 <code>NULL</code> becomes <code>none</code>
 </li>
 </ul>
-<div class="sourceCode" id="cb11"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb12"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="../reference/typst_functions.html">image</a></span><span class="op">(</span><span class="st">"image.png"</span>, width <span class="op">=</span> <span class="fu"><a href="../reference/typst_units.html">percent</a></span><span class="op">(</span><span class="fl">80</span><span class="op">)</span>, alt <span class="op">=</span> <span class="cn">NULL</span><span class="op">)</span></span>
 <span><span class="co">#&gt; [1] "#image(width: 80%, alt: none, \"image.png\")"</span></span></code></pre></div>
 <ul>
@@ -202,7 +202,7 @@ strokes:</p>
 <code>true</code>/<code>false</code>
 </li>
 </ul>
-<div class="sourceCode" id="cb12"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb13"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="../reference/typst_functions.html">list_</a></span><span class="op">(</span>tight <span class="op">=</span> <span class="cn">FALSE</span>, <span class="st">"hey"</span>, <span class="st">"you"</span><span class="op">)</span></span>
 <span><span class="co">#&gt; [1] "#list(tight: false, [hey], [you])"</span></span></code></pre></div>
 <blockquote>
@@ -220,7 +220,7 @@ an equivalent in Typst, not to be exhaustive.</p>
 <h2 id="nested-function-calls">Nested function calls<a class="anchor" aria-label="anchor" href="#nested-function-calls"></a>
 </h2>
 <p>Calling a function within another function works as well:</p>
-<div class="sourceCode" id="cb13"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb14"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="../reference/typst_functions.html">place</a></span><span class="op">(</span></span>
 <span>  <span class="va">center</span> <span class="op">+</span> <span class="va">horizon</span>,</span>
 <span>  dy <span class="op">=</span> <span class="fu"><a href="../reference/typst_units.html">pt</a></span><span class="op">(</span><span class="fl">15</span><span class="op">)</span>,</span>

@@ -4,7 +4,7 @@ pkgdown_sha: ~
 articles:
   rtyp: rtyp.html
   typst-validation: typst-validation.html
-last_built: 2025-10-09T11:05Z
+last_built: 2025-10-11T18:26Z
 urls:
   reference: https://y-sunflower.github.io/rtyp/reference
   article: https://y-sunflower.github.io/rtyp/articles
