@@ -30,9 +30,3 @@ jobs:
           devtools::load_all()
           testthat::test_dir("tests/testthat", stop_on_failure = TRUE)
         shell: Rscript {0}
-
-      - name: Show testthat output
-        if: always()
-        run: |
-          find '${{ runner.temp }}/package' -name 'testthat.Rout*' -exec cat '{}' \; || true
-        shell: bash

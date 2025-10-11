@@ -28,11 +28,13 @@ remotes::install_github("y-sunflower/rtyp")
 
 ## Quick start
 
+```{r}
+library(rtyp)
+```
+
 All functions accept any kind of positional or named arguments:
 
 ```{r}
-library(rtyp)
-
 heading(level = 2, "A title")
 
 text(weight = 500, "Some text")
