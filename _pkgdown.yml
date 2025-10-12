@@ -13,3 +13,4 @@ articles:
     navbar: Guides
     contents:
       - typst-validation
+      - using-rtyp-in-quarto-documents
