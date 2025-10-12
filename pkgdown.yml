@@ -4,7 +4,8 @@ pkgdown_sha: ~
 articles:
   rtyp: rtyp.html
   typst-validation: typst-validation.html
-last_built: 2025-10-11T18:26Z
+  using-rtyp-in-quarto-documents: using-rtyp-in-quarto-documents.html
+last_built: 2025-10-12T08:19Z
 urls:
   reference: https://y-sunflower.github.io/rtyp/reference
   article: https://y-sunflower.github.io/rtyp/articles
