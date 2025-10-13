@@ -11,7 +11,6 @@ RoxygenNote: 7.3.2
 URL: https://y-sunflower.github.io/rtyp/
 Suggests: 
     knitr,
-    rmarkdown,
     testthat (>= 3.0.0)
 Config/testthat/edition: 3
 VignetteBuilder: knitr

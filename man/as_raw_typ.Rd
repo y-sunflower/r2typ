@@ -2,7 +2,7 @@
 % Please edit documentation in R/raw.R
 \name{as_raw_typ}
 \alias{as_raw_typ}
-\title{Raw blocks for Rmarkdown/Quarto}
+\title{Raw blocks for Quarto}
 \usage{
 as_raw_typ(x)
 }
@@ -11,10 +11,10 @@ as_raw_typ(x)
 }
 \value{
 A raw version, wrapped in the expected format
-for Rmarkdown and Quarto document.
+for Quarto document.
 }
 \description{
-Convert to raw Typst for Rmarkdown and Quarto.
+Convert to raw Typst for Quarto.
 Using this function is required to include the
 output of \code{{rtyp}} in your document.
 
