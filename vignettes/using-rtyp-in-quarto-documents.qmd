@@ -1,21 +1,17 @@
 ---
 title: "Using {rtyp} in Quarto documents"
-output: rmarkdown::html_vignette
 vignette: >
   %\VignetteIndexEntry{using-rtyp-in-quarto-documents}
-  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEngine{quarto::html}
   %\VignetteEncoding{UTF-8}
+knitr:
+  opts_chunk:
+    collapse: true
+    comment: '#>'
+    message: false
 ---
 
-```{r, include = FALSE}
-knitr::opts_chunk$set(
-  collapse = TRUE,
-  comment = "#>",
-  message = FALSE
-)
-```
-
-```{r setup}
+```{r}
 #| message: false
 library(rtyp)
 ```

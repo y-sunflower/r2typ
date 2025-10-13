@@ -3,7 +3,7 @@ Title: An R Package Designed to Generate Markup Typst Code
 Version: 0.0.2
 Authors@R: 
     person("Joseph", "Barbier", , "joseph.barbierdarnal@gmail.com", role = c("aut", "cre"))
-Description: rtyp offers R functions that are translated into valid Typst code and provides a large number of built-in tools for working with Typst units, alignments, or colors natively, directly from R.
+Description: rtyp offers R functions that are translated into valid Typst markup and provides a large number of built-in tools for working with Typst units, alignments, or colors natively, directly from R.
 License: MIT + file LICENSE
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)

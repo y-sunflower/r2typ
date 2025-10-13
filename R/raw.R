@@ -18,4 +18,7 @@
 #' typ_markup <- heading(level = 2, numbering = "1.1", "Hello world")
 #' as_raw_typ(typ_markup)
 #' @export
-as_raw_typ <- function(x) knitr::raw_block(x, "typst")
+as_raw_typ <- function(x) {
+  res <- paste0("\n```{=typst}\n", paste0(x, collapse = "\n"), "\n```\n")
+  structure(res, class = "knit_asis", knit_cacheable = NA)
+}
