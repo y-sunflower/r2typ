@@ -25,4 +25,12 @@ linebreak(any_other_args = TRUE) # this works!
 
 It's considered to be the job of the user to make sure the arguments they use make sense. The main reason for this is to reduce (a lot) maintenance cost and make `{rtyp}` more easily up to date with new Typst versions in the future.
 
-> Please note that a `is_valid_typst()` function is something planned to automatically check that Typst output is valid. See: https://github.com/y-sunflower/rtyp/issues/16
+If you want to make sure that your Typst is valid, you can use the `is_valid_typst()` function:
+
+```{r}
+library(rtyp)
+
+linebreak() |> is_valid_typst()
+linebreak(justify = TRUE) |> is_valid_typst()
+linebreak(any_other_args = TRUE) |> is_valid_typst()
+```

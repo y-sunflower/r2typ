@@ -16,6 +16,7 @@
 #' See https://typst.app/open-source/
 #'
 #' @examples
+#' \dontrun{
 #' typst_code <- c("= Hello World", "This is a Typst document.")
 #' is_valid_typst(typst_code)
 #'
@@ -24,6 +25,7 @@
 #'
 #' typst_code <- c("= Hello World", "#This is a Typst document.")
 #' is_valid_typst(typst_code, error_on_failure = TRUE)
+#' }
 #'
 #' @export
 is_valid_typst <- function(x, error_on_failure = FALSE) {

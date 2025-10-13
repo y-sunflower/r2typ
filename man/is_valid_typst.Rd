@@ -25,6 +25,7 @@ It requires to have the Typst compiler installed.
 See https://typst.app/open-source/
 }
 \examples{
+\dontrun{
 typst_code <- c("= Hello World", "This is a Typst document.")
 is_valid_typst(typst_code)
 
@@ -33,5 +34,6 @@ is_valid_typst(typst_code)
 
 typst_code <- c("= Hello World", "#This is a Typst document.")
 is_valid_typst(typst_code, error_on_failure = TRUE)
+}
 
 }
