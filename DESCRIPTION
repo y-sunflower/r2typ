@@ -1,5 +1,5 @@
 Package: rtyp
-Title: An R Package Designed to Generate Markup Typst Code
+Title: An R Package For Generating Typst Markup Code
 Version: 0.0.2
 Authors@R: 
     person("Joseph", "Barbier", , "joseph.barbierdarnal@gmail.com", role = c("aut", "cre"))

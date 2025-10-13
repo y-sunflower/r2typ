@@ -17,8 +17,6 @@ for Quarto document.
 Convert to raw Typst for Quarto.
 Using this function is required to include the
 output of \code{{rtyp}} in your document.
-
-This is a simple wrapper around \code{\link[knitr:raw_block]{knitr::raw_block()}}.
 }
 \examples{
 heading(level = 2, numbering = "1.1", "Hello world") |> as_raw_typ()

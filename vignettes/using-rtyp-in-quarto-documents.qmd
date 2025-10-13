@@ -1,5 +1,5 @@
 ---
-title: "Using {rtyp} in Quarto documents"
+title: Using rtyp in Quarto documents
 vignette: >
   %\VignetteIndexEntry{using-rtyp-in-quarto-documents}
   %\VignetteEngine{quarto::html}

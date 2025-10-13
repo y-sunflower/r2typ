@@ -5,8 +5,6 @@
 #' Using this function is required to include the
 #' output of `{rtyp}` in your document.
 #'
-#' This is a simple wrapper around [`knitr::raw_block()`].
-#'
 #' @param x A character vector to interpret as raw typst.
 #'
 #' @returns A raw version, wrapped in the expected format
