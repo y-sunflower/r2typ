@@ -22,7 +22,10 @@
 #' }
 #'
 #' @export
-typst_compile <- function(file_or_chr, output = NULL) {
+typst_compile <- function(
+  file_or_chr,
+  output = NULL
+) {
   if (
     is.character(file_or_chr) &&
       length(file_or_chr) == 1 &&
@@ -39,15 +42,16 @@ typst_compile <- function(file_or_chr, output = NULL) {
     stop("Input must be either a .typ file path or a character vector")
   }
 
-  cmd <- sprintf(
-    "typst compile %s%s",
-    shQuote(target_file),
-    if (!is.null(output)) paste(" ", shQuote(output)) else ""
-  )
+  args <- c("compile", target_file)
+  if (!is.null(output)) {
+    args <- c(args, output)
+  }
 
-  status <- system(cmd)
-  if (status != 0) {
-    stop("Typst compilation failed")
+  suppressWarnings(res <- system2("typst", args, stdout = TRUE, stderr = TRUE))
+  if (length(res) > 0) {
+    if (attr(res, "status") != 0) {
+      stop("Typst compilated failed:\n\n", res)
+    }
   }
 
   invisible(if (!is.null(output)) output else target_file)
