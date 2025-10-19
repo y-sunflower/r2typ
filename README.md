@@ -58,7 +58,7 @@ If you want to write and compile your typst files from R, check out the [`{typr}
 
 <br>
 
-## TODO
+## Missing functions
 
 - ✅ Text
 - ✅ Model
@@ -77,3 +77,5 @@ If you want to write and compile your typst files from R, check out the [`{typr}
 - ❌ Foundations
 - ❌ Math
 - ❌ Layout
+
+> something's missing? Please [open an issue](https://github.com/y-sunflower/rtyp/issues)!

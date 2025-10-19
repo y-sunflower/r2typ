@@ -9,22 +9,24 @@
 #' @param error_on_failure Whether to raise an error if
 #' the code is invalid. Default to `FALSE`.
 #'
-#' @returns Whether or not pdf output file exist.
+#' @returns Indicates whether the output PDF file exists
+#' (for example, if `TRUE`, then Typst has been compiled
+#' successfully).
 #'
 #' @note
 #' It requires to have the Typst compiler installed.
-#' See https://typst.app/open-source/
+#' See [typst.app/open-source/](https://typst.app/open-source/).
 #'
 #' @examples
 #' \dontrun{
 #' typst_code <- c("= Hello World", "This is a Typst document.")
-#' is_valid_typst(typst_code)
+#' is_valid_typst(typst_code) # TRUE
 #'
 #' typst_code <- c("= Hello World", "#This is a Typst document.")
-#' is_valid_typst(typst_code)
+#' is_valid_typst(typst_code) # FALSE
 #'
 #' typst_code <- c("= Hello World", "#This is a Typst document.")
-#' is_valid_typst(typst_code, error_on_failure = TRUE)
+#' is_valid_typst(typst_code, error_on_failure = TRUE) # ERROR
 #' }
 #'
 #' @export

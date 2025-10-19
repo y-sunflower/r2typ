@@ -97,7 +97,7 @@ green
 lime
 }
 \value{
-An object of class \code{typst_color}.
+An object of class \code{typst_color} and \code{typst_expression}.
 }
 \description{
 These functions generate special objects representing colors in Typst code.

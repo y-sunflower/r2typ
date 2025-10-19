@@ -13,7 +13,9 @@ is_valid_typst(x, error_on_failure = FALSE)
 the code is invalid. Default to \code{FALSE}.}
 }
 \value{
-Whether or not pdf output file exist.
+Indicates whether the output PDF file exists
+(for example, if \code{TRUE}, then Typst has been compiled
+successfully).
 }
 \description{
 Check that a character vector is valid Typst markup
@@ -22,18 +24,18 @@ is valid.
 }
 \note{
 It requires to have the Typst compiler installed.
-See https://typst.app/open-source/
+See \href{https://typst.app/open-source/}{typst.app/open-source/}.
 }
 \examples{
 \dontrun{
 typst_code <- c("= Hello World", "This is a Typst document.")
-is_valid_typst(typst_code)
+is_valid_typst(typst_code) # TRUE
 
 typst_code <- c("= Hello World", "#This is a Typst document.")
-is_valid_typst(typst_code)
+is_valid_typst(typst_code) # FALSE
 
 typst_code <- c("= Hello World", "#This is a Typst document.")
-is_valid_typst(typst_code, error_on_failure = TRUE)
+is_valid_typst(typst_code, error_on_failure = TRUE) # ERROR
 }
 
 }

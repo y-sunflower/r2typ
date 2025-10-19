@@ -5,7 +5,7 @@
 #' They can be used as arguments in functions like `text()` or `heading()` to
 #' produce properly formatted Typst code.
 #'
-#' @return An object of class `typst_color`.
+#' @return An object of class `typst_color` and `typst_expression`.
 #'
 #' @examples
 #' red
