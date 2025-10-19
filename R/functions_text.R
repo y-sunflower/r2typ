@@ -36,7 +36,7 @@ strike <- function(...) typst_function("strike", ...)
 
 #' @rdname typst_functions
 #' @export
-sub <- function(...) typst_function("sub", ...)
+sub_ <- function(...) typst_function("sub", ...)
 
 #' @rdname typst_functions
 #' @export
@@ -53,5 +53,5 @@ upper <- function(...) typst_function("upper", ...)
 #' @rdname typst_functions
 #' @export
 #' @examples
-#' raw("print('hello world')", lang = "python", block = TRUE)
-raw <- function(...) typst_function("raw", ...)
+#' raw_("print('hello world')", lang = "python", block = TRUE)
+raw_ <- function(...) typst_function("raw", ...)

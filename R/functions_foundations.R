@@ -25,8 +25,8 @@ duration <- function(...) typst_function("duration", ...)
 #' @rdname typst_functions
 #' @export
 #' @examples
-#' eval("*Markup!*", mode = "markup")
-eval <- function(...) typst_function("eval", ...)
+#' eval_("*Markup!*", mode = "markup")
+eval_ <- function(...) typst_function("eval", ...)
 
 #' @rdname typst_functions
 #' @export

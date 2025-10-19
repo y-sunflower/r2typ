@@ -51,7 +51,7 @@ parbreak <- function(...) typst_function("parbreak", ...)
 
 #' @rdname typst_functions
 #' @export
-quote <- function(...) typst_function("quote", ...)
+quote_ <- function(...) typst_function("quote", ...)
 
 #' @rdname typst_functions
 #' @export
@@ -59,4 +59,4 @@ strong <- function(...) typst_function("strong", ...)
 
 #' @rdname typst_functions
 #' @export
-table <- function(...) typst_function("table", ...)
+table_ <- function(...) typst_function("table", ...)

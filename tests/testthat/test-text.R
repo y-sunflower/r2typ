@@ -49,7 +49,7 @@ test_that("Test text functions", {
   out <- strike("smart", double = FALSE)
   expect_equal(out, "#strike(double: false)[smart]")
 
-  out <- sub("smart", double = FALSE)
+  out <- sub_("smart", double = FALSE)
   expect_equal(out, "#sub(double: false)[smart]")
 
   out <- super("smart", double = FALSE)
@@ -58,13 +58,13 @@ test_that("Test text functions", {
   out <- underline("under", offset = "auto")
   expect_equal(out, "#underline(offset: auto)[under]")
 
-  out <- raw("print('hello world')", lang = "python", block = TRUE)
+  out <- raw_("print('hello world')", lang = "python", block = TRUE)
   expect_equal(
     out,
     "#raw(lang: \"python\", block: true, \"print('hello world')\")"
   )
 
-  out <- raw(lang = "python", block = TRUE, "print('hello world')")
+  out <- raw_(lang = "python", block = TRUE, "print('hello world')")
   expect_equal(
     out,
     "#raw(lang: \"python\", block: true, \"print('hello world')\")"

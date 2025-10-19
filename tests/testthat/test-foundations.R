@@ -23,7 +23,7 @@ test_that("Test foundations functions", {
   out <- duration(days = 3, hours = 12)
   expect_equal(out, "#duration(days: 3, hours: 12)")
 
-  out <- eval("*Markup!*", mode = "markup")
+  out <- eval_("*Markup!*", mode = "markup")
   expect_equal(out, "#eval(mode: \"markup\", \"*Markup!*\")")
 
   out <- panic("this is wrong")

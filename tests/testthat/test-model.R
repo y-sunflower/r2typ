@@ -47,15 +47,15 @@ test_that("Test model functions", {
   out <- parbreak()
   expect_equal(out, "#parbreak()")
 
-  out <- quote(arg = 1, "more cookies...")
+  out <- quote_(arg = 1, "more cookies...")
   expect_equal(out, "#quote(arg: 1)[more cookies...]")
 
   out <- strong(arg = 1, "more cookies...")
   expect_equal(out, "#strong(arg: 1)[more cookies...]")
 
-  out <- table(arg = 1, "please", "more", "cookies")
+  out <- table_(arg = 1, "please", "more", "cookies")
   expect_equal(out, "#table(arg: 1, [please], [more], [cookies])")
 
-  out <- table(align = center, inset = pt(10), "a", "b", "c", "d")
+  out <- table_(align = center, inset = pt(10), "a", "b", "c", "d")
   expect_equal(out, "#table(align: center, inset: 10pt, [a], [b], [c], [d])")
 })

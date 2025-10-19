@@ -47,10 +47,10 @@ list_(tight = FALSE, "hey", "you", "!")
 
 > Note that the function is `list_()` and not `list()` because `list()` is a base R function.
 
-The same applies to the `table()` function:
+The same applies to the `table_()` function:
 
 ```{r}
-table("hey", "you", "!")
+table_("hey", "you", "!")
 ```
 
 ## Typst units
@@ -127,9 +127,10 @@ list_(tight = FALSE, "hey", "you")
 
 ```{r}
 text(`stylistic-set` = c(1, 2, 3), "10 years ago")
+text(`stylistic-set` = list(1, 2, 3), "10 years ago") # equivalent
 ```
 
-- Named `list()` (such as `list(a = 1, b = 42)`) become dictionnaries:
+- Named `list()` (such as `list(a = "hello", b = "world")`) become dictionnaries:
 
 ```{r}
 text(costs = list(hyphenation = percent(100), runt = percent(100)))
