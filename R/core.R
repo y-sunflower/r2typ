@@ -1,4 +1,63 @@
 #' @keywords internal
+format_typst_value <- function(x, named) {
+  if (inherits(x, "typst_unit")) {
+    paste0(unclass(x), attr(x, "unit"))
+  } else if (inherits(x, "list")) {
+    nm <- names(x)
+    if (!is.null(nm) && any(nzchar(nm))) {
+      # named list -> Typst dictionary
+      paste0(
+        "(",
+        paste0(
+          nm,
+          ": ",
+          sapply(x, function(y) format_typst_value(y, named = TRUE)),
+          collapse = ", "
+        ),
+        ")"
+      )
+    } else {
+      # unnamed list -> Typst array
+      paste0(
+        "(",
+        paste0(
+          sapply(x, function(y) format_typst_value(y, named = FALSE)),
+          collapse = ", "
+        ),
+        ")"
+      )
+    }
+  } else if (inherits(x, "typst_expression")) {
+    unclass(x)
+  } else if (length(x) > 1) {
+    # c() --> array
+    paste0(
+      "(",
+      paste0(
+        sapply(x, function(y) format_typst_value(y, named = FALSE)),
+        collapse = ", "
+      ),
+      ")"
+    )
+  } else if (is.logical(x)) {
+    # TRUE/FALSE --> true/false
+    tolower(as.character(x))
+  } else if (is.null(x) || (length(x) == 1 && is.na(x))) {
+    # NULL/NA --> none
+    "none"
+  } else if (is.character(x) && length(x) == 1 && x == "auto") {
+    # "auto" --> auto
+    "auto"
+  } else if (is.character(x) && length(x) == 1 && named) {
+    # quoted arguments
+    paste0("\"", x, "\"")
+  } else if (is.character(x) && length(x) == 1 && !named) {
+    x
+  } else {
+    deparse(x)
+  }
+}
+
 #' @keywords internal
 parse_typst_args <- function(name, ...) {
   args <- list(...)
@@ -17,26 +76,6 @@ parse_typst_args <- function(name, ...) {
   }
   alignment_args <- unnamed_args[is_alignment]
   other_unnamed_args <- unnamed_args[!is_alignment]
-
-  format_typst_value <- function(x, named) {
-    if (inherits(x, "typst_unit")) {
-      paste0(unclass(x), attr(x, "unit"))
-    } else if (inherits(x, "typst_expression")) {
-      unclass(x)
-    } else if (is.logical(x)) {
-      tolower(as.character(x))
-    } else if (is.null(x) || (length(x) == 1 && is.na(x))) {
-      "none"
-    } else if (is.character(x) && length(x) == 1 && x == "auto") {
-      "auto"
-    } else if (is.character(x) && length(x) == 1 && named) {
-      paste0("\"", x, "\"")
-    } else if (is.character(x) && length(x) == 1 && !named) {
-      x
-    } else {
-      deparse(x)
-    }
-  }
 
   format_named <- function(x) format_typst_value(x, named = TRUE)
   format_unnamed <- function(x) format_typst_value(x, named = FALSE)
@@ -86,6 +125,9 @@ typst_function <- function(name, ...) {
     "table",
     "enum",
     "parbreak",
+    "bytes",
+    "decimal",
+    "assert",
     "raw",
     "cite",
     "h",
@@ -116,7 +158,16 @@ typst_function <- function(name, ...) {
       !sapply(unnamed_args, inherits, "typst_alignment")
     ]
     unnamed_values <- unnamed_args
-    unnamed_str <- paste(sapply(unnamed_values, format_path), collapse = ", ")
+    unnamed_str <- paste(
+      sapply(unnamed_values, function(x) {
+        if (is.numeric(x) && length(x) > 1) {
+          paste0("(", paste0(x, collapse = ", "), ")")
+        } else {
+          format_path(x)
+        }
+      }),
+      collapse = ", "
+    )
 
     parts <- c(parsed_args$alignment_str, parsed_args$named_str, unnamed_str)
     parts <- parts[parts != ""]

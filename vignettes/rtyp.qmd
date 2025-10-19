@@ -123,13 +123,24 @@ image("image.png", width = percent(80), alt = NULL)
 list_(tight = FALSE, "hey", "you")
 ```
 
-> Note that the goal here is only to translate R data types that have an equivalent in Typst, not to be exhaustive.
+- `c()` vectors and unnamed `list()` (such as `list("a", "b"`) become arrays:
+
+```{r}
+text(`stylistic-set` = c(1, 2, 3), "10 years ago")
+```
+
+- Named `list()` (such as `list(a = 1, b = 42)`) become dictionnaries:
+
+```{r}
+text(costs = list(hyphenation = percent(100), runt = percent(100)))
+```
+
+> Note that the goal here is **only** to translate R data types that have an equivalent in Typst, **not to be exhaustive**.
 
 Other Typst types that still need to be implemented:
 
 - label
-- array
-- dict
+- others?
 
 ## Nested function calls
 

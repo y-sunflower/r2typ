@@ -74,7 +74,8 @@ If you want to write and compile your typst files from R, check out the [`{typr}
   - ❌ `stroke`: https://typst.app/docs/reference/visualize/stroke/
   - ❌ `polygon`: https://typst.app/docs/reference/visualize/polygon/
   - ❌ `tiling`: https://typst.app/docs/reference/visualize/tiling/
-- ❌ Foundations
+- ✅ Foundations
+  - ❌ `decimal`: https://typst.app/docs/reference/foundations/decimal/
 - ❌ Math
 - ❌ Layout
 
