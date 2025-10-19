@@ -37,7 +37,7 @@ panic <- function(...) typst_function("panic", ...)
 #' @rdname typst_functions
 #' @export
 #' @examples
-#' regex("\d+")
+#' regex("\\d+")
 regex <- function(...) typst_function("regex", ...)
 
 #' @rdname typst_functions
