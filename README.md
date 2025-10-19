@@ -1,13 +1,13 @@
-# rtyp: An R package for generating Typst markup code
+# rtyp: An R package for generating Typst markup
 
-With `{rtyp}`, you can dynamically generate Typst code. It supports:
+With `{rtyp}`, you can dynamically generate Typst markup. It supports:
 
-- all the most basic Typst functions
-- `set` rules
-- conversions from R types to Typst (`NULL` -> `none`, `TRUE` -> `true`, etc.)
+- almost **all** Typst functions
+- **conversions** from R types to Typst types (`NULL` -> `none`, `TRUE` -> `true`, etc.)
 - Typst **units** with helper functions
 - Typst **colors** natively
 - Typst **alignment** natively
+- `set` rules
 - an extremely **simple syntax**
 - and **zero** dependencies
 

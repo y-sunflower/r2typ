@@ -55,8 +55,8 @@ str_ <- function(...) typst_function("str", ...)
 #' @rdname typst_functions
 #' @export
 #' @examples
-#' symbole("10")
-symbole <- function(...) typst_function("symbole", ...)
+#' symbol("10")
+symbol <- function(...) typst_function("symbol", ...)
 
 #' @rdname typst_functions
 #' @export

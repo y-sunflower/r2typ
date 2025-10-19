@@ -1,4 +1,11 @@
 url: https://y-sunflower.github.io/rtyp/
+home:
+  title: Generate Typst from R
+
+authors:
+  Joseph Barbier:
+    href: https://barbierjoseph.com/
+
 template:
   bootstrap: 5
   bootswatch: journal

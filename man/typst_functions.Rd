@@ -13,7 +13,7 @@
 \alias{regex}
 \alias{repr}
 \alias{str_}
-\alias{symbole}
+\alias{symbol}
 \alias{decimal}
 \alias{type}
 \alias{version}
@@ -75,7 +75,7 @@ repr(...)
 
 str_(...)
 
-symbole(...)
+symbol(...)
 
 decimal(...)
 
@@ -192,7 +192,7 @@ panic("this is wrong")
 regex("\\\\d+")
 repr("hello")
 str_("hello")
-symbole("10")
+symbol("10")
 decimal("10")
 type("10")
 version(1, 2, 3, 4)

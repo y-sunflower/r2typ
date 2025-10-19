@@ -134,7 +134,7 @@ typst_function <- function(name, ...) {
     "regex",
     "repr",
     "str",
-    "symbole",
+    "symbol",
     "type",
     "version",
     "cite",
