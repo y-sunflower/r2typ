@@ -127,6 +127,7 @@ list_(tight = FALSE, "hey", "you")
 
 ```{r}
 text(`stylistic-set` = c(1, 2, 3), "10 years ago")
+
 text(`stylistic-set` = list(1, 2, 3), "10 years ago") # equivalent
 ```
 

@@ -42,6 +42,10 @@ place(top + left, dy = pt(15), square(size = pt(35), fill = red))
 > #place(top + left, dy: 15pt)[#square(size: 35pt, fill: red)]
 ```
 
+`{rtyp}` also provides functions for **writing**, **compiling** and **validating** Typst!
+
+Learn more in the [get started vignette](https://y-sunflower.github.io/rtyp/articles/rtyp.html).
+
 <br>
 
 ## Installation
@@ -49,12 +53,6 @@ place(top + left, dy = pt(15), square(size = pt(35), fill = red))
 ```r
 remotes::install_github("y-sunflower/rtyp")
 ```
-
-<br>
-
-## Writing and compiling
-
-If you want to write and compile your typst files from R, check out the [`{typr}` package](https://github.com/christopherkenny/typr/).
 
 <br>
 

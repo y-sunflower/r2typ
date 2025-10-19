@@ -1,0 +1,45 @@
+---
+title: "Writing and compiling typst"
+vignette: >
+  %\VignetteIndexEntry{writing-and-compiling-typst}
+  %\VignetteEngine{quarto::html}
+  %\VignetteEncoding{UTF-8}
+knitr:
+  opts_chunk:
+    collapse: true
+    comment: '#>'
+    message: false
+---
+
+`{rtyp}` provides functions to help you write and compile your Typst markup. 
+
+Please note that you must have the Typst compiler installed and on `PATH` (running `typst compile file.typ` in your terminal must work).
+
+```{r}
+library(rtyp)
+```
+
+We can write a typst file using `typst_write()`:
+
+```{r}
+typst_code <- c("= Hello World", "This is a Typst document.")
+output_file <- typst_write(typst_code)
+```
+
+Then we can compile this file to PDF with `typst_compile()`:
+
+```{r}
+typst_compile(output_file)
+```
+
+## Control file names
+
+Both `typst_write()` and `typst_compile()` have an optional `output` arguments to control file names:
+
+```{r}
+typst_code <- c("= Hello World", "This is a Typst document.")
+output_file <- typst_write(typst_code, "here.typ")
+typst_compile(output_file, "report.pdf")
+```
+
+`{rtyp}` also offers a `is_valid_typst()` that returns `TRUE`/`FALSE` depending on if the code can be compiled or not. Check out that the [dedicated vignette](../typst-validation.hml).

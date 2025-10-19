@@ -19,7 +19,7 @@ Create or copy a Typst file (.typ) from either a character vector or an existing
 }
 \examples{
 \dontrun{
-typst_code <- c("# Hello World", "This is a Typst document.")
+typst_code <- c("= Hello World", "This is a Typst document.")
 typst_write(typst_code, output = "hello.typ")
 }
 
