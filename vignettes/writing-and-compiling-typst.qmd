@@ -22,6 +22,7 @@ library(rtyp)
 We can write a typst file using `typst_write()`:
 
 ```{r}
+#| eval: false
 typst_code <- c("= Hello World", "This is a Typst document.")
 output_file <- typst_write(typst_code)
 ```
@@ -29,6 +30,7 @@ output_file <- typst_write(typst_code)
 Then we can compile this file to PDF with `typst_compile()`:
 
 ```{r}
+#| eval: false
 typst_compile(output_file)
 ```
 
@@ -37,6 +39,7 @@ typst_compile(output_file)
 Both `typst_write()` and `typst_compile()` have an optional `output` arguments to control file names:
 
 ```{r}
+#| eval: false
 typst_code <- c("= Hello World", "This is a Typst document.")
 output_file <- typst_write(typst_code, "here.typ")
 typst_compile(output_file, "report.pdf")
