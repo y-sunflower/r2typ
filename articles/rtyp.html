@@ -111,10 +111,10 @@
 <blockquote>
 <p>Note that the function is <code><a href="../reference/typst_functions.html">list_()</a></code> and not <code><a href="https://rdrr.io/r/base/list.html" class="external-link">list()</a></code> because <code><a href="https://rdrr.io/r/base/list.html" class="external-link">list()</a></code> is a base R function.</p>
 </blockquote>
-<p>The same applies to the <code><a href="../reference/typst_functions.html">table()</a></code> function:</p>
+<p>The same applies to the <code><a href="../reference/typst_functions.html">table_()</a></code> function:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb5"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu"><a href="../reference/typst_functions.html">table</a></span><span class="op">(</span><span class="st">"hey"</span>, <span class="st">"you"</span>, <span class="st">"!"</span><span class="op">)</span></span>
+<code class="sourceCode R"><span><span class="fu"><a href="../reference/typst_functions.html">table_</a></span><span class="op">(</span><span class="st">"hey"</span>, <span class="st">"you"</span>, <span class="st">"!"</span><span class="op">)</span></span>
 <span><span class="co">#&gt; [1] "#table([hey], [you], [!])"</span></span></code></pre></div>
 </div>
 </section><section class="level2"><h2 id="typst-units">Typst units<a class="anchor" aria-label="anchor" href="#typst-units"></a>
@@ -192,19 +192,37 @@
 <code class="sourceCode R"><span><span class="fu"><a href="../reference/typst_functions.html">list_</a></span><span class="op">(</span>tight <span class="op">=</span> <span class="cn">FALSE</span>, <span class="st">"hey"</span>, <span class="st">"you"</span><span class="op">)</span></span>
 <span><span class="co">#&gt; [1] "#list(tight: false, [hey], [you])"</span></span></code></pre></div>
 </div>
+<ul>
+<li>
+<code><a href="https://rdrr.io/r/base/c.html" class="external-link">c()</a></code> vectors and unnamed <code><a href="https://rdrr.io/r/base/list.html" class="external-link">list()</a></code> (such as <code>list("a", "b"</code>) become arrays:</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb14"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="../reference/typst_functions.html">text</a></span><span class="op">(</span>`stylistic-set` <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">2</span>, <span class="fl">3</span><span class="op">)</span>, <span class="st">"10 years ago"</span><span class="op">)</span></span>
+<span><span class="co">#&gt; [1] "#text(stylistic-set: (1, 2, 3))[10 years ago]"</span></span>
+<span><span class="fu"><a href="../reference/typst_functions.html">text</a></span><span class="op">(</span>`stylistic-set` <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">2</span>, <span class="fl">3</span><span class="op">)</span>, <span class="st">"10 years ago"</span><span class="op">)</span> <span class="co"># equivalent</span></span>
+<span><span class="co">#&gt; [1] "#text(stylistic-set: (1, 2, 3))[10 years ago]"</span></span></code></pre></div>
+</div>
+<ul>
+<li>Named <code><a href="https://rdrr.io/r/base/list.html" class="external-link">list()</a></code> (such as <code>list(a = "hello", b = "world")</code>) become dictionnaries:</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb15"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="../reference/typst_functions.html">text</a></span><span class="op">(</span>costs <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>hyphenation <span class="op">=</span> <span class="fu"><a href="../reference/typst_units.html">percent</a></span><span class="op">(</span><span class="fl">100</span><span class="op">)</span>, runt <span class="op">=</span> <span class="fu"><a href="../reference/typst_units.html">percent</a></span><span class="op">(</span><span class="fl">100</span><span class="op">)</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="co">#&gt; [1] "#text(costs: (hyphenation: 100%, runt: 100%))"</span></span></code></pre></div>
+</div>
 <blockquote>
-<p>Note that the goal here is only to translate R data types that have an equivalent in Typst, not to be exhaustive.</p>
+<p>Note that the goal here is <strong>only</strong> to translate R data types that have an equivalent in Typst, <strong>not to be exhaustive</strong>.</p>
 </blockquote>
 <p>Other Typst types that still need to be implemented:</p>
 <ul>
 <li>label</li>
-<li>array</li>
-<li>dict</li>
+<li>others?</li>
 </ul></section><section class="level2"><h2 id="nested-function-calls">Nested function calls<a class="anchor" aria-label="anchor" href="#nested-function-calls"></a>
 </h2>
 <p>Calling a function within another function works as well:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb14"><pre class="downlit sourceCode r">
+<div class="sourceCode cell-code" id="cb16"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="../reference/typst_functions.html">place</a></span><span class="op">(</span></span>
 <span>  <span class="va">center</span> <span class="op">+</span> <span class="va">horizon</span>,</span>
 <span>  dy <span class="op">=</span> <span class="fu"><a href="../reference/typst_units.html">pt</a></span><span class="op">(</span><span class="fl">15</span><span class="op">)</span>,</span>
