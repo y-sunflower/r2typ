@@ -61,21 +61,20 @@ If you want to write and compile your typst files from R, check out the [`{typr}
 ## Missing functions
 
 - ✅ Text
-- ✅ Model
+- ✅ Foundations
+- ✅ Model, everything except:
   - ❌ `cite`: https://typst.app/docs/reference/model/cite/
   - ❌ `link`: https://typst.app/docs/reference/model/link/
   - ❌ `numbering`: https://typst.app/docs/reference/model/numbering/
   - ❌ `ref`: https://typst.app/docs/reference/model/ref/
   - ❌ `terms`: https://typst.app/docs/reference/model/terms/
-- ✅ Visualize
+- ✅ Visualize, everything except:
   - ❌ `curve`: https://typst.app/docs/reference/visualize/curve/
   - ❌ `gradient`: https://typst.app/docs/reference/visualize/gradient/
   - ❌ `path`: https://typst.app/docs/reference/visualize/path/
   - ❌ `stroke`: https://typst.app/docs/reference/visualize/stroke/
   - ❌ `polygon`: https://typst.app/docs/reference/visualize/polygon/
   - ❌ `tiling`: https://typst.app/docs/reference/visualize/tiling/
-- ✅ Foundations
-  - ❌ `decimal`: https://typst.app/docs/reference/foundations/decimal/
 - ❌ Math
 - ❌ Layout
 

@@ -19,4 +19,37 @@ test_that("Test foundations functions", {
 
   out <- text(costs = list(hyphenation = percent(100), runt = percent(100)))
   expect_equal(out, "#text(costs: (hyphenation: 100%, runt: 100%))")
+
+  out <- duration(days = 3, hours = 12)
+  expect_equal(out, "#duration(days: 3, hours: 12)")
+
+  out <- eval("*Markup!*", mode = "markup")
+  expect_equal(out, "#eval(mode: \"markup\", \"*Markup!*\")")
+
+  out <- panic("this is wrong")
+  expect_equal(out, "#panic(\"this is wrong\")")
+
+  out <- regex("\\d+")
+  expect_equal(out, "#regex(\"\\d+\")")
+
+  out <- repr("hello")
+  expect_equal(out, "#repr(\"hello\")")
+
+  out <- str_(10)
+  expect_equal(out, "#str(10)")
+
+  out <- symbole("10")
+  expect_equal(out, "#symbole(\"10\")")
+
+  out <- decimal("10")
+  expect_equal(out, "#decimal(\"10\")")
+
+  out <- type(14.7)
+  expect_equal(out, "#type(14.7)")
+
+  out <- version(1, 2, 3, 4)
+  expect_equal(out, "#version(1, 2, 3, 4)")
+
+  out <- version(c(1, 2, 3, 4))
+  expect_equal(out, "#version((1, 2, 3, 4))")
 })

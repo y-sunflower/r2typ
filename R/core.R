@@ -129,6 +129,14 @@ typst_function <- function(name, ...) {
     "decimal",
     "assert",
     "raw",
+    "eval",
+    "panic",
+    "regex",
+    "repr",
+    "str",
+    "symbole",
+    "type",
+    "version",
     "cite",
     "h",
     "v",
@@ -160,8 +168,8 @@ typst_function <- function(name, ...) {
     unnamed_values <- unnamed_args
     unnamed_str <- paste(
       sapply(unnamed_values, function(x) {
-        if (is.numeric(x) && length(x) > 1) {
-          paste0("(", paste0(x, collapse = ", "), ")")
+        if (length(x) > 1) {
+          paste0("(", paste0(format_path(x), collapse = ", "), ")")
         } else {
           format_path(x)
         }
