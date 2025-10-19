@@ -188,7 +188,56 @@ See https://github.com/y-sunflower/rtyp/issues/10</p>
 
     <div class="section level2">
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
-
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="fu">heading</span><span class="op">(</span>level <span class="op">=</span> <span class="fl">2</span>, numbering <span class="op">=</span> <span class="st">"1.1"</span>, <span class="st">"Hello world"</span><span class="op">)</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "#heading(level: 2, numbering: \"1.1\")[Hello world]"</span>
+<span class="r-in"><span><span class="fu">text</span><span class="op">(</span>font <span class="op">=</span> <span class="st">"Libertinus Serif"</span>, <span class="st">"Hello world"</span><span class="op">)</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "#text(font: \"Libertinus Serif\")[Hello world]"</span>
+<span class="r-in"><span><span class="fu">text</span><span class="op">(</span><span class="st">"No arguments"</span><span class="op">)</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "#text[No arguments]"</span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="fu">assert</span><span class="op">(</span><span class="fl">1</span> <span class="op">&lt;</span> <span class="fl">2</span>, message <span class="op">=</span> <span class="st">"math broke"</span><span class="op">)</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "#assert(message: \"math broke\", TRUE)"</span>
+<span class="r-in"><span><span class="fu">bytes</span><span class="op">(</span><span class="st">"more cookies..."</span><span class="op">)</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "#bytes(\"more cookies...\")"</span>
+<span class="r-in"><span><span class="fu">datetime</span><span class="op">(</span>year <span class="op">=</span> <span class="fl">2012</span>, month <span class="op">=</span> <span class="fl">8</span>, day <span class="op">=</span> <span class="fl">3</span><span class="op">)</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "#datetime(year: 2012, month: 8, day: 3)"</span>
+<span class="r-in"><span><span class="fu">duration</span><span class="op">(</span>days <span class="op">=</span> <span class="fl">3</span>, hours <span class="op">=</span> <span class="fl">12</span><span class="op">)</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "#duration(days: 3, hours: 12)"</span>
+<span class="r-in"><span><span class="fu">eval_</span><span class="op">(</span><span class="st">"*Markup!*"</span>, mode <span class="op">=</span> <span class="st">"markup"</span><span class="op">)</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "#eval(mode: \"markup\", \"*Markup!*\")"</span>
+<span class="r-in"><span><span class="fu">panic</span><span class="op">(</span><span class="st">"this is wrong"</span><span class="op">)</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "#panic(\"this is wrong\")"</span>
+<span class="r-in"><span><span class="fu">regex</span><span class="op">(</span><span class="st">"\\d+"</span><span class="op">)</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "#regex(\"\\d+\")"</span>
+<span class="r-in"><span><span class="fu">repr</span><span class="op">(</span><span class="st">"hello"</span><span class="op">)</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "#repr(\"hello\")"</span>
+<span class="r-in"><span><span class="fu">str_</span><span class="op">(</span><span class="st">"hello"</span><span class="op">)</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "#str(\"hello\")"</span>
+<span class="r-in"><span><span class="fu">symbole</span><span class="op">(</span><span class="st">"10"</span><span class="op">)</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "#symbole(\"10\")"</span>
+<span class="r-in"><span><span class="fu">decimal</span><span class="op">(</span><span class="st">"10"</span><span class="op">)</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "#decimal(\"10\")"</span>
+<span class="r-in"><span><span class="fu">type</span><span class="op">(</span><span class="st">"10"</span><span class="op">)</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "#type(\"10\")"</span>
+<span class="r-in"><span><span class="fu">version</span><span class="op">(</span><span class="fl">1</span>, <span class="fl">2</span>, <span class="fl">3</span>, <span class="fl">4</span><span class="op">)</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "#version(1, 2, 3, 4)"</span>
+<span class="r-in"><span><span class="fu">version</span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">2</span>, <span class="fl">3</span>, <span class="fl">4</span><span class="op">)</span><span class="op">)</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "#version((1, 2, 3, 4))"</span>
+<span class="r-in"><span><span class="fu">place</span><span class="op">(</span>dx <span class="op">=</span> <span class="fu"><a href="typst_units.html">pt</a></span><span class="op">(</span><span class="fl">50</span><span class="op">)</span>, <span class="st">"pasta"</span><span class="op">)</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "#place(dx: 50pt)[pasta]"</span>
+<span class="r-in"><span><span class="fu">align</span><span class="op">(</span><span class="va">center</span> <span class="op">+</span> <span class="va">horizon</span>, <span class="st">"hey"</span><span class="op">)</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "#align(center + horizon)[hey]"</span>
+<span class="r-in"><span><span class="fu">h</span><span class="op">(</span><span class="fu"><a href="typst_units.html">fr</a></span><span class="op">(</span><span class="fl">3</span><span class="op">)</span><span class="op">)</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "#h(3)"</span>
+<span class="r-in"><span><span class="fu">v</span><span class="op">(</span><span class="fu"><a href="typst_units.html">percent</a></span><span class="op">(</span><span class="fl">3</span><span class="op">)</span>, weak <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "#v(weak: true, 3)"</span>
+<span class="r-in"><span><span class="fu">highlight</span><span class="op">(</span>extent <span class="op">=</span> <span class="fu"><a href="typst_units.html">pt</a></span><span class="op">(</span><span class="fl">3</span><span class="op">)</span>, <span class="st">"hey"</span><span class="op">)</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "#highlight(extent: 3pt)[hey]"</span>
+<span class="r-in"><span><span class="fu">lower</span><span class="op">(</span><span class="st">"hey"</span><span class="op">)</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "#lower[hey]"</span>
+<span class="r-in"><span><span class="fu">raw_</span><span class="op">(</span><span class="st">"print('hello world')"</span>, lang <span class="op">=</span> <span class="st">"python"</span>, block <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "#raw(lang: \"python\", block: true, \"print('hello world')\")"</span>
+</code></pre></div>
     </div>
   </main><aside class="col-md-3"><nav id="toc" aria-label="Table of contents"><h2>On this page</h2>
     </nav></aside></div>
