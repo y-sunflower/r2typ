@@ -17,11 +17,16 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - uses: r-lib/actions/setup-r@v2
+      - name: Install Typst CLI
+        uses: typst-community/setup-typst@v4
+
+      - name: Install R
+        uses: r-lib/actions/setup-r@v2
         with:
           use-public-rspm: true
 
-      - uses: r-lib/actions/setup-r-dependencies@v2
+      - name: Install R dependencies
+        uses: r-lib/actions/setup-r-dependencies@v2
         with:
           extra-packages: any::testthat, any::xml2, any::devtools
 

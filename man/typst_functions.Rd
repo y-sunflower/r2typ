@@ -31,6 +31,8 @@
 \alias{move}
 \alias{pad}
 \alias{page}
+\alias{scale}
+\alias{skew}
 \alias{bibliography}
 \alias{cite}
 \alias{list_}
@@ -120,6 +122,10 @@ move(...)
 pad(...)
 
 page(...)
+
+scale(...)
+
+skew(...)
 
 bibliography(...)
 
@@ -250,6 +256,8 @@ page(
    rect(fill = blue, radius = pt(2), "yooooo")
  )
 )
+scale(x = percent(-100), "This is mirrored")
+skew(ax = deg(-12), "This is some fake italic text.")
 highlight(extent = pt(3), "hey")
 lower("hey")
 raw_("print('hello world')", lang = "python", block = TRUE)
