@@ -99,6 +99,30 @@ to respect true Typst syntax (such as <code>#table()</code> for instance).</p>
 <span></span>
 <span><span class="fu">v</span><span class="op">(</span><span class="va">...</span><span class="op">)</span></span>
 <span></span>
+<span><span class="fu">block</span><span class="op">(</span><span class="va">...</span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu">box</span><span class="op">(</span><span class="va">...</span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu">colbreak</span><span class="op">(</span><span class="va">...</span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu">stack</span><span class="op">(</span><span class="va">...</span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu">grid</span><span class="op">(</span><span class="va">...</span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu">hide</span><span class="op">(</span><span class="va">...</span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu">pagebreak</span><span class="op">(</span><span class="va">...</span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu">move</span><span class="op">(</span><span class="va">...</span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu">pad</span><span class="op">(</span><span class="va">...</span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu">page</span><span class="op">(</span><span class="va">...</span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu">scale</span><span class="op">(</span><span class="va">...</span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu">skew</span><span class="op">(</span><span class="va">...</span><span class="op">)</span></span>
+<span></span>
 <span><span class="fu">bibliography</span><span class="op">(</span><span class="va">...</span><span class="op">)</span></span>
 <span></span>
 <span><span class="fu">cite</span><span class="op">(</span><span class="va">...</span><span class="op">)</span></span>
@@ -230,9 +254,42 @@ See https://github.com/y-sunflower/rtyp/issues/10</p>
 <span class="r-in"><span><span class="fu">align</span><span class="op">(</span><span class="va">center</span> <span class="op">+</span> <span class="va">horizon</span>, <span class="st">"hey"</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] "#align(center + horizon)[hey]"</span>
 <span class="r-in"><span><span class="fu">h</span><span class="op">(</span><span class="fu"><a href="typst_units.html">fr</a></span><span class="op">(</span><span class="fl">3</span><span class="op">)</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "#h(3)"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "#h(\"3\")"</span>
 <span class="r-in"><span><span class="fu">v</span><span class="op">(</span><span class="fu"><a href="typst_units.html">percent</a></span><span class="op">(</span><span class="fl">3</span><span class="op">)</span>, weak <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "#v(weak: true, 3)"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "#v(weak: true, \"3\")"</span>
+<span class="r-in"><span><span class="fu">block</span><span class="op">(</span>breakable <span class="op">=</span> <span class="cn">FALSE</span>, width <span class="op">=</span> <span class="fu"><a href="typst_units.html">percent</a></span><span class="op">(</span><span class="fl">50</span><span class="op">)</span>, height <span class="op">=</span> <span class="st">"auto"</span>, fill <span class="op">=</span> <span class="va">aqua</span>, <span class="st">"cookies"</span><span class="op">)</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "#block(breakable: false, width: 50%, height: auto, fill: aqua)[cookies]"</span>
+<span class="r-in"><span><span class="fu">box</span><span class="op">(</span>clip <span class="op">=</span> <span class="cn">FALSE</span>, width <span class="op">=</span> <span class="fu"><a href="typst_units.html">percent</a></span><span class="op">(</span><span class="fl">50</span><span class="op">)</span>, height <span class="op">=</span> <span class="st">"auto"</span>, fill <span class="op">=</span> <span class="va">red</span>, <span class="st">"ice cream"</span><span class="op">)</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "#box(clip: false, width: 50%, height: auto, fill: red)[ice cream]"</span>
+<span class="r-in"><span><span class="fu">colbreak</span><span class="op">(</span>weak <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "#colbreak(weak: true)"</span>
+<span class="r-in"><span><span class="fu">stack</span><span class="op">(</span>dir <span class="op">=</span> <span class="va">ttb</span>, <span class="st">"hey"</span>, <span class="st">"you"</span>, <span class="st">"!"</span><span class="op">)</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "#stack(dir: ttb, \"hey\", \"you\", \"!\")"</span>
+<span class="r-in"><span><span class="fu">grid</span><span class="op">(</span>columns <span class="op">=</span> <span class="fl">2</span>, rows <span class="op">=</span> <span class="fl">2</span>, gutter <span class="op">=</span> <span class="fu"><a href="typst_units.html">pt</a></span><span class="op">(</span><span class="fl">3</span><span class="op">)</span>, <span class="st">"hey"</span>, <span class="st">"cookies"</span>, <span class="st">"ice"</span>, <span class="st">"cream"</span><span class="op">)</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "#grid(columns: 2, rows: 2, gutter: 3pt, \"hey\", \"cookies\", \"ice\", \"cream\")"</span>
+<span class="r-in"><span><span class="fu">hide</span><span class="op">(</span><span class="st">"this is hidden"</span><span class="op">)</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "#hide[this is hidden]"</span>
+<span class="r-in"><span><span class="fu">pagebreak</span><span class="op">(</span><span class="st">"this is hidden"</span><span class="op">)</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "#pagebreak(\"this is hidden\")"</span>
+<span class="r-in"><span><span class="fu">move</span><span class="op">(</span>dx <span class="op">=</span> <span class="fu"><a href="typst_units.html">pt</a></span><span class="op">(</span><span class="fl">3</span><span class="op">)</span>, dy <span class="op">=</span> <span class="fu"><a href="typst_units.html">pt</a></span><span class="op">(</span><span class="fl">5</span><span class="op">)</span>, <span class="st">"pasta"</span><span class="op">)</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "#move(dx: 3pt, dy: 5pt, \"pasta\")"</span>
+<span class="r-in"><span><span class="fu">pad</span><span class="op">(</span>x <span class="op">=</span> <span class="fu"><a href="typst_units.html">percent</a></span><span class="op">(</span><span class="fl">0</span><span class="op">)</span> <span class="op">+</span> <span class="fu"><a href="typst_units.html">pt</a></span><span class="op">(</span><span class="fl">5</span><span class="op">)</span>, y <span class="op">=</span> <span class="fu"><a href="typst_units.html">percent</a></span><span class="op">(</span><span class="fl">10</span><span class="op">)</span> <span class="op">+</span> <span class="fu"><a href="typst_units.html">pt</a></span><span class="op">(</span><span class="fl">0</span><span class="op">)</span>, <span class="fu">image</span><span class="op">(</span><span class="st">"file.svg"</span><span class="op">)</span><span class="op">)</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "#pad(x: 0% + 5pt, y: 10% + 0pt)[#image(\"file.svg\")]"</span>
+<span class="r-in"><span><span class="fu">page</span><span class="op">(</span></span></span>
+<span class="r-in"><span> flipped <span class="op">=</span> <span class="cn">TRUE</span>,</span></span>
+<span class="r-in"><span> columns <span class="op">=</span> <span class="fl">2</span>,</span></span>
+<span class="r-in"><span> fill <span class="op">=</span> <span class="va">red</span>,</span></span>
+<span class="r-in"><span> <span class="fu">place</span><span class="op">(</span></span></span>
+<span class="r-in"><span>   <span class="va">top</span> <span class="op">+</span> <span class="va">left</span>,</span></span>
+<span class="r-in"><span>   dx <span class="op">=</span> <span class="fu"><a href="typst_units.html">pt</a></span><span class="op">(</span><span class="op">-</span><span class="fl">5</span><span class="op">)</span>,</span></span>
+<span class="r-in"><span>   <span class="fu">rect</span><span class="op">(</span>fill <span class="op">=</span> <span class="va">blue</span>, radius <span class="op">=</span> <span class="fu"><a href="typst_units.html">pt</a></span><span class="op">(</span><span class="fl">2</span><span class="op">)</span>, <span class="st">"yooooo"</span><span class="op">)</span></span></span>
+<span class="r-in"><span> <span class="op">)</span></span></span>
+<span class="r-in"><span><span class="op">)</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "#page(flipped: true, columns: 2, fill: red)[#place(top + left, dx: -5pt)[#rect(fill: blue, radius: 2pt)[yooooo]]]"</span>
+<span class="r-in"><span><span class="fu">scale</span><span class="op">(</span>x <span class="op">=</span> <span class="fu"><a href="typst_units.html">percent</a></span><span class="op">(</span><span class="op">-</span><span class="fl">100</span><span class="op">)</span>, <span class="st">"This is mirrored"</span><span class="op">)</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "#scale(x: -100%)[This is mirrored]"</span>
+<span class="r-in"><span><span class="fu">skew</span><span class="op">(</span>ax <span class="op">=</span> <span class="fu"><a href="typst_units.html">deg</a></span><span class="op">(</span><span class="op">-</span><span class="fl">12</span><span class="op">)</span>, <span class="st">"This is some fake italic text."</span><span class="op">)</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "#skew(ax: -12deg)[This is some fake italic text.]"</span>
 <span class="r-in"><span><span class="fu">highlight</span><span class="op">(</span>extent <span class="op">=</span> <span class="fu"><a href="typst_units.html">pt</a></span><span class="op">(</span><span class="fl">3</span><span class="op">)</span>, <span class="st">"hey"</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] "#highlight(extent: 3pt)[hey]"</span>
 <span class="r-in"><span><span class="fu">lower</span><span class="op">(</span><span class="st">"hey"</span><span class="op">)</span></span></span>

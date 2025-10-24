@@ -231,7 +231,23 @@
 <span>  dy <span class="op">=</span> <span class="fu"><a href="../reference/typst_units.html">pt</a></span><span class="op">(</span><span class="fl">15</span><span class="op">)</span>,</span>
 <span>  <span class="fu"><a href="../reference/typst_functions.html">square</a></span><span class="op">(</span>size <span class="op">=</span> <span class="fu"><a href="../reference/typst_units.html">pt</a></span><span class="op">(</span><span class="fl">35</span><span class="op">)</span>, fill <span class="op">=</span> <span class="va">red</span><span class="op">)</span></span>
 <span><span class="op">)</span></span>
-<span><span class="co">#&gt; [1] "#place(center + horizon, dy: 15pt)[#square(size: 35pt, fill: red)]"</span></span></code></pre></div>
+<span><span class="co">#&gt; [1] "#place(center + horizon, dy: 15pt)[#square(size: 35pt, fill: red)]"</span></span>
+<span></span>
+<span><span class="fu"><a href="../reference/typst_functions.html">page</a></span><span class="op">(</span></span>
+<span>  flipped <span class="op">=</span> <span class="cn">TRUE</span>,</span>
+<span>  columns <span class="op">=</span> <span class="fl">2</span>,</span>
+<span>  fill <span class="op">=</span> <span class="va">red</span>,</span>
+<span>  <span class="fu"><a href="../reference/typst_functions.html">place</a></span><span class="op">(</span></span>
+<span>    <span class="va">top</span> <span class="op">+</span> <span class="va">left</span>,</span>
+<span>    dx <span class="op">=</span> <span class="fu"><a href="../reference/typst_units.html">pt</a></span><span class="op">(</span><span class="op">-</span><span class="fl">5</span><span class="op">)</span>,</span>
+<span>    <span class="fu"><a href="../reference/typst_functions.html">rect</a></span><span class="op">(</span></span>
+<span>      fill <span class="op">=</span> <span class="va">blue</span>,</span>
+<span>      radius <span class="op">=</span> <span class="fu"><a href="../reference/typst_units.html">pt</a></span><span class="op">(</span><span class="fl">2</span><span class="op">)</span>,</span>
+<span>      <span class="st">"yooooo"</span></span>
+<span>    <span class="op">)</span></span>
+<span>  <span class="op">)</span></span>
+<span><span class="op">)</span></span>
+<span><span class="co">#&gt; [1] "#page(flipped: true, columns: 2, fill: red)[#place(top + left, dx: -5pt)[#rect(fill: blue, radius: 2pt)[yooooo]]]"</span></span></code></pre></div>
 </div>
 </section><script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
