@@ -13,10 +13,5 @@
 #'
 #' @return A character string containing the generated Typst code.
 #'
-#' @examples
-#' heading(level = 2, numbering = "1.1", "Hello world")
-#' text(font = "Libertinus Serif", "Hello world")
-#' text("No arguments")
-#'
 #' @name typst_functions
 NULL
