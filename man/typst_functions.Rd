@@ -34,7 +34,6 @@
 \alias{scale}
 \alias{skew}
 \alias{bibliography}
-\alias{cite}
 \alias{list_}
 \alias{document}
 \alias{emph}
@@ -129,8 +128,6 @@ skew(...)
 
 bibliography(...)
 
-cite(...)
-
 list_(...)
 
 document(...)
@@ -210,15 +207,7 @@ are used as the heading content.
 But please note that this behavior might be different in some functions
 to respect true Typst syntax (such as \verb{#table()} for instance).
 }
-\note{
-Does not work yet because \code{label} type is not implemented yet.
-See https://github.com/y-sunflower/rtyp/issues/10
-}
 \examples{
-heading(level = 2, numbering = "1.1", "Hello world")
-text(font = "Libertinus Serif", "Hello world")
-text("No arguments")
-
 assert(1 < 2, message = "math broke")
 bytes("more cookies...")
 datetime(year = 2012, month = 8, day = 3)
