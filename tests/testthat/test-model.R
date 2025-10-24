@@ -1,12 +1,15 @@
 test_that("Test model functions", {
   out <- heading(level = 2, numbering = "1.1", "Hello world")
   expect_equal(out, "#heading(level: 2, numbering: \"1.1\")[Hello world]")
+  expect_true(out |> is_valid_typst())
 
   out <- heading("Just text")
   expect_equal(out, "#heading[Just text]")
+  expect_true(out |> is_valid_typst())
 
   out <- heading(level = 3, "Intro", "More text")
   expect_equal(out, "#heading(level: 3)[Intro More text]")
+  expect_true(out |> is_valid_typst())
 
   out <- bibliography(arg = 1, "more cookies...")
   expect_equal(out, "#bibliography(arg: 1, \"more cookies...\")")
@@ -16,6 +19,7 @@ test_that("Test model functions", {
 
   out <- list_("please", "more", linebreak())
   expect_equal(out, "#list([please], [more], [#linebreak()])")
+  expect_true(out |> is_valid_typst())
 
   out <- list_(center + horizon, tight = TRUE, "I", "need", "a cat")
   expect_equal(
@@ -28,15 +32,18 @@ test_that("Test model functions", {
 
   out <- emph("more cookies...")
   expect_equal(out, "#emph[more cookies...]")
+  expect_true(out |> is_valid_typst())
 
   out <- figure(arg = 1, "more cookies...")
   expect_equal(out, "#figure(arg: 1, \"more cookies...\")")
 
   out <- footnote(numbering = "*", "Cheese")
   expect_equal(out, "#footnote(numbering: \"*\")[Cheese]")
+  expect_true(out |> is_valid_typst())
 
   out <- enum(tight = FALSE, "please", "more", "cookies")
   expect_equal(out, "#enum(tight: false, [please], [more], [cookies])")
+  expect_true(out |> is_valid_typst())
 
   out <- outline(arg = 1, "more cookies...")
   expect_equal(out, "#outline(arg: 1, \"more cookies...\")")
@@ -46,6 +53,7 @@ test_that("Test model functions", {
 
   out <- parbreak()
   expect_equal(out, "#parbreak()")
+  expect_true(out |> is_valid_typst())
 
   out <- quote_(arg = 1, "more cookies...")
   expect_equal(out, "#quote(arg: 1)[more cookies...]")
@@ -58,4 +66,5 @@ test_that("Test model functions", {
 
   out <- table_(align = center, inset = pt(10), "a", "b", "c", "d")
   expect_equal(out, "#table(align: center, inset: 10pt, [a], [b], [c], [d])")
+  expect_true(out |> is_valid_typst())
 })
