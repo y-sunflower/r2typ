@@ -2,7 +2,7 @@
 #'
 #' @description
 #' Call the Typst CLI compiler and compile a file (.typ)
-#' or a character vector.
+#' or a character vector. Falls back to `quarto typst` if `typst` is unavailable.
 #'
 #' @param file_or_chr Path to a file (must end with ".typ") or a character vector.
 #' @param output Optional path for the output file (default NULL).
@@ -11,15 +11,7 @@
 #'
 #' @note
 #' It requires to have the Typst compiler installed.
-#' See https://typst.app/open-source/
-#'
-#' @examples
-#' \dontrun{
-#' typst_compile("example.typ")
-#'
-#' typst_code <- c("= Hello World", "This is a Typst document.")
-#' typst_compile(typst_code, output = "my_output.pdf")
-#' }
+#' See [typst.app/open-source/](https://typst.app/open-source/).
 #'
 #' @export
 typst_compile <- function(
@@ -47,11 +39,34 @@ typst_compile <- function(
     args <- c(args, output)
   }
 
-  suppressWarnings(res <- system2("typst", args, stdout = TRUE, stderr = TRUE))
-  if (length(res) > 0) {
-    if (attr(res, "status") != 0) {
-      stop("Typst compilation failed:\n\n", res)
-    }
+  # Detect available CLI
+  cli <- if (Sys.which("typst") != "") {
+    "typst"
+  } else if (Sys.which("quarto") != "") {
+    c("quarto", "typst")
+  } else {
+    stop(
+      "Neither 'typst' nor 'quarto typst' is available on your system. ",
+      "You can install the Typst compiler here: https://typst.app/open-source/. ",
+      "Make sure it's on your PATH too."
+    )
+  }
+
+  if (length(cli) == 1) {
+    res <- suppressWarnings(system2(cli, args, stdout = TRUE, stderr = TRUE))
+    status <- attr(res, "status")
+  } else {
+    res <- suppressWarnings(system2(
+      cli[1],
+      c(cli[2], args),
+      stdout = TRUE,
+      stderr = TRUE
+    ))
+    status <- attr(res, "status")
+  }
+
+  if (!is.null(status) && status != 0) {
+    stop("Typst compilation failed:\n\n", paste(res, collapse = "\n"))
   }
 
   invisible(if (!is.null(output)) output else target_file)

@@ -61,24 +61,29 @@ test_that("Test text functions", {
   expect_equal(out, "#strike(background: true)[smart]")
   expect_true(out |> is_valid_typst())
 
-  out <- sub_("smart", double = FALSE)
-  expect_equal(out, "#sub(double: false)[smart]")
+  out <- sub_("smart", typographic = FALSE)
+  expect_equal(out, "#sub(typographic: false)[smart]")
+  expect_true(out |> is_valid_typst())
 
-  out <- super("smart", double = FALSE)
-  expect_equal(out, "#super(double: false)[smart]")
+  out <- super("smart", typographic = FALSE)
+  expect_equal(out, "#super(typographic: false)[smart]")
+  expect_true(out |> is_valid_typst())
 
   out <- underline("under", offset = "auto")
   expect_equal(out, "#underline(offset: auto)[under]")
+  expect_true(out |> is_valid_typst())
 
   out <- raw_("print('hello world')", lang = "python", block = TRUE)
   expect_equal(
     out,
     "#raw(lang: \"python\", block: true, \"print('hello world')\")"
   )
+  expect_true(out |> is_valid_typst())
 
   out <- raw_(lang = "python", block = TRUE, "print('hello world')")
   expect_equal(
     out,
     "#raw(lang: \"python\", block: true, \"print('hello world')\")"
   )
+  expect_true(out |> is_valid_typst())
 })
