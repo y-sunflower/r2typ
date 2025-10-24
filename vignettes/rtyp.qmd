@@ -20,7 +20,8 @@ At the moment, it supports most Typst functions, types, colors, alignment, and u
 You can install it with:
 
 ```r
-remotes::install_github("y-sunflower/rtyp")
+# install.packages("pak")
+pak::pkg_install("y-sunflower/rtyp")
 ```
 
 ## Quick start

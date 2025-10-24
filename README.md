@@ -1,24 +1,34 @@
 # rtyp: An R package for generating Typst markup
 
-With `{rtyp}`, you can dynamically generate Typst markup. It supports:
+`{rtyp}` lets you generate Typst markup using R functions. It supports all of the following:
 
-- almost **all** Typst functions
-- **conversions** from R types to Typst types (`NULL` -> `none`, `TRUE` -> `true`, etc.)
-- Typst **units** with helper functions
-- Typst **colors** natively
-- Typst **alignment** natively
-- `set` rules
-- an extremely **simple syntax**
-- and **zero** dependencies
+- ✅ almost **all** Typst functions
+- ✅ **conversions** from R to Typst (`NULL` -> `none`, `TRUE` -> `true`, etc.)
+- ✅ Typst **colors**, **alignment**, **units** and **direction** natively
+- ✅ `set` rules
+- ✅ works well with **Quarto**
+- ✅ extremely **simple syntax**
+- ✅ and **zero** dependencies
 
 Check out the [documentation](https://y-sunflower.github.io/rtyp/).
 
 > [!WARNING]  
-> **Not functional yet**
+> The project is still early stage and contains a few bugs.
+
+<br>
+
+## Installation
+
+```r
+# install.packages("pak")
+pak::pkg_install("y-sunflower/rtyp")
+```
 
 <br>
 
 ## Quick start
+
+Basic usage would be:
 
 ```r
 library(rtyp)
@@ -42,17 +52,64 @@ place(top + left, dy = pt(15), square(size = pt(35), fill = red))
 > #place(top + left, dy: 15pt)[#square(size: 35pt, fill: red)]
 ```
 
-`{rtyp}` also provides functions for **writing**, **compiling** and **validating** Typst!
+Functions in `{rtyp}` accept **all positional and named arguments**! This means that you're responsible of making sure the arguments you're using are valid!
+
+But to help you in that process, there is a `is_valid_typst()` function that will return either `TRUE` or `FALSE` depending on whether your Typst can be compiled successfully.
+
+```r
+place(
+  top + left,
+  dy = pt(15),
+  square(size = pt(35), fill = red)
+) |>
+  is_valid_typst()
+> TRUE
+```
+
+`{rtyp}` converts some R types into Typst types:
+
+- `NULL` becomes `none`
+
+```r
+image("image.png", width = percent(80), alt = NULL)
+> #image(width: 80%, alt: none, \"image.png\")
+```
+
+- `TRUE`/`FALSE` become `true`/`false`
+
+```r
+list_(tight = FALSE, "hey", "you")
+> #list(tight: false, [hey], [you])
+```
+
+- `c()` vectors and unnamed `list()` (such as `list("a", "b"`) become arrays:
+
+```r
+text(`stylistic-set` = c(1, 2, 3), "10 years ago")
+> #text(stylistic-set: (1, 2, 3))[10 years ago]
+
+text(`stylistic-set` = list(1, 2, 3), "10 years ago") # equivalent
+> #text(stylistic-set: (1, 2, 3))[10 years ago]
+```
+
+- Named `list()` (such as `list(a = "hello", b = "world")`) become dictionnaries:
+
+```r
+text(costs = list(hyphenation = percent(100), runt = percent(100)))
+> #text(costs: (hyphenation: 100%, runt: 100%))
+```
+
+This is just a short overview of what you can with `{rtyp}`! For example, it also provides functions for **writing**, **compiling** and **validating** Typst directly from R, nested function calls, and much more!
 
 Learn more in the [get started vignette](https://y-sunflower.github.io/rtyp/articles/rtyp.html).
 
 <br>
 
-## Installation
+## Markup VS Code mode in Typst
 
-```r
-remotes::install_github("y-sunflower/rtyp")
-```
+`{rtyp}` generates Typst **markup**, not Typst **code**. Most people, when writing native Typst, rely primarily on **markup** mode. **Code** mode is mainly used to add logic or create functions.
+
+This is an important distinction to keep in mind. You can learn more about it [here](https://typst.app/docs/reference/syntax/).
 
 <br>
 
@@ -60,25 +117,8 @@ remotes::install_github("y-sunflower/rtyp")
 
 - ✅ Text
 - ✅ Foundations
-- ✅ Model, everything except:
-  - ❌ `cite`: https://typst.app/docs/reference/model/cite/
-  - ❌ `link`: https://typst.app/docs/reference/model/link/
-  - ❌ `numbering`: https://typst.app/docs/reference/model/numbering/
-  - ❌ `ref`: https://typst.app/docs/reference/model/ref/
-  - ❌ `terms`: https://typst.app/docs/reference/model/terms/
-- ✅ Layout
-  - ❌ `columns`: https://typst.app/docs/reference/layout/columns/
-  - ❌ `layout`: https://typst.app/docs/reference/layout/layout/
-  - ❌ `measure`: https://typst.app/docs/reference/layout/measure/
-  - ❌ `repeat`: https://typst.app/docs/reference/layout/repeat/
-  - ❌ `rotate`: https://typst.app/docs/reference/layout/rotate/
-- ✅ Visualize, everything except:
-  - ❌ `curve`: https://typst.app/docs/reference/visualize/curve/
-  - ❌ `gradient`: https://typst.app/docs/reference/visualize/gradient/
-  - ❌ `path`: https://typst.app/docs/reference/visualize/path/
-  - ❌ `stroke`: https://typst.app/docs/reference/visualize/stroke/
-  - ❌ `polygon`: https://typst.app/docs/reference/visualize/polygon/
-  - ❌ `tiling`: https://typst.app/docs/reference/visualize/tiling/
-- ❌ Math
+- ✅ Model, everything except: `cite`, `link`, `numbering`, `ref`, `terms`
+- ✅ Layout, everything except: `columns`, `layout`, `measure`, `repeat`, `rotate`
+- ✅ Visualize, everything except: `curve`, `gradient`, `path`, `stroke`, `polygon`, `tiling`
 
 > something's missing? Please [open an issue](https://github.com/y-sunflower/rtyp/issues)!
