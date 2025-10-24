@@ -3,13 +3,20 @@
 \name{typst_units}
 \alias{typst_units}
 \alias{pt}
+\alias{mm}
+\alias{cm}
 \alias{em}
 \alias{percent}
 \alias{fr}
 \alias{deg}
+\alias{rad}
 \title{Create Typst Unit Values}
 \usage{
 pt(x)
+
+mm(x)
+
+cm(x)
 
 em(x)
 
@@ -18,6 +25,8 @@ percent(x)
 fr(x)
 
 deg(x)
+
+rad(x)
 }
 \arguments{
 \item{x}{Numeric value of the unit.}
@@ -37,6 +46,7 @@ pt(12)       # Represents 12pt
 em(1.5)      # Represents 1.5em
 percent(80)  # Represents 80\%
 fr(2)        # Represents 2fr
+rad(3.14)    # Represents 3.14rad
 
 text(size = pt(12), "Hello world")
 

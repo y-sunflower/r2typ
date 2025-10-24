@@ -154,4 +154,19 @@ place(
   dy = pt(15),
   square(size = pt(35), fill = red)
 )
+
+page(
+  flipped = TRUE,
+  columns = 2,
+  fill = red,
+  place(
+    top + left,
+    dx = pt(-5),
+    rect(
+      fill = blue,
+      radius = pt(2),
+      "yooooo"
+    )
+  )
+)
 ```

@@ -16,6 +16,7 @@
 #' em(1.5)      # Represents 1.5em
 #' percent(80)  # Represents 80%
 #' fr(2)        # Represents 2fr
+#' rad(3.14)    # Represents 3.14rad
 #'
 #' text(size = pt(12), "Hello world")
 #'
@@ -25,31 +26,81 @@ NULL
 #' @rdname typst_units
 #' @export
 pt <- function(x) {
-  structure(x, class = c("typst_unit", "typst_expression"), unit = "pt")
+  structure(
+    as.character(x),
+    class = c("typst_unit", "typst_expression"),
+    unit = "pt"
+  )
+}
+
+#' @rdname typst_units
+#' @export
+mm <- function(x) {
+  structure(
+    as.character(x),
+    class = c("typst_unit", "typst_expression"),
+    unit = "mm"
+  )
+}
+
+#' @rdname typst_units
+#' @export
+cm <- function(x) {
+  structure(
+    as.character(x),
+    class = c("typst_unit", "typst_expression"),
+    unit = "cm"
+  )
 }
 
 #' @rdname typst_units
 #' @export
 em <- function(x) {
-  structure(x, class = c("typst_unit", "typst_expression"), unit = "em")
+  structure(
+    as.character(x),
+    class = c("typst_unit", "typst_expression"),
+    unit = "em"
+  )
 }
 
 #' @rdname typst_units
 #' @export
 percent <- function(x) {
-  structure(x, class = c("typst_unit", "typst_expression"), unit = "%")
+  structure(
+    as.character(x),
+    class = c("typst_unit", "typst_expression"),
+    unit = "%"
+  )
 }
 
 #' @rdname typst_units
 #' @export
 fr <- function(x) {
-  structure(x, class = c("typst_unit", "typst_expression"), unit = "fr")
+  structure(
+    as.character(x),
+    class = c("typst_unit", "typst_expression"),
+    unit = "fr"
+  )
 }
 
 #' @rdname typst_units
 #' @export
 deg <- function(x) {
-  structure(x, class = c("typst_unit", "typst_expression"), unit = "deg")
+  structure(
+    as.character(x),
+    class = c("typst_unit", "typst_expression"),
+    unit = "deg"
+  )
+}
+
+#' @rdname typst_units
+#' @export
+rad <- function(x) {
+  structure(
+    as.character(x),
+    class = c("typst_unit", "typst_expression"),
+    unit = "rad"
+  )
 }
 
 #' @export
@@ -72,6 +123,30 @@ deg <- function(x) {
     as.character(left_expression),
     as.character(right_expression),
     sep = " + "
+  )
+  structure(result, class = "typst_expression")
+}
+
+#' @export
+`-.typst_expression` <- function(left_expression, right_expression) {
+  if (inherits(left_expression, "typst_unit")) {
+    left_expression <- paste0(
+      unclass(left_expression),
+      attr(left_expression, "unit")
+    )
+  }
+
+  if (inherits(right_expression, "typst_unit")) {
+    right_expression <- paste0(
+      unclass(right_expression),
+      attr(right_expression, "unit")
+    )
+  }
+
+  result <- paste(
+    as.character(left_expression),
+    as.character(right_expression),
+    sep = " - "
   )
   structure(result, class = "typst_expression")
 }

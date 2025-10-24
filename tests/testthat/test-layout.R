@@ -1,6 +1,7 @@
 test_that("Test layout functions", {
   out <- place(top + left, dx = pt(-5), "hey")
   expect_equal(out, "#place(top + left, dx: -5pt)[hey]")
+  expect_true(out |> is_valid_typst())
 
   out <- place(
     top + left,
@@ -11,4 +12,102 @@ test_that("Test layout functions", {
     out,
     "#place(top + left, dy: 15pt)[#square(size: 35pt, fill: red)]"
   )
+  expect_true(out |> is_valid_typst())
+
+  out <- align(center + horizon, "hey")
+  expect_equal(out, "#align(center + horizon)[hey]")
+  expect_true(out |> is_valid_typst())
+
+  out <- block(
+    breakable = FALSE,
+    width = percent(50),
+    height = "auto",
+    fill = aqua,
+    "cookies"
+  )
+  expect_equal(
+    out,
+    "#block(breakable: false, width: 50%, height: auto, fill: aqua)[cookies]"
+  )
+  expect_true(out |> is_valid_typst())
+
+  out <- box(
+    clip = FALSE,
+    width = percent(50),
+    height = "auto",
+    fill = red,
+    "ice cream"
+  )
+  expect_equal(
+    out,
+    "#box(clip: false, width: 50%, height: auto, fill: red)[ice cream]"
+  )
+  expect_true(out |> is_valid_typst())
+
+  out <- colbreak(weak = TRUE)
+  expect_equal(out, "#colbreak(weak: true)")
+  expect_true(out |> is_valid_typst())
+
+  out <- stack(dir = ttb, "hey", "you", "!")
+  expect_equal(out, "#stack(dir: ttb, \"hey\", \"you\", \"!\")")
+  expect_true(out |> is_valid_typst())
+
+  out <- grid(
+    columns = 2,
+    rows = 2,
+    gutter = pt(3),
+    "hey",
+    "cookies",
+    "ice",
+    "cream"
+  )
+  expect_equal(
+    out,
+    "#grid(columns: 2, rows: 2, gutter: 3pt, \"hey\", \"cookies\", \"ice\", \"cream\")"
+  )
+  expect_true(out |> is_valid_typst())
+
+  out <- hide("hey")
+  expect_equal(out, "#hide[hey]")
+  expect_true(out |> is_valid_typst())
+
+  out <- move(dx = pt(3), dy = pt(5), "pasta")
+  expect_equal(out, "#move(dx: 3pt, dy: 5pt, \"pasta\")")
+  expect_true(out |> is_valid_typst())
+
+  out <- pad(x = percent(0) + pt(5), y = percent(10) + pt(0), image("file.svg"))
+  expect_equal(out, "#pad(x: 0% + 5pt, y: 10% + 0pt)[#image(\"file.svg\")]")
+  expect_false(out |> is_valid_typst()) # file not found error expected
+
+  out <- page(
+    flipped = TRUE,
+    columns = 2,
+    fill = red,
+    place(
+      top + left,
+      dx = pt(-5),
+      rect(fill = blue, radius = pt(2), "yooooo")
+    )
+  )
+  expect_equal(
+    out,
+    "#page(flipped: true, columns: 2, fill: red)[#place(top + left, dx: -5pt)[#rect(fill: blue, radius: 2pt)[yooooo]]]"
+  )
+  expect_true(out |> is_valid_typst())
+
+  out <- pagebreak(weak = TRUE)
+  expect_equal(out, "#pagebreak(weak: true)")
+  expect_true(out |> is_valid_typst())
+
+  out <- rect(width = percent(100) - pt(50))
+  expect_equal(out, "#rect(width: 100% - 50pt)")
+  expect_true(out |> is_valid_typst())
+
+  out <- scale(x = percent(-100), "This is mirrored")
+  expect_equal(out, "#scale(x: -100%)[This is mirrored]")
+  expect_true(out |> is_valid_typst())
+
+  out <- skew(ax = deg(-12), "This is some fake italic text.")
+  expect_equal(out, "#skew(ax: -12deg)[This is some fake italic text.]")
+  expect_true(out |> is_valid_typst())
 })

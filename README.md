@@ -66,6 +66,12 @@ remotes::install_github("y-sunflower/rtyp")
   - ❌ `numbering`: https://typst.app/docs/reference/model/numbering/
   - ❌ `ref`: https://typst.app/docs/reference/model/ref/
   - ❌ `terms`: https://typst.app/docs/reference/model/terms/
+- ✅ Layout
+  - ❌ `columns`: https://typst.app/docs/reference/layout/columns/
+  - ❌ `layout`: https://typst.app/docs/reference/layout/layout/
+  - ❌ `measure`: https://typst.app/docs/reference/layout/measure/
+  - ❌ `repeat`: https://typst.app/docs/reference/layout/repeat/
+  - ❌ `rotate`: https://typst.app/docs/reference/layout/rotate/
 - ✅ Visualize, everything except:
   - ❌ `curve`: https://typst.app/docs/reference/visualize/curve/
   - ❌ `gradient`: https://typst.app/docs/reference/visualize/gradient/
@@ -74,6 +80,5 @@ remotes::install_github("y-sunflower/rtyp")
   - ❌ `polygon`: https://typst.app/docs/reference/visualize/polygon/
   - ❌ `tiling`: https://typst.app/docs/reference/visualize/tiling/
 - ❌ Math
-- ❌ Layout
 
 > something's missing? Please [open an issue](https://github.com/y-sunflower/rtyp/issues)!

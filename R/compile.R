@@ -50,7 +50,7 @@ typst_compile <- function(
   suppressWarnings(res <- system2("typst", args, stdout = TRUE, stderr = TRUE))
   if (length(res) > 0) {
     if (attr(res, "status") != 0) {
-      stop("Typst compilated failed:\n\n", res)
+      stop("Typst compilation failed:\n\n", res)
     }
   }
 

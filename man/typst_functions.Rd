@@ -21,6 +21,16 @@
 \alias{align}
 \alias{h}
 \alias{v}
+\alias{block}
+\alias{box}
+\alias{colbreak}
+\alias{stack}
+\alias{grid}
+\alias{hide}
+\alias{pagebreak}
+\alias{move}
+\alias{pad}
+\alias{page}
 \alias{bibliography}
 \alias{cite}
 \alias{list_}
@@ -90,6 +100,26 @@ align(...)
 h(...)
 
 v(...)
+
+block(...)
+
+box(...)
+
+colbreak(...)
+
+stack(...)
+
+grid(...)
+
+hide(...)
+
+pagebreak(...)
+
+move(...)
+
+pad(...)
+
+page(...)
 
 bibliography(...)
 
@@ -201,6 +231,25 @@ place(dx = pt(50), "pasta")
 align(center + horizon, "hey")
 h(fr(3))
 v(percent(3), weak = TRUE)
+block(breakable = FALSE, width = percent(50), height = "auto", fill = aqua, "cookies")
+box(clip = FALSE, width = percent(50), height = "auto", fill = red, "ice cream")
+colbreak(weak = TRUE)
+stack(dir = ttb, "hey", "you", "!")
+grid(columns = 2, rows = 2, gutter = pt(3), "hey", "cookies", "ice", "cream")
+hide("this is hidden")
+pagebreak("this is hidden")
+move(dx = pt(3), dy = pt(5), "pasta")
+pad(x = percent(0) + pt(5), y = percent(10) + pt(0), image("file.svg"))
+page(
+ flipped = TRUE,
+ columns = 2,
+ fill = red,
+ place(
+   top + left,
+   dx = pt(-5),
+   rect(fill = blue, radius = pt(2), "yooooo")
+ )
+)
 highlight(extent = pt(3), "hey")
 lower("hey")
 raw_("print('hello world')", lang = "python", block = TRUE)
