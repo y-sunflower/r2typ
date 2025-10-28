@@ -18,6 +18,10 @@ Convert to raw Typst for Quarto.
 Using this function is required to include the
 output of \code{{rtyp}} in your document.
 }
+\note{
+\code{{rtyp}} does not have any dependency, but this function tries
+to reproduce the behavior \code{knitr::raw_block()} for Typst outputs.
+}
 \examples{
 heading(level = 2, numbering = "1.1", "Hello world") |> as_raw_typ()
 
