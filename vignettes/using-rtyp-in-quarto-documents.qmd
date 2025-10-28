@@ -41,3 +41,48 @@ heading(level = 2, numbering = "1.1", "Hello world") |>
 ![](./rtyp-with-quarto-output.png)
 
 Calling `as_raw_typ()` will convert your Typst markup to a valid format to be interpreted by Quarto and the Typst compiler.
+
+## Advanced usage
+
+`{rtyp}` becomes very interesting when using dynamic values and advanced function calls. For example, here we use a parameter and add it inside the text of a square:
+
+````md
+---
+title: "{rtyp} demo"
+format: typst
+params:
+  country: Germany
+---
+
+This is a demo of the `{rtyp}` package.
+
+```{{r}}
+library(rtyp)
+library(glue)
+```
+
+## Complex usage
+
+```{{r}}
+align(
+  center + horizon,
+  circle(
+    width = percent(40),
+    fill = aqua,
+    stroke = pt(5) + red,
+    align(
+      right,
+      text(
+        font = "Roboto",
+        size = em(1.2),
+        fill = purple,
+        glue("My favorite country is {params$country}")
+      )
+    )
+  )
+) |>
+  as_raw_typ()
+```
+````
+
+![](./rtyp-with-quarto-output-2.png)
