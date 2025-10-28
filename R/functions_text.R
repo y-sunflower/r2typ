@@ -1,13 +1,13 @@
 #' @rdname typst_function
 #' @export
 #' @examples
-#' text(fill: silver, size: pt(20), "The most basic function in Typst...")
+#' text(fill = silver, size = pt(20), "The most basic function in Typst...")
 text <- function(...) typst_function("text", ...)
 
 #' @rdname typst_set
 #' @export
 #' @examples
-#' set_text(fill: silver, size: pt(20))
+#' set_text(fill = silver, size = pt(20))
 set_text <- function(...) typst_set("text", ...)
 
 #' @rdname typst_function
