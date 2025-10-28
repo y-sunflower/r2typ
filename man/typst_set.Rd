@@ -105,7 +105,6 @@ Generates Typst set rules for a given function.
 }
 \examples{
 set_place(dx = pt(50))
-set_align(center + horizon)
 set_h(weak = TRUE)
 set_v(weak = TRUE)
 set_block(breakable = FALSE, width = percent(50), height = "auto", fill = aqua)
