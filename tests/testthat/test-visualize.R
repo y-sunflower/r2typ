@@ -31,6 +31,10 @@ test_that("Test visualize functions", {
   expect_equal(out, "#line(stroke: 2pt + blue)")
   expect_true(out |> is_valid_typst())
 
+  out <- line(stroke = pt(2) + rgb("#3d9970"))
+  expect_equal(out, "#line(stroke: 2pt + rgb(\"#3d9970\"))")
+  expect_true(out |> is_valid_typst())
+
   out <- square(size = pt(5), fill = red)
   expect_equal(out, "#square(size: 5pt, fill: red)")
   expect_true(out |> is_valid_typst())
