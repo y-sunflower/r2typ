@@ -2,8 +2,8 @@
 % Please edit documentation in R/functions.R, R/functions_foundations.R,
 %   R/functions_layout.R, R/functions_model.R, R/functions_text.R,
 %   R/functions_visualize.R
-\name{typst_functions}
-\alias{typst_functions}
+\name{typst_function}
+\alias{typst_function}
 \alias{assert}
 \alias{bytes}
 \alias{datetime}
@@ -34,6 +34,7 @@
 \alias{scale}
 \alias{skew}
 \alias{bibliography}
+\alias{set_list}
 \alias{list_}
 \alias{document}
 \alias{emph}
@@ -127,6 +128,8 @@ scale(...)
 skew(...)
 
 bibliography(...)
+
+set_list(...)
 
 list_(...)
 
@@ -248,10 +251,12 @@ page(
 scale(x = percent(-100), "This is mirrored")
 skew(ax = deg(-12), "This is some fake italic text.")
 bibliography(full = TRUE, "more cookies...")
+set_list(tight = TRUE)
 list_(tight = TRUE, "I", "need", "a cat")
 emph("please! more cookies...")
 figure(alt = "This is an alternative text", "more cookies...")
 footnote(numbering = "*", "Cheese")
+heading(level = 3, "Intro", "More text")
 enum(tight = FALSE, "I wonder", "if", "people", "will", "see", "this text")
 outline(depth = 1)
 par(

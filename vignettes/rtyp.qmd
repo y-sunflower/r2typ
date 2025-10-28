@@ -11,9 +11,9 @@ knitr:
     message: false
 ---
 
-`{rtyp}` is an R package designed to generate **markup Typst code**. You can use it as is, but it also works well with [Quarto](https://quarto.org/).
+`{rtyp}` is an R package designed to generate **Typst markup**. You can use it as is, but it also works well with [Quarto](https://quarto.org/).
 
-At the moment, it supports most Typst functions, types, colors, alignment, and units with a very simple syntax, but it is not yet fully functional.
+At the moment, it supports most Typst functions, types, colors, alignment, and units with a very simple syntax, but it is **not yet fully functional**.
 
 ## Installation
 
@@ -38,7 +38,7 @@ heading(level = 2, "A title")
 text(weight = 500, "Some text")
 ```
 
-However, in Typst, not all functions behave the same way regarding positional and named arguments. For this reason, `{rtyp}` adjusts the behavior when necessary.
+However, in Typst, not all functions behave the same way regarding positional and named arguments. For this reason, `{rtyp}` automatically adjusts the behavior when necessary.
 
 For example, the `list_()` function will put everything in a list format:
 
