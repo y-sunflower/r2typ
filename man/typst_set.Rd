@@ -192,7 +192,7 @@ set_par(
 set_quote(block = TRUE)
 set_strong(delta = 400)
 set_table(align = center, inset = pt(10))
-set_text(fill: silver, size: pt(20))
+set_text(fill = silver, size = pt(20))
 set_linebreak(justify = TRUE)
 set_overline(evade = FALSE)
 set_smallcaps(all = TRUE)
