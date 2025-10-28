@@ -8,12 +8,23 @@
 #' @return An object of class `typst_color` and `typst_expression`.
 #'
 #' @examples
+#' rgb("#ffffff")
+#' text(font = "Roboto", fill = rgb("#ffffff"), "cookies are healthy!!")
 #' red
 #' blue
 #' black
 #'
 #' @name typst_colors
 NULL
+
+#' @rdname typst_colors
+#' @export
+rgb <- function(hex) {
+  structure(
+    paste0("rgb(\"", hex, "\")"),
+    class = c("typst_color", "typst_expression")
+  )
+}
 
 #' @rdname typst_colors
 #' @export

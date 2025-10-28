@@ -3,6 +3,7 @@
 \docType{data}
 \name{typst_colors}
 \alias{typst_colors}
+\alias{rgb}
 \alias{silver}
 \alias{grey}
 \alias{black}
@@ -60,6 +61,8 @@ An object of class \code{typst_color} (inherits from \code{typst_expression}) of
 An object of class \code{typst_color} (inherits from \code{typst_expression}) of length 1.
 }
 \usage{
+rgb(hex)
+
 silver
 
 grey

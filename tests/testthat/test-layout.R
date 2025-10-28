@@ -14,6 +14,17 @@ test_that("Test layout functions", {
   )
   expect_true(out |> is_valid_typst())
 
+  out <- place(
+    top + left,
+    dy = pt(15),
+    square(size = pt(35), fill = rgb("#ffffff"))
+  )
+  expect_equal(
+    out,
+    "#place(top + left, dy: 15pt)[#square(size: 35pt, fill: rgb(\"#ffffff\"))]"
+  )
+  expect_true(out |> is_valid_typst())
+
   out <- align(center + horizon, "hey")
   expect_equal(out, "#align(center + horizon)[hey]")
   expect_true(out |> is_valid_typst())
