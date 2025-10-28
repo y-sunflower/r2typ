@@ -18,8 +18,6 @@ align <- function(...) typst_function("align", ...)
 
 #' @rdname typst_set
 #' @export
-#' @examples
-#' set_align(center + horizon)
 set_align <- function(...) typst_set("align", ...)
 
 #' @rdname typst_function

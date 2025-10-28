@@ -3,6 +3,10 @@ test_that("Test layout functions", {
   expect_equal(out, "#place(top + left, dx: -5pt)[hey]")
   expect_true(out |> is_valid_typst())
 
+  out <- set_place(dx = pt(-5))
+  expect_equal(out, "#set place(dx: -5pt)")
+  expect_true(out |> is_valid_typst())
+
   out <- place(
     top + left,
     dy = pt(15),
@@ -78,12 +82,75 @@ test_that("Test layout functions", {
   )
   expect_true(out |> is_valid_typst())
 
+  out <- set_h(weak = TRUE)
+  expect_equal(out, "#set h(weak: true)")
+  expect_true(out |> is_valid_typst())
+
+  out <- set_v(weak = TRUE)
+  expect_equal(out, "#set v(weak: true)")
+  expect_true(out |> is_valid_typst())
+
+  out <- set_block(
+    breakable = FALSE,
+    width = percent(50),
+    height = "auto",
+    fill = aqua
+  )
+  expect_equal(
+    out,
+    "#set block(breakable: false, width: 50%, height: auto, fill: aqua)"
+  )
+  expect_true(out |> is_valid_typst())
+
   out <- hide("hey")
   expect_equal(out, "#hide[hey]")
   expect_true(out |> is_valid_typst())
 
+  out <- set_box(clip = FALSE, width = percent(50), height = "auto", fill = red)
+  expect_equal(
+    out,
+    "#set box(clip: false, width: 50%, height: auto, fill: red)"
+  )
+  expect_true(out |> is_valid_typst())
+
+  out <- set_colbreak(weak = TRUE)
+  expect_equal(out, "#set colbreak(weak: true)")
+  expect_true(out |> is_valid_typst())
+
+  out <- set_stack(dir = ttb)
+  expect_equal(out, "#set stack(dir: ttb)")
+  expect_true(out |> is_valid_typst())
+
+  out <- set_grid(columns = 2, rows = 2, gutter = pt(3))
+  expect_equal(out, "#set grid(columns: 2, rows: 2, gutter: 3pt)")
+  expect_true(out |> is_valid_typst())
+
+  out <- set_pagebreak(weak = TRUE)
+  expect_equal(out, "#set pagebreak(weak: true)")
+  expect_true(out |> is_valid_typst())
+
+  out <- set_move(dx = pt(3), dy = pt(5))
+  expect_equal(out, "#set move(dx: 3pt, dy: 5pt)")
+  expect_true(out |> is_valid_typst())
+
+  out <- set_pad(x = percent(0) + pt(5), y = percent(10) + pt(0))
+  expect_equal(out, "#set pad(x: 0% + 5pt, y: 10% + 0pt)")
+  expect_true(out |> is_valid_typst())
+
+  out <- set_page(flipped = TRUE, columns = 2, fill = red)
+  expect_equal(out, "#set page(flipped: true, columns: 2, fill: red)")
+  expect_true(out |> is_valid_typst())
+
   out <- move(dx = pt(3), dy = pt(5), "pasta")
   expect_equal(out, "#move(dx: 3pt, dy: 5pt, \"pasta\")")
+  expect_true(out |> is_valid_typst())
+
+  out <- set_scale(x = percent(-100))
+  expect_equal(out, "#set scale(x: -100%)")
+  expect_true(out |> is_valid_typst())
+
+  out <- set_skew(ax = deg(-12))
+  expect_equal(out, "#set skew(ax: -12deg)")
   expect_true(out |> is_valid_typst())
 
   out <- pad(x = percent(0) + pt(5), y = percent(10) + pt(0), image("file.svg"))
