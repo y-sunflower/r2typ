@@ -7,3 +7,4 @@ sandbox/
 inst/doc
 *.sh
 *.pdf
+*.tar.gz
