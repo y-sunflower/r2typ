@@ -19,6 +19,7 @@ NULL
 
 #' @rdname typst_colors
 #' @export
+#' @param hex An hexadecimal color.
 rgb <- function(hex) {
   structure(
     paste0("rgb(\"", hex, "\")"),
