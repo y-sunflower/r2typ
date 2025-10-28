@@ -53,13 +53,15 @@ produce properly formatted Typst code."></head><body>
 
     <div class="ref-description section level2">
     <p>These functions generate special objects representing colors in Typst code.
-They can be used as arguments in functions like <code><a href="typst_functions.html">text()</a></code> or <code><a href="typst_functions.html">heading()</a></code> to
+They can be used as arguments in functions like <code><a href="typst_function.html">text()</a></code> or <code><a href="typst_function.html">heading()</a></code> to
 produce properly formatted Typst code.</p>
     </div>
 
     <div class="section level2">
     <h2 id="ref-usage">Usage<a class="anchor" aria-label="anchor" href="#ref-usage"></a></h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="va">silver</span></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">rgb</span><span class="op">(</span><span class="va">hex</span><span class="op">)</span></span>
+<span></span>
+<span><span class="va">silver</span></span>
 <span></span>
 <span><span class="va">grey</span></span>
 <span></span>
@@ -118,13 +120,27 @@ produce properly formatted Typst code.</p>
 <p>An object of class <code>typst_color</code> (inherits from <code>typst_expression</code>) of length 1.</p>
     </div>
     <div class="section level2">
+    <h2 id="arguments">Arguments<a class="anchor" aria-label="anchor" href="#arguments"></a></h2>
+
+
+<dl><dt id="arg-hex">hex<a class="anchor" aria-label="anchor" href="#arg-hex"></a></dt>
+<dd><p>An hexadecimal color.</p></dd>
+
+</dl></div>
+    <div class="section level2">
     <h2 id="value">Value<a class="anchor" aria-label="anchor" href="#value"></a></h2>
     <p>An object of class <code>typst_color</code> and <code>typst_expression</code>.</p>
     </div>
 
     <div class="section level2">
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="va">red</span></span></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="fu">rgb</span><span class="op">(</span><span class="st">"#ffffff"</span><span class="op">)</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "rgb(\"#ffffff\")"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> attr(,"class")</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "typst_color"      "typst_expression"</span>
+<span class="r-in"><span><span class="fu"><a href="typst_function.html">text</a></span><span class="op">(</span>font <span class="op">=</span> <span class="st">"Roboto"</span>, fill <span class="op">=</span> <span class="fu">rgb</span><span class="op">(</span><span class="st">"#ffffff"</span><span class="op">)</span>, <span class="st">"cookies are healthy!!"</span><span class="op">)</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "#text(font: \"Roboto\", fill: rgb(\"#ffffff\"))[cookies are healthy!!]"</span>
+<span class="r-in"><span><span class="va">red</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] "red"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> attr(,"class")</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] "typst_color"      "typst_expression"</span>

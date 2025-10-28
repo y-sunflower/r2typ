@@ -12,8 +12,8 @@
 <link href="deps/font-awesome-6.5.2/css/v4-shims.min.css" rel="stylesheet">
 <script src="deps/headroom-0.11.0/headroom.min.js"></script><script src="deps/headroom-0.11.0/jQuery.headroom.min.js"></script><script src="deps/bootstrap-toc-1.0.1/bootstrap-toc.min.js"></script><script src="deps/clipboard.js-2.0.11/clipboard.min.js"></script><script src="deps/search-1.0.0/autocomplete.jquery.min.js"></script><script src="deps/search-1.0.0/fuse.min.js"></script><script src="deps/search-1.0.0/mark.min.js"></script><!-- pkgdown --><script src="pkgdown.js"></script><link href="extra.css" rel="stylesheet">
 <meta property="og:title" content="Generate Typst from R">
-<meta name="description" content="rtyp offers R functions that are translated into valid Typst markup and provides a large number of built-in tools for working with Typst units, alignments, or colors natively, directly from R.">
-<meta property="og:description" content="rtyp offers R functions that are translated into valid Typst markup and provides a large number of built-in tools for working with Typst units, alignments, or colors natively, directly from R.">
+<meta name="description" content="rtyp offers R functions that are translated into valid Typst markup and provides a large number of built-in tools for working with Typst units, alignments, or colors.">
+<meta property="og:description" content="rtyp offers R functions that are translated into valid Typst markup and provides a large number of built-in tools for working with Typst units, alignments, or colors.">
 </head>
 <body>
     <a href="#main" class="visually-hidden-focusable">Skip to contents</a>
@@ -98,63 +98,72 @@ The project is still early stage and contains a few bugs.</p>
 <h2 id="quick-start">Quick start<a class="anchor" aria-label="anchor" href="#quick-start"></a>
 </h2>
 <p>Basic usage would be:</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" tabindex="-1"></a><span class="fu">library</span>(rtyp)</span>
-<span id="cb2-2"><a href="#cb2-2" tabindex="-1"></a></span>
-<span id="cb2-3"><a href="#cb2-3" tabindex="-1"></a><span class="fu">heading</span>(<span class="at">level =</span> <span class="dv">2</span>, <span class="at">numbering =</span> <span class="st">"1.1"</span>, <span class="st">"Hello world"</span>)</span>
-<span id="cb2-4"><a href="#cb2-4" tabindex="-1"></a><span class="sc">&gt;</span> <span class="co">#heading(level: 2, numbering: "1.1")[Hello world]</span></span>
-<span id="cb2-5"><a href="#cb2-5" tabindex="-1"></a></span>
-<span id="cb2-6"><a href="#cb2-6" tabindex="-1"></a><span class="fu">text</span>(<span class="at">size =</span> <span class="fu">pt</span>(<span class="dv">12</span>), <span class="at">baseline =</span> <span class="fu">em</span>(<span class="fl">1.2</span>), <span class="at">overhang =</span> <span class="cn">FALSE</span>, <span class="st">"hey there"</span>)</span>
-<span id="cb2-7"><a href="#cb2-7" tabindex="-1"></a><span class="sc">&gt;</span> <span class="co">#text(size: 12pt, baseline: 1.2em, overhang: false)[hey there]</span></span>
-<span id="cb2-8"><a href="#cb2-8" tabindex="-1"></a></span>
-<span id="cb2-9"><a href="#cb2-9" tabindex="-1"></a><span class="fu">image</span>(<span class="at">width =</span> <span class="fu">percent</span>(<span class="dv">80</span>), <span class="at">height =</span> <span class="st">"auto"</span>, <span class="st">"link.svg"</span>)</span>
-<span id="cb2-10"><a href="#cb2-10" tabindex="-1"></a><span class="sc">&gt;</span> <span class="co">#image(width: 80%, height: auto, "link.svg")</span></span>
-<span id="cb2-11"><a href="#cb2-11" tabindex="-1"></a></span>
-<span id="cb2-12"><a href="#cb2-12" tabindex="-1"></a><span class="fu">circle</span>(<span class="at">fill =</span> blue, <span class="st">"hey"</span>)</span>
-<span id="cb2-13"><a href="#cb2-13" tabindex="-1"></a><span class="sc">&gt;</span> <span class="co">#circle(fill: blue)[hey]</span></span>
-<span id="cb2-14"><a href="#cb2-14" tabindex="-1"></a></span>
-<span id="cb2-15"><a href="#cb2-15" tabindex="-1"></a><span class="fu">circle</span>(<span class="at">radius =</span> <span class="fu">pt</span>(<span class="dv">100</span>), <span class="st">"hey"</span>, <span class="fu">linebreak</span>(), <span class="st">"there"</span>)</span>
-<span id="cb2-16"><a href="#cb2-16" tabindex="-1"></a><span class="sc">&gt;</span> <span class="co">#circle(radius: 100pt)[hey #linebreak() there]</span></span>
-<span id="cb2-17"><a href="#cb2-17" tabindex="-1"></a></span>
-<span id="cb2-18"><a href="#cb2-18" tabindex="-1"></a><span class="fu">place</span>(top <span class="sc">+</span> left, <span class="at">dy =</span> <span class="fu">pt</span>(<span class="dv">15</span>), <span class="fu">square</span>(<span class="at">size =</span> <span class="fu">pt</span>(<span class="dv">35</span>), <span class="at">fill =</span> red))</span>
-<span id="cb2-19"><a href="#cb2-19" tabindex="-1"></a><span class="sc">&gt;</span> <span class="co">#place(top + left, dy: 15pt)[#square(size: 35pt, fill: red)]</span></span></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://y-sunflower.github.io/rtyp/">rtyp</a></span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu"><a href="reference/typst_function.html">heading</a></span><span class="op">(</span>level <span class="op">=</span> <span class="fl">2</span>, numbering <span class="op">=</span> <span class="st">"1.1"</span>, <span class="st">"Hello world"</span><span class="op">)</span></span>
+<span><span class="co">#&gt; #heading(level: 2, numbering: "1.1")[Hello world]</span></span>
+<span></span>
+<span><span class="fu"><a href="reference/typst_function.html">text</a></span><span class="op">(</span>size <span class="op">=</span> <span class="fu"><a href="reference/typst_units.html">pt</a></span><span class="op">(</span><span class="fl">12</span><span class="op">)</span>, baseline <span class="op">=</span> <span class="fu"><a href="reference/typst_units.html">em</a></span><span class="op">(</span><span class="fl">1.2</span><span class="op">)</span>, overhang <span class="op">=</span> <span class="cn">FALSE</span>, <span class="st">"hey there"</span><span class="op">)</span></span>
+<span><span class="co">#&gt; #text(size: 12pt, baseline: 1.2em, overhang: false)[hey there]</span></span>
+<span></span>
+<span><span class="fu"><a href="reference/typst_function.html">image</a></span><span class="op">(</span>width <span class="op">=</span> <span class="fu"><a href="reference/typst_units.html">percent</a></span><span class="op">(</span><span class="fl">80</span><span class="op">)</span>, height <span class="op">=</span> <span class="st">"auto"</span>, <span class="st">"link.svg"</span><span class="op">)</span></span>
+<span><span class="co">#&gt; #image(width: 80%, height: auto, "link.svg")</span></span>
+<span></span>
+<span><span class="fu"><a href="reference/typst_function.html">circle</a></span><span class="op">(</span>fill <span class="op">=</span> <span class="va">blue</span>, <span class="st">"hey"</span><span class="op">)</span></span>
+<span><span class="co">#&gt; #circle(fill: blue)[hey]</span></span>
+<span></span>
+<span><span class="fu"><a href="reference/typst_function.html">circle</a></span><span class="op">(</span>radius <span class="op">=</span> <span class="fu"><a href="reference/typst_units.html">pt</a></span><span class="op">(</span><span class="fl">100</span><span class="op">)</span>, <span class="st">"hey"</span>, <span class="fu"><a href="reference/typst_function.html">linebreak</a></span><span class="op">(</span><span class="op">)</span>, <span class="st">"there"</span><span class="op">)</span></span>
+<span><span class="co">#&gt; #circle(radius: 100pt)[hey #linebreak() there]</span></span>
+<span></span>
+<span><span class="fu"><a href="reference/typst_function.html">place</a></span><span class="op">(</span><span class="va">top</span> <span class="op">+</span> <span class="va">left</span>, dy <span class="op">=</span> <span class="fu"><a href="reference/typst_units.html">pt</a></span><span class="op">(</span><span class="fl">15</span><span class="op">)</span>, <span class="fu"><a href="reference/typst_function.html">square</a></span><span class="op">(</span>size <span class="op">=</span> <span class="fu"><a href="reference/typst_units.html">pt</a></span><span class="op">(</span><span class="fl">35</span><span class="op">)</span>, fill <span class="op">=</span> <span class="va">red</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="co">#&gt; #place(top + left, dy: 15pt)[#square(size: 35pt, fill: red)]</span></span></code></pre></div>
 <p>Functions in <a href="https://y-sunflower.github.io/rtyp/">rtyp</a> accept <strong>all positional and named arguments</strong>! This means that you’re responsible of making sure the arguments you’re using are valid!</p>
 <p>But to help you in that process, there is a <code><a href="reference/is_valid_typst.html">is_valid_typst()</a></code> function that will return either <code>TRUE</code> or <code>FALSE</code> depending on whether your Typst can be compiled successfully.</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" tabindex="-1"></a><span class="fu">place</span>(</span>
-<span id="cb3-2"><a href="#cb3-2" tabindex="-1"></a>  top <span class="sc">+</span> left,</span>
-<span id="cb3-3"><a href="#cb3-3" tabindex="-1"></a>  <span class="at">dy =</span> <span class="fu">pt</span>(<span class="dv">15</span>),</span>
-<span id="cb3-4"><a href="#cb3-4" tabindex="-1"></a>  <span class="fu">square</span>(<span class="at">size =</span> <span class="fu">pt</span>(<span class="dv">35</span>), <span class="at">fill =</span> red)</span>
-<span id="cb3-5"><a href="#cb3-5" tabindex="-1"></a>) <span class="sc">|&gt;</span></span>
-<span id="cb3-6"><a href="#cb3-6" tabindex="-1"></a>  <span class="fu">is_valid_typst</span>()</span>
-<span id="cb3-7"><a href="#cb3-7" tabindex="-1"></a><span class="sc">&gt;</span> <span class="cn">TRUE</span></span></code></pre></div>
+<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="reference/typst_function.html">place</a></span><span class="op">(</span></span>
+<span>  <span class="va">top</span> <span class="op">+</span> <span class="va">left</span>,</span>
+<span>  dy <span class="op">=</span> <span class="fu"><a href="reference/typst_units.html">pt</a></span><span class="op">(</span><span class="fl">15</span><span class="op">)</span>,</span>
+<span>  <span class="fu"><a href="reference/typst_function.html">square</a></span><span class="op">(</span>size <span class="op">=</span> <span class="fu"><a href="reference/typst_units.html">pt</a></span><span class="op">(</span><span class="fl">35</span><span class="op">)</span>, fill <span class="op">=</span> <span class="va">red</span><span class="op">)</span></span>
+<span><span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>  <span class="fu"><a href="reference/is_valid_typst.html">is_valid_typst</a></span><span class="op">(</span><span class="op">)</span></span>
+<span><span class="co">#&gt; TRUE</span></span></code></pre></div>
+<blockquote>
+<p>Also note that <strong>all examples</strong> in the <a href="https://y-sunflower.github.io/rtyp/">rtyp</a> documentation are valid Typst examples.</p>
+</blockquote>
 <p><a href="https://y-sunflower.github.io/rtyp/">rtyp</a> converts some R types into Typst types:</p>
 <ul>
 <li>
 <code>NULL</code> becomes <code>none</code>
 </li>
 </ul>
-<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" tabindex="-1"></a><span class="fu">image</span>(<span class="st">"image.png"</span>, <span class="at">width =</span> <span class="fu">percent</span>(<span class="dv">80</span>), <span class="at">alt =</span> <span class="cn">NULL</span>)</span>
-<span id="cb4-2"><a href="#cb4-2" tabindex="-1"></a><span class="sc">&gt;</span> <span class="co">#image(width: 80%, alt: none, \"image.png\")</span></span></code></pre></div>
+<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="reference/typst_function.html">image</a></span><span class="op">(</span><span class="st">"image.png"</span>, width <span class="op">=</span> <span class="fu"><a href="reference/typst_units.html">percent</a></span><span class="op">(</span><span class="fl">80</span><span class="op">)</span>, alt <span class="op">=</span> <span class="cn">NULL</span><span class="op">)</span></span>
+<span><span class="co">#&gt; #image(width: 80%, alt: none, \"image.png\")</span></span></code></pre></div>
 <ul>
 <li>
 <code>TRUE</code>/<code>FALSE</code> become <code>true</code>/<code>false</code>
 </li>
 </ul>
-<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" tabindex="-1"></a><span class="fu">list_</span>(<span class="at">tight =</span> <span class="cn">FALSE</span>, <span class="st">"hey"</span>, <span class="st">"you"</span>)</span>
-<span id="cb5-2"><a href="#cb5-2" tabindex="-1"></a><span class="sc">&gt;</span> <span class="co">#list(tight: false, [hey], [you])</span></span></code></pre></div>
+<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="reference/typst_function.html">list_</a></span><span class="op">(</span>tight <span class="op">=</span> <span class="cn">FALSE</span>, <span class="st">"hey"</span>, <span class="st">"you"</span><span class="op">)</span></span>
+<span><span class="co">#&gt; #list(tight: false, [hey], [you])</span></span></code></pre></div>
 <ul>
 <li>
 <code><a href="https://rdrr.io/r/base/c.html" class="external-link">c()</a></code> vectors and unnamed <code><a href="https://rdrr.io/r/base/list.html" class="external-link">list()</a></code> (such as <code>list("a", "b"</code>) become arrays:</li>
 </ul>
-<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" tabindex="-1"></a><span class="fu">text</span>(<span class="st">`</span><span class="at">stylistic-set</span><span class="st">`</span> <span class="ot">=</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>), <span class="st">"10 years ago"</span>)</span>
-<span id="cb6-2"><a href="#cb6-2" tabindex="-1"></a><span class="sc">&gt;</span> <span class="co">#text(stylistic-set: (1, 2, 3))[10 years ago]</span></span>
-<span id="cb6-3"><a href="#cb6-3" tabindex="-1"></a></span>
-<span id="cb6-4"><a href="#cb6-4" tabindex="-1"></a><span class="fu">text</span>(<span class="st">`</span><span class="at">stylistic-set</span><span class="st">`</span> <span class="ot">=</span> <span class="fu">list</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>), <span class="st">"10 years ago"</span>) <span class="co"># equivalent</span></span>
-<span id="cb6-5"><a href="#cb6-5" tabindex="-1"></a><span class="sc">&gt;</span> <span class="co">#text(stylistic-set: (1, 2, 3))[10 years ago]</span></span></code></pre></div>
+<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="reference/typst_function.html">text</a></span><span class="op">(</span>`stylistic-set` <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">2</span>, <span class="fl">3</span><span class="op">)</span>, <span class="st">"10 years ago"</span><span class="op">)</span></span>
+<span><span class="co">#&gt; #text(stylistic-set: (1, 2, 3))[10 years ago]</span></span>
+<span></span>
+<span><span class="fu"><a href="reference/typst_function.html">text</a></span><span class="op">(</span>`stylistic-set` <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">2</span>, <span class="fl">3</span><span class="op">)</span>, <span class="st">"10 years ago"</span><span class="op">)</span> <span class="co"># equivalent</span></span>
+<span><span class="co">#&gt; #text(stylistic-set: (1, 2, 3))[10 years ago]</span></span></code></pre></div>
 <ul>
 <li>Named <code><a href="https://rdrr.io/r/base/list.html" class="external-link">list()</a></code> (such as <code>list(a = "hello", b = "world")</code>) become dictionnaries:</li>
 </ul>
-<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" tabindex="-1"></a><span class="fu">text</span>(<span class="at">costs =</span> <span class="fu">list</span>(<span class="at">hyphenation =</span> <span class="fu">percent</span>(<span class="dv">100</span>), <span class="at">runt =</span> <span class="fu">percent</span>(<span class="dv">100</span>)))</span>
-<span id="cb7-2"><a href="#cb7-2" tabindex="-1"></a><span class="sc">&gt;</span> <span class="co">#text(costs: (hyphenation: 100%, runt: 100%))</span></span></code></pre></div>
+<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="reference/typst_function.html">text</a></span><span class="op">(</span>costs <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>hyphenation <span class="op">=</span> <span class="fu"><a href="reference/typst_units.html">percent</a></span><span class="op">(</span><span class="fl">100</span><span class="op">)</span>, runt <span class="op">=</span> <span class="fu"><a href="reference/typst_units.html">percent</a></span><span class="op">(</span><span class="fl">100</span><span class="op">)</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="co">#&gt; #text(costs: (hyphenation: 100%, runt: 100%))</span></span></code></pre></div>
 <p>This is just a short overview of what you can with <a href="https://y-sunflower.github.io/rtyp/">rtyp</a>! For example, it also provides functions for <strong>writing</strong>, <strong>compiling</strong> and <strong>validating</strong> Typst directly from R, nested function calls, and much more!</p>
 <p>Learn more in the <a href="https://y-sunflower.github.io/rtyp/articles/rtyp.html">get started vignette</a>.</p>
 <p><br></p>
@@ -163,7 +172,8 @@ The project is still early stage and contains a few bugs.</p>
 <h2 id="markup-vs-code-mode-in-typst">Markup VS Code mode in Typst<a class="anchor" aria-label="anchor" href="#markup-vs-code-mode-in-typst"></a>
 </h2>
 <p><a href="https://y-sunflower.github.io/rtyp/">rtyp</a> generates Typst <strong>markup</strong>, not Typst <strong>code</strong>. Most people, when writing native Typst, rely primarily on <strong>markup</strong> mode. <strong>Code</strong> mode is mainly used to add logic or create functions.</p>
-<p>This is an important distinction to keep in mind. You can learn more about it <a href="https://typst.app/docs/reference/syntax/" class="external-link">here</a>.</p>
+<p>This is an important distinction to keep in mind, but the core difference is that function calls start with a <code>#</code> (e.g., <code>#text("hey")</code> VS <code>text("hey")</code>).</p>
+<p>You can learn more about it <a href="https://typst.app/docs/reference/syntax/" class="external-link">here</a>.</p>
 <p><br></p>
 </div>
 <div class="section level2">
