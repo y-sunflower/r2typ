@@ -7,7 +7,7 @@
 \alias{rtl}
 \alias{ttb}
 \alias{btt}
-\title{Create Typst Direction}
+\title{Typst Direction}
 \format{
 An object of class \code{typst_direction} (inherits from \code{typst_expression}) of length 1.
 

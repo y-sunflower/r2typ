@@ -1,4 +1,4 @@
-#' @title Create a Typst set rules
+#' @title Typst set rules
 #'
 #' @description
 #' Generates Typst set rules for a given function. Named arguments are included
