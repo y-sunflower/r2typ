@@ -99,6 +99,9 @@ green
 
 lime
 }
+\arguments{
+\item{hex}{An hexadecimal color.}
+}
 \value{
 An object of class \code{typst_color} and \code{typst_expression}.
 }
@@ -108,6 +111,8 @@ They can be used as arguments in functions like \code{text()} or \code{heading()
 produce properly formatted Typst code.
 }
 \examples{
+rgb("#ffffff")
+text(font = "Roboto", fill = rgb("#ffffff"), "cookies are healthy!!")
 red
 blue
 black

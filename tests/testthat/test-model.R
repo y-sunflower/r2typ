@@ -11,8 +11,9 @@ test_that("Test model functions", {
   expect_equal(out, "#heading(level: 3)[Intro More text]")
   expect_true(out |> is_valid_typst())
 
-  out <- bibliography(arg = 1, "more cookies...")
-  expect_equal(out, "#bibliography(arg: 1, \"more cookies...\")")
+  out <- bibliography(full = TRUE, "more cookies...")
+  expect_equal(out, "#bibliography(full: true, \"more cookies...\")")
+  expect_false(out |> is_valid_typst()) # file not found error
 
   out <- list_("please", "more", "cookies...")
   expect_equal(out, "#list([please], [more], [cookies...])")
@@ -21,11 +22,12 @@ test_that("Test model functions", {
   expect_equal(out, "#list([please], [more], [#linebreak()])")
   expect_true(out |> is_valid_typst())
 
-  out <- list_(center + horizon, tight = TRUE, "I", "need", "a cat")
+  out <- list_(tight = TRUE, "I", "need", "a cat")
   expect_equal(
     out,
-    "#list(center + horizon, tight: true, [I], [need], [a cat])"
+    "#list(tight: true, [I], [need], [a cat])"
   )
+  expect_true(out |> is_valid_typst())
 
   out <- document(arg = 1, "more cookies...")
   expect_equal(out, "#document(arg: 1, \"more cookies...\")")
@@ -34,8 +36,12 @@ test_that("Test model functions", {
   expect_equal(out, "#emph[more cookies...]")
   expect_true(out |> is_valid_typst())
 
-  out <- figure(arg = 1, "more cookies...")
-  expect_equal(out, "#figure(arg: 1, \"more cookies...\")")
+  out <- figure(alt = "This is an alternative text", "more cookies...")
+  expect_equal(
+    out,
+    "#figure(alt: \"This is an alternative text\", \"more cookies...\")"
+  )
+  expect_true(out |> is_valid_typst())
 
   out <- footnote(numbering = "*", "Cheese")
   expect_equal(out, "#footnote(numbering: \"*\")[Cheese]")
@@ -45,24 +51,41 @@ test_that("Test model functions", {
   expect_equal(out, "#enum(tight: false, [please], [more], [cookies])")
   expect_true(out |> is_valid_typst())
 
-  out <- outline(arg = 1, "more cookies...")
-  expect_equal(out, "#outline(arg: 1, \"more cookies...\")")
+  out <- outline(depth = 1)
+  expect_equal(out, "#outline(depth: 1)")
+  expect_true(out |> is_valid_typst())
 
-  out <- par(arg = 1, "more cookies...")
-  expect_equal(out, "#par(arg: 1)[more cookies...]")
+  out <- par(
+    `first-line-indent` = em(1),
+    spacing = em(0.65),
+    justify = TRUE,
+    "more cookies..."
+  )
+  expect_equal(
+    out,
+    "#par(first-line-indent: 1em, spacing: 0.65em, justify: true)[more cookies...]"
+  )
+  expect_true(out |> is_valid_typst())
 
   out <- parbreak()
   expect_equal(out, "#parbreak()")
   expect_true(out |> is_valid_typst())
 
-  out <- quote_(arg = 1, "more cookies...")
-  expect_equal(out, "#quote(arg: 1)[more cookies...]")
+  out <- quote_(block = TRUE, "more cookies...")
+  expect_equal(out, "#quote(block: true)[more cookies...]")
+  expect_true(out |> is_valid_typst())
 
-  out <- strong(arg = 1, "more cookies...")
-  expect_equal(out, "#strong(arg: 1)[more cookies...]")
+  out <- strong("strong coffee")
+  expect_equal(out, "#strong[strong coffee]")
+  expect_true(out |> is_valid_typst())
 
-  out <- table_(arg = 1, "please", "more", "cookies")
-  expect_equal(out, "#table(arg: 1, [please], [more], [cookies])")
+  out <- strong(delta = 400, "more cookies...")
+  expect_equal(out, "#strong(delta: 400)[more cookies...]")
+  expect_true(out |> is_valid_typst())
+
+  out <- table_(gutter = em(0.2), "please", "more", "cookies")
+  expect_equal(out, "#table(gutter: 0.2em, [please], [more], [cookies])")
+  expect_true(out |> is_valid_typst())
 
   out <- table_(align = center, inset = pt(10), "a", "b", "c", "d")
   expect_equal(out, "#table(align: center, inset: 10pt, [a], [b], [c], [d])")

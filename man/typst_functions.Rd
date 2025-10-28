@@ -247,7 +247,31 @@ page(
 )
 scale(x = percent(-100), "This is mirrored")
 skew(ax = deg(-12), "This is some fake italic text.")
+bibliography(full = TRUE, "more cookies...")
+list_(tight = TRUE, "I", "need", "a cat")
+emph("please! more cookies...")
+figure(alt = "This is an alternative text", "more cookies...")
+footnote(numbering = "*", "Cheese")
+enum(tight = FALSE, "I wonder", "if", "people", "will", "see", "this text")
+outline(depth = 1)
+par(
+ `first-line-indent` = em(1),
+ spacing = em(0.65),
+ justify = TRUE,
+ "more cookies..."
+)
+
+parbreak()
+quote_(block = TRUE, "more cookies...")
+strong("strong coffee")
+table_(align = center, inset = pt(10), "a", "b", "c", "d")
 highlight(extent = pt(3), "hey")
 lower("hey")
 raw_("print('hello world')", lang = "python", block = TRUE)
+\dontrun{image(width = percent(80), height = "auto", "../docs/link.svg")}
+circle(fill = blue, "hey friend!")
+ellipse(fill = green, "Is pasta overrated?")
+line(length = percent(80), angle = deg(20))
+rect(fill = aqua, radius = pt(3), "yooooooo")
+square(size = pt(5), fill = olive)
 }
