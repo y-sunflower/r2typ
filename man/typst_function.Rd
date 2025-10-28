@@ -50,8 +50,6 @@
 \alias{table_}
 \alias{text}
 \alias{linebreak}
-\alias{highlight}
-\alias{lower}
 \alias{overline}
 \alias{smallcaps}
 \alias{smartquote}
@@ -61,6 +59,8 @@
 \alias{underline}
 \alias{upper}
 \alias{raw_}
+\alias{highlight}
+\alias{lower}
 \alias{image}
 \alias{circle}
 \alias{ellipse}
@@ -161,10 +161,6 @@ text(...)
 
 linebreak(...)
 
-highlight(...)
-
-lower(...)
-
 overline(...)
 
 smallcaps(...)
@@ -182,6 +178,10 @@ underline(...)
 upper(...)
 
 raw_(...)
+
+highlight(...)
+
+lower(...)
 
 image(...)
 
@@ -270,13 +270,22 @@ parbreak()
 quote_(block = TRUE, "more cookies...")
 strong("strong coffee")
 table_(align = center, inset = pt(10), "a", "b", "c", "d")
+text(fill: silver, size: pt(20), "The most basic function in Typst...")
+linebreak(justify = TRUE)
+overline(evade = FALSE, "not sure who even uses this function")
+smallcaps(all = TRUE, "Niche but useful func")
+smartquote(double = FALSE)
+strike(offset = em(2), "strike function is kind of cool tbh!")
+sub_(typographic = FALSE, "not typographic")
+super(typographic = FALSE, "not typographic")
+underline(stroke = pt(3) + olive, "what a weird underline")
+raw_("print('hello world')", lang = "python", block = TRUE)
 highlight(extent = pt(3), "hey")
 lower("hey")
-raw_("print('hello world')", lang = "python", block = TRUE)
 \dontrun{image(width = percent(80), height = "auto", "../docs/link.svg")}
-circle(fill = blue, "hey friend!")
-ellipse(fill = green, "Is pasta overrated?")
+circle(fill = blue)
+ellipse(fill = green)
 line(length = percent(80), angle = deg(20))
-rect(fill = aqua, radius = pt(3), "yooooooo")
+rect(fill = aqua, radius = pt(3))
 square(size = pt(5), fill = olive)
 }

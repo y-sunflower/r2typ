@@ -34,22 +34,22 @@ Basic usage would be:
 library(rtyp)
 
 heading(level = 2, numbering = "1.1", "Hello world")
-> #heading(level: 2, numbering: "1.1")[Hello world]
+#> #heading(level: 2, numbering: "1.1")[Hello world]
 
 text(size = pt(12), baseline = em(1.2), overhang = FALSE, "hey there")
-> #text(size: 12pt, baseline: 1.2em, overhang: false)[hey there]
+#> #text(size: 12pt, baseline: 1.2em, overhang: false)[hey there]
 
 image(width = percent(80), height = "auto", "link.svg")
-> #image(width: 80%, height: auto, "link.svg")
+#> #image(width: 80%, height: auto, "link.svg")
 
 circle(fill = blue, "hey")
-> #circle(fill: blue)[hey]
+#> #circle(fill: blue)[hey]
 
 circle(radius = pt(100), "hey", linebreak(), "there")
-> #circle(radius: 100pt)[hey #linebreak() there]
+#> #circle(radius: 100pt)[hey #linebreak() there]
 
 place(top + left, dy = pt(15), square(size = pt(35), fill = red))
-> #place(top + left, dy: 15pt)[#square(size: 35pt, fill: red)]
+#> #place(top + left, dy: 15pt)[#square(size: 35pt, fill: red)]
 ```
 
 Functions in `{rtyp}` accept **all positional and named arguments**! This means that you're responsible of making sure the arguments you're using are valid!
@@ -63,8 +63,10 @@ place(
   square(size = pt(35), fill = red)
 ) |>
   is_valid_typst()
-> TRUE
+#> TRUE
 ```
+
+> Also note that **all examples** in the `{rtyp}` documentation are valid Typst examples.
 
 `{rtyp}` converts some R types into Typst types:
 
@@ -72,31 +74,31 @@ place(
 
 ```r
 image("image.png", width = percent(80), alt = NULL)
-> #image(width: 80%, alt: none, \"image.png\")
+#> #image(width: 80%, alt: none, \"image.png\")
 ```
 
 - `TRUE`/`FALSE` become `true`/`false`
 
 ```r
 list_(tight = FALSE, "hey", "you")
-> #list(tight: false, [hey], [you])
+#> #list(tight: false, [hey], [you])
 ```
 
 - `c()` vectors and unnamed `list()` (such as `list("a", "b"`) become arrays:
 
 ```r
 text(`stylistic-set` = c(1, 2, 3), "10 years ago")
-> #text(stylistic-set: (1, 2, 3))[10 years ago]
+#> #text(stylistic-set: (1, 2, 3))[10 years ago]
 
 text(`stylistic-set` = list(1, 2, 3), "10 years ago") # equivalent
-> #text(stylistic-set: (1, 2, 3))[10 years ago]
+#> #text(stylistic-set: (1, 2, 3))[10 years ago]
 ```
 
 - Named `list()` (such as `list(a = "hello", b = "world")`) become dictionnaries:
 
 ```r
 text(costs = list(hyphenation = percent(100), runt = percent(100)))
-> #text(costs: (hyphenation: 100%, runt: 100%))
+#> #text(costs: (hyphenation: 100%, runt: 100%))
 ```
 
 This is just a short overview of what you can with `{rtyp}`! For example, it also provides functions for **writing**, **compiling** and **validating** Typst directly from R, nested function calls, and much more!
@@ -109,7 +111,9 @@ Learn more in the [get started vignette](https://y-sunflower.github.io/rtyp/arti
 
 `{rtyp}` generates Typst **markup**, not Typst **code**. Most people, when writing native Typst, rely primarily on **markup** mode. **Code** mode is mainly used to add logic or create functions.
 
-This is an important distinction to keep in mind. You can learn more about it [here](https://typst.app/docs/reference/syntax/).
+This is an important distinction to keep in mind, but the core difference is that function calls start with a `#` (e.g., `#text("hey")` VS `text("hey")`).
+
+You can learn more about it [here](https://typst.app/docs/reference/syntax/).
 
 <br>
 
