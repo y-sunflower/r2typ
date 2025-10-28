@@ -216,16 +216,19 @@ typst_function <- function(name, ...) {
 typst_set <- function(name, ...) {
   parsed_args <- parse_typst_args(name, ...)
 
-  if (parsed_args$named_str != "" && parsed_args$unnamed_str != "") {
+  if (
+    !parsed_args$named_str %in% c("", "none") &&
+      !parsed_args$unnamed_str %in% c("", "none")
+  ) {
     sprintf(
       "#set %s(%s, %s)",
       parsed_args$name,
       parsed_args$named_str,
       parsed_args$unnamed_str
     )
-  } else if (parsed_args$named_str != "") {
+  } else if (!parsed_args$named_str %in% c("", "none")) {
     sprintf("#set %s(%s)", parsed_args$name, parsed_args$named_str)
-  } else if (parsed_args$unnamed_str != "") {
+  } else if (!parsed_args$unnamed_str %in% c("", "none")) {
     sprintf("#set %s(%s)", parsed_args$name, parsed_args$unnamed_str)
   } else {
     sprintf("#set %s()", parsed_args$name)

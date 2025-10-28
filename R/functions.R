@@ -13,5 +13,5 @@
 #'
 #' @return A character string containing the generated Typst code.
 #'
-#' @name typst_functions
+#' @name typst_function
 NULL
