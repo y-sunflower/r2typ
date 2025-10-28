@@ -6,7 +6,7 @@
 \alias{set_text}
 \alias{set_image}
 \alias{set_place}
-\title{Create a Typst set rules}
+\title{Typst set rules}
 \usage{
 set_heading(...)
 

@@ -1,4 +1,4 @@
-#' @title Create Typst Direction
+#' @title Typst Direction
 #'
 #' @description
 #' These functions generate special objects representing directions in Typst.

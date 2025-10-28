@@ -10,7 +10,7 @@
 \alias{fr}
 \alias{deg}
 \alias{rad}
-\title{Create Typst Unit Values}
+\title{Typst Unit Values}
 \usage{
 pt(x)
 

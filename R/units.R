@@ -1,4 +1,4 @@
-#' @title Create Typst Unit Values
+#' @title Typst Unit Values
 #'
 #' @description
 #' These functions generate special objects representing units in Typst code.
