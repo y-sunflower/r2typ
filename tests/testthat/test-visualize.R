@@ -19,7 +19,7 @@ test_that("Test visualize functions", {
   expect_equal(out, "#image(\"../docs/link.svg\")")
   expect_false(out |> is_valid_typst()) # image not found error
 
-  out <- image(width = percent(80), height = "auto", "../docs/link.svg")
+  out <- image(width = percent(80), height = auto, "../docs/link.svg")
   expect_equal(out, "#image(width: 80%, height: auto, \"../docs/link.svg\")")
   expect_false(out |> is_valid_typst()) # image not found error
 

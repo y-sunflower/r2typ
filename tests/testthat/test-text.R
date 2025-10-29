@@ -17,7 +17,7 @@ test_that("Test text functions", {
     a = TRUE,
     c = NULL,
     d = em(17),
-    e = "auto",
+    e = auto,
     "hello"
   )
   expect_equal(
@@ -73,7 +73,7 @@ test_that("Test text functions", {
   expect_equal(out, "#super(typographic: false)[smart]")
   expect_true(out |> is_valid_typst(error_on_failure = TRUE))
 
-  out <- underline("under", offset = "auto")
+  out <- underline("under", offset = auto)
   expect_equal(out, "#underline(offset: auto)[under]")
   expect_true(out |> is_valid_typst(error_on_failure = TRUE))
 

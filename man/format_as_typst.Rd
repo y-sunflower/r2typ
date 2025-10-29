@@ -27,6 +27,5 @@ format_as_typst(pt(20))
 format_as_typst(TRUE)
 format_as_typst(FALSE)
 format_as_typst(NULL)
-format_as_typst("auto")
 
 }

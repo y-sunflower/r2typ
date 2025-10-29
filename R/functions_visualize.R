@@ -1,7 +1,7 @@
 #' @rdname typst_function
 #' @export
 #' @examples
-#' \dontrun{image(width = percent(80), height = "auto", "../docs/link.svg")}
+#' \dontrun{image(width = percent(80), height = auto, "../docs/link.svg")}
 image <- function(...) typst_function("image", ...)
 
 #' @rdname typst_function

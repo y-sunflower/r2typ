@@ -18,7 +18,6 @@
 #' format_as_typst(TRUE)
 #' format_as_typst(FALSE)
 #' format_as_typst(NULL)
-#' format_as_typst("auto")
 #'
 #' @export
 format_as_typst <- function(x, named) {
@@ -67,9 +66,6 @@ format_as_typst <- function(x, named) {
   } else if (is.null(x)) {
     # NULL --> none
     "none"
-  } else if (is.character(x) && length(x) == 1 && x == "auto") {
-    # "auto" --> auto
-    "auto"
   } else if (is.character(x) && length(x) == 1 && named) {
     # quoted arguments
     paste0("\"", x, "\"")

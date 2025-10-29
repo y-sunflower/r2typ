@@ -47,25 +47,25 @@ set_v <- function(...) typst_set("v", ...)
 #' @rdname typst_function
 #' @export
 #' @examples
-#' block(breakable = FALSE, width = percent(50), height = "auto", fill = aqua, "cookies")
+#' block(breakable = FALSE, width = percent(50), height = auto, fill = aqua, "cookies")
 block <- function(...) typst_function("block", ...)
 
 #' @rdname typst_set
 #' @export
 #' @examples
-#' set_block(breakable = FALSE, width = percent(50), height = "auto", fill = aqua)
+#' set_block(breakable = FALSE, width = percent(50), height = auto, fill = aqua)
 set_block <- function(...) typst_set("block", ...)
 
 #' @rdname typst_function
 #' @export
 #' @examples
-#' box(clip = FALSE, width = percent(50), height = "auto", fill = red, "ice cream")
+#' box(clip = FALSE, width = percent(50), height = auto, fill = red, "ice cream")
 box <- function(...) typst_function("box", ...)
 
 #' @rdname typst_set
 #' @export
 #' @examples
-#' set_box(clip = FALSE, width = percent(50), height = "auto", fill = red)
+#' set_box(clip = FALSE, width = percent(50), height = auto, fill = red)
 set_box <- function(...) typst_set("box", ...)
 
 #' @rdname typst_function

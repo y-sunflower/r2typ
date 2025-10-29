@@ -36,7 +36,7 @@ test_that("Test layout functions", {
   out <- block(
     breakable = FALSE,
     width = percent(50),
-    height = "auto",
+    height = auto,
     fill = aqua,
     "cookies"
   )
@@ -49,7 +49,7 @@ test_that("Test layout functions", {
   out <- box(
     clip = FALSE,
     width = percent(50),
-    height = "auto",
+    height = auto,
     fill = red,
     "ice cream"
   )
@@ -93,7 +93,7 @@ test_that("Test layout functions", {
   out <- set_block(
     breakable = FALSE,
     width = percent(50),
-    height = "auto",
+    height = auto,
     fill = aqua
   )
   expect_equal(
@@ -106,7 +106,7 @@ test_that("Test layout functions", {
   expect_equal(out, "#hide[hey]")
   expect_true(out |> is_valid_typst(error_on_failure = TRUE))
 
-  out <- set_box(clip = FALSE, width = percent(50), height = "auto", fill = red)
+  out <- set_box(clip = FALSE, width = percent(50), height = auto, fill = red)
   expect_equal(
     out,
     "#set box(clip: false, width: 50%, height: auto, fill: red)"
