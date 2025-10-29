@@ -1,4 +1,4 @@
-url: https://y-sunflower.github.io/rtyp/
+url: https://y-sunflower.github.io/r2typ/
 home:
   title: Generate Typst from R
 
@@ -9,7 +9,7 @@ authors:
 template:
   bootstrap: 5
   bootswatch: journal
-  github: https://github.com/y-sunflower/rtyp
+  github: https://github.com/y-sunflower/r2typ
   light-switch: true
 
 pkgdown:
@@ -19,6 +19,6 @@ articles:
   - title: Guides
     navbar: Guides
     contents:
-      - using-rtyp-in-quarto-documents
+      - using-r2typ-in-quarto-documents
       - writing-and-compiling-typst
       - typst-validation

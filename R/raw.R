@@ -3,7 +3,7 @@
 #' @description
 #' Convert to raw Typst for Quarto.
 #' Using this function is required to include the
-#' output of `{rtyp}` in your document.
+#' output of `{r2typ}` in your document.
 #'
 #' @param x A character vector to interpret as raw typst.
 #'
@@ -11,7 +11,7 @@
 #' for Quarto document.
 #'
 #' @note
-#' `{rtyp}` does not have any dependency, but this function tries
+#' `{r2typ}` does not have any dependency, but this function tries
 #' to reproduce the behavior `knitr::raw_block()` for Typst outputs.
 #'
 #' @examples

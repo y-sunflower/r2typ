@@ -7,6 +7,6 @@
 # * https://testthat.r-lib.org/articles/special-files.html
 
 library(testthat)
-library(rtyp)
+library(r2typ)
 
-test_check("rtyp")
+test_check("r2typ")

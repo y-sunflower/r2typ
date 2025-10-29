@@ -1,15 +1,15 @@
-Package: rtyp
+Package: r2typ
 Title: An R Package For Generating Typst Markup
 Version: 0.0.4
 Authors@R: 
     person("Joseph", "Barbier", , "joseph.barbierdarnal@gmail.com", role = c("aut", "cre"))
-Description: rtyp offers R functions that are translated into valid Typst markup and provides a large number of built-in tools for working with Typst units, alignments, or colors.
+Description: r2typ offers R functions that are translated into valid Typst markup and provides a large number of built-in tools for working with Typst units, alignments, or colors.
 License: file LICENSE
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.3.2
-URL: https://y-sunflower.github.io/rtyp/
-BugReports: https://github.com/y-sunflower/rtyp/issues
+URL: https://y-sunflower.github.io/r2typ/
+BugReports: https://github.com/y-sunflower/r2typ/issues
 Depends:
     R (>= 4.1)
 Suggests: 
