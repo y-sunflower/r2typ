@@ -1,4 +1,4 @@
-# r2typ: An R package for generating Typst markup
+# r2typ (R to Typst): An R package for generating Typst markup
 
 `{r2typ}` lets you generate Typst markup using R functions. It supports all of the following:
 
