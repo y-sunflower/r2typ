@@ -181,7 +181,7 @@ test_that("Test layout functions", {
   expect_equal(out, "#rect(width: 100% - 50pt)")
   expect_true(out |> is_valid_typst(error_on_failure = TRUE))
 
-  out <- scale(x = percent(-100), "This is mirrored")
+  out <- scale_(x = percent(-100), "This is mirrored")
   expect_equal(out, "#scale(x: -100%)[This is mirrored]")
   expect_true(out |> is_valid_typst(error_on_failure = TRUE))
 

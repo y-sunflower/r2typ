@@ -178,8 +178,8 @@ set_page <- function(...) typst_set("page", ...)
 #' @rdname typst_function
 #' @export
 #' @examples
-#' scale(x = percent(-100), "This is mirrored")
-scale <- function(...) typst_function("scale", ...)
+#' scale_(x = percent(-100), "This is mirrored")
+scale_ <- function(...) typst_function("scale", ...)
 
 #' @rdname typst_set
 #' @export
