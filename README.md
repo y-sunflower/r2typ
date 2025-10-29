@@ -101,7 +101,31 @@ text(costs = list(hyphenation = percent(100), runt = percent(100)))
 #> #text(costs: (hyphenation: 100%, runt: 100%))
 ```
 
-This is just a short overview of what you can with `{r2typ}`! For example, it also provides functions for **writing**, **compiling** and **validating** Typst directly from R, nested function calls, and much more!
+A complete example that generates a PDF using R only:
+
+```r
+c(
+  set_text(purple),
+  set_circle(width = percent(50)),
+  align(
+    center + horizon,
+    circle(
+      fill = aqua,
+      stroke = pt(5) + red,
+      align(
+        right,
+        text(
+          font = "Roboto",
+          size = em(1.2),
+          "My favorite food is cookies!"
+        )
+      )
+    )
+  )
+) |>
+  typst_write() |>
+  typst_compile(output = "here.pdf")
+```
 
 Learn more in the [get started vignette](https://y-sunflower.github.io/r2typ/articles/r2typ.html).
 
