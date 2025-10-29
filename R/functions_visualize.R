@@ -4,6 +4,12 @@
 #' \dontrun{image(width = percent(80), height = auto, "../docs/link.svg")}
 image <- function(...) typst_function("image", ...)
 
+#' @rdname typst_set
+#' @export
+#' @examples
+#' image(width = percent(80), height = auto)
+set_image <- function(...) typst_set("image", ...)
+
 #' @rdname typst_function
 #' @export
 #' @examples

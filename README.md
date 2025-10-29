@@ -39,7 +39,7 @@ heading(level = 2, numbering = "1.1", "Hello world")
 text(size = pt(12), baseline = em(1.2), overhang = FALSE, "hey there")
 #> #text(size: 12pt, baseline: 1.2em, overhang: false)[hey there]
 
-image(width = percent(80), height = "auto", "link.svg")
+image(width = percent(80), height = auto, "link.svg")
 #> #image(width: 80%, height: auto, "link.svg")
 
 circle(fill = blue, "hey")
