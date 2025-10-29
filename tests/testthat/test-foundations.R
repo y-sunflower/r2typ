@@ -1,4 +1,8 @@
 test_that("Test foundations functions", {
+  out <- assert(1 > 2, message = "math broke")
+  expect_equal(out, "#assert(false, message: \"math broke\")")
+  expect_error(out |> is_valid_typst(error_on_failure = TRUE))
+
   out <- bytes(c(1, 2, 3))
   expect_equal(out, "#bytes((1, 2, 3))")
   expect_true(out |> is_valid_typst(error_on_failure = TRUE))

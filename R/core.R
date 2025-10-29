@@ -100,20 +100,24 @@ parse_typst_args <- function(name, ...) {
   named_args <- args[nzchar(named)]
   unnamed_args <- args[!nzchar(named)]
 
-  # Separate typst_alignment from other unnamed args
-  is_alignment <- sapply(unnamed_args, inherits, "typst_alignment")
-  if (is.list(is_alignment) && length(is_alignment) == 0) {
-    is_alignment <- FALSE
+  # Separate "typst_expression" (more or less) from other unnamed args
+  is_expression <- sapply(
+    unnamed_args,
+    inherits,
+    expression_like
+  )
+  if (is.list(is_expression) && length(is_expression) == 0) {
+    is_expression <- FALSE
   }
-  alignment_args <- unnamed_args[is_alignment]
-  other_unnamed_args <- unnamed_args[!is_alignment]
+  expression_args <- unnamed_args[is_expression]
+  other_unnamed_args <- unnamed_args[!is_expression]
 
   format_named <- function(x) format_as_typst(x, named = TRUE)
   format_unnamed <- function(x) format_as_typst(x, named = FALSE)
 
-  # Format alignment as positional args (no commas between them)
-  alignment_str <- if (length(alignment_args)) {
-    paste(sapply(alignment_args, format_unnamed), collapse = " ")
+  # Format expression as positional args (no commas between them)
+  expression_str <- if (length(expression_args)) {
+    paste(sapply(expression_args, format_unnamed), collapse = " ")
   } else {
     ""
   }
@@ -136,7 +140,7 @@ parse_typst_args <- function(name, ...) {
     name = name,
     named_str = named_str,
     unnamed_str = unnamed_str,
-    alignment_str = alignment_str
+    expression_str = expression_str
   )
 }
 
@@ -173,7 +177,7 @@ typst_function <- function(name, ...) {
     }
     unnamed_args <- unnamed[!nzchar(named)]
     unnamed_args <- unnamed_args[
-      !sapply(unnamed_args, inherits, "typst_alignment")
+      !sapply(unnamed_args, inherits, expression_like)
     ]
     unnamed_values <- unnamed_args
     unnamed_str <- paste(
@@ -187,13 +191,13 @@ typst_function <- function(name, ...) {
       collapse = ", "
     )
 
-    parts <- c(parsed_args$alignment_str, parsed_args$named_str, unnamed_str)
+    parts <- c(parsed_args$expression_str, parsed_args$named_str, unnamed_str)
     parts <- parts[parts != ""]
 
     sprintf("#%s(%s)", name, paste(parts, collapse = ", "))
   } else {
-    # normal typst functions - alignments go as positional args
-    positional_parts <- c(parsed_args$alignment_str, parsed_args$named_str)
+    # normal typst functions - expressions go as positional args
+    positional_parts <- c(parsed_args$expression_str, parsed_args$named_str)
     positional_parts <- positional_parts[positional_parts != ""]
 
     if (length(positional_parts) > 0) {
@@ -232,21 +236,27 @@ typst_function <- function(name, ...) {
 typst_set <- function(name, ...) {
   parsed_args <- parse_typst_args(name, ...)
 
-  if (
-    !parsed_args$named_str %in% c("", "none") &&
-      !parsed_args$unnamed_str %in% c("", "none")
-  ) {
+  # combine expression args + unnamed args, ignoring empty/"none" placeholders
+  pos_parts <- c(parsed_args$expression_str, parsed_args$unnamed_str)
+  pos_parts <- pos_parts[!pos_parts %in% c("", "none")]
+
+  named_part <- parsed_args$named_str
+  if (named_part %in% c("", "none")) {
+    named_part <- ""
+  }
+
+  if (length(pos_parts) > 0 && named_part != "") {
     sprintf(
       "#set %s(%s, %s)",
-      parsed_args$name,
-      parsed_args$named_str,
-      parsed_args$unnamed_str
+      name,
+      named_part,
+      paste(pos_parts, collapse = ", ")
     )
-  } else if (!parsed_args$named_str %in% c("", "none")) {
-    sprintf("#set %s(%s)", parsed_args$name, parsed_args$named_str)
-  } else if (!parsed_args$unnamed_str %in% c("", "none")) {
-    sprintf("#set %s(%s)", parsed_args$name, parsed_args$unnamed_str)
+  } else if (named_part != "") {
+    sprintf("#set %s(%s)", name, named_part)
+  } else if (length(pos_parts) > 0) {
+    sprintf("#set %s(%s)", name, paste(pos_parts, collapse = ", "))
   } else {
-    sprintf("#set %s()", parsed_args$name)
+    sprintf("#set %s()", name)
   }
 }

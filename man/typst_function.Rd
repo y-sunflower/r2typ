@@ -33,6 +33,7 @@
 \alias{page}
 \alias{scale_}
 \alias{skew}
+\alias{rotate}
 \alias{bibliography}
 \alias{set_list}
 \alias{list_}
@@ -128,6 +129,8 @@ page(...)
 scale_(...)
 
 skew(...)
+
+rotate(...)
 
 bibliography(...)
 
@@ -259,6 +262,7 @@ page(
 )
 scale_(x = percent(-100), "This is mirrored")
 skew(ax = deg(-12), "This is some fake italic text.")
+rotate(deg(-12), "What a weird feature!")
 bibliography(full = TRUE, "more cookies...")
 set_list(tight = TRUE)
 list_(tight = TRUE, "I", "need", "a cat")

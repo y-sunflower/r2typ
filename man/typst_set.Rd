@@ -19,6 +19,7 @@
 \alias{set_page}
 \alias{set_scale}
 \alias{set_skew}
+\alias{set_rotate}
 \alias{set_bibliography}
 \alias{set_document}
 \alias{set_emph}
@@ -45,6 +46,7 @@
 \alias{set_raw}
 \alias{set_highlight}
 \alias{set_lower}
+\alias{set_image}
 \alias{set_circle}
 \alias{set_ellipse}
 \alias{set_line}
@@ -85,6 +87,8 @@ set_page(...)
 set_scale(...)
 
 set_skew(...)
+
+set_rotate(...)
 
 set_bibliography(...)
 
@@ -138,6 +142,8 @@ set_highlight(...)
 
 set_lower(...)
 
+set_image(...)
+
 set_circle(...)
 
 set_ellipse(...)
@@ -185,6 +191,7 @@ set_page(
 )
 set_scale(x = percent(-100))
 set_skew(ax = deg(-12))
+set_rotate(deg(-12))
 set_bibliography(full = TRUE)
 set_document(author = "Me, myself & I")
 set_emph()
@@ -212,6 +219,7 @@ set_super(typographic = FALSE)
 set_underline(stroke = pt(3) + olive)
 set_raw(lang = "python", block = TRUE)
 set_highlight(extent = pt(3))
+image(width = percent(80), height = auto)
 set_circle(fill = blue)
 set_ellipse(fill = green)
 set_line(length = percent(80), angle = deg(20))

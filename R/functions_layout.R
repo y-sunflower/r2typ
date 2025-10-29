@@ -198,3 +198,15 @@ skew <- function(...) typst_function("skew", ...)
 #' @examples
 #' set_skew(ax = deg(-12))
 set_skew <- function(...) typst_set("skew", ...)
+
+#' @rdname typst_function
+#' @export
+#' @examples
+#' rotate(deg(-12), "What a weird feature!")
+rotate <- function(...) typst_function("rotate", ...)
+
+#' @rdname typst_set
+#' @export
+#' @examples
+#' set_rotate(deg(-12))
+set_rotate <- function(...) typst_set("rotate", ...)

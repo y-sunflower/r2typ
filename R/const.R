@@ -2,6 +2,16 @@
 #'
 #' @rdname const
 #'
+#' @title Expression like classes/
+#'
+#' @description
+#' Class names of expressions like.
+expression_like <- c("typst_alignment", "typst_color", "typst_unit", "logical")
+
+#' @keywords internal
+#'
+#' @rdname const
+#'
 #' @title Functions with brackets.
 #'
 #' @description

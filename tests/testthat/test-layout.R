@@ -188,4 +188,16 @@ test_that("Test layout functions", {
   out <- skew(ax = deg(-12), "This is some fake italic text.")
   expect_equal(out, "#skew(ax: -12deg)[This is some fake italic text.]")
   expect_true(out |> is_valid_typst(error_on_failure = TRUE))
+
+  out <- h(fr(3))
+  expect_equal(out, "#h(3fr)")
+  expect_true(out |> is_valid_typst(error_on_failure = TRUE))
+
+  out <- rotate(deg(-12), "What a weird feature!")
+  expect_equal(out, "#rotate(-12deg)[What a weird feature!]")
+  expect_true(out |> is_valid_typst(error_on_failure = TRUE))
+
+  out <- set_rotate(deg(-12))
+  expect_equal(out, "#set rotate(-12deg)")
+  expect_true(out |> is_valid_typst(error_on_failure = TRUE))
 })
