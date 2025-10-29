@@ -132,6 +132,8 @@ to respect true Typst syntax (such as <code>#table()</code> for instance).</p>
 <span></span>
 <span><span class="fu">skew</span><span class="op">(</span><span class="va">...</span><span class="op">)</span></span>
 <span></span>
+<span><span class="fu">rotate</span><span class="op">(</span><span class="va">...</span><span class="op">)</span></span>
+<span></span>
 <span><span class="fu">bibliography</span><span class="op">(</span><span class="va">...</span><span class="op">)</span></span>
 <span></span>
 <span><span class="fu">set_list</span><span class="op">(</span><span class="va">...</span><span class="op">)</span></span>
@@ -224,7 +226,7 @@ while unnamed arguments form the body inside <code>[...]</code>.</p></dd>
     <div class="section level2">
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="fu">assert</span><span class="op">(</span><span class="fl">1</span> <span class="op">&lt;</span> <span class="fl">2</span>, message <span class="op">=</span> <span class="st">"math broke"</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "#assert(message: \"math broke\", TRUE)"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "#assert(true, message: \"math broke\")"</span>
 <span class="r-in"><span><span class="fu">bytes</span><span class="op">(</span><span class="st">"more cookies..."</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] "#bytes(\"more cookies...\")"</span>
 <span class="r-in"><span><span class="fu">datetime</span><span class="op">(</span>year <span class="op">=</span> <span class="fl">2012</span>, month <span class="op">=</span> <span class="fl">8</span>, day <span class="op">=</span> <span class="fl">3</span><span class="op">)</span></span></span>
@@ -256,9 +258,9 @@ while unnamed arguments form the body inside <code>[...]</code>.</p></dd>
 <span class="r-in"><span><span class="fu">align</span><span class="op">(</span><span class="va">center</span> <span class="op">+</span> <span class="va">horizon</span>, <span class="st">"hey"</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] "#align(center + horizon)[hey]"</span>
 <span class="r-in"><span><span class="fu">h</span><span class="op">(</span><span class="fu"><a href="typst_units.html">fr</a></span><span class="op">(</span><span class="fl">3</span><span class="op">)</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "#h(\"3\")"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "#h(3fr)"</span>
 <span class="r-in"><span><span class="fu">v</span><span class="op">(</span><span class="fu"><a href="typst_units.html">percent</a></span><span class="op">(</span><span class="fl">3</span><span class="op">)</span>, weak <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "#v(weak: true, \"3\")"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "#v(3%, weak: true)"</span>
 <span class="r-in"><span><span class="fu">block</span><span class="op">(</span>breakable <span class="op">=</span> <span class="cn">FALSE</span>, width <span class="op">=</span> <span class="fu"><a href="typst_units.html">percent</a></span><span class="op">(</span><span class="fl">50</span><span class="op">)</span>, height <span class="op">=</span> <span class="va">auto</span>, fill <span class="op">=</span> <span class="va">aqua</span>, <span class="st">"cookies"</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] "#block(breakable: false, width: 50%, height: auto, fill: aqua)[cookies]"</span>
 <span class="r-in"><span><span class="fu">box</span><span class="op">(</span>clip <span class="op">=</span> <span class="cn">FALSE</span>, width <span class="op">=</span> <span class="fu"><a href="typst_units.html">percent</a></span><span class="op">(</span><span class="fl">50</span><span class="op">)</span>, height <span class="op">=</span> <span class="va">auto</span>, fill <span class="op">=</span> <span class="va">red</span>, <span class="st">"ice cream"</span><span class="op">)</span></span></span>
@@ -292,6 +294,8 @@ while unnamed arguments form the body inside <code>[...]</code>.</p></dd>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] "#scale(x: -100%)[This is mirrored]"</span>
 <span class="r-in"><span><span class="fu">skew</span><span class="op">(</span>ax <span class="op">=</span> <span class="fu"><a href="typst_units.html">deg</a></span><span class="op">(</span><span class="op">-</span><span class="fl">12</span><span class="op">)</span>, <span class="st">"This is some fake italic text."</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] "#skew(ax: -12deg)[This is some fake italic text.]"</span>
+<span class="r-in"><span><span class="fu">rotate</span><span class="op">(</span><span class="fu"><a href="typst_units.html">deg</a></span><span class="op">(</span><span class="op">-</span><span class="fl">12</span><span class="op">)</span>, <span class="st">"What a weird feature!"</span><span class="op">)</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "#rotate(-12deg)[What a weird feature!]"</span>
 <span class="r-in"><span><span class="fu">bibliography</span><span class="op">(</span>full <span class="op">=</span> <span class="cn">TRUE</span>, <span class="st">"more cookies..."</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] "#bibliography(full: true, \"more cookies...\")"</span>
 <span class="r-in"><span><span class="fu">set_list</span><span class="op">(</span>tight <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></span>

@@ -94,6 +94,8 @@ Arguments are parsed and then translated to Typst.</p>
 <span></span>
 <span><span class="fu">set_skew</span><span class="op">(</span><span class="va">...</span><span class="op">)</span></span>
 <span></span>
+<span><span class="fu">set_rotate</span><span class="op">(</span><span class="va">...</span><span class="op">)</span></span>
+<span></span>
 <span><span class="fu">set_bibliography</span><span class="op">(</span><span class="va">...</span><span class="op">)</span></span>
 <span></span>
 <span><span class="fu">set_document</span><span class="op">(</span><span class="va">...</span><span class="op">)</span></span>
@@ -145,6 +147,8 @@ Arguments are parsed and then translated to Typst.</p>
 <span><span class="fu">set_highlight</span><span class="op">(</span><span class="va">...</span><span class="op">)</span></span>
 <span></span>
 <span><span class="fu">set_lower</span><span class="op">(</span><span class="va">...</span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu">set_image</span><span class="op">(</span><span class="va">...</span><span class="op">)</span></span>
 <span></span>
 <span><span class="fu">set_circle</span><span class="op">(</span><span class="va">...</span><span class="op">)</span></span>
 <span></span>
@@ -211,6 +215,8 @@ while unnamed arguments form the body inside <code>[...]</code>.</p></dd>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] "#set scale(x: -100%)"</span>
 <span class="r-in"><span><span class="fu">set_skew</span><span class="op">(</span>ax <span class="op">=</span> <span class="fu"><a href="typst_units.html">deg</a></span><span class="op">(</span><span class="op">-</span><span class="fl">12</span><span class="op">)</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] "#set skew(ax: -12deg)"</span>
+<span class="r-in"><span><span class="fu">set_rotate</span><span class="op">(</span><span class="fu"><a href="typst_units.html">deg</a></span><span class="op">(</span><span class="op">-</span><span class="fl">12</span><span class="op">)</span><span class="op">)</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "#set rotate(-12deg)"</span>
 <span class="r-in"><span><span class="fu">set_bibliography</span><span class="op">(</span>full <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] "#set bibliography(full: true)"</span>
 <span class="r-in"><span><span class="fu">set_document</span><span class="op">(</span>author <span class="op">=</span> <span class="st">"Me, myself &amp; I"</span><span class="op">)</span></span></span>
@@ -261,6 +267,8 @@ while unnamed arguments form the body inside <code>[...]</code>.</p></dd>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] "#set raw(lang: \"python\", block: true)"</span>
 <span class="r-in"><span><span class="fu">set_highlight</span><span class="op">(</span>extent <span class="op">=</span> <span class="fu"><a href="typst_units.html">pt</a></span><span class="op">(</span><span class="fl">3</span><span class="op">)</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] "#set highlight(extent: 3pt)"</span>
+<span class="r-in"><span><span class="fu"><a href="typst_function.html">image</a></span><span class="op">(</span>width <span class="op">=</span> <span class="fu"><a href="typst_units.html">percent</a></span><span class="op">(</span><span class="fl">80</span><span class="op">)</span>, height <span class="op">=</span> <span class="va">auto</span><span class="op">)</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "#image(width: 80%, height: auto)"</span>
 <span class="r-in"><span><span class="fu">set_circle</span><span class="op">(</span>fill <span class="op">=</span> <span class="va">blue</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] "#set circle(fill: blue)"</span>
 <span class="r-in"><span><span class="fu">set_ellipse</span><span class="op">(</span>fill <span class="op">=</span> <span class="va">green</span><span class="op">)</span></span></span>
