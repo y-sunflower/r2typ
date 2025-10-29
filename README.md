@@ -1,9 +1,3 @@
-<!-- badges: start -->
-
-[![Codecov test coverage](https://codecov.io/gh/y-sunflower/rtyp/graph/badge.svg)](https://app.codecov.io/gh/y-sunflower/rtyp)
-
-<!-- badges: end -->
-
 # r2typ (R to Typst): An R package for generating Typst markup
 
 `{r2typ}` lets you generate Typst markup using R functions. It supports all of the following:
