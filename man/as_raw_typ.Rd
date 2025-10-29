@@ -16,10 +16,10 @@ for Quarto document.
 \description{
 Convert to raw Typst for Quarto.
 Using this function is required to include the
-output of \code{{rtyp}} in your document.
+output of \code{{r2typ}} in your document.
 }
 \note{
-\code{{rtyp}} does not have any dependency, but this function tries
+\code{{r2typ}} does not have any dependency, but this function tries
 to reproduce the behavior \code{knitr::raw_block()} for Typst outputs.
 }
 \examples{

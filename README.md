@@ -1,6 +1,6 @@
-# rtyp: An R package for generating Typst markup
+# r2typ: An R package for generating Typst markup
 
-`{rtyp}` lets you generate Typst markup using R functions. It supports all of the following:
+`{r2typ}` lets you generate Typst markup using R functions. It supports all of the following:
 
 - ✅ almost **all** Typst functions
 - ✅ **conversions** from R to Typst (`NULL` -> `none`, `TRUE` -> `true`, etc.)
@@ -10,7 +10,7 @@
 - ✅ extremely **simple syntax**
 - ✅ and **zero** dependencies
 
-Check out the [documentation](https://y-sunflower.github.io/rtyp/).
+Check out the [documentation](https://y-sunflower.github.io/r2typ/).
 
 > [!WARNING]  
 > The project is still early stage and contains a few bugs.
@@ -21,7 +21,7 @@ Check out the [documentation](https://y-sunflower.github.io/rtyp/).
 
 ```r
 # install.packages("pak")
-pak::pkg_install("y-sunflower/rtyp")
+pak::pkg_install("y-sunflower/r2typ")
 ```
 
 <br>
@@ -31,7 +31,7 @@ pak::pkg_install("y-sunflower/rtyp")
 Basic usage would be:
 
 ```r
-library(rtyp)
+library(r2typ)
 
 heading(level = 2, numbering = "1.1", "Hello world")
 #> #heading(level: 2, numbering: "1.1")[Hello world]
@@ -52,7 +52,7 @@ place(top + left, dy = pt(15), square(size = pt(35), fill = red))
 #> #place(top + left, dy: 15pt)[#square(size: 35pt, fill: red)]
 ```
 
-Functions in `{rtyp}` accept **all positional and named arguments**! This means that you're responsible of making sure the arguments you're using are valid!
+Functions in `{r2typ}` accept **all positional and named arguments**! This means that you're responsible of making sure the arguments you're using are valid!
 
 But to help you in that process, there is a `is_valid_typst()` function that will return either `TRUE` or `FALSE` depending on whether your Typst can be compiled successfully.
 
@@ -66,9 +66,9 @@ place(
 #> TRUE
 ```
 
-> Also note that **all examples** in the `{rtyp}` documentation are valid Typst examples.
+> Also note that **all examples** in the `{r2typ}` documentation are valid Typst examples.
 
-`{rtyp}` converts some R types into Typst types:
+`{r2typ}` converts some R types into Typst types:
 
 - `NULL` becomes `none`
 
@@ -101,15 +101,15 @@ text(costs = list(hyphenation = percent(100), runt = percent(100)))
 #> #text(costs: (hyphenation: 100%, runt: 100%))
 ```
 
-This is just a short overview of what you can with `{rtyp}`! For example, it also provides functions for **writing**, **compiling** and **validating** Typst directly from R, nested function calls, and much more!
+This is just a short overview of what you can with `{r2typ}`! For example, it also provides functions for **writing**, **compiling** and **validating** Typst directly from R, nested function calls, and much more!
 
-Learn more in the [get started vignette](https://y-sunflower.github.io/rtyp/articles/rtyp.html).
+Learn more in the [get started vignette](https://y-sunflower.github.io/r2typ/articles/r2typ.html).
 
 <br>
 
 ## Markup VS Code mode in Typst
 
-`{rtyp}` generates Typst **markup**, not Typst **code**. Most people, when writing native Typst, rely primarily on **markup** mode. **Code** mode is mainly used to add logic or create functions.
+`{r2typ}` generates Typst **markup**, not Typst **code**. Most people, when writing native Typst, rely primarily on **markup** mode. **Code** mode is mainly used to add logic or create functions.
 
 This is an important distinction to keep in mind, but the core difference is that function calls start with a `#` (e.g., `#text("hey")` VS `text("hey")`).
 
@@ -125,4 +125,4 @@ You can learn more about it [here](https://typst.app/docs/reference/syntax/).
 - ✅ Layout, everything except: `columns`, `layout`, `measure`, `repeat`, `rotate`
 - ✅ Visualize, everything except: `curve`, `gradient`, `path`, `stroke`, `polygon`, `tiling`
 
-> something's missing? Please [open an issue](https://github.com/y-sunflower/rtyp/issues)!
+> something's missing? Please [open an issue](https://github.com/y-sunflower/r2typ/issues)!
