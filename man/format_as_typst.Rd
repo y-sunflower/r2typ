@@ -2,7 +2,7 @@
 % Please edit documentation in R/core.R
 \name{format_as_typst}
 \alias{format_as_typst}
-\title{(internal) Format into Typst format}
+\title{Format into Typst format}
 \usage{
 format_as_typst(x, named)
 }
@@ -18,9 +18,6 @@ Formatted to Typst
 Format \code{x} to its Typst equivalent. This function
 is used internally to convert R data types to their
 equivalent in Typst. It works recursively.
-
-This function is \strong{not meant for end-users}, use at
-your own risk.
 }
 \examples{
 format_as_typst(c(1, 2, 3))

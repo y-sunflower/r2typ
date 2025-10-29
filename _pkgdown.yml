@@ -22,3 +22,4 @@ articles:
       - using-r2typ-in-quarto-documents
       - writing-and-compiling-typst
       - typst-validation
+      - use-your-own-typst-functions

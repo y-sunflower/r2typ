@@ -213,9 +213,6 @@ A character string containing the generated Typst code.
 Used to create all Typst functions in \code{r2typ}.
 Arguments are parsed and then translated to Typst.
 
-This function is \strong{not meant for end-users}, use at
-your own risk.
-
 Generates Typst code with element. Named arguments are included
 as Typst keyword arguments (e.g. \code{level}, \code{numbering}), and unnamed arguments
 are used as the heading content.

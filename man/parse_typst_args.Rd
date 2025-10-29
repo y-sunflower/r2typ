@@ -2,7 +2,7 @@
 % Please edit documentation in R/core.R
 \name{parse_typst_args}
 \alias{parse_typst_args}
-\title{(internal) Parse \code{...} arguments}
+\title{Parse \code{...} arguments}
 \usage{
 parse_typst_args(name, ...)
 }
@@ -19,7 +19,4 @@ This functions parses user arguments
 from \code{...}. The goal is to get which arguments
 are named or not, convert to their Typst format
 and return a list with parsed info.
-
-This function is \strong{not meant for end-users}, use at
-your own risk.
 }
