@@ -1,5 +1,30 @@
-#' @keywords internal
-format_typst_value <- function(x, named) {
+#' @title (internal) Format into Typst format
+#'
+#' @description
+#' Format `x` to its Typst equivalent. This function
+#' is used internally to convert R data types to their
+#' equivalent in Typst. It works recursively.
+#'
+#' This function is **not meant for end-users**, use at
+#' your own risk.
+#'
+#' @param x The object to convert.
+#' @param named Whether `x` is named or not.
+#'
+#' @returns Formatted to Typst
+#'
+#' @examples
+#' format_as_typst(c(1, 2, 3))
+#' format_as_typst(list(1, 2, 3))
+#' format_as_typst(list(a=1, b=2, c=3))
+#' format_as_typst(pt(20))
+#' format_as_typst(TRUE)
+#' format_as_typst(FALSE)
+#' format_as_typst(NULL)
+#' format_as_typst("auto")
+#'
+#' @export
+format_as_typst <- function(x, named) {
   if (inherits(x, "typst_unit")) {
     paste0(unclass(x), attr(x, "unit"))
   } else if (inherits(x, "list")) {
@@ -11,7 +36,7 @@ format_typst_value <- function(x, named) {
         paste0(
           nm,
           ": ",
-          sapply(x, function(y) format_typst_value(y, named = TRUE)),
+          sapply(x, function(y) format_as_typst(y, named = TRUE)),
           collapse = ", "
         ),
         ")"
@@ -21,7 +46,7 @@ format_typst_value <- function(x, named) {
       paste0(
         "(",
         paste0(
-          sapply(x, function(y) format_typst_value(y, named = FALSE)),
+          sapply(x, function(y) format_as_typst(y, named = FALSE)),
           collapse = ", "
         ),
         ")"
@@ -34,7 +59,7 @@ format_typst_value <- function(x, named) {
     paste0(
       "(",
       paste0(
-        sapply(x, function(y) format_typst_value(y, named = FALSE)),
+        sapply(x, function(y) format_as_typst(y, named = FALSE)),
         collapse = ", "
       ),
       ")"
@@ -42,8 +67,8 @@ format_typst_value <- function(x, named) {
   } else if (is.logical(x)) {
     # TRUE/FALSE --> true/false
     tolower(as.character(x))
-  } else if (is.null(x) || (length(x) == 1 && is.na(x))) {
-    # NULL/NA --> none
+  } else if (is.null(x)) {
+    # NULL --> none
     "none"
   } else if (is.character(x) && length(x) == 1 && x == "auto") {
     # "auto" --> auto
@@ -58,7 +83,23 @@ format_typst_value <- function(x, named) {
   }
 }
 
-#' @keywords internal
+#' @title (internal) Parse `...` arguments
+#'
+#' @description
+#' This functions parses user arguments
+#' from `...`. The goal is to get which arguments
+#' are named or not, convert to their Typst format
+#' and return a list with parsed info.
+#'
+#' This function is **not meant for end-users**, use at
+#' your own risk.
+#'
+#' @param name Name of the function
+#' @param ... Any kind of named or not arguments.
+#'
+#' @returns A list with function name, named args and unnamed args.
+#'
+#' @export
 parse_typst_args <- function(name, ...) {
   args <- list(...)
   named <- names(args)
@@ -77,8 +118,8 @@ parse_typst_args <- function(name, ...) {
   alignment_args <- unnamed_args[is_alignment]
   other_unnamed_args <- unnamed_args[!is_alignment]
 
-  format_named <- function(x) format_typst_value(x, named = TRUE)
-  format_unnamed <- function(x) format_typst_value(x, named = FALSE)
+  format_named <- function(x) format_as_typst(x, named = TRUE)
+  format_unnamed <- function(x) format_as_typst(x, named = FALSE)
 
   # Format alignment as positional args (no commas between them)
   alignment_str <- if (length(alignment_args)) {
@@ -109,49 +150,26 @@ parse_typst_args <- function(name, ...) {
   )
 }
 
-#' @keywords internal
+#' @title Create a Typst function
+#'
+#' @description
+#' Used to create all Typst functions in `r2typ`.
+#' Arguments are parsed and then translated to Typst.
+#'
+#' This function is **not meant for end-users**, use at
+#' your own risk.
+#'
+#' @param name Function name
+#' @param ... Any kind of named or not arguments.
+#'
+#' @return A character vector with well formatted Typst.
+#'
+#' @export
 typst_function <- function(name, ...) {
   parsed_args <- parse_typst_args(name, ...)
 
-  # edgecases, everything goes inside ()
-  no_bracket_functions <- c(
-    "image",
-    "linebreak",
-    "bibliography",
-    "list",
-    "figure",
-    "document",
-    "outline",
-    "table",
-    "enum",
-    "parbreak",
-    "bytes",
-    "decimal",
-    "assert",
-    "stack",
-    "grid",
-    "pagebreak",
-    "move",
-    "raw",
-    "eval",
-    "panic",
-    "regex",
-    "repr",
-    "str",
-    "rgb",
-    "symbol",
-    "type",
-    "version",
-    "cite",
-    "h",
-    "v",
-    "line"
-  )
-
-  kwargs_bracket_functions <- c("list", "enum", "table")
-
   if (name %in% no_bracket_functions) {
-    if (name %in% kwargs_bracket_functions) {
+    if (name %in% pos_bracket_functions) {
       format_path <- function(x) {
         if (is.character(x) && length(x) == 1) paste0("[", x, "]") else x
       }
@@ -212,7 +230,21 @@ typst_function <- function(name, ...) {
   }
 }
 
-#' @keywords internal
+#' @title Create a Typst set rule
+#'
+#' @description
+#' Used to create all Typst rules in `r2typ`.
+#' Arguments are parsed and then translated to Typst.
+#'
+#' This function is **not meant for end-users**, use at
+#' your own risk.
+#'
+#' @param name Function name
+#' @param ... Any kind of named or not arguments.
+#'
+#' @return A character vector with well formatted Typst.
+#'
+#' @export
 typst_set <- function(name, ...) {
   parsed_args <- parse_typst_args(name, ...)
 
