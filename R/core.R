@@ -1,12 +1,9 @@
-#' @title (internal) Format into Typst format
+#' @title Format into Typst format
 #'
 #' @description
 #' Format `x` to its Typst equivalent. This function
 #' is used internally to convert R data types to their
 #' equivalent in Typst. It works recursively.
-#'
-#' This function is **not meant for end-users**, use at
-#' your own risk.
 #'
 #' @param x The object to convert.
 #' @param named Whether `x` is named or not.
@@ -83,16 +80,13 @@ format_as_typst <- function(x, named) {
   }
 }
 
-#' @title (internal) Parse `...` arguments
+#' @title Parse `...` arguments
 #'
 #' @description
 #' This functions parses user arguments
 #' from `...`. The goal is to get which arguments
 #' are named or not, convert to their Typst format
 #' and return a list with parsed info.
-#'
-#' This function is **not meant for end-users**, use at
-#' your own risk.
 #'
 #' @param name Name of the function
 #' @param ... Any kind of named or not arguments.
@@ -155,9 +149,6 @@ parse_typst_args <- function(name, ...) {
 #' @description
 #' Used to create all Typst functions in `r2typ`.
 #' Arguments are parsed and then translated to Typst.
-#'
-#' This function is **not meant for end-users**, use at
-#' your own risk.
 #'
 #' @param name Function name
 #' @param ... Any kind of named or not arguments.
@@ -235,9 +226,6 @@ typst_function <- function(name, ...) {
 #' @description
 #' Used to create all Typst rules in `r2typ`.
 #' Arguments are parsed and then translated to Typst.
-#'
-#' This function is **not meant for end-users**, use at
-#' your own risk.
 #'
 #' @param name Function name
 #' @param ... Any kind of named or not arguments.

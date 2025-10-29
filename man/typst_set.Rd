@@ -164,9 +164,6 @@ A character string containing the generated Typst code.
 Used to create all Typst rules in \code{r2typ}.
 Arguments are parsed and then translated to Typst.
 
-This function is \strong{not meant for end-users}, use at
-your own risk.
-
 Generates Typst set rules for a given function.
 }
 \examples{

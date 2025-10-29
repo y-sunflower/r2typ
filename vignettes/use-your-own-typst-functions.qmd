@@ -1,0 +1,35 @@
+---
+title: Use your own Typst functions
+vignette: >
+  %\VignetteIndexEntry{use-your-own-typst-functions}
+  %\VignetteEngine{quarto::html}
+  %\VignetteEncoding{UTF-8}
+knitr:
+  opts_chunk:
+    collapse: true
+    comment: '#>'
+    message: false
+---
+
+In `{r2typ}`, functions are all the same and defined using the `typst_function()` function. This means you can define your own Typst functions by using it as such:
+
+```{r}
+library(r2typ)
+
+my_cool_function <- function(...) typst_function("my_cool_function", ...)
+
+my_cool_function(fill = red, size = pt(15), "hello world!")
+```
+
+To use it in a set rule, you just need to use the `typst_set()` function:
+
+
+```{r}
+set_my_cool_function <- function(...) typst_set("my_cool_function", ...)
+
+set_my_cool_function(fill = red, size = pt(15))
+```
+
+::: {.callout-warning}
+The code above does not define a `my_cool_function()`. It just lets you use a pre-defined Typst function in R. This means that you have to define its behavior first!
+:::
