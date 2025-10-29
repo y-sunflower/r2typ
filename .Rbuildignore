@@ -27,3 +27,4 @@ dev.R
 ^BinaryFiles
 ^sandbox/
 ^release.sh
+^codecov\.yml$

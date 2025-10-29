@@ -16,7 +16,7 @@ knitr:
 library(r2typ)
 ```
 
-To include the output of `{r2typ}` in your Quarto documents, you need to convert it to "raw" Typst with the `as_raw_typ()` function.
+To include the output of `{r2typ}` in your Quarto documents, you need to convert it to "raw" Typst with the `as_quarto_typst()` function.
 
 ````md
 ---
@@ -34,13 +34,13 @@ library(r2typ)
 
 ```{{r}}
 heading(level = 2, numbering = "1.1", "Hello world") |>
-  as_raw_typ()
+  as_quarto_typst()
 ```
 ````
 
 ![](./r2typ-with-quarto-output.png)
 
-Calling `as_raw_typ()` will convert your Typst markup to a valid format to be interpreted by Quarto and the Typst compiler.
+Calling `as_quarto_typst()` will convert your Typst markup to a valid format to be interpreted by Quarto and the Typst compiler.
 
 ## Advanced usage
 
@@ -81,7 +81,7 @@ align(
     )
   )
 ) |>
-  as_raw_typ()
+  as_quarto_typst()
 ```
 ````
 
