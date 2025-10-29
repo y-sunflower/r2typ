@@ -15,12 +15,12 @@
 #' to reproduce the behavior `knitr::raw_block()` for Typst outputs.
 #'
 #' @examples
-#' heading(level = 2, numbering = "1.1", "Hello world") |> as_raw_typ()
+#' heading(level = 2, numbering = "1.1", "Hello world") |> as_quarto_typst()
 #'
 #' typ_markup <- heading(level = 2, numbering = "1.1", "Hello world")
-#' as_raw_typ(typ_markup)
+#' as_quarto_typst(typ_markup)
 #' @export
-as_raw_typ <- function(x) {
+as_quarto_typst <- function(x) {
   res <- paste0("\n```{=typst}\n", paste0(x, collapse = "\n"), "\n```\n")
   structure(res, class = "knit_asis", knit_cacheable = NA)
 }
