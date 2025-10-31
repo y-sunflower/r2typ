@@ -3,11 +3,16 @@
 #' @description
 #' Generates Typst show rules for a given function.
 #'
-#' @param ... Named or unnamed arguments passed to the Typst function.
-#'   Named arguments become Typst parameters (e.g. `level = 2` → `level: 2`),
-#'   while unnamed arguments form the body inside `[...]`.
+#' @param name Name of the function for the show rule.
+#' @param set_rule A set rule made with one of the set functions
+#' in `{r2typ}`.
 #'
 #' @return A character string containing the generated Typst code.
+#'
+#' @examples
+#' show_("heading", set_text(red))
+#'
+#' @export
 #'
 #' @name typst_show
 show_ <- function(name, set_rule) {
