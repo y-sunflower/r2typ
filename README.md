@@ -5,7 +5,7 @@
 - ✅ almost **all** Typst functions
 - ✅ **conversions** from R to Typst (`NULL` -> `none`, `TRUE` -> `true`, etc.)
 - ✅ Typst **colors**, **alignment**, **units** and **direction** natively
-- ✅ `set` rules
+- ✅ `set` and (simple) `show` rules
 - ✅ works well with **Quarto**
 - ✅ extremely **simple syntax**
 - ✅ and **zero** dependencies
@@ -28,7 +28,7 @@ pak::pkg_install("y-sunflower/r2typ")
 
 ## Quick start
 
-Basic usage would be:
+#### Basic usage
 
 ```r
 library(r2typ)
@@ -52,6 +52,8 @@ place(top + left, dy = pt(15), square(size = pt(35), fill = red))
 #> #place(top + left, dy: 15pt)[#square(size: 35pt, fill: red)]
 ```
 
+#### Validating Typst
+
 Functions in `{r2typ}` accept **all positional and named arguments**! This means that you're responsible of making sure the arguments you're using are valid!
 
 But to help you in that process, there is a `is_valid_typst()` function that will return either `TRUE` or `FALSE` depending on whether your Typst can be compiled successfully.
@@ -67,6 +69,8 @@ place(
 ```
 
 > Also note that **all examples** in the `{r2typ}` documentation are valid Typst examples.
+
+#### Types conversion
 
 `{r2typ}` converts some R types into Typst types:
 
@@ -100,6 +104,18 @@ text(`stylistic-set` = list(1, 2, 3), "10 years ago") # equivalent
 text(costs = list(hyphenation = percent(100), runt = percent(100)))
 #> #text(costs: (hyphenation: 100%, runt: 100%))
 ```
+
+#### Set and show rules
+
+```r
+set_text(red, size = pt(20))
+#> #set text(size: 20pt, red)
+
+show_("heading", set_text(red, size = pt(20)))
+#> #show heading: set text(size: 20pt, red)
+```
+
+#### Complete example
 
 A complete example that generates a PDF using R only:
 
