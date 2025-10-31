@@ -8,13 +8,18 @@
 show_(name, set_rule)
 }
 \arguments{
-\item{...}{Named or unnamed arguments passed to the Typst function.
-Named arguments become Typst parameters (e.g. \code{level = 2} → \code{level: 2}),
-while unnamed arguments form the body inside \verb{[...]}.}
+\item{name}{Name of the function for the show rule.}
+
+\item{set_rule}{A set rule made with one of the set functions
+in \code{{r2typ}}.}
 }
 \value{
 A character string containing the generated Typst code.
 }
 \description{
 Generates Typst show rules for a given function.
+}
+\examples{
+show_("heading", set_text(red))
+
 }
