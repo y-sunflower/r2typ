@@ -193,6 +193,10 @@ test_that("Test layout functions", {
   expect_equal(out, "#h(3fr)")
   expect_true(out |> is_valid_typst(error_on_failure = TRUE))
 
+  out <- rotate(rad(-12), "What a weird feature!")
+  expect_equal(out, "#rotate(-12rad)[What a weird feature!]")
+  expect_true(out |> is_valid_typst(error_on_failure = TRUE))
+
   out <- rotate(deg(-12), "What a weird feature!")
   expect_equal(out, "#rotate(-12deg)[What a weird feature!]")
   expect_true(out |> is_valid_typst(error_on_failure = TRUE))
