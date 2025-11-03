@@ -139,6 +139,14 @@ test_that("Test model functions", {
   expect_equal(out, "#table(align: center, inset: 10pt, [a], [b], [c], [d])")
   expect_true(out |> is_valid_typst())
 
+  out <- table_(align = center, inset = mm(10), "a", "b", "c", "d")
+  expect_equal(out, "#table(align: center, inset: 10mm, [a], [b], [c], [d])")
+  expect_true(out |> is_valid_typst())
+
+  out <- table_(align = center, inset = cm(10), "a", "b", "c", "d")
+  expect_equal(out, "#table(align: center, inset: 10cm, [a], [b], [c], [d])")
+  expect_true(out |> is_valid_typst())
+
   out <- set_table(align = center, inset = pt(10))
   expect_equal(out, "#set table(align: center, inset: 10pt)")
   expect_true(out |> is_valid_typst())
