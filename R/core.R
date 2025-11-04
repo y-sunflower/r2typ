@@ -155,7 +155,7 @@ parse_typst_args <- function(name, ...) {
 #'
 #' @return A character vector with well formatted Typst.
 #'
-#' @export
+#' @keywords internal
 typst_function <- function(name, ...) {
   parsed_args <- parse_typst_args(name, ...)
 
@@ -252,7 +252,7 @@ typst_function <- function(name, ...) {
 #'
 #' @return A character vector with well formatted Typst.
 #'
-#' @export
+#' @keywords internal
 typst_set <- function(name, ...) {
   parsed_args <- parse_typst_args(name, ...)
 
@@ -281,4 +281,34 @@ typst_set <- function(name, ...) {
   }
 
   structure(markup, class = "typst_markup")
+}
+
+#' @title Typst show rules
+#'
+#' @description
+#' Generates Typst show rules for a given function.
+#'
+#' @param name Name of the function for the show rule.
+#' @param set_rule A set rule made with one of the set functions in `{r2typ}`.
+#'
+#' @return A character string containing the generated Typst code.
+#'
+#' @keywords internal
+typst_show <- function(name, set_rule) {
+  if (!startsWith(set_rule, "#set ")) {
+    stop(
+      "`set_rule` argument is invalid: '",
+      set_rule,
+      "'. It should starts with '#set '."
+    )
+  }
+
+  show_rule <- paste0(
+    "#show ",
+    name,
+    ": ",
+    substr(set_rule, start = 2, stop = nchar(set_rule))
+  )
+
+  structure(show_rule, class = "typst_markup")
 }
