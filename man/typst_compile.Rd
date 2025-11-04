@@ -4,19 +4,19 @@
 \alias{typst_compile}
 \title{Compile a Typst file or character vector}
 \usage{
-typst_compile(file_or_chr, output = NULL)
+typst_compile(file, output = NULL)
 }
 \arguments{
-\item{file_or_chr}{Path to a file (must end with ".typ") or a character vector.}
-
 \item{output}{Optional path for the output file (default NULL).}
+
+\item{file_or_chr}{Path to a file (must end with ".typ").}
 }
 \value{
 Output file path, invisibly.
 }
 \description{
-Call the Typst CLI compiler and compile a file (.typ)
-or a character vector. Falls back to \verb{quarto typst} if \code{typst} is unavailable.
+Call the Typst CLI compiler and compile a file (.typ).
+Falls back to \verb{quarto typst} if \code{typst} is unavailable.
 }
 \note{
 It requires to have the Typst compiler installed.

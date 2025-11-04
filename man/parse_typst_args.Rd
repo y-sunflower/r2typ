@@ -12,7 +12,7 @@ parse_typst_args(name, ...)
 \item{...}{Any kind of named or not arguments.}
 }
 \value{
-A list with function name, named args and unnamed args.
+A list with function name, named args and unnamed args: \code{list(name = name, named_str = named_str, unnamed_str = unnamed_str, expression_str = expression_str)}.
 }
 \description{
 This functions parses user arguments

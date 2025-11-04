@@ -1,65 +1,97 @@
 test_that("Test visualize functions", {
   out <- circle(fill = blue, "hey")
+  expect_true(out |> inherits("typst_markup"))
+  out <- unclass(out)
   expect_equal(out, "#circle(fill: blue)[hey]")
   expect_true(out |> is_valid_typst(error_on_failure = TRUE))
 
   out <- set_circle(fill = blue)
+  expect_true(out |> inherits("typst_markup"))
+  out <- unclass(out)
   expect_equal(out, "#set circle(fill: blue)")
   expect_true(out |> is_valid_typst(error_on_failure = TRUE))
 
   out <- rect(fill = blue, "hey")
+  expect_true(out |> inherits("typst_markup"))
+  out <- unclass(out)
   expect_equal(out, "#rect(fill: blue)[hey]")
   expect_true(out |> is_valid_typst(error_on_failure = TRUE))
 
   out <- set_rect(fill = blue)
+  expect_true(out |> inherits("typst_markup"))
+  out <- unclass(out)
   expect_equal(out, "#set rect(fill: blue)")
   expect_true(out |> is_valid_typst(error_on_failure = TRUE))
 
   out <- rect(fill = blue, radius = pt(2), "yooooo")
+  expect_true(out |> inherits("typst_markup"))
+  out <- unclass(out)
   expect_equal(out, "#rect(fill: blue, radius: 2pt)[yooooo]")
   expect_true(out |> is_valid_typst(error_on_failure = TRUE))
 
   out <- ellipse(fill = green, "hey")
+  expect_true(out |> inherits("typst_markup"))
+  out <- unclass(out)
   expect_equal(out, "#ellipse(fill: green)[hey]")
   expect_true(out |> is_valid_typst(error_on_failure = TRUE))
 
   out <- set_ellipse(fill = green)
+  expect_true(out |> inherits("typst_markup"))
+  out <- unclass(out)
   expect_equal(out, "#set ellipse(fill: green)")
   expect_true(out |> is_valid_typst(error_on_failure = TRUE))
 
   out <- image("../docs/link.svg")
+  expect_true(out |> inherits("typst_markup"))
+  out <- unclass(out)
   expect_equal(out, "#image(\"../docs/link.svg\")")
   expect_error(out |> is_valid_typst(error_on_failure = TRUE)) # image not found error
 
   out <- image(width = percent(80), height = auto, "../docs/link.svg")
+  expect_true(out |> inherits("typst_markup"))
+  out <- unclass(out)
   expect_equal(out, "#image(width: 80%, height: auto, \"../docs/link.svg\")")
   expect_error(out |> is_valid_typst(error_on_failure = TRUE)) # image not found error
 
   out <- set_image(width = percent(80), height = auto)
+  expect_true(out |> inherits("typst_markup"))
+  out <- unclass(out)
   expect_equal(out, "#set image(width: 80%, height: auto)")
   expect_true(out |> is_valid_typst(error_on_failure = TRUE))
 
   out <- line(length = percent(80), angle = deg(20))
+  expect_true(out |> inherits("typst_markup"))
+  out <- unclass(out)
   expect_equal(out, "#line(length: 80%, angle: 20deg)")
   expect_true(out |> is_valid_typst(error_on_failure = TRUE))
 
   out <- set_line(length = percent(80), angle = deg(20))
+  expect_true(out |> inherits("typst_markup"))
+  out <- unclass(out)
   expect_equal(out, "#set line(length: 80%, angle: 20deg)")
   expect_true(out |> is_valid_typst(error_on_failure = TRUE))
 
   out <- line(stroke = pt(2) + blue)
+  expect_true(out |> inherits("typst_markup"))
+  out <- unclass(out)
   expect_equal(out, "#line(stroke: 2pt + blue)")
   expect_true(out |> is_valid_typst(error_on_failure = TRUE))
 
   out <- line(stroke = pt(2) + rgb("#3d9970"))
+  expect_true(out |> inherits("typst_markup"))
+  out <- unclass(out)
   expect_equal(out, "#line(stroke: 2pt + rgb(\"#3d9970\"))")
   expect_true(out |> is_valid_typst(error_on_failure = TRUE))
 
   out <- square(size = pt(5), fill = red)
+  expect_true(out |> inherits("typst_markup"))
+  out <- unclass(out)
   expect_equal(out, "#square(size: 5pt, fill: red)")
   expect_true(out |> is_valid_typst(error_on_failure = TRUE))
 
   out <- set_square(size = pt(5), fill = red)
+  expect_true(out |> inherits("typst_markup"))
+  out <- unclass(out)
   expect_equal(out, "#set square(size: 5pt, fill: red)")
   expect_true(out |> is_valid_typst(error_on_failure = TRUE))
 })
