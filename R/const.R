@@ -40,6 +40,8 @@ no_bracket_functions <- c(
   "assert",
   "stack",
   "grid",
+  "pad",
+  "page",
   "pagebreak",
   "move",
   "raw",

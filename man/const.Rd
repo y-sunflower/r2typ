@@ -11,7 +11,7 @@ An object of class \code{character} of length 4.
 
 An object of class \code{character} of length 3.
 
-An object of class \code{character} of length 31.
+An object of class \code{character} of length 33.
 }
 \usage{
 expression_like

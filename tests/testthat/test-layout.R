@@ -206,7 +206,7 @@ test_that("Test layout functions", {
   out <- pad(x = percent(0) + pt(5), y = percent(10) + pt(0), image("file.svg"))
   expect_true(out |> inherits("typst_markup"))
   out <- unclass(out)
-  expect_equal(out, "#pad(x: 0% + 5pt, y: 10% + 0pt)[#image(\"file.svg\")]")
+  expect_equal(out, "#pad(x: 0% + 5pt, y: 10% + 0pt, [#image(\"file.svg\")])")
   expect_false(out |> is_valid_typst()) # file not found error expected
 
   out <- page(
@@ -223,7 +223,7 @@ test_that("Test layout functions", {
   out <- unclass(out)
   expect_equal(
     out,
-    "#page(flipped: true, columns: 2, fill: red)[#place(top + left, dx: -5pt)[#rect(fill: blue, radius: 2pt)[yooooo]]]"
+    "#page(flipped: true, columns: 2, fill: red, [#place(top + left, dx: -5pt)[#rect(fill: blue, radius: 2pt)[yooooo]]])"
   )
   expect_true(out |> is_valid_typst(error_on_failure = TRUE))
 
