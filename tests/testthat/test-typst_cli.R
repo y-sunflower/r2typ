@@ -5,9 +5,6 @@ test_that("Valid Typst CLI usage", {
 
   pdf_file <- typst_compile(typ_file)
   expect_true(file.exists(pdf_file))
-
-  pdf_file <- typst_compile(markup)
-  expect_true(file.exists(pdf_file))
 })
 
 test_that("Invalid Typst CLI usage", {

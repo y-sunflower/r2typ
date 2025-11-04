@@ -87,7 +87,7 @@ format_as_typst <- function(x, named) {
 #' @param name Name of the function
 #' @param ... Any kind of named or not arguments.
 #'
-#' @returns A list with function name, named args and unnamed args.
+#' @returns A list with function name, named args and unnamed args: `list(name = name, named_str = named_str, unnamed_str = unnamed_str, expression_str = expression_str)`.
 #'
 #' @export
 parse_typst_args <- function(name, ...) {
@@ -194,7 +194,7 @@ typst_function <- function(name, ...) {
     parts <- c(parsed_args$expression_str, parsed_args$named_str, unnamed_str)
     parts <- parts[parts != ""]
 
-    sprintf("#%s(%s)", name, paste(parts, collapse = ", "))
+    markup <- sprintf("#%s(%s)", name, paste(parts, collapse = ", "))
   } else {
     # normal typst functions - expressions go as positional args
     positional_parts <- c(parsed_args$expression_str, parsed_args$named_str)
@@ -202,9 +202,13 @@ typst_function <- function(name, ...) {
 
     if (length(positional_parts) > 0) {
       if (parsed_args$unnamed_str == "" || parsed_args$unnamed_str == "none") {
-        sprintf("#%s(%s)", name, paste(positional_parts, collapse = ", "))
+        markup <- sprintf(
+          "#%s(%s)",
+          name,
+          paste(positional_parts, collapse = ", ")
+        )
       } else {
-        sprintf(
+        markup <- sprintf(
           "#%s(%s)[%s]",
           name,
           paste(positional_parts, collapse = ", "),
@@ -213,12 +217,14 @@ typst_function <- function(name, ...) {
       }
     } else {
       if (parsed_args$unnamed_str == "" || parsed_args$unnamed_str == "none") {
-        sprintf("#%s()", name)
+        markup <- sprintf("#%s()", name)
       } else {
-        sprintf("#%s[%s]", name, parsed_args$unnamed_str)
+        markup <- sprintf("#%s[%s]", name, parsed_args$unnamed_str)
       }
     }
   }
+
+  structure(markup, class = "typst_markup")
 }
 
 #' @title Create a Typst set rule
@@ -246,17 +252,19 @@ typst_set <- function(name, ...) {
   }
 
   if (length(pos_parts) > 0 && named_part != "") {
-    sprintf(
+    markup <- sprintf(
       "#set %s(%s, %s)",
       name,
       named_part,
       paste(pos_parts, collapse = ", ")
     )
   } else if (named_part != "") {
-    sprintf("#set %s(%s)", name, named_part)
+    markup <- sprintf("#set %s(%s)", name, named_part)
   } else if (length(pos_parts) > 0) {
-    sprintf("#set %s(%s)", name, paste(pos_parts, collapse = ", "))
+    markup <- sprintf("#set %s(%s)", name, paste(pos_parts, collapse = ", "))
   } else {
-    sprintf("#set %s()", name)
+    markup <- sprintf("#set %s()", name)
   }
+
+  structure(markup, class = "typst_markup")
 }
