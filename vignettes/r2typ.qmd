@@ -33,9 +33,8 @@ library(r2typ)
 All functions accept any kind of positional or named arguments:
 
 ```{r}
-heading(level = 2, "A title")
-
-text(weight = 500, "Some text")
+heading(level = 2, "A title") |> print()
+text(weight = 500, "Some text") |> print()
 ```
 
 However, in Typst, not all functions behave the same way regarding positional and named arguments. For this reason, `{r2typ}` automatically adjusts the behavior when necessary.
@@ -43,7 +42,7 @@ However, in Typst, not all functions behave the same way regarding positional an
 For example, the `list_()` function will put everything in a list format:
 
 ```{r}
-list_(tight = FALSE, "hey", "you", "!")
+list_(tight = FALSE, "hey", "you", "!") |> print()
 ```
 
 > Note that the function is `list_()` and not `list()` because `list()` is a base R function.
@@ -51,7 +50,7 @@ list_(tight = FALSE, "hey", "you", "!")
 The same applies to the `table_()` function:
 
 ```{r}
-table_("hey", "you", "!")
+table_("hey", "you", "!") |> print()
 ```
 
 ## Typst units
@@ -61,13 +60,13 @@ Typst uses a unique approach for units, as they are not quoted.
 `{r2typ}` provides several utility functions to make working with Typst units easy:
 
 ```{r}
-text(size = pt(20), "Ice cream")
+text(size = pt(20), "Ice cream") |> print()
 ```
 
 This works with all Typst units:
 
 ```{r}
-image("image.png", width = percent(80))
+image("image.png", width = percent(80)) |> print()
 ```
 
 ## Typst colors
@@ -75,7 +74,7 @@ image("image.png", width = percent(80))
 Typst offers a large set of predefined colors such as `red` or `blue`. `{r2typ}` provides the same:
 
 ```{r}
-text(fill = green, "Green text")
+text(fill = green, "Green text") |> print()
 ```
 
 All built-in Typst colors are available in `{r2typ}`. You can find them [here](../reference/typst_colors.html).
@@ -83,7 +82,7 @@ All built-in Typst colors are available in `{r2typ}`. You can find them [here](.
 You can also use the `rgb()` function:
 
 ```{r}
-text(fill = rgb("#ffc300"), "Yellow-ish text")
+text(fill = rgb("#ffc300"), "Yellow-ish text") |> print()
 ```
 
 ## Typst alignment
@@ -95,7 +94,8 @@ place(
   center,
   dy = pt(15),
   "hello"
-)
+) |>
+  print()
 ```
 
 You can combine them to mimic Typst syntax:
@@ -105,13 +105,14 @@ place(
   top + left,
   dy = pt(15),
   "hello"
-)
+) |>
+  print()
 ```
 
 You can even combine them with colors, which is often useful for strokes:
 
 ```{r}
-line(stroke = pt(2) + blue)
+line(stroke = pt(2) + blue) |> print()
 ```
 
 ## Convert R types to Typst types
@@ -121,35 +122,55 @@ line(stroke = pt(2) + blue)
 - `NULL` becomes `none`
 
 ```{r}
-image("image.png", width = percent(80), alt = NULL)
+image("image.png", width = percent(80), alt = NULL) |> print()
 ```
 
 - `TRUE`/`FALSE` become `true`/`false`
 
 ```{r}
-list_(tight = FALSE, "hey", "you")
+list_(tight = FALSE, "hey", "you") |> print()
 ```
 
 - `c()` vectors and unnamed `list()` (such as `list("a", "b"`) become arrays:
 
 ```{r}
-text(`stylistic-set` = c(1, 2, 3), "10 years ago")
+text(`stylistic-set` = c(1, 2, 3), "10 years ago") |> print()
 
-text(`stylistic-set` = list(1, 2, 3), "10 years ago") # equivalent
+text(`stylistic-set` = list(1, 2, 3), "10 years ago") |> print() # equivalent
 ```
 
 - Named `list()` (such as `list(a = "hello", b = "world")`) become dictionnaries:
 
 ```{r}
-text(costs = list(hyphenation = percent(100), runt = percent(100)))
+text(costs = list(hyphenation = percent(100), runt = percent(100))) |> print()
 ```
 
 > Note that the goal here is **only** to translate R data types that have an equivalent in Typst, **not to be exhaustive**.
 
-Other Typst types that still need to be implemented:
+## Set and show rules
 
-- label
-- others?
+`{r2typ}` has all a function for all set and (simple) show rules. If you're unfamiliar with them, check out the [official documentation](https://typst.app/docs/reference/styling/).
+
+### set rules
+
+```{r}
+set_text(red) |> print()
+
+set_enum(tight = FALSE) |> print()
+
+set_par(
+  `first-line-indent` = em(1),
+  spacing = em(0.65),
+  justify = TRUE
+) |>
+  print()
+```
+
+### show rules
+
+```{r}
+show_heading(set_text(navy)) |> print()
+```
 
 ## Nested function calls
 
@@ -160,7 +181,8 @@ place(
   center + horizon,
   dy = pt(15),
   square(size = pt(35), fill = red)
-)
+) |>
+  print()
 
 page(
   flipped = TRUE,
@@ -175,5 +197,6 @@ page(
       "yooooo"
     )
   )
-)
+) |>
+  print()
 ```
