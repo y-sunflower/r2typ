@@ -36,7 +36,7 @@ heading(level = 2, numbering = "1.1", "Hello world")
 ## Using show rule
 
 ```{{r}}
-show_("heading", set_text(fill = red))
+show_heading(set_text(fill = red))
 heading(level = 2, numbering = "1.1", "Hello world")
 ```
 ````
