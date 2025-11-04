@@ -88,17 +88,25 @@
 <div class="sourceCode cell-code" id="cb1"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://y-sunflower.github.io/r2typ/">r2typ</a></span><span class="op">)</span></span>
 <span></span>
-<span><span class="fu"><a href="../reference/typst_function.html">linebreak</a></span><span class="op">(</span><span class="op">)</span></span>
-<span><span class="co">#&gt; [1] "#linebreak()"</span></span>
-<span><span class="fu"><a href="../reference/typst_function.html">linebreak</a></span><span class="op">(</span>justify <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
-<span><span class="co">#&gt; [1] "#linebreak(justify: true)"</span></span>
-<span><span class="fu"><a href="../reference/typst_function.html">linebreak</a></span><span class="op">(</span>any_other_args <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span> <span class="co"># this works!</span></span>
-<span><span class="co">#&gt; [1] "#linebreak(any_other_args: true)"</span></span></code></pre></div>
+<span><span class="fu"><a href="../reference/typst_function.html">linebreak</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
+<div class="cell-output-display">
+
+</div>
+<div class="sourceCode cell-code" id="cb2"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="../reference/typst_function.html">linebreak</a></span><span class="op">(</span>justify <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></code></pre></div>
+<div class="cell-output-display">
+
+</div>
+<div class="sourceCode cell-code" id="cb3"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="../reference/typst_function.html">linebreak</a></span><span class="op">(</span>any_other_args <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span> <span class="co"># this works!</span></span></code></pre></div>
+<div class="cell-output-display">
+
+</div>
 </div>
 <p>It’s considered to be the job of the user to make sure the arguments they use make sense. The main reason for this is to reduce (a lot) maintenance cost and make <a href="https://y-sunflower.github.io/r2typ/">r2typ</a> more easily up to date with new Typst versions in the future.</p>
 <p>If you want to make sure that your Typst is valid, you can use the <code><a href="../reference/is_valid_typst.html">is_valid_typst()</a></code> function:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb2"><pre class="downlit sourceCode r">
+<div class="sourceCode cell-code" id="cb4"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://y-sunflower.github.io/r2typ/">r2typ</a></span><span class="op">)</span></span>
 <span></span>
 <span><span class="fu"><a href="../reference/typst_function.html">linebreak</a></span><span class="op">(</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu"><a href="../reference/is_valid_typst.html">is_valid_typst</a></span><span class="op">(</span><span class="op">)</span></span>

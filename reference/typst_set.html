@@ -185,100 +185,188 @@ while unnamed arguments form the body inside <code>[...]</code>.</p></dd>
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="fu">set_place</span><span class="op">(</span>dx <span class="op">=</span> <span class="fu"><a href="typst_units.html">pt</a></span><span class="op">(</span><span class="fl">50</span><span class="op">)</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] "#set place(dx: 50pt)"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> attr(,"class")</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "typst_markup"</span>
 <span class="r-in"><span><span class="fu">set_h</span><span class="op">(</span>weak <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] "#set h(weak: true)"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> attr(,"class")</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "typst_markup"</span>
 <span class="r-in"><span><span class="fu">set_v</span><span class="op">(</span>weak <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] "#set v(weak: true)"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> attr(,"class")</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "typst_markup"</span>
 <span class="r-in"><span><span class="fu">set_block</span><span class="op">(</span>breakable <span class="op">=</span> <span class="cn">FALSE</span>, width <span class="op">=</span> <span class="fu"><a href="typst_units.html">percent</a></span><span class="op">(</span><span class="fl">50</span><span class="op">)</span>, height <span class="op">=</span> <span class="va">auto</span>, fill <span class="op">=</span> <span class="va">aqua</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] "#set block(breakable: false, width: 50%, height: auto, fill: aqua)"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> attr(,"class")</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "typst_markup"</span>
 <span class="r-in"><span><span class="fu">set_box</span><span class="op">(</span>clip <span class="op">=</span> <span class="cn">FALSE</span>, width <span class="op">=</span> <span class="fu"><a href="typst_units.html">percent</a></span><span class="op">(</span><span class="fl">50</span><span class="op">)</span>, height <span class="op">=</span> <span class="va">auto</span>, fill <span class="op">=</span> <span class="va">red</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] "#set box(clip: false, width: 50%, height: auto, fill: red)"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> attr(,"class")</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "typst_markup"</span>
 <span class="r-in"><span><span class="fu">set_colbreak</span><span class="op">(</span>weak <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] "#set colbreak(weak: true)"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> attr(,"class")</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "typst_markup"</span>
 <span class="r-in"><span><span class="fu">set_stack</span><span class="op">(</span>dir <span class="op">=</span> <span class="va">ttb</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] "#set stack(dir: ttb)"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> attr(,"class")</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "typst_markup"</span>
 <span class="r-in"><span><span class="fu">set_grid</span><span class="op">(</span>columns <span class="op">=</span> <span class="fl">2</span>, rows <span class="op">=</span> <span class="fl">2</span>, gutter <span class="op">=</span> <span class="fu"><a href="typst_units.html">pt</a></span><span class="op">(</span><span class="fl">3</span><span class="op">)</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] "#set grid(columns: 2, rows: 2, gutter: 3pt)"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> attr(,"class")</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "typst_markup"</span>
 <span class="r-in"><span><span class="fu">set_pagebreak</span><span class="op">(</span>weak <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] "#set pagebreak(weak: true)"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> attr(,"class")</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "typst_markup"</span>
 <span class="r-in"><span><span class="fu">set_move</span><span class="op">(</span>dx <span class="op">=</span> <span class="fu"><a href="typst_units.html">pt</a></span><span class="op">(</span><span class="fl">3</span><span class="op">)</span>, dy <span class="op">=</span> <span class="fu"><a href="typst_units.html">pt</a></span><span class="op">(</span><span class="fl">5</span><span class="op">)</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] "#set move(dx: 3pt, dy: 5pt)"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> attr(,"class")</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "typst_markup"</span>
 <span class="r-in"><span><span class="fu">set_pad</span><span class="op">(</span>x <span class="op">=</span> <span class="fu"><a href="typst_units.html">percent</a></span><span class="op">(</span><span class="fl">0</span><span class="op">)</span> <span class="op">+</span> <span class="fu"><a href="typst_units.html">pt</a></span><span class="op">(</span><span class="fl">5</span><span class="op">)</span>, y <span class="op">=</span> <span class="fu"><a href="typst_units.html">percent</a></span><span class="op">(</span><span class="fl">10</span><span class="op">)</span> <span class="op">+</span> <span class="fu"><a href="typst_units.html">pt</a></span><span class="op">(</span><span class="fl">0</span><span class="op">)</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] "#set pad(x: 0% + 5pt, y: 10% + 0pt)"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> attr(,"class")</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "typst_markup"</span>
 <span class="r-in"><span><span class="fu">set_page</span><span class="op">(</span></span></span>
 <span class="r-in"><span> flipped <span class="op">=</span> <span class="cn">TRUE</span>,</span></span>
 <span class="r-in"><span> columns <span class="op">=</span> <span class="fl">2</span>,</span></span>
 <span class="r-in"><span> fill <span class="op">=</span> <span class="va">red</span></span></span>
 <span class="r-in"><span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] "#set page(flipped: true, columns: 2, fill: red)"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> attr(,"class")</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "typst_markup"</span>
 <span class="r-in"><span><span class="fu">set_scale</span><span class="op">(</span>x <span class="op">=</span> <span class="fu"><a href="typst_units.html">percent</a></span><span class="op">(</span><span class="op">-</span><span class="fl">100</span><span class="op">)</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] "#set scale(x: -100%)"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> attr(,"class")</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "typst_markup"</span>
 <span class="r-in"><span><span class="fu">set_skew</span><span class="op">(</span>ax <span class="op">=</span> <span class="fu"><a href="typst_units.html">deg</a></span><span class="op">(</span><span class="op">-</span><span class="fl">12</span><span class="op">)</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] "#set skew(ax: -12deg)"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> attr(,"class")</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "typst_markup"</span>
 <span class="r-in"><span><span class="fu">set_rotate</span><span class="op">(</span><span class="fu"><a href="typst_units.html">deg</a></span><span class="op">(</span><span class="op">-</span><span class="fl">12</span><span class="op">)</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] "#set rotate(-12deg)"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> attr(,"class")</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "typst_markup"</span>
 <span class="r-in"><span><span class="fu">set_bibliography</span><span class="op">(</span>full <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] "#set bibliography(full: true)"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> attr(,"class")</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "typst_markup"</span>
 <span class="r-in"><span><span class="fu">set_document</span><span class="op">(</span>author <span class="op">=</span> <span class="st">"Me, myself &amp; I"</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] "#set document(author: \"Me, myself &amp; I\")"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> attr(,"class")</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "typst_markup"</span>
 <span class="r-in"><span><span class="fu">set_emph</span><span class="op">(</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] "#set emph()"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> attr(,"class")</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "typst_markup"</span>
 <span class="r-in"><span><span class="fu">set_figure</span><span class="op">(</span>alt <span class="op">=</span> <span class="st">"This is an alternative text"</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] "#set figure(alt: \"This is an alternative text\")"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> attr(,"class")</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "typst_markup"</span>
 <span class="r-in"><span><span class="fu">set_footnote</span><span class="op">(</span>numbering <span class="op">=</span> <span class="st">"*"</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] "#set footnote(numbering: \"*\")"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> attr(,"class")</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "typst_markup"</span>
 <span class="r-in"><span><span class="fu">set_heading</span><span class="op">(</span>level <span class="op">=</span> <span class="fl">3</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] "#set heading(level: 3)"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> attr(,"class")</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "typst_markup"</span>
 <span class="r-in"><span><span class="fu">set_enum</span><span class="op">(</span>tight <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] "#set enum(tight: false)"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> attr(,"class")</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "typst_markup"</span>
 <span class="r-in"><span><span class="fu">set_outline</span><span class="op">(</span>depth <span class="op">=</span> <span class="fl">1</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] "#set outline(depth: 1)"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> attr(,"class")</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "typst_markup"</span>
 <span class="r-in"><span><span class="fu">set_par</span><span class="op">(</span></span></span>
 <span class="r-in"><span> `first-line-indent` <span class="op">=</span> <span class="fu"><a href="typst_units.html">em</a></span><span class="op">(</span><span class="fl">1</span><span class="op">)</span>,</span></span>
 <span class="r-in"><span> spacing <span class="op">=</span> <span class="fu"><a href="typst_units.html">em</a></span><span class="op">(</span><span class="fl">0.65</span><span class="op">)</span>,</span></span>
 <span class="r-in"><span> justify <span class="op">=</span> <span class="cn">TRUE</span></span></span>
 <span class="r-in"><span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] "#set par(first-line-indent: 1em, spacing: 0.65em, justify: true)"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> attr(,"class")</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "typst_markup"</span>
 <span class="r-in"><span><span class="fu">set_quote</span><span class="op">(</span>block <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] "#set quote(block: true)"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> attr(,"class")</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "typst_markup"</span>
 <span class="r-in"><span><span class="fu">set_strong</span><span class="op">(</span>delta <span class="op">=</span> <span class="fl">400</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] "#set strong(delta: 400)"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> attr(,"class")</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "typst_markup"</span>
 <span class="r-in"><span><span class="fu">set_table</span><span class="op">(</span>align <span class="op">=</span> <span class="va">center</span>, inset <span class="op">=</span> <span class="fu"><a href="typst_units.html">pt</a></span><span class="op">(</span><span class="fl">10</span><span class="op">)</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] "#set table(align: center, inset: 10pt)"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> attr(,"class")</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "typst_markup"</span>
 <span class="r-in"><span><span class="fu">set_text</span><span class="op">(</span>fill <span class="op">=</span> <span class="va">silver</span>, size <span class="op">=</span> <span class="fu"><a href="typst_units.html">pt</a></span><span class="op">(</span><span class="fl">20</span><span class="op">)</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] "#set text(fill: silver, size: 20pt)"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> attr(,"class")</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "typst_markup"</span>
 <span class="r-in"><span><span class="fu">set_linebreak</span><span class="op">(</span>justify <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] "#set linebreak(justify: true)"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> attr(,"class")</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "typst_markup"</span>
 <span class="r-in"><span><span class="fu">set_overline</span><span class="op">(</span>evade <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] "#set overline(evade: false)"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> attr(,"class")</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "typst_markup"</span>
 <span class="r-in"><span><span class="fu">set_smallcaps</span><span class="op">(</span>all <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] "#set smallcaps(all: true)"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> attr(,"class")</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "typst_markup"</span>
 <span class="r-in"><span><span class="fu">set_smartquote</span><span class="op">(</span>double <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] "#set smartquote(double: false)"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> attr(,"class")</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "typst_markup"</span>
 <span class="r-in"><span><span class="fu">set_strike</span><span class="op">(</span>offset <span class="op">=</span> <span class="fu"><a href="typst_units.html">em</a></span><span class="op">(</span><span class="fl">2</span><span class="op">)</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] "#set strike(offset: 2em)"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> attr(,"class")</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "typst_markup"</span>
 <span class="r-in"><span><span class="fu">set_sub</span><span class="op">(</span>typographic <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] "#set sub(typographic: false)"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> attr(,"class")</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "typst_markup"</span>
 <span class="r-in"><span><span class="fu">set_super</span><span class="op">(</span>typographic <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] "#set super(typographic: false)"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> attr(,"class")</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "typst_markup"</span>
 <span class="r-in"><span><span class="fu">set_underline</span><span class="op">(</span>stroke <span class="op">=</span> <span class="fu"><a href="typst_units.html">pt</a></span><span class="op">(</span><span class="fl">3</span><span class="op">)</span> <span class="op">+</span> <span class="va">olive</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] "#set underline(stroke: 3pt + olive)"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> attr(,"class")</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "typst_markup"</span>
 <span class="r-in"><span><span class="fu">set_raw</span><span class="op">(</span>lang <span class="op">=</span> <span class="st">"python"</span>, block <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] "#set raw(lang: \"python\", block: true)"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> attr(,"class")</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "typst_markup"</span>
 <span class="r-in"><span><span class="fu">set_highlight</span><span class="op">(</span>extent <span class="op">=</span> <span class="fu"><a href="typst_units.html">pt</a></span><span class="op">(</span><span class="fl">3</span><span class="op">)</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] "#set highlight(extent: 3pt)"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> attr(,"class")</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "typst_markup"</span>
 <span class="r-in"><span><span class="fu"><a href="typst_function.html">image</a></span><span class="op">(</span>width <span class="op">=</span> <span class="fu"><a href="typst_units.html">percent</a></span><span class="op">(</span><span class="fl">80</span><span class="op">)</span>, height <span class="op">=</span> <span class="va">auto</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] "#image(width: 80%, height: auto)"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> attr(,"class")</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "typst_markup"</span>
 <span class="r-in"><span><span class="fu">set_circle</span><span class="op">(</span>fill <span class="op">=</span> <span class="va">blue</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] "#set circle(fill: blue)"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> attr(,"class")</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "typst_markup"</span>
 <span class="r-in"><span><span class="fu">set_ellipse</span><span class="op">(</span>fill <span class="op">=</span> <span class="va">green</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] "#set ellipse(fill: green)"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> attr(,"class")</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "typst_markup"</span>
 <span class="r-in"><span><span class="fu">set_line</span><span class="op">(</span>length <span class="op">=</span> <span class="fu"><a href="typst_units.html">percent</a></span><span class="op">(</span><span class="fl">80</span><span class="op">)</span>, angle <span class="op">=</span> <span class="fu"><a href="typst_units.html">deg</a></span><span class="op">(</span><span class="fl">20</span><span class="op">)</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] "#set line(length: 80%, angle: 20deg)"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> attr(,"class")</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "typst_markup"</span>
 <span class="r-in"><span><span class="fu">set_rect</span><span class="op">(</span>fill <span class="op">=</span> <span class="va">aqua</span>, radius <span class="op">=</span> <span class="fu"><a href="typst_units.html">pt</a></span><span class="op">(</span><span class="fl">3</span><span class="op">)</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] "#set rect(fill: aqua, radius: 3pt)"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> attr(,"class")</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "typst_markup"</span>
 <span class="r-in"><span><span class="fu">set_square</span><span class="op">(</span>size <span class="op">=</span> <span class="fu"><a href="typst_units.html">pt</a></span><span class="op">(</span><span class="fl">5</span><span class="op">)</span>, fill <span class="op">=</span> <span class="va">olive</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] "#set square(size: 5pt, fill: olive)"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> attr(,"class")</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "typst_markup"</span>
 </code></pre></div>
     </div>
   </main><aside class="col-md-3"><nav id="toc" aria-label="Table of contents"><h2>On this page</h2>
