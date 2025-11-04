@@ -4,7 +4,7 @@
 #' Call the Typst CLI compiler and compile a file (.typ).
 #' Falls back to `quarto typst` if `typst` is unavailable.
 #'
-#' @param file_or_chr Path to a file (must end with ".typ").
+#' @param file Path to a file (must end with ".typ").
 #' @param output Optional path for the output file (default NULL).
 #'
 #' @returns Output file path, invisibly.

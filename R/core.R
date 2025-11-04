@@ -162,11 +162,25 @@ typst_function <- function(name, ...) {
   if (name %in% no_bracket_functions) {
     if (name %in% pos_bracket_functions) {
       format_path <- function(x) {
-        if (is.character(x) && length(x) == 1) paste0("[", x, "]") else x
+        # typst_markup -> keep markup and put in square brackets
+        if (inherits(x, "typst_markup") && length(x) == 1) {
+          paste0("[", as.character(x), "]")
+        } else if (is.character(x) && length(x) == 1) {
+          paste0("[", x, "]")
+        } else {
+          x
+        }
       }
     } else {
       format_path <- function(x) {
-        if (is.character(x) && length(x) == 1) paste0("\"", x, "\"") else x
+        # typst_markup -> keep markup (no extra quotes)
+        if (inherits(x, "typst_markup") && length(x) == 1) {
+          paste0("[", x, "]")
+        } else if (is.character(x) && length(x) == 1) {
+          paste0("\"", x, "\"")
+        } else {
+          x
+        }
       }
     }
 

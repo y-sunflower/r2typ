@@ -7,9 +7,9 @@
 typst_compile(file, output = NULL)
 }
 \arguments{
-\item{output}{Optional path for the output file (default NULL).}
+\item{file}{Path to a file (must end with ".typ").}
 
-\item{file_or_chr}{Path to a file (must end with ".typ").}
+\item{output}{Optional path for the output file (default NULL).}
 }
 \value{
 Output file path, invisibly.
