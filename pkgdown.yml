@@ -6,7 +6,7 @@ articles:
   typst-validation: typst-validation.html
   using-r2typ-in-quarto-documents: using-r2typ-in-quarto-documents.html
   writing-and-compiling-typst: writing-and-compiling-typst.html
-last_built: 2025-11-04T21:58Z
+last_built: 2025-11-04T22:01Z
 urls:
   reference: https://y-sunflower.github.io/r2typ/reference
   article: https://y-sunflower.github.io/r2typ/articles
