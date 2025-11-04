@@ -1,10 +1,14 @@
-test_that("Show rules", {
+test_that("Show rules work", {
   set_rule <- set_text(red)
   show_rule <- show_("heading", set_rule)
+  expect_true(show_rule |> inherits("typst_markup"))
+  show_rule <- unclass(show_rule)
   expect_equal(show_rule, "#show heading: set text(red)")
   expect_true(show_rule |> is_valid_typst(error_on_failure = TRUE))
 
   show_rule <- show_("heading", set_circle(width = percent(50)))
+  expect_true(show_rule |> inherits("typst_markup"))
+  show_rule <- unclass(show_rule)
   expect_equal(show_rule, "#show heading: set circle(width: 50%)")
   expect_true(show_rule |> is_valid_typst(error_on_failure = TRUE))
 

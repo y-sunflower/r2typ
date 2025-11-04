@@ -24,10 +24,12 @@ show_ <- function(name, set_rule) {
     )
   }
 
-  paste0(
+  show_rule <- paste0(
     "#show ",
     name,
     ": ",
     substr(set_rule, start = 2, stop = nchar(set_rule))
   )
+
+  structure(show_rule, class = "typst_markup")
 }

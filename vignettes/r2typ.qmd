@@ -80,6 +80,12 @@ text(fill = green, "Green text")
 
 All built-in Typst colors are available in `{r2typ}`. You can find them [here](../reference/typst_colors.html).
 
+You can also use the `rgb()` function:
+
+```{r}
+text(fill = rgb("#ffc300"), "Yellow-ish text")
+```
+
 ## Typst alignment
 
 Similarly to colors, Typst includes specific objects for alignment. They work well in `{r2typ}`:

@@ -11,12 +11,9 @@ knitr:
     message: false
 ---
 
-```{r}
-#| message: false
-library(r2typ)
-```
+`{r2typ}` will output valid format for your Quarto documents assuming you have the `{knitr}` package installed, which is probably the case.
 
-To include the output of `{r2typ}` in your Quarto documents, you need to convert it to "raw" Typst with the `as_quarto_typst()` function.
+## Basic usage
 
 ````md
 ---
@@ -33,18 +30,22 @@ library(r2typ)
 ## Simple usage
 
 ```{{r}}
-heading(level = 2, numbering = "1.1", "Hello world") |>
-  as_quarto_typst()
+heading(level = 2, numbering = "1.1", "Hello world")
+```
+
+## Using show rule
+
+```{{r}}
+show_("heading", set_text(fill = red))
+heading(level = 2, numbering = "1.1", "Hello world")
 ```
 ````
 
 ![](./r2typ-with-quarto-output.png)
 
-Calling `as_quarto_typst()` will convert your Typst markup to a valid format to be interpreted by Quarto and the Typst compiler.
-
 ## Advanced usage
 
-`{r2typ}` becomes very interesting when using dynamic values and advanced function calls. For example, here we use a parameter and add it inside the text of a square:
+`{r2typ}` becomes very interesting when using dynamic values and advanced function calls. For example, here we use a parameter and add it inside the text of a circle:
 
 ````md
 ---
@@ -69,7 +70,7 @@ align(
   circle(
     width = percent(40),
     fill = aqua,
-    stroke = pt(5) + red,
+    stroke = pt(5) + rgb("#ffc300"),
     align(
       right,
       text(
@@ -80,8 +81,7 @@ align(
       )
     )
   )
-) |>
-  as_quarto_typst()
+)
 ```
 ````
 
