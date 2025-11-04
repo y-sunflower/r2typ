@@ -2,25 +2,25 @@
 % Please edit documentation in R/write.R
 \name{typst_write}
 \alias{typst_write}
-\title{Write a Typst file from a character vector or copy an existing one}
+\title{Write a Typst file from a character vector}
 \usage{
-typst_write(file_or_chr, output = NULL)
+typst_write(x, output = NULL)
 }
 \arguments{
-\item{file_or_chr}{Path to a file (must end with ".typ") or a character vector.}
+\item{x}{A character vector representing Typst code.}
 
-\item{output}{Optional output file path (must end with ".typ"). If NULL, a temporary .typ file is created.}
+\item{output}{Optional output file path (must end with ".typ"). If NULL, a temporary file is created.}
 }
 \value{
 The path to the written .typ file, invisibly.
 }
 \description{
-Create or copy a Typst file (.typ) from either a character vector or an existing .typ file.
+Create a Typst file (.typ) from a character vector.
 }
 \examples{
 \dontrun{
-typst_code <- c("= Hello World", "This is a Typst document.")
-typst_write(typst_code, output = "hello.typ")
+code <- c("= Hello World", "This is a Typst document.")
+typst_write(code, output = "hello.typ")
 }
 
 }

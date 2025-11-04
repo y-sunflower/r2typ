@@ -12,6 +12,6 @@ test_that("Invalid Typst CLI usage", {
 
   expect_error(
     typst_write(markup, output = "invalid.py"),
-    regexp = "Output file must have a .typ extension"
+    regexp = "`output` must have a .typ extension"
   )
 })
