@@ -9,5 +9,5 @@
 #'
 #' @return A character string containing the generated Typst code.
 #'
-#' @name typst_set
+#' @name typst-set
 NULL
