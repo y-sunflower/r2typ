@@ -8,7 +8,7 @@
 - ✅ `set` and (simple) `show` rules
 - ✅ works well with **Quarto**
 - ✅ extremely **simple syntax**
-- ✅ and **zero** dependencies
+- ✅ very **lightweight**
 
 Check out the [documentation](https://y-sunflower.github.io/r2typ/).
 

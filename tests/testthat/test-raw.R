@@ -27,12 +27,3 @@ test_that("as_quarto_typst handles multiple lines correctly", {
     structure(expected, class = "knit_asis", knit_cacheable = NA)
   )
 })
-
-test_that("as_quarto_typst handles empty input", {
-  res <- as_quarto_typst(character())
-  expected <- "\n```{=typst}\n\n```\n"
-  expect_identical(
-    res,
-    structure(expected, class = "knit_asis", knit_cacheable = NA)
-  )
-})

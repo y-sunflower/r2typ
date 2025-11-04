@@ -13,9 +13,8 @@ BugReports: https://github.com/y-sunflower/r2typ/issues
 Depends:
     R (>= 4.1)
 Suggests: 
-    knitr,
     quarto,
-    rmarkdown,
+    knitr,
     testthat (>= 3.0.0)
 Config/testthat/edition: 3
 VignetteBuilder: quarto, knitr

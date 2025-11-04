@@ -3,6 +3,7 @@
 S3method("+",typst_alignment)
 S3method("+",typst_expression)
 S3method("-",typst_expression)
+S3method(knitr::knit_print,typst_markup)
 export(align)
 export(aqua)
 export(as_quarto_typst)
