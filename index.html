@@ -42,7 +42,6 @@
     <li><a class="dropdown-item" href="articles/using-r2typ-in-quarto-documents.html">Using r2typ in Quarto documents</a></li>
     <li><a class="dropdown-item" href="articles/writing-and-compiling-typst.html">Writing and compiling typst</a></li>
     <li><a class="dropdown-item" href="articles/typst-validation.html">Typst validation</a></li>
-    <li><a class="dropdown-item" href="articles/use-your-own-typst-functions.html">Use your own Typst functions</a></li>
   </ul>
 </li>
       </ul>
@@ -105,22 +104,22 @@ The project is still early stage and contains a few bugs.</p>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://y-sunflower.github.io/r2typ/">r2typ</a></span><span class="op">)</span></span>
 <span></span>
-<span><span class="fu"><a href="reference/typst_function.html">heading</a></span><span class="op">(</span>level <span class="op">=</span> <span class="fl">2</span>, numbering <span class="op">=</span> <span class="st">"1.1"</span>, <span class="st">"Hello world"</span><span class="op">)</span></span>
+<span><span class="fu"><a href="reference/typst-function.html">heading</a></span><span class="op">(</span>level <span class="op">=</span> <span class="fl">2</span>, numbering <span class="op">=</span> <span class="st">"1.1"</span>, <span class="st">"Hello world"</span><span class="op">)</span></span>
 <span><span class="co">#&gt; #heading(level: 2, numbering: "1.1")[Hello world]</span></span>
 <span></span>
-<span><span class="fu"><a href="reference/typst_function.html">text</a></span><span class="op">(</span>size <span class="op">=</span> <span class="fu"><a href="reference/typst_units.html">pt</a></span><span class="op">(</span><span class="fl">12</span><span class="op">)</span>, baseline <span class="op">=</span> <span class="fu"><a href="reference/typst_units.html">em</a></span><span class="op">(</span><span class="fl">1.2</span><span class="op">)</span>, overhang <span class="op">=</span> <span class="cn">FALSE</span>, <span class="st">"hey there"</span><span class="op">)</span></span>
+<span><span class="fu"><a href="reference/typst-function.html">text</a></span><span class="op">(</span>size <span class="op">=</span> <span class="fu"><a href="reference/typst_units.html">pt</a></span><span class="op">(</span><span class="fl">12</span><span class="op">)</span>, baseline <span class="op">=</span> <span class="fu"><a href="reference/typst_units.html">em</a></span><span class="op">(</span><span class="fl">1.2</span><span class="op">)</span>, overhang <span class="op">=</span> <span class="cn">FALSE</span>, <span class="st">"hey there"</span><span class="op">)</span></span>
 <span><span class="co">#&gt; #text(size: 12pt, baseline: 1.2em, overhang: false)[hey there]</span></span>
 <span></span>
-<span><span class="fu"><a href="reference/typst_function.html">image</a></span><span class="op">(</span>width <span class="op">=</span> <span class="fu"><a href="reference/typst_units.html">percent</a></span><span class="op">(</span><span class="fl">80</span><span class="op">)</span>, height <span class="op">=</span> <span class="va">auto</span>, <span class="st">"link.svg"</span><span class="op">)</span></span>
+<span><span class="fu"><a href="reference/typst-function.html">image</a></span><span class="op">(</span>width <span class="op">=</span> <span class="fu"><a href="reference/typst_units.html">percent</a></span><span class="op">(</span><span class="fl">80</span><span class="op">)</span>, height <span class="op">=</span> <span class="va">auto</span>, <span class="st">"link.svg"</span><span class="op">)</span></span>
 <span><span class="co">#&gt; #image(width: 80%, height: auto, "link.svg")</span></span>
 <span></span>
-<span><span class="fu"><a href="reference/typst_function.html">circle</a></span><span class="op">(</span>fill <span class="op">=</span> <span class="va">blue</span>, <span class="st">"hey"</span><span class="op">)</span></span>
+<span><span class="fu"><a href="reference/typst-function.html">circle</a></span><span class="op">(</span>fill <span class="op">=</span> <span class="va">blue</span>, <span class="st">"hey"</span><span class="op">)</span></span>
 <span><span class="co">#&gt; #circle(fill: blue)[hey]</span></span>
 <span></span>
-<span><span class="fu"><a href="reference/typst_function.html">circle</a></span><span class="op">(</span>radius <span class="op">=</span> <span class="fu"><a href="reference/typst_units.html">pt</a></span><span class="op">(</span><span class="fl">100</span><span class="op">)</span>, <span class="st">"hey"</span>, <span class="fu"><a href="reference/typst_function.html">linebreak</a></span><span class="op">(</span><span class="op">)</span>, <span class="st">"there"</span><span class="op">)</span></span>
+<span><span class="fu"><a href="reference/typst-function.html">circle</a></span><span class="op">(</span>radius <span class="op">=</span> <span class="fu"><a href="reference/typst_units.html">pt</a></span><span class="op">(</span><span class="fl">100</span><span class="op">)</span>, <span class="st">"hey"</span>, <span class="fu"><a href="reference/typst-function.html">linebreak</a></span><span class="op">(</span><span class="op">)</span>, <span class="st">"there"</span><span class="op">)</span></span>
 <span><span class="co">#&gt; #circle(radius: 100pt)[hey #linebreak() there]</span></span>
 <span></span>
-<span><span class="fu"><a href="reference/typst_function.html">place</a></span><span class="op">(</span><span class="va">top</span> <span class="op">+</span> <span class="va">left</span>, dy <span class="op">=</span> <span class="fu"><a href="reference/typst_units.html">pt</a></span><span class="op">(</span><span class="fl">15</span><span class="op">)</span>, <span class="fu"><a href="reference/typst_function.html">square</a></span><span class="op">(</span>size <span class="op">=</span> <span class="fu"><a href="reference/typst_units.html">pt</a></span><span class="op">(</span><span class="fl">35</span><span class="op">)</span>, fill <span class="op">=</span> <span class="va">red</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="fu"><a href="reference/typst-function.html">place</a></span><span class="op">(</span><span class="va">top</span> <span class="op">+</span> <span class="va">left</span>, dy <span class="op">=</span> <span class="fu"><a href="reference/typst_units.html">pt</a></span><span class="op">(</span><span class="fl">15</span><span class="op">)</span>, <span class="fu"><a href="reference/typst-function.html">square</a></span><span class="op">(</span>size <span class="op">=</span> <span class="fu"><a href="reference/typst_units.html">pt</a></span><span class="op">(</span><span class="fl">35</span><span class="op">)</span>, fill <span class="op">=</span> <span class="va">red</span><span class="op">)</span><span class="op">)</span></span>
 <span><span class="co">#&gt; #place(top + left, dy: 15pt)[#square(size: 35pt, fill: red)]</span></span></code></pre></div>
 </div>
 <div class="section level4">
@@ -129,10 +128,10 @@ The project is still early stage and contains a few bugs.</p>
 <p>Functions in <a href="https://y-sunflower.github.io/r2typ/">r2typ</a> accept <strong>all positional and named arguments</strong>! This means that you’re responsible of making sure the arguments you’re using are valid!</p>
 <p>But to help you in that process, there is a <code><a href="reference/is_valid_typst.html">is_valid_typst()</a></code> function that will return either <code>TRUE</code> or <code>FALSE</code> depending on whether your Typst can be compiled successfully.</p>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu"><a href="reference/typst_function.html">place</a></span><span class="op">(</span></span>
+<code class="sourceCode R"><span><span class="fu"><a href="reference/typst-function.html">place</a></span><span class="op">(</span></span>
 <span>  <span class="va">top</span> <span class="op">+</span> <span class="va">left</span>,</span>
 <span>  dy <span class="op">=</span> <span class="fu"><a href="reference/typst_units.html">pt</a></span><span class="op">(</span><span class="fl">15</span><span class="op">)</span>,</span>
-<span>  <span class="fu"><a href="reference/typst_function.html">square</a></span><span class="op">(</span>size <span class="op">=</span> <span class="fu"><a href="reference/typst_units.html">pt</a></span><span class="op">(</span><span class="fl">35</span><span class="op">)</span>, fill <span class="op">=</span> <span class="va">red</span><span class="op">)</span></span>
+<span>  <span class="fu"><a href="reference/typst-function.html">square</a></span><span class="op">(</span>size <span class="op">=</span> <span class="fu"><a href="reference/typst_units.html">pt</a></span><span class="op">(</span><span class="fl">35</span><span class="op">)</span>, fill <span class="op">=</span> <span class="va">red</span><span class="op">)</span></span>
 <span><span class="op">)</span> <span class="op">|&gt;</span></span>
 <span>  <span class="fu"><a href="reference/is_valid_typst.html">is_valid_typst</a></span><span class="op">(</span><span class="op">)</span></span>
 <span><span class="co">#&gt; TRUE</span></span></code></pre></div>
@@ -150,7 +149,7 @@ The project is still early stage and contains a few bugs.</p>
 </li>
 </ul>
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu"><a href="reference/typst_function.html">image</a></span><span class="op">(</span><span class="st">"image.png"</span>, width <span class="op">=</span> <span class="fu"><a href="reference/typst_units.html">percent</a></span><span class="op">(</span><span class="fl">80</span><span class="op">)</span>, alt <span class="op">=</span> <span class="cn">NULL</span><span class="op">)</span></span>
+<code class="sourceCode R"><span><span class="fu"><a href="reference/typst-function.html">image</a></span><span class="op">(</span><span class="st">"image.png"</span>, width <span class="op">=</span> <span class="fu"><a href="reference/typst_units.html">percent</a></span><span class="op">(</span><span class="fl">80</span><span class="op">)</span>, alt <span class="op">=</span> <span class="cn">NULL</span><span class="op">)</span></span>
 <span><span class="co">#&gt; #image(width: 80%, alt: none, \"image.png\")</span></span></code></pre></div>
 <ul>
 <li>
@@ -158,33 +157,33 @@ The project is still early stage and contains a few bugs.</p>
 </li>
 </ul>
 <div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu"><a href="reference/typst_function.html">list_</a></span><span class="op">(</span>tight <span class="op">=</span> <span class="cn">FALSE</span>, <span class="st">"hey"</span>, <span class="st">"you"</span><span class="op">)</span></span>
+<code class="sourceCode R"><span><span class="fu"><a href="reference/typst-function.html">list_</a></span><span class="op">(</span>tight <span class="op">=</span> <span class="cn">FALSE</span>, <span class="st">"hey"</span>, <span class="st">"you"</span><span class="op">)</span></span>
 <span><span class="co">#&gt; #list(tight: false, [hey], [you])</span></span></code></pre></div>
 <ul>
 <li>
 <code><a href="https://rdrr.io/r/base/c.html" class="external-link">c()</a></code> vectors and unnamed <code><a href="https://rdrr.io/r/base/list.html" class="external-link">list()</a></code> (such as <code>list("a", "b"</code>) become arrays:</li>
 </ul>
 <div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu"><a href="reference/typst_function.html">text</a></span><span class="op">(</span>`stylistic-set` <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">2</span>, <span class="fl">3</span><span class="op">)</span>, <span class="st">"10 years ago"</span><span class="op">)</span></span>
+<code class="sourceCode R"><span><span class="fu"><a href="reference/typst-function.html">text</a></span><span class="op">(</span>`stylistic-set` <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">2</span>, <span class="fl">3</span><span class="op">)</span>, <span class="st">"10 years ago"</span><span class="op">)</span></span>
 <span><span class="co">#&gt; #text(stylistic-set: (1, 2, 3))[10 years ago]</span></span>
 <span></span>
-<span><span class="fu"><a href="reference/typst_function.html">text</a></span><span class="op">(</span>`stylistic-set` <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">2</span>, <span class="fl">3</span><span class="op">)</span>, <span class="st">"10 years ago"</span><span class="op">)</span> <span class="co"># equivalent</span></span>
+<span><span class="fu"><a href="reference/typst-function.html">text</a></span><span class="op">(</span>`stylistic-set` <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">2</span>, <span class="fl">3</span><span class="op">)</span>, <span class="st">"10 years ago"</span><span class="op">)</span> <span class="co"># equivalent</span></span>
 <span><span class="co">#&gt; #text(stylistic-set: (1, 2, 3))[10 years ago]</span></span></code></pre></div>
 <ul>
 <li>Named <code><a href="https://rdrr.io/r/base/list.html" class="external-link">list()</a></code> (such as <code>list(a = "hello", b = "world")</code>) become dictionnaries:</li>
 </ul>
 <div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu"><a href="reference/typst_function.html">text</a></span><span class="op">(</span>costs <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>hyphenation <span class="op">=</span> <span class="fu"><a href="reference/typst_units.html">percent</a></span><span class="op">(</span><span class="fl">100</span><span class="op">)</span>, runt <span class="op">=</span> <span class="fu"><a href="reference/typst_units.html">percent</a></span><span class="op">(</span><span class="fl">100</span><span class="op">)</span><span class="op">)</span><span class="op">)</span></span>
+<code class="sourceCode R"><span><span class="fu"><a href="reference/typst-function.html">text</a></span><span class="op">(</span>costs <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>hyphenation <span class="op">=</span> <span class="fu"><a href="reference/typst_units.html">percent</a></span><span class="op">(</span><span class="fl">100</span><span class="op">)</span>, runt <span class="op">=</span> <span class="fu"><a href="reference/typst_units.html">percent</a></span><span class="op">(</span><span class="fl">100</span><span class="op">)</span><span class="op">)</span><span class="op">)</span></span>
 <span><span class="co">#&gt; #text(costs: (hyphenation: 100%, runt: 100%))</span></span></code></pre></div>
 </div>
 <div class="section level4">
 <h4 id="set-and-show-rules">Set and show rules<a class="anchor" aria-label="anchor" href="#set-and-show-rules"></a>
 </h4>
 <div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu"><a href="reference/typst_set.html">set_text</a></span><span class="op">(</span><span class="va">red</span>, size <span class="op">=</span> <span class="fu"><a href="reference/typst_units.html">pt</a></span><span class="op">(</span><span class="fl">20</span><span class="op">)</span><span class="op">)</span></span>
+<code class="sourceCode R"><span><span class="fu"><a href="reference/typst-set.html">set_text</a></span><span class="op">(</span><span class="va">red</span>, size <span class="op">=</span> <span class="fu"><a href="reference/typst_units.html">pt</a></span><span class="op">(</span><span class="fl">20</span><span class="op">)</span><span class="op">)</span></span>
 <span><span class="co">#&gt; #set text(size: 20pt, red)</span></span>
 <span></span>
-<span><span class="fu"><a href="reference/typst_show.html">show_</a></span><span class="op">(</span><span class="st">"heading"</span>, <span class="fu"><a href="reference/typst_set.html">set_text</a></span><span class="op">(</span><span class="va">red</span>, size <span class="op">=</span> <span class="fu"><a href="reference/typst_units.html">pt</a></span><span class="op">(</span><span class="fl">20</span><span class="op">)</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="fu">show_</span><span class="op">(</span><span class="st">"heading"</span>, <span class="fu"><a href="reference/typst-set.html">set_text</a></span><span class="op">(</span><span class="va">red</span>, size <span class="op">=</span> <span class="fu"><a href="reference/typst_units.html">pt</a></span><span class="op">(</span><span class="fl">20</span><span class="op">)</span><span class="op">)</span><span class="op">)</span></span>
 <span><span class="co">#&gt; #show heading: set text(size: 20pt, red)</span></span></code></pre></div>
 </div>
 <div class="section level4">
@@ -193,16 +192,16 @@ The project is still early stage and contains a few bugs.</p>
 <p>A complete example that generates a PDF using R only:</p>
 <div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span></span>
-<span>  <span class="fu"><a href="reference/typst_set.html">set_text</a></span><span class="op">(</span><span class="va">purple</span><span class="op">)</span>,</span>
-<span>  <span class="fu"><a href="reference/typst_set.html">set_circle</a></span><span class="op">(</span>width <span class="op">=</span> <span class="fu"><a href="reference/typst_units.html">percent</a></span><span class="op">(</span><span class="fl">50</span><span class="op">)</span><span class="op">)</span>,</span>
-<span>  <span class="fu"><a href="reference/typst_function.html">align</a></span><span class="op">(</span></span>
+<span>  <span class="fu"><a href="reference/typst-set.html">set_text</a></span><span class="op">(</span><span class="va">purple</span><span class="op">)</span>,</span>
+<span>  <span class="fu"><a href="reference/typst-set.html">set_circle</a></span><span class="op">(</span>width <span class="op">=</span> <span class="fu"><a href="reference/typst_units.html">percent</a></span><span class="op">(</span><span class="fl">50</span><span class="op">)</span><span class="op">)</span>,</span>
+<span>  <span class="fu"><a href="reference/typst-function.html">align</a></span><span class="op">(</span></span>
 <span>    <span class="va">center</span> <span class="op">+</span> <span class="va">horizon</span>,</span>
-<span>    <span class="fu"><a href="reference/typst_function.html">circle</a></span><span class="op">(</span></span>
+<span>    <span class="fu"><a href="reference/typst-function.html">circle</a></span><span class="op">(</span></span>
 <span>      fill <span class="op">=</span> <span class="va">aqua</span>,</span>
 <span>      stroke <span class="op">=</span> <span class="fu"><a href="reference/typst_units.html">pt</a></span><span class="op">(</span><span class="fl">5</span><span class="op">)</span> <span class="op">+</span> <span class="va">red</span>,</span>
-<span>      <span class="fu"><a href="reference/typst_function.html">align</a></span><span class="op">(</span></span>
+<span>      <span class="fu"><a href="reference/typst-function.html">align</a></span><span class="op">(</span></span>
 <span>        <span class="va">right</span>,</span>
-<span>        <span class="fu"><a href="reference/typst_function.html">text</a></span><span class="op">(</span></span>
+<span>        <span class="fu"><a href="reference/typst-function.html">text</a></span><span class="op">(</span></span>
 <span>          font <span class="op">=</span> <span class="st">"Roboto"</span>,</span>
 <span>          size <span class="op">=</span> <span class="fu"><a href="reference/typst_units.html">em</a></span><span class="op">(</span><span class="fl">1.2</span><span class="op">)</span>,</span>
 <span>          <span class="st">"My favorite food is cookies!"</span></span>

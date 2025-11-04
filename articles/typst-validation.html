@@ -42,7 +42,6 @@
     <li><a class="dropdown-item" href="../articles/using-r2typ-in-quarto-documents.html">Using r2typ in Quarto documents</a></li>
     <li><a class="dropdown-item" href="../articles/writing-and-compiling-typst.html">Writing and compiling typst</a></li>
     <li><a class="dropdown-item" href="../articles/typst-validation.html">Typst validation</a></li>
-    <li><a class="dropdown-item" href="../articles/use-your-own-typst-functions.html">Use your own Typst functions</a></li>
   </ul>
 </li>
       </ul>
@@ -88,17 +87,17 @@
 <div class="sourceCode cell-code" id="cb1"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://y-sunflower.github.io/r2typ/">r2typ</a></span><span class="op">)</span></span>
 <span></span>
-<span><span class="fu"><a href="../reference/typst_function.html">linebreak</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
+<span><span class="fu"><a href="../reference/typst-function.html">linebreak</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
 <div class="cell-output-display">
 
 </div>
 <div class="sourceCode cell-code" id="cb2"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu"><a href="../reference/typst_function.html">linebreak</a></span><span class="op">(</span>justify <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu"><a href="../reference/typst-function.html">linebreak</a></span><span class="op">(</span>justify <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></code></pre></div>
 <div class="cell-output-display">
 
 </div>
 <div class="sourceCode cell-code" id="cb3"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu"><a href="../reference/typst_function.html">linebreak</a></span><span class="op">(</span>any_other_args <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span> <span class="co"># this works!</span></span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu"><a href="../reference/typst-function.html">linebreak</a></span><span class="op">(</span>any_other_args <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span> <span class="co"># this works!</span></span></code></pre></div>
 <div class="cell-output-display">
 
 </div>
@@ -109,11 +108,11 @@
 <div class="sourceCode cell-code" id="cb4"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://y-sunflower.github.io/r2typ/">r2typ</a></span><span class="op">)</span></span>
 <span></span>
-<span><span class="fu"><a href="../reference/typst_function.html">linebreak</a></span><span class="op">(</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu"><a href="../reference/is_valid_typst.html">is_valid_typst</a></span><span class="op">(</span><span class="op">)</span></span>
+<span><span class="fu"><a href="../reference/typst-function.html">linebreak</a></span><span class="op">(</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu"><a href="../reference/is_valid_typst.html">is_valid_typst</a></span><span class="op">(</span><span class="op">)</span></span>
 <span><span class="co">#&gt; [1] TRUE</span></span>
-<span><span class="fu"><a href="../reference/typst_function.html">linebreak</a></span><span class="op">(</span>justify <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu"><a href="../reference/is_valid_typst.html">is_valid_typst</a></span><span class="op">(</span><span class="op">)</span></span>
+<span><span class="fu"><a href="../reference/typst-function.html">linebreak</a></span><span class="op">(</span>justify <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu"><a href="../reference/is_valid_typst.html">is_valid_typst</a></span><span class="op">(</span><span class="op">)</span></span>
 <span><span class="co">#&gt; [1] TRUE</span></span>
-<span><span class="fu"><a href="../reference/typst_function.html">linebreak</a></span><span class="op">(</span>any_other_args <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu"><a href="../reference/is_valid_typst.html">is_valid_typst</a></span><span class="op">(</span><span class="op">)</span></span>
+<span><span class="fu"><a href="../reference/typst-function.html">linebreak</a></span><span class="op">(</span>any_other_args <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu"><a href="../reference/is_valid_typst.html">is_valid_typst</a></span><span class="op">(</span><span class="op">)</span></span>
 <span><span class="co">#&gt; [1] FALSE</span></span></code></pre></div>
 </div>
 
