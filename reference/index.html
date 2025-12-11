@@ -24,6 +24,7 @@
     <li><a class="dropdown-item" href="../articles/using-r2typ-in-quarto-documents.html">Using r2typ in Quarto documents</a></li>
     <li><a class="dropdown-item" href="../articles/writing-and-compiling-typst.html">Writing and compiling typst</a></li>
     <li><a class="dropdown-item" href="../articles/typst-validation.html">Typst validation</a></li>
+    <li><a class="dropdown-item" href="../articles/use-user-defined-functions.html">Use user-defined functions</a></li>
   </ul></li>
       </ul><ul class="navbar-nav"><li class="nav-item"><form class="form-inline" role="search">
  <input class="form-control" type="search" name="search-input" id="search-input" autocomplete="off" aria-label="Search site" placeholder="Search for" data-search-index="../search.json"></form></li>
@@ -50,8 +51,7 @@
 
 
 
-
-    </div><div class="section level2">
+      <dl></dl></div><div class="section level2">
 
 
 
@@ -62,79 +62,92 @@
 
         </dt>
         <dd>Format into Typst format</dd>
-      </dl><dl><dt>
+
+        <dt>
 
           <code><a href="is_valid_typst.html">is_valid_typst()</a></code>
 
         </dt>
         <dd>Is valid Typst?</dd>
-      </dl><dl><dt>
+
+        <dt>
 
           <code><a href="parse_typst_args.html">parse_typst_args()</a></code>
 
         </dt>
         <dd>Parse <code>...</code> arguments</dd>
-      </dl><dl><dt>
+
+        <dt>
 
           <code><a href="quarto.html">as_quarto_typst()</a></code> <code><a href="quarto.html">knit_print(<i>&lt;typst_markup&gt;</i>)</a></code>
 
         </dt>
         <dd>Raw blocks for Quarto and Custom knit_print</dd>
-      </dl><dl><dt>
 
-          <code><a href="typst-function.html">assert()</a></code> <code><a href="typst-function.html">bytes()</a></code> <code><a href="typst-function.html">datetime()</a></code> <code><a href="typst-function.html">duration()</a></code> <code><a href="typst-function.html">eval_()</a></code> <code><a href="typst-function.html">panic()</a></code> <code><a href="typst-function.html">regex()</a></code> <code><a href="typst-function.html">repr()</a></code> <code><a href="typst-function.html">str_()</a></code> <code><a href="typst-function.html">symbol()</a></code> <code><a href="typst-function.html">decimal()</a></code> <code><a href="typst-function.html">type()</a></code> <code><a href="typst-function.html">version()</a></code> <code><a href="typst-function.html">place()</a></code> <code><a href="typst-function.html">align()</a></code> <code><a href="typst-function.html">h()</a></code> <code><a href="typst-function.html">v()</a></code> <code><a href="typst-function.html">block()</a></code> <code><a href="typst-function.html">box()</a></code> <code><a href="typst-function.html">colbreak()</a></code> <code><a href="typst-function.html">stack()</a></code> <code><a href="typst-function.html">grid()</a></code> <code><a href="typst-function.html">hide()</a></code> <code><a href="typst-function.html">pagebreak()</a></code> <code><a href="typst-function.html">move()</a></code> <code><a href="typst-function.html">pad()</a></code> <code><a href="typst-function.html">page()</a></code> <code><a href="typst-function.html">scale_()</a></code> <code><a href="typst-function.html">skew()</a></code> <code><a href="typst-function.html">rotate()</a></code> <code><a href="typst-function.html">bibliography()</a></code> <code><a href="typst-function.html">set_list()</a></code> <code><a href="typst-function.html">list_()</a></code> <code><a href="typst-function.html">document()</a></code> <code><a href="typst-function.html">emph()</a></code> <code><a href="typst-function.html">figure()</a></code> <code><a href="typst-function.html">footnote()</a></code> <code><a href="typst-function.html">heading()</a></code> <code><a href="typst-function.html">enum()</a></code> <code><a href="typst-function.html">outline()</a></code> <code><a href="typst-function.html">par()</a></code> <code><a href="typst-function.html">parbreak()</a></code> <code><a href="typst-function.html">quote_()</a></code> <code><a href="typst-function.html">strong()</a></code> <code><a href="typst-function.html">table_()</a></code> <code><a href="typst-function.html">text()</a></code> <code><a href="typst-function.html">linebreak()</a></code> <code><a href="typst-function.html">overline()</a></code> <code><a href="typst-function.html">smallcaps()</a></code> <code><a href="typst-function.html">smartquote()</a></code> <code><a href="typst-function.html">strike()</a></code> <code><a href="typst-function.html">sub_()</a></code> <code><a href="typst-function.html">super()</a></code> <code><a href="typst-function.html">underline()</a></code> <code><a href="typst-function.html">upper()</a></code> <code><a href="typst-function.html">raw_()</a></code> <code><a href="typst-function.html">highlight()</a></code> <code><a href="typst-function.html">lower()</a></code> <code><a href="typst-function.html">image()</a></code> <code><a href="typst-function.html">circle()</a></code> <code><a href="typst-function.html">ellipse()</a></code> <code><a href="typst-function.html">line()</a></code> <code><a href="typst-function.html">rect()</a></code> <code><a href="typst-function.html">square()</a></code>
+        <dt>
+
+          <code><a href="typst-function.html">typst_function()</a></code> <code><a href="typst-function.html">assert()</a></code> <code><a href="typst-function.html">bytes()</a></code> <code><a href="typst-function.html">datetime()</a></code> <code><a href="typst-function.html">duration()</a></code> <code><a href="typst-function.html">eval_()</a></code> <code><a href="typst-function.html">panic()</a></code> <code><a href="typst-function.html">regex()</a></code> <code><a href="typst-function.html">repr()</a></code> <code><a href="typst-function.html">str_()</a></code> <code><a href="typst-function.html">symbol()</a></code> <code><a href="typst-function.html">decimal()</a></code> <code><a href="typst-function.html">type()</a></code> <code><a href="typst-function.html">version()</a></code> <code><a href="typst-function.html">place()</a></code> <code><a href="typst-function.html">align()</a></code> <code><a href="typst-function.html">h()</a></code> <code><a href="typst-function.html">v()</a></code> <code><a href="typst-function.html">block()</a></code> <code><a href="typst-function.html">box()</a></code> <code><a href="typst-function.html">colbreak()</a></code> <code><a href="typst-function.html">stack()</a></code> <code><a href="typst-function.html">grid()</a></code> <code><a href="typst-function.html">hide()</a></code> <code><a href="typst-function.html">pagebreak()</a></code> <code><a href="typst-function.html">move()</a></code> <code><a href="typst-function.html">pad()</a></code> <code><a href="typst-function.html">page()</a></code> <code><a href="typst-function.html">scale_()</a></code> <code><a href="typst-function.html">skew()</a></code> <code><a href="typst-function.html">rotate()</a></code> <code><a href="typst-function.html">bibliography()</a></code> <code><a href="typst-function.html">set_list()</a></code> <code><a href="typst-function.html">list_()</a></code> <code><a href="typst-function.html">document()</a></code> <code><a href="typst-function.html">emph()</a></code> <code><a href="typst-function.html">figure()</a></code> <code><a href="typst-function.html">footnote()</a></code> <code><a href="typst-function.html">heading()</a></code> <code><a href="typst-function.html">enum()</a></code> <code><a href="typst-function.html">outline()</a></code> <code><a href="typst-function.html">par()</a></code> <code><a href="typst-function.html">parbreak()</a></code> <code><a href="typst-function.html">quote_()</a></code> <code><a href="typst-function.html">strong()</a></code> <code><a href="typst-function.html">table_()</a></code> <code><a href="typst-function.html">text()</a></code> <code><a href="typst-function.html">linebreak()</a></code> <code><a href="typst-function.html">overline()</a></code> <code><a href="typst-function.html">smallcaps()</a></code> <code><a href="typst-function.html">smartquote()</a></code> <code><a href="typst-function.html">strike()</a></code> <code><a href="typst-function.html">sub_()</a></code> <code><a href="typst-function.html">super()</a></code> <code><a href="typst-function.html">underline()</a></code> <code><a href="typst-function.html">upper()</a></code> <code><a href="typst-function.html">raw_()</a></code> <code><a href="typst-function.html">highlight()</a></code> <code><a href="typst-function.html">lower()</a></code> <code><a href="typst-function.html">image()</a></code> <code><a href="typst-function.html">circle()</a></code> <code><a href="typst-function.html">ellipse()</a></code> <code><a href="typst-function.html">line()</a></code> <code><a href="typst-function.html">rect()</a></code> <code><a href="typst-function.html">square()</a></code>
 
         </dt>
-        <dd>Typst function</dd>
-      </dl><dl><dt>
+        <dd>Create a Typst function</dd>
+
+        <dt>
 
           <code><a href="typst-set.html">set_place()</a></code> <code><a href="typst-set.html">set_align()</a></code> <code><a href="typst-set.html">set_h()</a></code> <code><a href="typst-set.html">set_v()</a></code> <code><a href="typst-set.html">set_block()</a></code> <code><a href="typst-set.html">set_box()</a></code> <code><a href="typst-set.html">set_colbreak()</a></code> <code><a href="typst-set.html">set_stack()</a></code> <code><a href="typst-set.html">set_grid()</a></code> <code><a href="typst-set.html">set_hide()</a></code> <code><a href="typst-set.html">set_pagebreak()</a></code> <code><a href="typst-set.html">set_move()</a></code> <code><a href="typst-set.html">set_pad()</a></code> <code><a href="typst-set.html">set_page()</a></code> <code><a href="typst-set.html">set_scale()</a></code> <code><a href="typst-set.html">set_skew()</a></code> <code><a href="typst-set.html">set_rotate()</a></code> <code><a href="typst-set.html">set_bibliography()</a></code> <code><a href="typst-set.html">set_document()</a></code> <code><a href="typst-set.html">set_emph()</a></code> <code><a href="typst-set.html">set_figure()</a></code> <code><a href="typst-set.html">set_footnote()</a></code> <code><a href="typst-set.html">set_heading()</a></code> <code><a href="typst-set.html">set_enum()</a></code> <code><a href="typst-set.html">set_outline()</a></code> <code><a href="typst-set.html">set_par()</a></code> <code><a href="typst-set.html">set_parbreak()</a></code> <code><a href="typst-set.html">set_quote()</a></code> <code><a href="typst-set.html">set_strong()</a></code> <code><a href="typst-set.html">set_table()</a></code> <code><a href="typst-set.html">set_text()</a></code> <code><a href="typst-set.html">set_linebreak()</a></code> <code><a href="typst-set.html">set_overline()</a></code> <code><a href="typst-set.html">set_smallcaps()</a></code> <code><a href="typst-set.html">set_smartquote()</a></code> <code><a href="typst-set.html">set_strike()</a></code> <code><a href="typst-set.html">set_sub()</a></code> <code><a href="typst-set.html">set_super()</a></code> <code><a href="typst-set.html">set_underline()</a></code> <code><a href="typst-set.html">set_upper()</a></code> <code><a href="typst-set.html">set_raw()</a></code> <code><a href="typst-set.html">set_highlight()</a></code> <code><a href="typst-set.html">set_lower()</a></code> <code><a href="typst-set.html">set_image()</a></code> <code><a href="typst-set.html">set_circle()</a></code> <code><a href="typst-set.html">set_ellipse()</a></code> <code><a href="typst-set.html">set_line()</a></code> <code><a href="typst-set.html">set_rect()</a></code> <code><a href="typst-set.html">set_square()</a></code>
 
         </dt>
         <dd>Typst set rules</dd>
-      </dl><dl><dt>
+
+        <dt>
 
           <code><a href="typst-show.html">show_place()</a></code> <code><a href="typst-show.html">show_align()</a></code> <code><a href="typst-show.html">show_h()</a></code> <code><a href="typst-show.html">show_v()</a></code> <code><a href="typst-show.html">show_block()</a></code> <code><a href="typst-show.html">show_box()</a></code> <code><a href="typst-show.html">show_colbreak()</a></code> <code><a href="typst-show.html">show_stack()</a></code> <code><a href="typst-show.html">show_grid()</a></code> <code><a href="typst-show.html">show_hide()</a></code> <code><a href="typst-show.html">show_pagebreak()</a></code> <code><a href="typst-show.html">show_move()</a></code> <code><a href="typst-show.html">show_pad()</a></code> <code><a href="typst-show.html">show_page()</a></code> <code><a href="typst-show.html">show_scale()</a></code> <code><a href="typst-show.html">show_skew()</a></code> <code><a href="typst-show.html">show_rotate()</a></code> <code><a href="typst-show.html">show_bibliography()</a></code> <code><a href="typst-show.html">show_list()</a></code> <code><a href="typst-show.html">show_document()</a></code> <code><a href="typst-show.html">show_emph()</a></code> <code><a href="typst-show.html">show_figure()</a></code> <code><a href="typst-show.html">show_footnote()</a></code> <code><a href="typst-show.html">show_heading()</a></code> <code><a href="typst-show.html">show_enum()</a></code> <code><a href="typst-show.html">show_outline()</a></code> <code><a href="typst-show.html">show_par()</a></code> <code><a href="typst-show.html">show_parbreak()</a></code> <code><a href="typst-show.html">show_quote()</a></code> <code><a href="typst-show.html">show_strong()</a></code> <code><a href="typst-show.html">show_table()</a></code> <code><a href="typst-show.html">show_text()</a></code> <code><a href="typst-show.html">show_linebreak()</a></code> <code><a href="typst-show.html">show_overline()</a></code> <code><a href="typst-show.html">show_smallcaps()</a></code> <code><a href="typst-show.html">show_smartquote()</a></code> <code><a href="typst-show.html">show_strike()</a></code> <code><a href="typst-show.html">show_sub()</a></code> <code><a href="typst-show.html">show_super()</a></code> <code><a href="typst-show.html">show_underline()</a></code> <code><a href="typst-show.html">show_upper()</a></code> <code><a href="typst-show.html">show_raw()</a></code> <code><a href="typst-show.html">show_highlight()</a></code> <code><a href="typst-show.html">show_lower()</a></code> <code><a href="typst-show.html">show_image()</a></code> <code><a href="typst-show.html">show_circle()</a></code> <code><a href="typst-show.html">show_ellipse()</a></code> <code><a href="typst-show.html">show_line()</a></code> <code><a href="typst-show.html">show_rect()</a></code> <code><a href="typst-show.html">show_square()</a></code>
 
         </dt>
         <dd>Typst show rules</dd>
-      </dl><dl><dt>
+
+        <dt>
 
           <code><a href="typst_alignments.html">`+`(<i>&lt;typst_alignment&gt;</i>)</a></code> <code><a href="typst_alignments.html">horizon</a></code> <code><a href="typst_alignments.html">top</a></code> <code><a href="typst_alignments.html">bottom</a></code> <code><a href="typst_alignments.html">center</a></code> <code><a href="typst_alignments.html">left</a></code> <code><a href="typst_alignments.html">right</a></code>
 
         </dt>
         <dd>Typst Alignment</dd>
-      </dl><dl><dt>
+
+        <dt>
 
           <code><a href="typst_auto.html">auto</a></code>
 
         </dt>
         <dd>Typst auto</dd>
-      </dl><dl><dt>
+
+        <dt>
 
           <code><a href="typst_colors.html">rgb()</a></code> <code><a href="typst_colors.html">silver</a></code> <code><a href="typst_colors.html">grey</a></code> <code><a href="typst_colors.html">black</a></code> <code><a href="typst_colors.html">white</a></code> <code><a href="typst_colors.html">navy</a></code> <code><a href="typst_colors.html">blue</a></code> <code><a href="typst_colors.html">aqua</a></code> <code><a href="typst_colors.html">teal</a></code> <code><a href="typst_colors.html">eastern</a></code> <code><a href="typst_colors.html">purple</a></code> <code><a href="typst_colors.html">fuchsia</a></code> <code><a href="typst_colors.html">maroon</a></code> <code><a href="typst_colors.html">red</a></code> <code><a href="typst_colors.html">orange</a></code> <code><a href="typst_colors.html">yellow</a></code> <code><a href="typst_colors.html">olive</a></code> <code><a href="typst_colors.html">green</a></code> <code><a href="typst_colors.html">lime</a></code>
 
         </dt>
         <dd>Typst Color</dd>
-      </dl><dl><dt>
+
+        <dt>
 
           <code><a href="typst_compile.html">typst_compile()</a></code>
 
         </dt>
         <dd>Compile a Typst file or character vector</dd>
-      </dl><dl><dt>
+
+        <dt>
 
           <code><a href="typst_direction.html">ltr</a></code> <code><a href="typst_direction.html">rtl</a></code> <code><a href="typst_direction.html">ttb</a></code> <code><a href="typst_direction.html">btt</a></code>
 
         </dt>
         <dd>Typst Direction</dd>
-      </dl><dl><dt>
+
+        <dt>
 
           <code><a href="typst_units.html">pt()</a></code> <code><a href="typst_units.html">mm()</a></code> <code><a href="typst_units.html">cm()</a></code> <code><a href="typst_units.html">em()</a></code> <code><a href="typst_units.html">percent()</a></code> <code><a href="typst_units.html">fr()</a></code> <code><a href="typst_units.html">deg()</a></code> <code><a href="typst_units.html">rad()</a></code>
 
         </dt>
         <dd>Typst Unit Values</dd>
-      </dl><dl><dt>
+
+        <dt>
 
           <code><a href="typst_write.html">typst_write()</a></code>
 
@@ -149,7 +162,7 @@
 </div>
 
 <div class="pkgdown-footer-right">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.1.3.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.2.0.</p>
 </div>
 
     </footer></div>

@@ -1,12 +1,13 @@
 pandoc: 3.1.11
-pkgdown: 2.1.3
+pkgdown: 2.2.0
 pkgdown_sha: ~
 articles:
   r2typ: r2typ.html
   typst-validation: typst-validation.html
+  use-user-defined-functions: use-user-defined-functions.html
   using-r2typ-in-quarto-documents: using-r2typ-in-quarto-documents.html
   writing-and-compiling-typst: writing-and-compiling-typst.html
-last_built: 2025-11-04T22:01Z
+last_built: 2025-12-11T21:53Z
 urls:
   reference: https://y-sunflower.github.io/r2typ/reference
   article: https://y-sunflower.github.io/r2typ/articles

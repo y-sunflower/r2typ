@@ -5,6 +5,7 @@
 <url><loc>https://y-sunflower.github.io/r2typ/articles/index.html</loc></url>
 <url><loc>https://y-sunflower.github.io/r2typ/articles/r2typ.html</loc></url>
 <url><loc>https://y-sunflower.github.io/r2typ/articles/typst-validation.html</loc></url>
+<url><loc>https://y-sunflower.github.io/r2typ/articles/use-user-defined-functions.html</loc></url>
 <url><loc>https://y-sunflower.github.io/r2typ/articles/using-r2typ-in-quarto-documents.html</loc></url>
 <url><loc>https://y-sunflower.github.io/r2typ/articles/writing-and-compiling-typst.html</loc></url>
 <url><loc>https://y-sunflower.github.io/r2typ/authors.html</loc></url>
@@ -23,7 +24,6 @@
 <url><loc>https://y-sunflower.github.io/r2typ/reference/typst_colors.html</loc></url>
 <url><loc>https://y-sunflower.github.io/r2typ/reference/typst_compile.html</loc></url>
 <url><loc>https://y-sunflower.github.io/r2typ/reference/typst_direction.html</loc></url>
-<url><loc>https://y-sunflower.github.io/r2typ/reference/typst_function.html</loc></url>
 <url><loc>https://y-sunflower.github.io/r2typ/reference/typst_set.html</loc></url>
 <url><loc>https://y-sunflower.github.io/r2typ/reference/typst_show.html</loc></url>
 <url><loc>https://y-sunflower.github.io/r2typ/reference/typst_units.html</loc></url>
