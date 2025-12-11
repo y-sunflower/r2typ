@@ -8,3 +8,4 @@ inst/doc
 *.sh
 *.pdf
 *.tar.gz
+!vignettes/example.pdf

@@ -14,7 +14,7 @@ test_that("Test text functions", {
   out <- text("Just text")
   expect_true(out |> inherits("typst_markup"))
   out <- unclass(out)
-  expect_equal(out, "#text[Just text]")
+  expect_equal(out, "#text()[Just text]")
   expect_true(out |> is_valid_typst(error_on_failure = TRUE))
 
   out <- set_text(red)
@@ -57,16 +57,16 @@ test_that("Test text functions", {
   expect_equal(out, "#highlight(top-edge: \"ascender\")[hey]")
   expect_true(out |> is_valid_typst(error_on_failure = TRUE))
 
-  out <- lower("hey")
+  out <- lower("HEY")
   expect_true(out |> inherits("typst_markup"))
   out <- unclass(out)
-  expect_equal(out, "#lower[hey]")
+  expect_equal(out, "#lower()[HEY]")
   expect_true(out |> is_valid_typst(error_on_failure = TRUE))
 
   out <- upper("you")
   expect_true(out |> inherits("typst_markup"))
   out <- unclass(out)
-  expect_equal(out, "#upper[you]")
+  expect_equal(out, "#upper()[you]")
   expect_true(out |> is_valid_typst(error_on_failure = TRUE))
 
   out <- overline(offset = em(-1.2), "ice cream")

@@ -131,7 +131,7 @@ test_that("Test layout functions", {
   out <- hide("hey")
   expect_true(out |> inherits("typst_markup"))
   out <- unclass(out)
-  expect_equal(out, "#hide[hey]")
+  expect_equal(out, "#hide()[hey]")
   expect_true(out |> is_valid_typst(error_on_failure = TRUE))
 
   out <- set_box(clip = FALSE, width = percent(50), height = auto, fill = red)
