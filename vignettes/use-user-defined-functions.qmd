@@ -1,0 +1,42 @@
+---
+title: Use user-defined functions
+vignette: >
+  %\VignetteIndexEntry{use-user-defined-functions}
+  %\VignetteEngine{quarto::html}
+  %\VignetteEncoding{UTF-8}
+knitr:
+  opts_chunk:
+    collapse: true
+    comment: '#>'
+    message: false
+---
+
+`{r2typ}` provides pretty much all Typst function, but one might want to be able to generate Typst markup for its own custom functions.
+
+This is possible AND very simple. For example, let's say we defined a "hello" Typst function, we can "register" it to `{r2typ}` by using `typst_function()`
+
+```{r}
+library(r2typ)
+
+# register the "hello" function
+hello <- function(...) typst_function("hello", ...)
+```
+
+```{r}
+#| echo: false
+# this cell is here to tell r2typ/knitr to not consider current
+# page a Quarto doc in order to just display raw text output.
+library(knitr)
+knit_print.typst_markup <- function(x, ...) {
+  unclass(x)
+}
+registerS3method(
+  "knit_print",
+  "typst_markup",
+  "knit_print.typst_markup"
+)
+```
+
+```{r}
+hello(fill = red, size = pt(10), other_arg = "world")
+```

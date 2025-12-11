@@ -155,7 +155,9 @@ parse_typst_args <- function(name, ...) {
 #'
 #' @return A character vector with well formatted Typst.
 #'
-#' @keywords internal
+#' @rdname typst-function
+#'
+#' @export
 typst_function <- function(name, ...) {
   parsed_args <- parse_typst_args(name, ...)
 
