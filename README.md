@@ -103,8 +103,8 @@ text(costs = list(hyphenation = percent(100), runt = percent(100)))
 set_text(red, size = pt(20))
 #> #set text(size: 20pt, red)
 
-show_("heading", set_text(red, size = pt(20)))
-#> #show heading: set text(size: 20pt, red)
+show_heading(set_text(fill = red))
+#> #show heading: set text(fill: red, size: 20pt)
 ```
 
 #### Validating Typst
