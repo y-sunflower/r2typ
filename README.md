@@ -1,6 +1,6 @@
 # r2typ (R to Typst): An R package for generating Typst markup
 
-`{r2typ}` lets you generate Typst markup using R functions. It supports all of the following:
+`{r2typ}` allows you to generate Typst markup using R and makes you much more efficient in creating PDF reports. It supports all of the following:
 
 - ✅ almost **all** Typst functions
 - ✅ **conversions** from R to Typst (`NULL` -> `none`, `TRUE` -> `true`, etc.)
@@ -8,12 +8,12 @@
 - ✅ `set` and (simple) `show` rules
 - ✅ works well with **Quarto**
 - ✅ extremely **simple syntax**
-- ✅ very **lightweight**
+- ✅ very **lightweight** (no required dependencies)
 
 Check out the [documentation](https://y-sunflower.github.io/r2typ/).
 
 > [!WARNING]  
-> The project is still early stage and contains a few bugs.
+> The project is still early stage and likely contains a few bugs.
 
 <br>
 
@@ -26,7 +26,17 @@ pak::pkg_install("y-sunflower/r2typ")
 
 <br>
 
+## Motivation
+
+Typst is a powerful typesetting system, but writing its markup programmatically from R can be cumbersome when you need to automate reports, generate dynamic documents, or integrate Typst output into data workflows. `{r2typ}` fills this gap by offering a light, consistent interface that turns R expressions directly into valid Typst markup.
+
+It streamlines the creation of complex layouts, ensures reliable type conversions, and makes it easy to embed Typst generation into pipelines, scripts, and Quarto projects.
+
+<br>
+
 ## Quick start
+
+The main thing to understand is that `{r2typ}` essentially does one thing: generate text. And that's it!
 
 #### Basic usage
 
@@ -51,24 +61,6 @@ circle(radius = pt(100), "hey", linebreak(), "there")
 place(top + left, dy = pt(15), square(size = pt(35), fill = red))
 #> #place(top + left, dy: 15pt)[#square(size: 35pt, fill: red)]
 ```
-
-#### Validating Typst
-
-Functions in `{r2typ}` accept **all positional and named arguments**! This means that you're responsible of making sure the arguments you're using are valid!
-
-But to help you in that process, there is a `is_valid_typst()` function that will return either `TRUE` or `FALSE` depending on whether your Typst can be compiled successfully.
-
-```r
-place(
-  top + left,
-  dy = pt(15),
-  square(size = pt(35), fill = red)
-) |>
-  is_valid_typst()
-#> TRUE
-```
-
-> Also note that **all examples** in the `{r2typ}` documentation are valid Typst examples.
 
 #### Types conversion
 
@@ -115,12 +107,31 @@ show_("heading", set_text(red, size = pt(20)))
 #> #show heading: set text(size: 20pt, red)
 ```
 
+#### Validating Typst
+
+Functions in `{r2typ}` accept **all positional and named arguments**! This means that you're responsible of making sure the arguments you're using are valid!
+
+But to help you in that process, there is a `is_valid_typst()` function that will return either `TRUE` or `FALSE` depending on whether your Typst can be compiled successfully.
+
+```r
+place(
+  top + left,
+  dy = pt(15),
+  square(size = pt(35), fill = red)
+) |>
+  is_valid_typst()
+#> TRUE
+```
+
+> Also note that **all examples** in the `{r2typ}` documentation are valid Typst examples.
+
 #### Complete example
 
 A complete example that generates a PDF using R only:
 
 ```r
 c(
+  set_page(height = pt(400)),
   set_text(purple),
   set_circle(width = percent(50)),
   align(
@@ -140,8 +151,10 @@ c(
   )
 ) |>
   typst_write() |>
-  typst_compile(output = "here.pdf")
+  typst_compile(output = "example.pdf")
 ```
+
+![](./vignettes/example.png)
 
 Learn more in the [get started vignette](https://y-sunflower.github.io/r2typ/articles/r2typ.html).
 

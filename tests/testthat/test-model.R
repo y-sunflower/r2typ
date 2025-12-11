@@ -14,7 +14,7 @@ test_that("Test model functions", {
   out <- heading("Just text")
   expect_true(out |> inherits("typst_markup"))
   out <- unclass(out)
-  expect_equal(out, "#heading[Just text]")
+  expect_equal(out, "#heading()[Just text]")
   expect_true(out |> is_valid_typst())
 
   out <- heading(level = 3, "Intro", "More text")
@@ -70,7 +70,7 @@ test_that("Test model functions", {
   out <- emph("more cookies...")
   expect_true(out |> inherits("typst_markup"))
   out <- unclass(out)
-  expect_equal(out, "#emph[more cookies...]")
+  expect_equal(out, "#emph()[more cookies...]")
   expect_true(out |> is_valid_typst())
 
   out <- figure(alt = "This is an alternative text", "more cookies...")
@@ -172,7 +172,7 @@ test_that("Test model functions", {
   out <- strong("strong coffee")
   expect_true(out |> inherits("typst_markup"))
   out <- unclass(out)
-  expect_equal(out, "#strong[strong coffee]")
+  expect_equal(out, "#strong()[strong coffee]")
   expect_true(out |> is_valid_typst())
 
   out <- strong(delta = 400, "more cookies...")
