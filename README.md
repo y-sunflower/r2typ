@@ -2,7 +2,7 @@
 
 `{r2typ}` allows you to generate Typst markup using R and makes you much more efficient in creating PDF reports. It supports all of the following:
 
-- ✅ almost **all** Typst functions
+- ✅ almost **all** Typst functions (+ an option to add yours)
 - ✅ **conversions** from R to Typst (`NULL` -> `none`, `TRUE` -> `true`, etc.)
 - ✅ Typst **colors**, **alignment**, **units** and **direction** natively
 - ✅ `set` and (simple) `show` rules
@@ -124,6 +124,15 @@ place(
 ```
 
 > Also note that **all examples** in the `{r2typ}` documentation are valid Typst examples.
+
+#### Use your own Typst functions
+
+```r
+hello <- function(...) typst_function("hello", ...)
+
+hello(fill = red, size = pt(10), other_arg = "world")
+#> #hello(fill: red, size: 10pt, other_arg: "world")
+```
 
 #### Complete example
 
