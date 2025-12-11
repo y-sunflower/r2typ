@@ -230,11 +230,7 @@ typst_function <- function(name, ...) {
         )
       }
     } else {
-      if (parsed_args$unnamed_str == "" || parsed_args$unnamed_str == "none") {
-        markup <- sprintf("#%s()", name)
-      } else {
-        markup <- sprintf("#%s()[%s]", name, parsed_args$unnamed_str)
-      }
+      markup <- sprintf("#%s()[%s]", name, parsed_args$unnamed_str)
     }
   }
 
