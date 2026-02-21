@@ -5,7 +5,7 @@ on:
     branches: [main, master]
   pull_request:
 
-name: R-CMD-check.yaml
+name: R CMD check
 
 permissions: read-all
 
@@ -21,14 +21,6 @@ jobs:
 
     steps:
       - uses: actions/checkout@v4
-
-      - name: Install Typst CLI
-        run: |
-          TYPST_VERSION=0.14.0
-          curl -L -o typst.tar.xz "https://github.com/typst/typst/releases/download/v${TYPST_VERSION}/typst-x86_64-unknown-linux-musl.tar.xz"
-          tar -xf typst.tar.xz
-          sudo mv typst-x86_64-unknown-linux-musl/typst /usr/local/bin/typst
-          typst --version
 
       - uses: r-lib/actions/setup-pandoc@v2
 
