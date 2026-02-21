@@ -3,7 +3,7 @@ Title: An R Package for Generating Typst Markup
 Version: 0.2.0
 Authors@R: 
     person("Joseph", "Barbier", , "joseph@ysunflower.com", role = c("aut", "cre"))
-Description: Translate R functions into valid Typst markup and provide a large number of built-in tools for working with Typst data types and Quarto documents.
+Description: Translate R functions into valid Typst markup and provide a large number of built-in tools for working with Typst data types, native Typst compilation and Quarto documents.
 License: file LICENSE
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
@@ -19,4 +19,4 @@ Suggests:
 Config/testthat/edition: 3
 VignetteBuilder: quarto, knitr
 Config/rextendr/version: 0.4.2
-SystemRequirements: Cargo (Rust's package manager), rustc >= 1.65.0, xz
+SystemRequirements: Cargo (Rust's package manager), rustc >= 1.89.0, xz
