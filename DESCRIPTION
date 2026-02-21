@@ -11,10 +11,12 @@ RoxygenNote: 7.3.2
 URL: https://y-sunflower.github.io/r2typ/
 BugReports: https://github.com/y-sunflower/r2typ/issues
 Depends:
-    R (>= 4.1)
+    R (>= 4.2)
 Suggests: 
     quarto,
     knitr,
     testthat (>= 3.0.0)
 Config/testthat/edition: 3
 VignetteBuilder: quarto, knitr
+Config/rextendr/version: 0.4.2
+SystemRequirements: Cargo (Rust's package manager), rustc >= 1.65.0, xz
