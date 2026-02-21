@@ -13,4 +13,6 @@ src/rust/vendor
 src/Makevars
 src/Makevars.win
 .vscode/
+
 src/rust/target
+
