@@ -7,7 +7,7 @@ Description: Translate R functions into valid Typst markup and provide a large n
 License: file LICENSE
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
-RoxygenNote: 7.3.2
+RoxygenNote: 7.3.3
 URL: https://y-sunflower.github.io/r2typ/
 BugReports: https://github.com/y-sunflower/r2typ/issues
 Depends:
