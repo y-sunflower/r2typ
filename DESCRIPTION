@@ -1,6 +1,6 @@
 Package: r2typ
 Title: An R Package for Generating Typst Markup
-Version: 0.3.2
+Version: 0.3.3
 Authors@R: 
     person("Joseph", "Barbier", , "joseph@ysunflower.com", role = c("aut", "cre"))
 Description: Translate R functions into valid Typst markup and provide a large number of built-in tools for working with Typst data types, native Typst compilation and Quarto documents.

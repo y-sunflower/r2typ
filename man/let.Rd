@@ -17,9 +17,6 @@ A character string
 \description{
 \code{let} is the keyword used to define variables in Typst.
 It allows to create reusable components.
-
-Note that it will call \code{assign(name, value, envir = parent.frame())}
-so that \code{name} becomes an actual variable in your R environment.
 }
 \examples{
 let("yellow", rgb("#FFC300"))

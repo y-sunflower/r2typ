@@ -10,15 +10,7 @@ test_that("let keyword usage", {
   out1 <- unclass(out1)
   expect_equal(
     out1,
-    "#let mycirc = circle(fill: rgb(\"#FFC300\"))[#square(height: 1cm)]"
+    "#let mycirc = circle(fill: yellow)[#square(height: 1cm)]"
   )
   expect_true(out1 |> is_valid_typst(error_on_failure = TRUE))
-
-  expect_true(mycirc |> inherits("typst_markup"))
-  mycirc <- unclass(mycirc)
-  expect_equal(
-    mycirc,
-    "#circle(fill: rgb(\"#FFC300\"))[#square(height: 1cm)]"
-  )
-  expect_true(mycirc |> is_valid_typst(error_on_failure = TRUE))
 })
