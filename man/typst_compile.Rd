@@ -2,10 +2,15 @@
 % Please edit documentation in R/extendr-wrappers.R
 \name{typst_compile}
 \alias{typst_compile}
-\title{Compile a \code{.typ} file to a sibling \code{.pdf} file and return the output path.}
+\title{Compile a \code{.typ} file to a \code{.pdf} file and return the output path.}
 \usage{
-typst_compile(file)
+typst_compile(file, output = NULL)
+}
+\arguments{
+\item{file}{Path to an existing \code{.typ} file.}
+
+\item{output}{Optional output path. Defaults to the input path with \code{.pdf}.}
 }
 \description{
-Compile a \code{.typ} file to a sibling \code{.pdf} file and return the output path.
+Compile a \code{.typ} file to a \code{.pdf} file and return the output path.
 }
