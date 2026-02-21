@@ -152,6 +152,20 @@ place(
 > [r2typ](https://y-sunflower.github.io/r2typ/) documentation are valid
 > Typst examples.
 
+#### Create Typst variables
+
+You can use the
+[`let()`](https://y-sunflower.github.io/r2typ/reference/let.md) function
+to define Typst variables, and easily reuse them:
+
+``` r
+let("yellow", rgb("#FFC300"))
+#> #let yellow = rgb("#FFC300")
+
+let("mycirc", circle(fill = yellow, square(height = cm(1))))
+#> #let mycirc = circle(fill: yellow)[#square(height: 1cm)]
+```
+
 #### Use your own Typst functions
 
 ``` r
