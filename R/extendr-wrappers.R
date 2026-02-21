@@ -10,9 +10,11 @@
 #' @useDynLib r2typ, .registration = TRUE
 NULL
 
-#' Compile a `.typ` file to a sibling `.pdf` file and return the output path.
+#' Compile a `.typ` file to a `.pdf` file and return the output path.
+#' @param file Path to an existing `.typ` file.
+#' @param output Optional output path. Defaults to the input path with `.pdf`.
 #' @export
-typst_compile <- function(file) .Call(wrap__typst_compile, file)
+typst_compile <- function(file, output = NULL) .Call(wrap__typst_compile, file, output)
 
 
 # nolint end
