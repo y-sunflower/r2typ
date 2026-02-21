@@ -14,9 +14,6 @@
 
 Check out the [documentation](https://y-sunflower.github.io/r2typ/).
 
-> [!WARNING]  
-> The project is still early stage and likely contains a few bugs.
-
 <br>
 
 ## Installation
