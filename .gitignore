@@ -16,3 +16,4 @@ src/Makevars.win
 
 src/rust/target
 
+src/vendor/
