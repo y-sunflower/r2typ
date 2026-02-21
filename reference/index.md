@@ -221,7 +221,9 @@
   : Typst Color
 
 - [`typst_compile()`](https://y-sunflower.github.io/r2typ/reference/typst_compile.md)
-  : Compile a Typst file or character vector
+  :
+
+  Compile a `.typ` file to a `.pdf` file and return the output path.
 
 - [`ltr`](https://y-sunflower.github.io/r2typ/reference/typst_direction.md)
   [`rtl`](https://y-sunflower.github.io/r2typ/reference/typst_direction.md)

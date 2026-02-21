@@ -1,7 +1,6 @@
-# Compile a Typst file or character vector
+# Compile a `.typ` file to a `.pdf` file and return the output path.
 
-Call the Typst CLI compiler and compile a file (.typ). Falls back to
-`quarto typst` if `typst` is unavailable.
+Compile a `.typ` file to a `.pdf` file and return the output path.
 
 ## Usage
 
@@ -13,17 +12,8 @@ typst_compile(file, output = NULL)
 
 - file:
 
-  Path to a file (must end with ".typ").
+  Path to an existing `.typ` file.
 
 - output:
 
-  Optional path for the output file (default NULL).
-
-## Value
-
-Output file path, invisibly.
-
-## Note
-
-It requires to have the Typst compiler installed. See
-[typst.app/open-source/](https://typst.app/open-source/).
+  Optional output path. Defaults to the input path with `.pdf`.

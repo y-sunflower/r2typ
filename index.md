@@ -14,6 +14,9 @@ reports. It supports all of the following:
 - ✅ extremely **simple syntax**
 - ✅ very **lightweight** (no required dependencies)
 
+[r2typ](https://y-sunflower.github.io/r2typ/) also provides **native**
+Typst compilation, from R, without having to install Typst!
+
 Check out the [documentation](https://y-sunflower.github.io/r2typ/).
 
 > \[!WARNING\]  
