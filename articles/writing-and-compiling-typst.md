@@ -1,10 +1,8 @@
 # Writing and compiling typst
 
 [r2typ](https://y-sunflower.github.io/r2typ/) provides functions to help
-you write and compile your Typst markup.
-
-Please note that you must have the Typst compiler installed and on
-`PATH` (running `typst compile file.typ` in your terminal must work).
+you write and compile your Typst markup, without you having to worry
+about installing Typst.[¹](#fn1)
 
 ``` r
 library(r2typ)
@@ -44,3 +42,11 @@ typst_compile(output_file, "report.pdf")
 that returns `TRUE`/`FALSE` depending on if the code can be compiled or
 not. Check out that the [dedicated
 vignette](https://y-sunflower.github.io/r2typ/typst-validation.hml).
+
+------------------------------------------------------------------------
+
+1.  This is possible because
+    [r2typ](https://y-sunflower.github.io/r2typ/) uses a Rust backend
+    for
+    [`typst_compile()`](https://y-sunflower.github.io/r2typ/reference/typst_compile.md),
+    which allows it to use the Rust Typst library natively.

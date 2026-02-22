@@ -29,6 +29,10 @@ Check out the [documentation](https://y-sunflower.github.io/r2typ/).
 pak::pkg_install("y-sunflower/r2typ")
 ```
 
+> \[!IMPORTANT\] The installation might take a few minutes because it
+> needs build from source, including the Rust backend which requires
+> compilation.
+
   
 
 ## Motivation

@@ -7,7 +7,7 @@ articles:
   use-user-defined-functions: use-user-defined-functions.html
   using-r2typ-in-quarto-documents: using-r2typ-in-quarto-documents.html
   writing-and-compiling-typst: writing-and-compiling-typst.html
-last_built: 2026-02-21T15:30Z
+last_built: 2026-02-22T08:58Z
 urls:
   reference: https://y-sunflower.github.io/r2typ/reference
   article: https://y-sunflower.github.io/r2typ/articles

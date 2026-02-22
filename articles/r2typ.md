@@ -4,10 +4,6 @@
 to generate **Typst markup**. You can use it as is, but it also works
 well with [Quarto](https://quarto.org/).
 
-At the moment, it supports most Typst functions, types, colors,
-alignment, and units with a very simple syntax, but it is **not yet
-fully functional**.
-
 ## Installation
 
 You can install it with:
