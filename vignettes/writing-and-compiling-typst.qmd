@@ -11,9 +11,7 @@ knitr:
     message: false
 ---
 
-`{r2typ}` provides functions to help you write and compile your Typst markup. 
-
-Please note that you must have the Typst compiler installed and on `PATH` (running `typst compile file.typ` in your terminal must work).
+`{r2typ}` provides functions to help you write and compile your Typst markup, without you having to worry about installing Typst.[^1]
 
 ```{r}
 library(r2typ)
@@ -46,3 +44,5 @@ typst_compile(output_file, "report.pdf")
 ```
 
 `{r2typ}` also offers a `is_valid_typst()` that returns `TRUE`/`FALSE` depending on if the code can be compiled or not. Check out that the [dedicated vignette](../typst-validation.hml).
+
+[^1]: This is possible because `{r2typ}` uses a Rust backend for `typst_compile()`, which allows it to use the Rust Typst library natively.
