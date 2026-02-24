@@ -176,7 +176,7 @@ c(
   typst_compile(output = "example.pdf")
 ```
 
-![](./vignettes/example.png)
+![A blue circle with a red border with the text My favorite food is cookied inside of it.](./vignettes/example.png)
 
 Learn more in the [get started vignette](https://y-sunflower.github.io/r2typ/articles/r2typ.html).
 
