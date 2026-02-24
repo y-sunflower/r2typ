@@ -217,3 +217,61 @@ test_that("Test model functions", {
   expect_equal(out, "#set table(align: center, inset: 10pt)")
   expect_true(out |> is_valid_typst())
 })
+
+test_that("table_ supports data.frame-like inputs", {
+  data <- data.frame(
+    name = c("Alice", "Bob"),
+    score = c(12, 18),
+    ok = c(TRUE, FALSE),
+    stringsAsFactors = FALSE
+  )
+
+  out <- table_(data, align = center)
+  expect_true(out |> inherits("typst_markup"))
+  out <- unclass(out)
+  expect_equal(
+    out,
+    "#table(columns: 3, align: center, [Alice], [12], [true], [Bob], [18], [false])"
+  )
+  expect_true(out |> is_valid_typst())
+
+  out <- table_(data, columns = 99)
+  expect_true(out |> inherits("typst_markup"))
+  out <- unclass(out)
+  expect_equal(
+    out,
+    "#table(columns: 99, [Alice], [12], [true], [Bob], [18], [false])"
+  )
+  expect_true(out |> is_valid_typst())
+
+  tbl <- structure(
+    data.frame(
+      item = c("A", "B"),
+      value = c(1, 2),
+      stringsAsFactors = FALSE
+    ),
+    class = c("tbl_df", "tbl", "data.frame")
+  )
+
+  out <- table_(tbl)
+  expect_true(out |> inherits("typst_markup"))
+  out <- unclass(out)
+  expect_equal(out, "#table(columns: 2, [A], [1], [B], [2])")
+  expect_true(out |> is_valid_typst())
+
+  factor_data <- data.frame(
+    f = factor(c("left", "right")),
+    stringsAsFactors = TRUE
+  )
+  out <- table_(factor_data)
+  expect_true(out |> inherits("typst_markup"))
+  out <- unclass(out)
+  expect_equal(out, "#table(columns: 1, [left], [right])")
+  expect_true(out |> is_valid_typst())
+
+  empty_cols <- data.frame()
+  expect_error(
+    table_(empty_cols),
+    "`table_\\(\\)` cannot build a table from a data frame with zero columns."
+  )
+})

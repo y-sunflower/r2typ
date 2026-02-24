@@ -283,6 +283,11 @@ parbreak()
 quote_(block = TRUE, "more cookies...")
 strong("strong coffee")
 table_(align = center, inset = pt(10), "a", "b", "c", "d")
+data <- data.frame(
+  name = c("Alice", "Bob"),
+  score = c(12, 18)
+)
+table_(data, align = center)
 text(fill = silver, size = pt(20), "The most basic function in Typst...")
 linebreak(justify = TRUE)
 overline(evade = FALSE, "not sure who even uses this function")
