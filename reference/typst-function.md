@@ -358,6 +358,14 @@ table_(align = center, inset = pt(10), "a", "b", "c", "d")
 #> [1] "#table(align: center, inset: 10pt, [a], [b], [c], [d])"
 #> attr(,"class")
 #> [1] "typst_markup"
+data <- data.frame(
+  name = c("Alice", "Bob"),
+  score = c(12, 18)
+)
+table_(data, align = center)
+#> [1] "#table(columns: 2, align: center, [Alice], [12], [Bob], [18])"
+#> attr(,"class")
+#> [1] "typst_markup"
 text(fill = silver, size = pt(20), "The most basic function in Typst...")
 #> [1] "#text(fill: silver, size: 20pt)[The most basic function in Typst...]"
 #> attr(,"class")

@@ -206,7 +206,11 @@ c(
   typst_compile(output = "example.pdf")
 ```
 
-![](./articles/example.png)
+![A blue circle with a red border with the text My favorite food is
+cookied inside of it.](./articles/example.png)
+
+A blue circle with a red border with the text My favorite food is
+cookied inside of it.
 
 Learn more in the [get started
 vignette](https://y-sunflower.github.io/r2typ/articles/r2typ.html).
