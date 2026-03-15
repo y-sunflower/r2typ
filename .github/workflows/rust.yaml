@@ -12,10 +12,13 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        os:
-          - ubuntu-latest
-          - macos-latest
-          - windows-latest
+        include:
+          - os: ubuntu-latest
+            cargo-target: ""
+          - os: macos-latest
+            cargo-target: ""
+          - os: windows-latest
+            cargo-target: --target x86_64-pc-windows-gnu
 
     steps:
       - uses: actions/checkout@v4
@@ -38,6 +41,12 @@ jobs:
         with:
           components: rustfmt, clippy
 
+      - name: Install Windows GNU Rust target
+        if: runner.os == 'Windows'
+        uses: dtolnay/rust-toolchain@stable
+        with:
+          targets: x86_64-pc-windows-gnu
+
       - name: Cache cargo
         uses: Swatinem/rust-cache@v2
 
@@ -47,16 +56,16 @@ jobs:
         working-directory: src/rust
 
       - name: Build (debug)
-        run: cargo build --all-features
+        run: cargo build --all-features ${{ matrix.cargo-target }}
         shell: bash
         working-directory: src/rust
 
       - name: Run unit tests
-        run: cargo test --all-features
+        run: cargo test --all-features ${{ matrix.cargo-target }}
         shell: bash
         working-directory: src/rust
 
       - name: Build (release)
-        run: cargo build --release --all-features
+        run: cargo build --release --all-features ${{ matrix.cargo-target }}
         shell: bash
         working-directory: src/rust
