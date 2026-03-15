@@ -7,7 +7,15 @@ on:
 
 jobs:
   rust:
-    runs-on: ubuntu-latest
+    name: ${{ matrix.os }}
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        os:
+          - ubuntu-latest
+          - macos-latest
+          - windows-latest
 
     steps:
       - uses: actions/checkout@v4
@@ -19,9 +27,11 @@ jobs:
 
       - name: Configure R env for extendr
         run: |
-          echo "R_HOME=$(R RHOME)" >> "$GITHUB_ENV"
-          echo "R_INCLUDE_DIR=$(R RHOME)/include" >> "$GITHUB_ENV"
+          R_HOME="$(R RHOME)"
+          echo "R_HOME=$R_HOME" >> "$GITHUB_ENV"
+          echo "R_INCLUDE_DIR=$R_HOME/include" >> "$GITHUB_ENV"
           R --version
+        shell: bash
 
       - name: Install Rust
         uses: dtolnay/rust-toolchain@stable
@@ -32,13 +42,21 @@ jobs:
         uses: Swatinem/rust-cache@v2
 
       - name: Format check
-        run: cd src/rust && cargo fmt -- --check
+        run: cargo fmt -- --check
+        shell: bash
+        working-directory: src/rust
 
       - name: Build (debug)
-        run: cd src/rust && cargo build --all-features
+        run: cargo build --all-features
+        shell: bash
+        working-directory: src/rust
 
       - name: Run unit tests
-        run: cd src/rust && cargo test --all-features
+        run: cargo test --all-features
+        shell: bash
+        working-directory: src/rust
 
       - name: Build (release)
-        run: cd src/rust && cargo build --release --all-features
+        run: cargo build --release --all-features
+        shell: bash
+        working-directory: src/rust

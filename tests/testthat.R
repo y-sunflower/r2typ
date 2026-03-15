@@ -9,7 +9,4 @@
 library(testthat)
 library(r2typ)
 
-Sys.which("typst")
-system("typst --version")
-
 test_check("r2typ")
