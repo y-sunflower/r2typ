@@ -1,6 +1,6 @@
 # r2typ (R to Typst): An R package for generating Typst markup
 
-`{r2typ}` allows you to generate Typst markup using R and makes you much more efficient in creating PDF reports. Think of it as `{htmltools}`, but for Typst! It supports all of the following:
+`r2typ` allows you to generate Typst markup using R and makes you much more efficient in creating PDF reports. Think of it as `htmltools`, but for Typst! It supports all of the following:
 
 - ✅ almost **all** Typst functions (+ an option to add yours)
 - ✅ **conversions** from R to Typst (`NULL` -> `none`, `TRUE` -> `true`, etc.)
@@ -24,7 +24,7 @@ pak::pkg_install("y-sunflower/r2typ")
 
 ## Motivation
 
-Typst is a powerful typesetting system, but writing its markup programmatically from R can be cumbersome when you need to automate reports, generate dynamic documents, or integrate Typst output into data workflows. `{r2typ}` fills this gap by offering a light, consistent interface that turns R expressions directly into valid Typst markup.
+Typst is a powerful typesetting system, but writing its markup programmatically from R can be cumbersome when you need to automate reports, generate dynamic documents, or integrate Typst output into data workflows. `r2typ` fills this gap by offering a light, consistent interface that turns R expressions directly into valid Typst markup.
 
 It streamlines the creation of complex layouts, ensures reliable type conversions, and makes it easy to embed Typst generation into pipelines, scripts, and Quarto projects.
 
@@ -32,7 +32,7 @@ It streamlines the creation of complex layouts, ensures reliable type conversion
 
 ## Quick start
 
-The main thing to understand is that `{r2typ}` essentially does one thing: generate text. And that's it!
+The main thing to understand is that `r2typ` essentially does one thing: generate text. And that's it!
 
 #### Basic usage
 
@@ -60,7 +60,7 @@ place(top + left, dy = pt(15), square(size = pt(35), fill = red))
 
 #### Types conversion
 
-`{r2typ}` converts some R types into Typst types:
+`r2typ` converts some R types into Typst types:
 
 - `NULL` becomes `none`
 
@@ -103,24 +103,6 @@ show_heading(set_text(fill = red))
 #> #show heading: set text(fill: red, size: 20pt)
 ```
 
-#### Validating Typst
-
-Functions in `{r2typ}` accept **all positional and named arguments**! This means that you're responsible of making sure the arguments you're using are valid!
-
-But to help you in that process, there is a `is_valid_typst()` function that will return either `TRUE` or `FALSE` depending on whether your Typst can be compiled successfully.
-
-```r
-place(
-  top + left,
-  dy = pt(15),
-  square(size = pt(35), fill = red)
-) |>
-  is_valid_typst()
-#> TRUE
-```
-
-> Also note that **all examples** in the `{r2typ}` documentation are valid Typst examples.
-
 #### Create Typst variables
 
 You can use the `let()` function to define Typst variables, and easily reuse them:
@@ -142,11 +124,46 @@ hello(fill = red, size = pt(10), other_arg = "world")
 #> #hello(fill: red, size: 10pt, other_arg: "world")
 ```
 
+#### Writing, compiling and validating Typst
+
+If you want to compile and validate your Typst code, you can use the [`tynding`](https://github.com/y-sunflower/tynding) package. It offers 3 functions:
+
+- `typst_write()`: write a `.typ` file
+- `typst_compile()`: compile a `.typ` file
+- `is_valid_typst()`: evaluate whether a character vector is valid Typst (`TRUE` or `FALSE`)
+
+Functions in `r2typ` accept **all positional and named arguments**! This means that you're responsible of making sure the arguments you're using are valid!
+
+It has a `is_valid_typst()` function that will return either `TRUE` or `FALSE` depending on whether your Typst can be compiled successfully.
+
+```r
+place(
+  top + left,
+  dy = pt(15),
+  square(size = pt(35), fill = red)
+) |>
+  is_valid_typst()
+#> TRUE
+
+place(
+  top + left,
+  dy = pt(15),
+  square(size = pt(35), fill = red)
+) |>
+  typst_write() |>
+  typst_compile() # generate the PDF
+```
+
+> Also note that **all examples** in the `r2typ` documentation are valid Typst examples.
+
 #### Complete example
 
 A complete example that generates a PDF using R only:
 
 ```r
+library(r2typ)
+library(tynding) # typst_write() and typst_compile() functions
+
 c(
   set_page(height = pt(400)),
   set_text(purple),
@@ -179,7 +196,7 @@ Learn more in the [get started vignette](https://y-sunflower.github.io/r2typ/art
 
 ## Markup VS Code mode in Typst
 
-`{r2typ}` generates Typst **markup**, not Typst **code**. Most people, when writing native Typst, rely primarily on **markup** mode. **Code** mode is mainly used to add logic or create functions.
+`r2typ` generates Typst **markup**, not Typst **code**. Most people, when writing native Typst, rely primarily on **markup** mode. **Code** mode is mainly used to add logic or create functions.
 
 This is an important distinction to keep in mind, but the core difference is that function calls start with a `#` (e.g., `#text("hey")` VS `text("hey")`).
 
