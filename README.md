@@ -58,6 +58,9 @@ place(top + left, dy = pt_(15), square(size = pt_(35), fill = red))
 #> #place(top + left, dy: 15pt)[#square(size: 35pt, fill: red)]
 ```
 
+> [!IMPORTANT]
+> Some function names end with `_` to avoid confusion between namespaces: some widely used packages have functions with the same name, and using an identical name could cause the code to malfunction.
+
 #### Types conversion
 
 `r2typ` converts some R types into Typst types:
@@ -137,6 +140,8 @@ Functions in `r2typ` accept **all positional and named arguments**! This means t
 It has a `is_valid_typst()` function that will return either `TRUE` or `FALSE` depending on whether your Typst can be compiled successfully.
 
 ```r
+library(tynding)
+
 place(
   top + left,
   dy = pt_(15),

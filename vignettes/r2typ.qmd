@@ -123,7 +123,7 @@ place(
 You can even combine them with colors, which is often useful for strokes:
 
 ```{r}
-line(stroke = pt_(2) + blue)
+line_(stroke = pt_(2) + blue)
 ```
 
 ## Convert R types to Typst types
