@@ -5,9 +5,6 @@
 - [`format_as_typst()`](https://y-sunflower.github.io/r2typ/reference/format_as_typst.md)
   : Format into Typst format
 
-- [`is_valid_typst()`](https://y-sunflower.github.io/r2typ/reference/is_valid_typst.md)
-  : Is valid Typst?
-
 - [`let()`](https://y-sunflower.github.io/r2typ/reference/let.md) :
   Typst let keyword
 
