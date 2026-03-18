@@ -32,7 +32,7 @@ format_as_typst(list(1, 2, 3))
 #> [1] "(1, 2, 3)"
 format_as_typst(list(a=1, b=2, c=3))
 #> [1] "(a: 1, b: 2, c: 3)"
-format_as_typst(pt(20))
+format_as_typst(pt_(20))
 #> [1] "20pt"
 format_as_typst(TRUE)
 #> [1] "true"

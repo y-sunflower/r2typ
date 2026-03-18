@@ -5,7 +5,7 @@ Create a Typst file (.typ) from a character vector.
 ## Usage
 
 ``` r
-typst_write(x, output = NULL)
+typst_write(x, ...)
 ```
 
 ## Arguments
@@ -14,10 +14,10 @@ typst_write(x, output = NULL)
 
   A character vector representing Typst code.
 
-- output:
+- ...:
 
-  Optional output file path (must end with ".typ"). If NULL, a temporary
-  file is created.
+  Additional arguments passed to
+  [`tynding::typst_write()`](https://rdrr.io/pkg/tynding/man/typst_write.html)
 
 ## Value
 

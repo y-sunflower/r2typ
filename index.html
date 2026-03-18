@@ -12,8 +12,8 @@
 <link href="deps/font-awesome-6.5.2/css/v4-shims.min.css" rel="stylesheet">
 <script src="deps/headroom-0.11.0/headroom.min.js"></script><script src="deps/headroom-0.11.0/jQuery.headroom.min.js"></script><script src="deps/bootstrap-toc-1.0.1/bootstrap-toc.min.js"></script><script src="deps/clipboard.js-2.0.11/clipboard.min.js"></script><script src="deps/search-1.0.0/autocomplete.jquery.min.js"></script><script src="deps/search-1.0.0/fuse.min.js"></script><script src="deps/search-1.0.0/mark.min.js"></script><!-- pkgdown --><script src="pkgdown.js"></script><link href="extra.css" rel="stylesheet">
 <meta property="og:title" content="Generate Typst from R">
-<meta name="description" content="Translate R functions into valid Typst markup and provide a large number of built-in tools for working with Typst data types, native Typst compilation and Quarto documents.">
-<meta property="og:description" content="Translate R functions into valid Typst markup and provide a large number of built-in tools for working with Typst data types, native Typst compilation and Quarto documents.">
+<meta name="description" content="Translate R functions into valid Typst markup and provide a large number of built-in tools for working with Typst data types and Quarto documents.">
+<meta property="og:description" content="Translate R functions into valid Typst markup and provide a large number of built-in tools for working with Typst data types and Quarto documents.">
 </head>
 <body>
     <a href="#main" class="visually-hidden-focusable">Skip to contents</a>
@@ -23,7 +23,7 @@
 
     <a class="navbar-brand me-2" href="index.html">r2typ</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.3.3</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.4.0</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -40,8 +40,6 @@
 <li><hr class="dropdown-divider"></li>
     <li><h6 class="dropdown-header" data-toc-skip>Guides</h6></li>
     <li><a class="dropdown-item" href="articles/using-r2typ-in-quarto-documents.html">Using r2typ in Quarto documents</a></li>
-    <li><a class="dropdown-item" href="articles/writing-and-compiling-typst.html">Writing and compiling typst</a></li>
-    <li><a class="dropdown-item" href="articles/typst-validation.html">Typst validation</a></li>
     <li><a class="dropdown-item" href="articles/use-user-defined-functions.html">Use user-defined functions</a></li>
   </ul>
 </li>
@@ -69,7 +67,7 @@
   <main id="main" class="col-md-9"><div class="section level1">
 <div class="page-header"><h1 id="r2typ-r-to-typst-an-r-package-for-generating-typst-markup">r2typ (R to Typst): An R package for generating Typst markup<a class="anchor" aria-label="anchor" href="#r2typ-r-to-typst-an-r-package-for-generating-typst-markup"></a>
 </h1></div>
-<p><a href="https://y-sunflower.github.io/r2typ/">r2typ</a> allows you to generate Typst markup using R and makes you much more efficient in creating PDF reports. Think of it as <a href="https://github.com/rstudio/htmltools" class="external-link">htmltools</a>, but for Typst! It supports all of the following:</p>
+<p><code>r2typ</code> allows you to generate Typst markup using R and makes you much more efficient in creating PDF reports. Think of it as <code>htmltools</code>, but for Typst! It supports all of the following:</p>
 <ul>
 <li>✅ almost <strong>all</strong> Typst functions (+ an option to add yours)</li>
 <li>✅ <strong>conversions</strong> from R to Typst (<code>NULL</code> -&gt; <code>none</code>, <code>TRUE</code> -&gt; <code>true</code>, etc.)</li>
@@ -80,7 +78,6 @@
 <li>✅ extremely <strong>simple syntax</strong>
 </li>
 </ul>
-<p><a href="https://y-sunflower.github.io/r2typ/">r2typ</a> also provides <strong>native</strong> Typst compilation, from R, without having to install Typst!</p>
 <p>Check out the <a href="https://y-sunflower.github.io/r2typ/">documentation</a>.</p>
 <p><br></p>
 <div class="section level2">
@@ -89,22 +86,19 @@
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># install.packages("pak")</span></span>
 <span><span class="fu">pak</span><span class="fu">::</span><span class="fu"><a href="https://pak.r-lib.org/reference/pkg_install.html" class="external-link">pkg_install</a></span><span class="op">(</span><span class="st">"y-sunflower/r2typ"</span><span class="op">)</span></span></code></pre></div>
-<blockquote>
-<p>[!IMPORTANT] The installation might take a few minutes because it needs build from source, including the Rust backend which requires compilation.</p>
-</blockquote>
 <p><br></p>
 </div>
 <div class="section level2">
 <h2 id="motivation">Motivation<a class="anchor" aria-label="anchor" href="#motivation"></a>
 </h2>
-<p>Typst is a powerful typesetting system, but writing its markup programmatically from R can be cumbersome when you need to automate reports, generate dynamic documents, or integrate Typst output into data workflows. <a href="https://y-sunflower.github.io/r2typ/">r2typ</a> fills this gap by offering a light, consistent interface that turns R expressions directly into valid Typst markup.</p>
+<p>Typst is a powerful typesetting system, but writing its markup programmatically from R can be cumbersome when you need to automate reports, generate dynamic documents, or integrate Typst output into data workflows. <code>r2typ</code> fills this gap by offering a light, consistent interface that turns R expressions directly into valid Typst markup.</p>
 <p>It streamlines the creation of complex layouts, ensures reliable type conversions, and makes it easy to embed Typst generation into pipelines, scripts, and Quarto projects.</p>
 <p><br></p>
 </div>
 <div class="section level2">
 <h2 id="quick-start">Quick start<a class="anchor" aria-label="anchor" href="#quick-start"></a>
 </h2>
-<p>The main thing to understand is that <a href="https://y-sunflower.github.io/r2typ/">r2typ</a> essentially does one thing: generate text. And that’s it!</p>
+<p>The main thing to understand is that <code>r2typ</code> essentially does one thing: generate text. And that’s it!</p>
 <div class="section level4">
 <h4 id="basic-usage">Basic usage<a class="anchor" aria-label="anchor" href="#basic-usage"></a>
 </h4>
@@ -114,32 +108,35 @@
 <span><span class="fu"><a href="reference/typst-function.html">heading</a></span><span class="op">(</span>level <span class="op">=</span> <span class="fl">2</span>, numbering <span class="op">=</span> <span class="st">"1.1"</span>, <span class="st">"Hello world"</span><span class="op">)</span></span>
 <span><span class="co">#&gt; #heading(level: 2, numbering: "1.1")[Hello world]</span></span>
 <span></span>
-<span><span class="fu"><a href="reference/typst-function.html">text</a></span><span class="op">(</span>size <span class="op">=</span> <span class="fu"><a href="reference/typst_units.html">pt</a></span><span class="op">(</span><span class="fl">12</span><span class="op">)</span>, baseline <span class="op">=</span> <span class="fu"><a href="reference/typst_units.html">em</a></span><span class="op">(</span><span class="fl">1.2</span><span class="op">)</span>, overhang <span class="op">=</span> <span class="cn">FALSE</span>, <span class="st">"hey there"</span><span class="op">)</span></span>
+<span><span class="fu"><a href="reference/typst-function.html">text_</a></span><span class="op">(</span>size <span class="op">=</span> <span class="fu"><a href="reference/typst_units.html">pt_</a></span><span class="op">(</span><span class="fl">12</span><span class="op">)</span>, baseline <span class="op">=</span> <span class="fu"><a href="reference/typst_units.html">em</a></span><span class="op">(</span><span class="fl">1.2</span><span class="op">)</span>, overhang <span class="op">=</span> <span class="cn">FALSE</span>, <span class="st">"hey there"</span><span class="op">)</span></span>
 <span><span class="co">#&gt; #text(size: 12pt, baseline: 1.2em, overhang: false)[hey there]</span></span>
 <span></span>
-<span><span class="fu"><a href="reference/typst-function.html">image</a></span><span class="op">(</span>width <span class="op">=</span> <span class="fu"><a href="reference/typst_units.html">percent</a></span><span class="op">(</span><span class="fl">80</span><span class="op">)</span>, height <span class="op">=</span> <span class="va">auto</span>, <span class="st">"link.svg"</span><span class="op">)</span></span>
+<span><span class="fu"><a href="reference/typst-function.html">image_</a></span><span class="op">(</span>width <span class="op">=</span> <span class="fu"><a href="reference/typst_units.html">percent</a></span><span class="op">(</span><span class="fl">80</span><span class="op">)</span>, height <span class="op">=</span> <span class="va">auto</span>, <span class="st">"link.svg"</span><span class="op">)</span></span>
 <span><span class="co">#&gt; #image(width: 80%, height: auto, "link.svg")</span></span>
 <span></span>
 <span><span class="fu"><a href="reference/typst-function.html">circle</a></span><span class="op">(</span>fill <span class="op">=</span> <span class="va">blue</span>, <span class="st">"hey"</span><span class="op">)</span></span>
 <span><span class="co">#&gt; #circle(fill: blue)[hey]</span></span>
 <span></span>
-<span><span class="fu"><a href="reference/typst-function.html">circle</a></span><span class="op">(</span>radius <span class="op">=</span> <span class="fu"><a href="reference/typst_units.html">pt</a></span><span class="op">(</span><span class="fl">100</span><span class="op">)</span>, <span class="st">"hey"</span>, <span class="fu"><a href="reference/typst-function.html">linebreak</a></span><span class="op">(</span><span class="op">)</span>, <span class="st">"there"</span><span class="op">)</span></span>
+<span><span class="fu"><a href="reference/typst-function.html">circle</a></span><span class="op">(</span>radius <span class="op">=</span> <span class="fu"><a href="reference/typst_units.html">pt_</a></span><span class="op">(</span><span class="fl">100</span><span class="op">)</span>, <span class="st">"hey"</span>, <span class="fu"><a href="reference/typst-function.html">linebreak</a></span><span class="op">(</span><span class="op">)</span>, <span class="st">"there"</span><span class="op">)</span></span>
 <span><span class="co">#&gt; #circle(radius: 100pt)[hey #linebreak() there]</span></span>
 <span></span>
-<span><span class="fu"><a href="reference/typst-function.html">place</a></span><span class="op">(</span><span class="va">top</span> <span class="op">+</span> <span class="va">left</span>, dy <span class="op">=</span> <span class="fu"><a href="reference/typst_units.html">pt</a></span><span class="op">(</span><span class="fl">15</span><span class="op">)</span>, <span class="fu"><a href="reference/typst-function.html">square</a></span><span class="op">(</span>size <span class="op">=</span> <span class="fu"><a href="reference/typst_units.html">pt</a></span><span class="op">(</span><span class="fl">35</span><span class="op">)</span>, fill <span class="op">=</span> <span class="va">red</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="fu"><a href="reference/typst-function.html">place</a></span><span class="op">(</span><span class="va">top</span> <span class="op">+</span> <span class="va">left</span>, dy <span class="op">=</span> <span class="fu"><a href="reference/typst_units.html">pt_</a></span><span class="op">(</span><span class="fl">15</span><span class="op">)</span>, <span class="fu"><a href="reference/typst-function.html">square</a></span><span class="op">(</span>size <span class="op">=</span> <span class="fu"><a href="reference/typst_units.html">pt_</a></span><span class="op">(</span><span class="fl">35</span><span class="op">)</span>, fill <span class="op">=</span> <span class="va">red</span><span class="op">)</span><span class="op">)</span></span>
 <span><span class="co">#&gt; #place(top + left, dy: 15pt)[#square(size: 35pt, fill: red)]</span></span></code></pre></div>
+<blockquote>
+<p>[!IMPORTANT] Some function names end with <code>_</code> to avoid confusion between namespaces: some widely used packages have functions with the same name, and using an identical name could cause the code to malfunction.</p>
+</blockquote>
 </div>
 <div class="section level4">
 <h4 id="types-conversion">Types conversion<a class="anchor" aria-label="anchor" href="#types-conversion"></a>
 </h4>
-<p><a href="https://y-sunflower.github.io/r2typ/">r2typ</a> converts some R types into Typst types:</p>
+<p><code>r2typ</code> converts some R types into Typst types:</p>
 <ul>
 <li>
 <code>NULL</code> becomes <code>none</code>
 </li>
 </ul>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu"><a href="reference/typst-function.html">image</a></span><span class="op">(</span><span class="st">"image.png"</span>, width <span class="op">=</span> <span class="fu"><a href="reference/typst_units.html">percent</a></span><span class="op">(</span><span class="fl">80</span><span class="op">)</span>, alt <span class="op">=</span> <span class="cn">NULL</span><span class="op">)</span></span>
+<code class="sourceCode R"><span><span class="fu"><a href="reference/typst-function.html">image_</a></span><span class="op">(</span><span class="st">"image.png"</span>, width <span class="op">=</span> <span class="fu"><a href="reference/typst_units.html">percent</a></span><span class="op">(</span><span class="fl">80</span><span class="op">)</span>, alt <span class="op">=</span> <span class="cn">NULL</span><span class="op">)</span></span>
 <span><span class="co">#&gt; #image(width: 80%, alt: none, \"image.png\")</span></span></code></pre></div>
 <ul>
 <li>
@@ -154,82 +151,104 @@
 <code><a href="https://rdrr.io/r/base/c.html" class="external-link">c()</a></code> vectors and unnamed <code><a href="https://rdrr.io/r/base/list.html" class="external-link">list()</a></code> (such as <code>list("a", "b"</code>) become arrays:</li>
 </ul>
 <div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu"><a href="reference/typst-function.html">text</a></span><span class="op">(</span>`stylistic-set` <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">2</span>, <span class="fl">3</span><span class="op">)</span>, <span class="st">"10 years ago"</span><span class="op">)</span></span>
+<code class="sourceCode R"><span><span class="fu"><a href="reference/typst-function.html">text_</a></span><span class="op">(</span>`stylistic-set` <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">2</span>, <span class="fl">3</span><span class="op">)</span>, <span class="st">"10 years ago"</span><span class="op">)</span></span>
 <span><span class="co">#&gt; #text(stylistic-set: (1, 2, 3))[10 years ago]</span></span>
 <span></span>
-<span><span class="fu"><a href="reference/typst-function.html">text</a></span><span class="op">(</span>`stylistic-set` <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">2</span>, <span class="fl">3</span><span class="op">)</span>, <span class="st">"10 years ago"</span><span class="op">)</span> <span class="co"># equivalent</span></span>
+<span><span class="fu"><a href="reference/typst-function.html">text_</a></span><span class="op">(</span>`stylistic-set` <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">2</span>, <span class="fl">3</span><span class="op">)</span>, <span class="st">"10 years ago"</span><span class="op">)</span> <span class="co"># equivalent</span></span>
 <span><span class="co">#&gt; #text(stylistic-set: (1, 2, 3))[10 years ago]</span></span></code></pre></div>
 <ul>
 <li>Named <code><a href="https://rdrr.io/r/base/list.html" class="external-link">list()</a></code> (such as <code>list(a = "hello", b = "world")</code>) become dictionnaries:</li>
 </ul>
 <div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu"><a href="reference/typst-function.html">text</a></span><span class="op">(</span>costs <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>hyphenation <span class="op">=</span> <span class="fu"><a href="reference/typst_units.html">percent</a></span><span class="op">(</span><span class="fl">100</span><span class="op">)</span>, runt <span class="op">=</span> <span class="fu"><a href="reference/typst_units.html">percent</a></span><span class="op">(</span><span class="fl">100</span><span class="op">)</span><span class="op">)</span><span class="op">)</span></span>
+<code class="sourceCode R"><span><span class="fu"><a href="reference/typst-function.html">text_</a></span><span class="op">(</span>costs <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>hyphenation <span class="op">=</span> <span class="fu"><a href="reference/typst_units.html">percent</a></span><span class="op">(</span><span class="fl">100</span><span class="op">)</span>, runt <span class="op">=</span> <span class="fu"><a href="reference/typst_units.html">percent</a></span><span class="op">(</span><span class="fl">100</span><span class="op">)</span><span class="op">)</span><span class="op">)</span></span>
 <span><span class="co">#&gt; #text(costs: (hyphenation: 100%, runt: 100%))</span></span></code></pre></div>
 </div>
 <div class="section level4">
 <h4 id="set-and-show-rules">Set and show rules<a class="anchor" aria-label="anchor" href="#set-and-show-rules"></a>
 </h4>
 <div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu"><a href="reference/typst-set.html">set_text</a></span><span class="op">(</span><span class="va">red</span>, size <span class="op">=</span> <span class="fu"><a href="reference/typst_units.html">pt</a></span><span class="op">(</span><span class="fl">20</span><span class="op">)</span><span class="op">)</span></span>
+<code class="sourceCode R"><span><span class="fu"><a href="reference/typst-set.html">set_text</a></span><span class="op">(</span><span class="va">red</span>, size <span class="op">=</span> <span class="fu"><a href="reference/typst_units.html">pt_</a></span><span class="op">(</span><span class="fl">20</span><span class="op">)</span><span class="op">)</span></span>
 <span><span class="co">#&gt; #set text(size: 20pt, red)</span></span>
 <span></span>
 <span><span class="fu"><a href="reference/typst-show.html">show_heading</a></span><span class="op">(</span><span class="fu"><a href="reference/typst-set.html">set_text</a></span><span class="op">(</span>fill <span class="op">=</span> <span class="va">red</span><span class="op">)</span><span class="op">)</span></span>
 <span><span class="co">#&gt; #show heading: set text(fill: red, size: 20pt)</span></span></code></pre></div>
 </div>
 <div class="section level4">
-<h4 id="validating-typst">Validating Typst<a class="anchor" aria-label="anchor" href="#validating-typst"></a>
-</h4>
-<p>Functions in <a href="https://y-sunflower.github.io/r2typ/">r2typ</a> accept <strong>all positional and named arguments</strong>! This means that you’re responsible of making sure the arguments you’re using are valid!</p>
-<p>But to help you in that process, there is a <code><a href="reference/is_valid_typst.html">is_valid_typst()</a></code> function that will return either <code>TRUE</code> or <code>FALSE</code> depending on whether your Typst can be compiled successfully.</p>
-<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu"><a href="reference/typst-function.html">place</a></span><span class="op">(</span></span>
-<span>  <span class="va">top</span> <span class="op">+</span> <span class="va">left</span>,</span>
-<span>  dy <span class="op">=</span> <span class="fu"><a href="reference/typst_units.html">pt</a></span><span class="op">(</span><span class="fl">15</span><span class="op">)</span>,</span>
-<span>  <span class="fu"><a href="reference/typst-function.html">square</a></span><span class="op">(</span>size <span class="op">=</span> <span class="fu"><a href="reference/typst_units.html">pt</a></span><span class="op">(</span><span class="fl">35</span><span class="op">)</span>, fill <span class="op">=</span> <span class="va">red</span><span class="op">)</span></span>
-<span><span class="op">)</span> <span class="op">|&gt;</span></span>
-<span>  <span class="fu"><a href="reference/is_valid_typst.html">is_valid_typst</a></span><span class="op">(</span><span class="op">)</span></span>
-<span><span class="co">#&gt; TRUE</span></span></code></pre></div>
-<blockquote>
-<p>Also note that <strong>all examples</strong> in the <a href="https://y-sunflower.github.io/r2typ/">r2typ</a> documentation are valid Typst examples.</p>
-</blockquote>
-</div>
-<div class="section level4">
 <h4 id="create-typst-variables">Create Typst variables<a class="anchor" aria-label="anchor" href="#create-typst-variables"></a>
 </h4>
 <p>You can use the <code><a href="reference/let.html">let()</a></code> function to define Typst variables, and easily reuse them:</p>
-<div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu"><a href="reference/let.html">let</a></span><span class="op">(</span><span class="st">"yellow"</span>, <span class="fu"><a href="reference/typst_colors.html">rgb</a></span><span class="op">(</span><span class="st">"#FFC300"</span><span class="op">)</span><span class="op">)</span></span>
-<span><span class="co">#&gt; #let yellow = rgb("#FFC300")</span></span>
+<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="reference/let.html">let</a></span><span class="op">(</span><span class="st">"yellow"</span>, <span class="fu"><a href="reference/typst_colors.html">rgb_</a></span><span class="op">(</span><span class="st">"#FFC300"</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="co">#&gt; #let yellow = rgb_("#FFC300")</span></span>
 <span></span>
-<span><span class="fu"><a href="reference/let.html">let</a></span><span class="op">(</span><span class="st">"mycirc"</span>, <span class="fu"><a href="reference/typst-function.html">circle</a></span><span class="op">(</span>fill <span class="op">=</span> <span class="va">yellow</span>, <span class="fu"><a href="reference/typst-function.html">square</a></span><span class="op">(</span>height <span class="op">=</span> <span class="fu"><a href="reference/typst_units.html">cm</a></span><span class="op">(</span><span class="fl">1</span><span class="op">)</span><span class="op">)</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="fu"><a href="reference/let.html">let</a></span><span class="op">(</span><span class="st">"mycirc"</span>, <span class="fu"><a href="reference/typst-function.html">circle</a></span><span class="op">(</span>fill <span class="op">=</span> <span class="va">yellow</span>, <span class="fu"><a href="reference/typst-function.html">square</a></span><span class="op">(</span>height <span class="op">=</span> <span class="fu"><a href="reference/typst_units.html">cm_</a></span><span class="op">(</span><span class="fl">1</span><span class="op">)</span><span class="op">)</span><span class="op">)</span><span class="op">)</span></span>
 <span><span class="co">#&gt; #let mycirc = circle(fill: yellow)[#square(height: 1cm)]</span></span></code></pre></div>
 </div>
 <div class="section level4">
 <h4 id="use-your-own-typst-functions">Use your own Typst functions<a class="anchor" aria-label="anchor" href="#use-your-own-typst-functions"></a>
 </h4>
-<div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">hello</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">...</span><span class="op">)</span> <span class="fu"><a href="reference/typst-function.html">typst_function</a></span><span class="op">(</span><span class="st">"hello"</span>, <span class="va">...</span><span class="op">)</span></span>
 <span></span>
-<span><span class="fu">hello</span><span class="op">(</span>fill <span class="op">=</span> <span class="va">red</span>, size <span class="op">=</span> <span class="fu"><a href="reference/typst_units.html">pt</a></span><span class="op">(</span><span class="fl">10</span><span class="op">)</span>, other_arg <span class="op">=</span> <span class="st">"world"</span><span class="op">)</span></span>
+<span><span class="fu">hello</span><span class="op">(</span>fill <span class="op">=</span> <span class="va">red</span>, size <span class="op">=</span> <span class="fu"><a href="reference/typst_units.html">pt_</a></span><span class="op">(</span><span class="fl">10</span><span class="op">)</span>, other_arg <span class="op">=</span> <span class="st">"world"</span><span class="op">)</span></span>
 <span><span class="co">#&gt; #hello(fill: red, size: 10pt, other_arg: "world")</span></span></code></pre></div>
+</div>
+<div class="section level4">
+<h4 id="writing-compiling-and-validating-typst">Writing, compiling and validating Typst<a class="anchor" aria-label="anchor" href="#writing-compiling-and-validating-typst"></a>
+</h4>
+<p>If you want to compile and validate your Typst code, you can use the <a href="https://github.com/y-sunflower/tynding" class="external-link"><code>tynding</code></a> package. It offers 3 functions:</p>
+<ul>
+<li>
+<code><a href="reference/typst_write.html">typst_write()</a></code>: write a <code>.typ</code> file</li>
+<li>
+<code><a href="reference/typst_compile.html">typst_compile()</a></code>: compile a <code>.typ</code> file</li>
+<li>
+<code><a href="reference/is_valid_typst.html">is_valid_typst()</a></code>: evaluate whether a character vector is valid Typst (<code>TRUE</code> or <code>FALSE</code>)</li>
+</ul>
+<p>Functions in <code>r2typ</code> accept <strong>all positional and named arguments</strong>! This means that you’re responsible of making sure the arguments you’re using are valid!</p>
+<p>It has a <code><a href="reference/is_valid_typst.html">is_valid_typst()</a></code> function that will return either <code>TRUE</code> or <code>FALSE</code> depending on whether your Typst can be compiled successfully.</p>
+<div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://y-sunflower.github.io/tynding/" class="external-link">tynding</a></span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu"><a href="reference/typst-function.html">place</a></span><span class="op">(</span></span>
+<span>  <span class="va">top</span> <span class="op">+</span> <span class="va">left</span>,</span>
+<span>  dy <span class="op">=</span> <span class="fu"><a href="reference/typst_units.html">pt_</a></span><span class="op">(</span><span class="fl">15</span><span class="op">)</span>,</span>
+<span>  <span class="fu"><a href="reference/typst-function.html">square</a></span><span class="op">(</span>size <span class="op">=</span> <span class="fu"><a href="reference/typst_units.html">pt_</a></span><span class="op">(</span><span class="fl">35</span><span class="op">)</span>, fill <span class="op">=</span> <span class="va">red</span><span class="op">)</span></span>
+<span><span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>  <span class="fu"><a href="reference/is_valid_typst.html">is_valid_typst</a></span><span class="op">(</span><span class="op">)</span></span>
+<span><span class="co">#&gt; TRUE</span></span>
+<span></span>
+<span><span class="fu"><a href="reference/typst-function.html">place</a></span><span class="op">(</span></span>
+<span>  <span class="va">top</span> <span class="op">+</span> <span class="va">left</span>,</span>
+<span>  dy <span class="op">=</span> <span class="fu"><a href="reference/typst_units.html">pt_</a></span><span class="op">(</span><span class="fl">15</span><span class="op">)</span>,</span>
+<span>  <span class="fu"><a href="reference/typst-function.html">square</a></span><span class="op">(</span>size <span class="op">=</span> <span class="fu"><a href="reference/typst_units.html">pt_</a></span><span class="op">(</span><span class="fl">35</span><span class="op">)</span>, fill <span class="op">=</span> <span class="va">red</span><span class="op">)</span></span>
+<span><span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>  <span class="fu"><a href="reference/typst_write.html">typst_write</a></span><span class="op">(</span><span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>  <span class="fu"><a href="reference/typst_compile.html">typst_compile</a></span><span class="op">(</span><span class="op">)</span> <span class="co"># generate the PDF</span></span></code></pre></div>
+<blockquote>
+<p>Also note that <strong>all examples</strong> in the <code>r2typ</code> documentation are valid Typst examples.</p>
+</blockquote>
 </div>
 <div class="section level4">
 <h4 id="complete-example">Complete example<a class="anchor" aria-label="anchor" href="#complete-example"></a>
 </h4>
 <p>A complete example that generates a PDF using R only:</p>
 <div class="sourceCode" id="cb11"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span></span>
-<span>  <span class="fu"><a href="reference/typst-set.html">set_page</a></span><span class="op">(</span>height <span class="op">=</span> <span class="fu"><a href="reference/typst_units.html">pt</a></span><span class="op">(</span><span class="fl">400</span><span class="op">)</span><span class="op">)</span>,</span>
+<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://y-sunflower.github.io/r2typ/">r2typ</a></span><span class="op">)</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://y-sunflower.github.io/tynding/" class="external-link">tynding</a></span><span class="op">)</span> <span class="co"># typst_write() and typst_compile() functions</span></span>
+<span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span></span>
+<span>  <span class="fu"><a href="reference/typst-set.html">set_page</a></span><span class="op">(</span>height <span class="op">=</span> <span class="fu"><a href="reference/typst_units.html">pt_</a></span><span class="op">(</span><span class="fl">400</span><span class="op">)</span><span class="op">)</span>,</span>
 <span>  <span class="fu"><a href="reference/typst-set.html">set_text</a></span><span class="op">(</span><span class="va">purple</span><span class="op">)</span>,</span>
 <span>  <span class="fu"><a href="reference/typst-set.html">set_circle</a></span><span class="op">(</span>width <span class="op">=</span> <span class="fu"><a href="reference/typst_units.html">percent</a></span><span class="op">(</span><span class="fl">50</span><span class="op">)</span><span class="op">)</span>,</span>
 <span>  <span class="fu"><a href="reference/typst-function.html">align</a></span><span class="op">(</span></span>
 <span>    <span class="va">center</span> <span class="op">+</span> <span class="va">horizon</span>,</span>
 <span>    <span class="fu"><a href="reference/typst-function.html">circle</a></span><span class="op">(</span></span>
 <span>      fill <span class="op">=</span> <span class="va">aqua</span>,</span>
-<span>      stroke <span class="op">=</span> <span class="fu"><a href="reference/typst_units.html">pt</a></span><span class="op">(</span><span class="fl">5</span><span class="op">)</span> <span class="op">+</span> <span class="va">red</span>,</span>
+<span>      stroke <span class="op">=</span> <span class="fu"><a href="reference/typst_units.html">pt_</a></span><span class="op">(</span><span class="fl">5</span><span class="op">)</span> <span class="op">+</span> <span class="va">red</span>,</span>
 <span>      <span class="fu"><a href="reference/typst-function.html">align</a></span><span class="op">(</span></span>
 <span>        <span class="va">right</span>,</span>
-<span>        <span class="fu"><a href="reference/typst-function.html">text</a></span><span class="op">(</span></span>
+<span>        <span class="fu"><a href="reference/typst-function.html">text_</a></span><span class="op">(</span></span>
 <span>          font <span class="op">=</span> <span class="st">"Roboto"</span>,</span>
 <span>          size <span class="op">=</span> <span class="fu"><a href="reference/typst_units.html">em</a></span><span class="op">(</span><span class="fl">1.2</span><span class="op">)</span>,</span>
 <span>          <span class="st">"My favorite food is cookies!"</span></span>
@@ -250,7 +269,7 @@
 <div class="section level2">
 <h2 id="markup-vs-code-mode-in-typst">Markup VS Code mode in Typst<a class="anchor" aria-label="anchor" href="#markup-vs-code-mode-in-typst"></a>
 </h2>
-<p><a href="https://y-sunflower.github.io/r2typ/">r2typ</a> generates Typst <strong>markup</strong>, not Typst <strong>code</strong>. Most people, when writing native Typst, rely primarily on <strong>markup</strong> mode. <strong>Code</strong> mode is mainly used to add logic or create functions.</p>
+<p><code>r2typ</code> generates Typst <strong>markup</strong>, not Typst <strong>code</strong>. Most people, when writing native Typst, rely primarily on <strong>markup</strong> mode. <strong>Code</strong> mode is mainly used to add logic or create functions.</p>
 <p>This is an important distinction to keep in mind, but the core difference is that function calls start with a <code>#</code> (e.g., <code>#text("hey")</code> VS <code>text("hey")</code>).</p>
 <p>You can learn more about it <a href="https://typst.app/docs/reference/syntax/" class="external-link">here</a>.</p>
 <p><br></p>

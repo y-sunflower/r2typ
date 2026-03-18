@@ -9,7 +9,7 @@ It allows to create reusable components."></head><body>
 
     <a class="navbar-brand me-2" href="../index.html">r2typ</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.3.3</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.4.0</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -24,8 +24,6 @@ It allows to create reusable components."></head><body>
   <ul class="dropdown-menu" aria-labelledby="dropdown-articles"><li><hr class="dropdown-divider"></li>
     <li><h6 class="dropdown-header" data-toc-skip>Guides</h6></li>
     <li><a class="dropdown-item" href="../articles/using-r2typ-in-quarto-documents.html">Using r2typ in Quarto documents</a></li>
-    <li><a class="dropdown-item" href="../articles/writing-and-compiling-typst.html">Writing and compiling typst</a></li>
-    <li><a class="dropdown-item" href="../articles/typst-validation.html">Typst validation</a></li>
     <li><a class="dropdown-item" href="../articles/use-user-defined-functions.html">Use user-defined functions</a></li>
   </ul></li>
       </ul><ul class="navbar-nav"><li class="nav-item"><form class="form-inline" role="search">
@@ -79,12 +77,12 @@ It allows to create reusable components.</p>
 
     <div class="section level2">
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="fu">let</span><span class="op">(</span><span class="st">"yellow"</span>, <span class="fu"><a href="typst_colors.html">rgb</a></span><span class="op">(</span><span class="st">"#FFC300"</span><span class="op">)</span><span class="op">)</span></span></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="fu">let</span><span class="op">(</span><span class="st">"yellow"</span>, <span class="fu"><a href="typst_colors.html">rgb_</a></span><span class="op">(</span><span class="st">"#FFC300"</span><span class="op">)</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] "#let yellow = rgb(\"#FFC300\")"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> attr(,"class")</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] "typst_markup"</span>
 <span class="r-in"><span></span></span>
-<span class="r-in"><span><span class="fu">let</span><span class="op">(</span><span class="st">"mycirc"</span>, <span class="fu"><a href="typst-function.html">circle</a></span><span class="op">(</span>width<span class="op">=</span><span class="fu"><a href="typst_units.html">cm</a></span><span class="op">(</span><span class="fl">3</span><span class="op">)</span>, fill<span class="op">=</span><span class="va">yellow</span>, <span class="fu"><a href="typst-function.html">square</a></span><span class="op">(</span>height<span class="op">=</span><span class="fu"><a href="typst_units.html">cm</a></span><span class="op">(</span><span class="fl">1</span><span class="op">)</span><span class="op">)</span><span class="op">)</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="fu">let</span><span class="op">(</span><span class="st">"mycirc"</span>, <span class="fu"><a href="typst-function.html">circle</a></span><span class="op">(</span>width<span class="op">=</span><span class="fu"><a href="typst_units.html">cm_</a></span><span class="op">(</span><span class="fl">3</span><span class="op">)</span>, fill<span class="op">=</span><span class="va">yellow</span>, <span class="fu"><a href="typst-function.html">square</a></span><span class="op">(</span>height<span class="op">=</span><span class="fu"><a href="typst_units.html">cm_</a></span><span class="op">(</span><span class="fl">1</span><span class="op">)</span><span class="op">)</span><span class="op">)</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] "#let mycirc = circle(width: 3cm, fill: yellow)[#square(height: 1cm)]"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> attr(,"class")</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] "typst_markup"</span>

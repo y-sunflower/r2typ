@@ -4,8 +4,8 @@ Class names of expressions like.
 
 Function where positional arguments are in brackets.
 
-Function where additional arguments is not content. For example, image()
-usage must be image(height: 2in, "file.svg").
+Function where additional arguments is not content. For example,
+image\_() usage must be image\_(height: 2in, "file.svg").
 
 ## Usage
 

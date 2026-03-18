@@ -39,10 +39,10 @@
   [`h()`](https://y-sunflower.github.io/r2typ/reference/typst-function.md)
   [`v()`](https://y-sunflower.github.io/r2typ/reference/typst-function.md)
   [`block()`](https://y-sunflower.github.io/r2typ/reference/typst-function.md)
-  [`box()`](https://y-sunflower.github.io/r2typ/reference/typst-function.md)
+  [`box_()`](https://y-sunflower.github.io/r2typ/reference/typst-function.md)
   [`colbreak()`](https://y-sunflower.github.io/r2typ/reference/typst-function.md)
   [`stack()`](https://y-sunflower.github.io/r2typ/reference/typst-function.md)
-  [`grid()`](https://y-sunflower.github.io/r2typ/reference/typst-function.md)
+  [`grid_()`](https://y-sunflower.github.io/r2typ/reference/typst-function.md)
   [`hide()`](https://y-sunflower.github.io/r2typ/reference/typst-function.md)
   [`pagebreak()`](https://y-sunflower.github.io/r2typ/reference/typst-function.md)
   [`move()`](https://y-sunflower.github.io/r2typ/reference/typst-function.md)
@@ -61,12 +61,12 @@
   [`heading()`](https://y-sunflower.github.io/r2typ/reference/typst-function.md)
   [`enum()`](https://y-sunflower.github.io/r2typ/reference/typst-function.md)
   [`outline()`](https://y-sunflower.github.io/r2typ/reference/typst-function.md)
-  [`par()`](https://y-sunflower.github.io/r2typ/reference/typst-function.md)
+  [`par_()`](https://y-sunflower.github.io/r2typ/reference/typst-function.md)
   [`parbreak()`](https://y-sunflower.github.io/r2typ/reference/typst-function.md)
   [`quote_()`](https://y-sunflower.github.io/r2typ/reference/typst-function.md)
   [`strong()`](https://y-sunflower.github.io/r2typ/reference/typst-function.md)
   [`table_()`](https://y-sunflower.github.io/r2typ/reference/typst-function.md)
-  [`text()`](https://y-sunflower.github.io/r2typ/reference/typst-function.md)
+  [`text_()`](https://y-sunflower.github.io/r2typ/reference/typst-function.md)
   [`linebreak()`](https://y-sunflower.github.io/r2typ/reference/typst-function.md)
   [`overline()`](https://y-sunflower.github.io/r2typ/reference/typst-function.md)
   [`smallcaps()`](https://y-sunflower.github.io/r2typ/reference/typst-function.md)
@@ -79,11 +79,11 @@
   [`raw_()`](https://y-sunflower.github.io/r2typ/reference/typst-function.md)
   [`highlight()`](https://y-sunflower.github.io/r2typ/reference/typst-function.md)
   [`lower()`](https://y-sunflower.github.io/r2typ/reference/typst-function.md)
-  [`image()`](https://y-sunflower.github.io/r2typ/reference/typst-function.md)
+  [`image_()`](https://y-sunflower.github.io/r2typ/reference/typst-function.md)
   [`circle()`](https://y-sunflower.github.io/r2typ/reference/typst-function.md)
   [`ellipse()`](https://y-sunflower.github.io/r2typ/reference/typst-function.md)
-  [`line()`](https://y-sunflower.github.io/r2typ/reference/typst-function.md)
-  [`rect()`](https://y-sunflower.github.io/r2typ/reference/typst-function.md)
+  [`line_()`](https://y-sunflower.github.io/r2typ/reference/typst-function.md)
+  [`rect_()`](https://y-sunflower.github.io/r2typ/reference/typst-function.md)
   [`square()`](https://y-sunflower.github.io/r2typ/reference/typst-function.md)
   : Create a Typst function
 
@@ -202,7 +202,7 @@
 - [`auto`](https://y-sunflower.github.io/r2typ/reference/typst_auto.md)
   : Typst auto
 
-- [`rgb()`](https://y-sunflower.github.io/r2typ/reference/typst_colors.md)
+- [`rgb_()`](https://y-sunflower.github.io/r2typ/reference/typst_colors.md)
   [`silver`](https://y-sunflower.github.io/r2typ/reference/typst_colors.md)
   [`grey`](https://y-sunflower.github.io/r2typ/reference/typst_colors.md)
   [`black`](https://y-sunflower.github.io/r2typ/reference/typst_colors.md)
@@ -226,7 +226,7 @@
 - [`typst_compile()`](https://y-sunflower.github.io/r2typ/reference/typst_compile.md)
   :
 
-  Compile a `.typ` file to a `.pdf` file and return the output path.
+  Compile a `.typ` file to a `.pdf` file and return the output path
 
 - [`ltr`](https://y-sunflower.github.io/r2typ/reference/typst_direction.md)
   [`rtl`](https://y-sunflower.github.io/r2typ/reference/typst_direction.md)
@@ -234,9 +234,9 @@
   [`btt`](https://y-sunflower.github.io/r2typ/reference/typst_direction.md)
   : Typst Direction
 
-- [`pt()`](https://y-sunflower.github.io/r2typ/reference/typst_units.md)
+- [`pt_()`](https://y-sunflower.github.io/r2typ/reference/typst_units.md)
   [`mm()`](https://y-sunflower.github.io/r2typ/reference/typst_units.md)
-  [`cm()`](https://y-sunflower.github.io/r2typ/reference/typst_units.md)
+  [`cm_()`](https://y-sunflower.github.io/r2typ/reference/typst_units.md)
   [`em()`](https://y-sunflower.github.io/r2typ/reference/typst_units.md)
   [`percent()`](https://y-sunflower.github.io/r2typ/reference/typst_units.md)
   [`fr()`](https://y-sunflower.github.io/r2typ/reference/typst_units.md)

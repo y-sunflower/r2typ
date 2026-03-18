@@ -17,6 +17,6 @@ hello <- function(...) typst_function("hello", ...)
 ```
 
 ``` r
-hello(fill = red, size = pt(10), other_arg = "world")
+hello(fill = red, size = pt_(10), other_arg = "world")
 #> #hello(fill: red, size: 10pt, other_arg: "world")
 ```

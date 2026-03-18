@@ -50,13 +50,13 @@ v(...)
 
 block(...)
 
-box(...)
+box_(...)
 
 colbreak(...)
 
 stack(...)
 
-grid(...)
+grid_(...)
 
 hide(...)
 
@@ -94,7 +94,7 @@ enum(...)
 
 outline(...)
 
-par(...)
+par_(...)
 
 parbreak(...)
 
@@ -104,7 +104,7 @@ strong(...)
 
 table_(...)
 
-text(...)
+text_(...)
 
 linebreak(...)
 
@@ -130,15 +130,15 @@ highlight(...)
 
 lower(...)
 
-image(...)
+image_(...)
 
 circle(...)
 
 ellipse(...)
 
-line(...)
+line_(...)
 
-rect(...)
+rect_(...)
 
 square(...)
 ```
@@ -220,7 +220,7 @@ version(c(1, 2, 3, 4))
 #> [1] "#version((1, 2, 3, 4))"
 #> attr(,"class")
 #> [1] "typst_markup"
-place(dx = pt(50), "pasta")
+place(dx = pt_(50), "pasta")
 #> [1] "#place(dx: 50pt)[pasta]"
 #> attr(,"class")
 #> [1] "typst_markup"
@@ -240,7 +240,7 @@ block(breakable = FALSE, width = percent(50), height = auto, fill = aqua, "cooki
 #> [1] "#block(breakable: false, width: 50%, height: auto, fill: aqua)[cookies]"
 #> attr(,"class")
 #> [1] "typst_markup"
-box(clip = FALSE, width = percent(50), height = auto, fill = red, "ice cream")
+box_(clip = FALSE, width = percent(50), height = auto, fill = red, "ice cream")
 #> [1] "#box(clip: false, width: 50%, height: auto, fill: red)[ice cream]"
 #> attr(,"class")
 #> [1] "typst_markup"
@@ -252,7 +252,7 @@ stack(dir = ttb, "hey", "you", "!")
 #> [1] "#stack(dir: ttb, \"hey\", \"you\", \"!\")"
 #> attr(,"class")
 #> [1] "typst_markup"
-grid(columns = 2, rows = 2, gutter = pt(3), "hey", "cookies", "ice", "cream")
+grid_(columns = 2, rows = 2, gutter = pt_(3), "hey", "cookies", "ice", "cream")
 #> [1] "#grid(columns: 2, rows: 2, gutter: 3pt, \"hey\", \"cookies\", \"ice\", \"cream\")"
 #> attr(,"class")
 #> [1] "typst_markup"
@@ -264,11 +264,11 @@ pagebreak("this is hidden")
 #> [1] "#pagebreak(\"this is hidden\")"
 #> attr(,"class")
 #> [1] "typst_markup"
-move(dx = pt(3), dy = pt(5), "pasta")
+move(dx = pt_(3), dy = pt_(5), "pasta")
 #> [1] "#move(dx: 3pt, dy: 5pt, \"pasta\")"
 #> attr(,"class")
 #> [1] "typst_markup"
-pad(x = percent(0) + pt(5), y = percent(10) + pt(0), image("file.svg"))
+pad(x = percent(0) + pt_(5), y = percent(10) + pt_(0), image_("file.svg"))
 #> [1] "#pad(x: 0% + 5pt, y: 10% + 0pt, [#image(\"file.svg\")])"
 #> attr(,"class")
 #> [1] "typst_markup"
@@ -278,8 +278,8 @@ page(
  fill = red,
  place(
    top + left,
-   dx = pt(-5),
-   rect(fill = blue, radius = pt(2), "yooooo")
+   dx = pt_(-5),
+   rect_(fill = blue, radius = pt_(2), "yooooo")
  )
 )
 #> [1] "#page(flipped: true, columns: 2, fill: red, [#place(top + left, dx: -5pt)[#rect(fill: blue, radius: 2pt)[yooooo]]])"
@@ -333,7 +333,7 @@ outline(depth = 1)
 #> [1] "#outline(depth: 1)"
 #> attr(,"class")
 #> [1] "typst_markup"
-par(
+par_(
  `first-line-indent` = em(1),
  spacing = em(0.65),
  justify = TRUE,
@@ -354,7 +354,7 @@ strong("strong coffee")
 #> [1] "#strong()[strong coffee]"
 #> attr(,"class")
 #> [1] "typst_markup"
-table_(align = center, inset = pt(10), "a", "b", "c", "d")
+table_(align = center, inset = pt_(10), "a", "b", "c", "d")
 #> [1] "#table(align: center, inset: 10pt, [a], [b], [c], [d])"
 #> attr(,"class")
 #> [1] "typst_markup"
@@ -366,7 +366,7 @@ table_(data, align = center)
 #> [1] "#table(columns: 2, align: center, [Alice], [12], [Bob], [18])"
 #> attr(,"class")
 #> [1] "typst_markup"
-text(fill = silver, size = pt(20), "The most basic function in Typst...")
+text_(fill = silver, size = pt_(20), "The most basic function in Typst...")
 #> [1] "#text(fill: silver, size: 20pt)[The most basic function in Typst...]"
 #> attr(,"class")
 #> [1] "typst_markup"
@@ -398,7 +398,7 @@ super(typographic = FALSE, "not typographic")
 #> [1] "#super(typographic: false)[not typographic]"
 #> attr(,"class")
 #> [1] "typst_markup"
-underline(stroke = pt(3) + olive, "what a weird underline")
+underline(stroke = pt_(3) + olive, "what a weird underline")
 #> [1] "#underline(stroke: 3pt + olive)[what a weird underline]"
 #> attr(,"class")
 #> [1] "typst_markup"
@@ -406,7 +406,7 @@ raw_("print('hello world')", lang = "python", block = TRUE)
 #> [1] "#raw(lang: \"python\", block: true, \"print('hello world')\")"
 #> attr(,"class")
 #> [1] "typst_markup"
-highlight(extent = pt(3), "hey")
+highlight(extent = pt_(3), "hey")
 #> [1] "#highlight(extent: 3pt)[hey]"
 #> attr(,"class")
 #> [1] "typst_markup"
@@ -414,7 +414,7 @@ lower("hey")
 #> [1] "#lower()[hey]"
 #> attr(,"class")
 #> [1] "typst_markup"
-if (FALSE) image(width = percent(80), height = auto, "../docs/link.svg") # \dontrun{}
+if (FALSE) image_(width = percent(80), height = auto, "../docs/link.svg") # \dontrun{}
 circle(fill = blue)
 #> [1] "#circle(fill: blue)"
 #> attr(,"class")
@@ -423,15 +423,15 @@ ellipse(fill = green)
 #> [1] "#ellipse(fill: green)"
 #> attr(,"class")
 #> [1] "typst_markup"
-line(length = percent(80), angle = deg(20))
+line_(length = percent(80), angle = deg(20))
 #> [1] "#line(length: 80%, angle: 20deg)"
 #> attr(,"class")
 #> [1] "typst_markup"
-rect(fill = aqua, radius = pt(3))
+rect_(fill = aqua, radius = pt_(3))
 #> [1] "#rect(fill: aqua, radius: 3pt)"
 #> attr(,"class")
 #> [1] "typst_markup"
-square(size = pt(5), fill = olive)
+square(size = pt_(5), fill = olive)
 #> [1] "#square(size: 5pt, fill: olive)"
 #> attr(,"class")
 #> [1] "typst_markup"

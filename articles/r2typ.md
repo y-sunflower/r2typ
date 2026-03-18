@@ -24,7 +24,7 @@ All functions accept any kind of positional or named arguments:
 ``` r
 heading(level = 2, "A title")
 #> #heading(level: 2)[A title]
-text(weight = 500, "Some text")
+text_(weight = 500, "Some text")
 #> #text(weight: 500)[Some text]
 ```
 
@@ -64,14 +64,14 @@ Typst uses a unique approach for units, as they are not quoted.
 functions to make working with Typst units easy:
 
 ``` r
-text(size = pt(20), "Ice cream")
+text_(size = pt_(20), "Ice cream")
 #> #text(size: 20pt)[Ice cream]
 ```
 
 This works with all Typst units:
 
 ``` r
-image("image.png", width = percent(80))
+image_("image.png", width = percent(80))
 #> #image(width: 80%, "image.png")
 ```
 
@@ -81,7 +81,7 @@ Typst offers a large set of predefined colors such as `red` or `blue`.
 [r2typ](https://y-sunflower.github.io/r2typ/) provides the same:
 
 ``` r
-text(fill = green, "Green text")
+text_(fill = green, "Green text")
 #> #text(fill: green)[Green text]
 ```
 
@@ -90,11 +90,11 @@ All built-in Typst colors are available in
 [here](https://y-sunflower.github.io/r2typ/reference/typst_colors.md).
 
 You can also use the
-[`rgb()`](https://y-sunflower.github.io/r2typ/reference/typst_colors.md)
+[`rgb_()`](https://y-sunflower.github.io/r2typ/reference/typst_colors.md)
 function:
 
 ``` r
-text(fill = rgb("#ffc300"), "Yellow-ish text")
+text_(fill = rgb_("#ffc300"), "Yellow-ish text")
 #> #text(fill: rgb("#ffc300"))[Yellow-ish text]
 ```
 
@@ -106,7 +106,7 @@ work well in [r2typ](https://y-sunflower.github.io/r2typ/):
 ``` r
 place(
   center,
-  dy = pt(15),
+  dy = pt_(15),
   "hello"
 )
 #> #place(center, dy: 15pt)[hello]
@@ -117,7 +117,7 @@ You can combine them to mimic Typst syntax:
 ``` r
 place(
   top + left,
-  dy = pt(15),
+  dy = pt_(15),
   "hello"
 )
 #> #place(top + left, dy: 15pt)[hello]
@@ -127,7 +127,7 @@ You can even combine them with colors, which is often useful for
 strokes:
 
 ``` r
-line(stroke = pt(2) + blue)
+line_(stroke = pt_(2) + blue)
 #> #line(stroke: 2pt + blue)
 ```
 
@@ -139,7 +139,7 @@ Typst types:
 - `NULL` becomes `none`
 
 ``` r
-image("image.png", width = percent(80), alt = NULL)
+image_("image.png", width = percent(80), alt = NULL)
 #> #image(width: 80%, alt: none, "image.png")
 ```
 
@@ -155,10 +155,10 @@ list_(tight = FALSE, "hey", "you")
   become arrays:
 
 ``` r
-text(`stylistic-set` = c(1, 2, 3), "10 years ago")
+text_(`stylistic-set` = c(1, 2, 3), "10 years ago")
 #> #text(stylistic-set: (1, 2, 3))[10 years ago]
 
-text(`stylistic-set` = list(1, 2, 3), "10 years ago") # equivalent
+text_(`stylistic-set` = list(1, 2, 3), "10 years ago") # equivalent
 #> #text(stylistic-set: (1, 2, 3))[10 years ago]
 ```
 
@@ -166,7 +166,7 @@ text(`stylistic-set` = list(1, 2, 3), "10 years ago") # equivalent
   `list(a = "hello", b = "world")`) become dictionnaries:
 
 ``` r
-text(costs = list(hyphenation = percent(100), runt = percent(100)))
+text_(costs = list(hyphenation = percent(100), runt = percent(100)))
 #> #text(costs: (hyphenation: 100%, runt: 100%))
 ```
 
@@ -210,8 +210,8 @@ Calling a function within another function works as well:
 ``` r
 place(
   center + horizon,
-  dy = pt(15),
-  square(size = pt(35), fill = red)
+  dy = pt_(15),
+  square(size = pt_(35), fill = red)
 )
 #> #place(center + horizon, dy: 15pt)[#square(size: 35pt, fill: red)]
 
@@ -221,13 +221,42 @@ page(
   fill = red,
   place(
     top + left,
-    dx = pt(-5),
-    rect(
+    dx = pt_(-5),
+    rect_(
       fill = blue,
-      radius = pt(2),
+      radius = pt_(2),
       "yooooo"
     )
   )
 )
 #> #page(flipped: true, columns: 2, fill: red, [#place(top + left, dx: -5pt)[#rect(fill: blue, radius: 2pt)[yooooo]]])
 ```
+
+## Tables
+
+You create tables manually:
+
+``` r
+table_(
+  columns = 2,
+  "hey",
+  "folks!"
+)
+#> #table(columns: 2, [hey], [folks!])
+```
+
+Or from a data frame:
+
+``` r
+df <- data.frame(x = c(1, 2, 3), y = c(4, 5, 6))
+
+table_(
+  `columns-gutter` = cm_(1),
+  align = right,
+  df
+)
+#> #table(columns: 2, columns-gutter: 1cm, align: right, [1], [4], [2], [5], [3], [6])
+```
+
+It automatically detects the number of columns, but you can specify it
+yourself!

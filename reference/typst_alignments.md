@@ -2,7 +2,7 @@
 
 These functions generate special objects representing alignment in Typst
 code. They can be used as arguments in functions like
-[`text()`](https://y-sunflower.github.io/r2typ/reference/typst-function.md)
+[`text_()`](https://y-sunflower.github.io/r2typ/reference/typst-function.md)
 or
 [`heading()`](https://y-sunflower.github.io/r2typ/reference/typst-function.md)
 to produce properly formatted Typst code.

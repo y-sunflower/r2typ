@@ -119,7 +119,7 @@ A character string containing the generated Typst code.
 ## Examples
 
 ``` r
-set_place(dx = pt(50))
+set_place(dx = pt_(50))
 #> [1] "#set place(dx: 50pt)"
 #> attr(,"class")
 #> [1] "typst_markup"
@@ -147,7 +147,7 @@ set_stack(dir = ttb)
 #> [1] "#set stack(dir: ttb)"
 #> attr(,"class")
 #> [1] "typst_markup"
-set_grid(columns = 2, rows = 2, gutter = pt(3))
+set_grid(columns = 2, rows = 2, gutter = pt_(3))
 #> [1] "#set grid(columns: 2, rows: 2, gutter: 3pt)"
 #> attr(,"class")
 #> [1] "typst_markup"
@@ -155,11 +155,11 @@ set_pagebreak(weak = TRUE)
 #> [1] "#set pagebreak(weak: true)"
 #> attr(,"class")
 #> [1] "typst_markup"
-set_move(dx = pt(3), dy = pt(5))
+set_move(dx = pt_(3), dy = pt_(5))
 #> [1] "#set move(dx: 3pt, dy: 5pt)"
 #> attr(,"class")
 #> [1] "typst_markup"
-set_pad(x = percent(0) + pt(5), y = percent(10) + pt(0))
+set_pad(x = percent(0) + pt_(5), y = percent(10) + pt_(0))
 #> [1] "#set pad(x: 0% + 5pt, y: 10% + 0pt)"
 #> attr(,"class")
 #> [1] "typst_markup"
@@ -231,11 +231,11 @@ set_strong(delta = 400)
 #> [1] "#set strong(delta: 400)"
 #> attr(,"class")
 #> [1] "typst_markup"
-set_table(align = center, inset = pt(10))
+set_table(align = center, inset = pt_(10))
 #> [1] "#set table(align: center, inset: 10pt)"
 #> attr(,"class")
 #> [1] "typst_markup"
-set_text(fill = silver, size = pt(20))
+set_text(fill = silver, size = pt_(20))
 #> [1] "#set text(fill: silver, size: 20pt)"
 #> attr(,"class")
 #> [1] "typst_markup"
@@ -267,7 +267,7 @@ set_super(typographic = FALSE)
 #> [1] "#set super(typographic: false)"
 #> attr(,"class")
 #> [1] "typst_markup"
-set_underline(stroke = pt(3) + olive)
+set_underline(stroke = pt_(3) + olive)
 #> [1] "#set underline(stroke: 3pt + olive)"
 #> attr(,"class")
 #> [1] "typst_markup"
@@ -275,11 +275,11 @@ set_raw(lang = "python", block = TRUE)
 #> [1] "#set raw(lang: \"python\", block: true)"
 #> attr(,"class")
 #> [1] "typst_markup"
-set_highlight(extent = pt(3))
+set_highlight(extent = pt_(3))
 #> [1] "#set highlight(extent: 3pt)"
 #> attr(,"class")
 #> [1] "typst_markup"
-image(width = percent(80), height = auto)
+image_(width = percent(80), height = auto)
 #> [1] "#image(width: 80%, height: auto)"
 #> attr(,"class")
 #> [1] "typst_markup"
@@ -295,11 +295,11 @@ set_line(length = percent(80), angle = deg(20))
 #> [1] "#set line(length: 80%, angle: 20deg)"
 #> attr(,"class")
 #> [1] "typst_markup"
-set_rect(fill = aqua, radius = pt(3))
+set_rect(fill = aqua, radius = pt_(3))
 #> [1] "#set rect(fill: aqua, radius: 3pt)"
 #> attr(,"class")
 #> [1] "typst_markup"
-set_square(size = pt(5), fill = olive)
+set_square(size = pt_(5), fill = olive)
 #> [1] "#set square(size: 5pt, fill: olive)"
 #> attr(,"class")
 #> [1] "typst_markup"

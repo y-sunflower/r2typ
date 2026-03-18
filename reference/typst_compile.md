@@ -1,11 +1,11 @@
-# Compile a `.typ` file to a `.pdf` file and return the output path.
+# Compile a `.typ` file to a `.pdf` file and return the output path
 
 Compile a `.typ` file to a `.pdf` file and return the output path.
 
 ## Usage
 
 ``` r
-typst_compile(file, output = NULL)
+typst_compile(file, ...)
 ```
 
 ## Arguments
@@ -14,6 +14,11 @@ typst_compile(file, output = NULL)
 
   Path to an existing `.typ` file.
 
-- output:
+- ...:
 
-  Optional output path. Defaults to the input path with `.pdf`.
+  Additional arguments passed to
+  [`tynding::typst_compile()`](https://rdrr.io/pkg/tynding/man/typst_compile.html)
+
+## Value
+
+The path to the compiled PDF file.

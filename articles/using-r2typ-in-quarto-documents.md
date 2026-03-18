@@ -64,10 +64,10 @@ align(
   circle(
     width = percent(40),
     fill = aqua,
-    stroke = pt(5) + rgb("#ffc300"),
+    stroke = pt_(5) + rgb_("#ffc300"),
     align(
       right,
-      text(
+      text_(
         font = "Roboto",
         size = em(1.2),
         fill = purple,

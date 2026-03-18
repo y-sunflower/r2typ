@@ -2,7 +2,7 @@
 
 These functions generate special objects representing colors in Typst
 code. They can be used as arguments in functions like
-[`text()`](https://y-sunflower.github.io/r2typ/reference/typst-function.md)
+[`text_()`](https://y-sunflower.github.io/r2typ/reference/typst-function.md)
 or
 [`heading()`](https://y-sunflower.github.io/r2typ/reference/typst-function.md)
 to produce properly formatted Typst code.
@@ -10,7 +10,7 @@ to produce properly formatted Typst code.
 ## Usage
 
 ``` r
-rgb(hex)
+rgb_(hex)
 
 silver
 
@@ -118,11 +118,11 @@ An object of class `typst_color` and `typst_expression`.
 ## Examples
 
 ``` r
-rgb("#ffffff")
+rgb_("#ffffff")
 #> [1] "rgb(\"#ffffff\")"
 #> attr(,"class")
 #> [1] "typst_color"      "typst_expression"
-text(font = "Roboto", fill = rgb("#ffffff"), "cookies are healthy!!")
+text_(font = "Roboto", fill = rgb_("#ffffff"), "cookies are healthy!!")
 #> [1] "#text(font: \"Roboto\", fill: rgb(\"#ffffff\"))[cookies are healthy!!]"
 #> attr(,"class")
 #> [1] "typst_markup"

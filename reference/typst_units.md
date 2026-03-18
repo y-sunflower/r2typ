@@ -2,7 +2,7 @@
 
 These functions generate special objects representing units in Typst
 code. They can be used as arguments in functions like
-[`text()`](https://y-sunflower.github.io/r2typ/reference/typst-function.md)
+[`text_()`](https://y-sunflower.github.io/r2typ/reference/typst-function.md)
 or
 [`heading()`](https://y-sunflower.github.io/r2typ/reference/typst-function.md)
 to produce properly formatted Typst code.
@@ -10,11 +10,11 @@ to produce properly formatted Typst code.
 ## Usage
 
 ``` r
-pt(x)
+pt_(x)
 
 mm(x)
 
-cm(x)
+cm_(x)
 
 em(x)
 
@@ -42,12 +42,6 @@ appropriate unit string (e.g., `12pt`, `1.5em`, `80%`).
 ## Examples
 
 ``` r
-pt(12)       # Represents 12pt
-#> [1] "12"
-#> attr(,"class")
-#> [1] "typst_unit"       "typst_expression"
-#> attr(,"unit")
-#> [1] "pt"
 em(1.5)      # Represents 1.5em
 #> [1] "1.5"
 #> attr(,"class")
@@ -66,6 +60,12 @@ fr(2)        # Represents 2fr
 #> [1] "typst_unit"       "typst_expression"
 #> attr(,"unit")
 #> [1] "fr"
+pt_(12)       # Represents 12pt
+#> [1] "12"
+#> attr(,"class")
+#> [1] "typst_unit"       "typst_expression"
+#> attr(,"unit")
+#> [1] "pt"
 rad(3.14)    # Represents 3.14rad
 #> [1] "3.14"
 #> attr(,"class")
@@ -73,7 +73,7 @@ rad(3.14)    # Represents 3.14rad
 #> attr(,"unit")
 #> [1] "rad"
 
-text(size = pt(12), "Hello world")
+text_(size = pt_(12), "Hello world")
 #> [1] "#text(size: 12pt)[Hello world]"
 #> attr(,"class")
 #> [1] "typst_markup"
