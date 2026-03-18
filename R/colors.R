@@ -22,7 +22,7 @@ NULL
 #' @param hex An hexadecimal color.
 rgb_ <- function(hex) {
   structure(
-    paste0("rgb_(\"", hex, "\")"),
+    paste0("rgb(\"", hex, "\")"),
     class = c("typst_color", "typst_expression")
   )
 }

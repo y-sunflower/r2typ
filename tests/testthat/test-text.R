@@ -17,7 +17,7 @@ test_that("Test text functions", {
   expect_equal(out, "#text()[Just text]")
   expect_true(out |> is_valid_typst(error_on_failure = TRUE))
 
-  out <- set_text_(red)
+  out <- set_text(red)
   expect_true(out |> inherits("typst_markup"))
   out <- unclass(out)
   expect_equal(out, "#set text(red)")

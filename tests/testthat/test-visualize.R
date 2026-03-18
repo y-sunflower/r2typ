@@ -53,10 +53,10 @@ test_that("Test visualize functions", {
   expect_equal(out, "#image(width: 80%, height: auto, \"../docs/link.svg\")")
   expect_error(out |> is_valid_typst(error_on_failure = TRUE)) # image not found error
 
-  out <- set_image_(width = percent(80), height = auto)
+  out <- set_image(width = percent(80), height = auto)
   expect_true(out |> inherits("typst_markup"))
   out <- unclass(out)
-  expect_equal(out, "#set image_(width: 80%, height: auto)")
+  expect_equal(out, "#set image(width: 80%, height: auto)")
   expect_true(out |> is_valid_typst(error_on_failure = TRUE))
 
   out <- line_(length = percent(80), angle = deg(20))
