@@ -20,6 +20,5 @@ articles:
     navbar: Guides
     contents:
       - using-r2typ-in-quarto-documents
-      - writing-and-compiling-typst
       - typst-validation
       - use-user-defined-functions

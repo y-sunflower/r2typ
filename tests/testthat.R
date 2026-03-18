@@ -7,6 +7,7 @@
 # * https://testthat.r-lib.org/articles/special-files.html
 
 library(testthat)
+library(tynding)
 library(r2typ)
 
 test_check("r2typ")

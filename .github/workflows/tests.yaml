@@ -41,10 +41,11 @@ jobs:
       - name: Install R dependencies
         uses: r-lib/actions/setup-r-dependencies@v2
         with:
-          extra-packages: any::testthat, any::xml2, any::devtools
+          extra-packages: any::testthat, any::xml2, any::devtools, any::remotes
 
       - name: Run unit tests
         run: |
+          remotes::install_github("y-sunflower/tynding")
           devtools::load_all()
           testthat::test_dir("tests/testthat", stop_on_failure = TRUE)
         shell: Rscript {0}

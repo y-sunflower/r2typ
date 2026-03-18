@@ -9,8 +9,6 @@
 - ✅ works well with **Quarto**
 - ✅ extremely **simple syntax**
 
-`{r2typ}` also provides **native** Typst compilation, from R, without having to install Typst!
-
 Check out the [documentation](https://y-sunflower.github.io/r2typ/).
 
 <br>
@@ -21,9 +19,6 @@ Check out the [documentation](https://y-sunflower.github.io/r2typ/).
 # install.packages("pak")
 pak::pkg_install("y-sunflower/r2typ")
 ```
-
-> [!IMPORTANT]
-> The installation might take a few minutes because it needs build from source, including the Rust backend which requires compilation.
 
 <br>
 

@@ -32,13 +32,17 @@
 #' @export
 is_valid_typst <- function(x, error_on_failure = FALSE) {
   typ_file <- typst_write(x)
+  output_file <- tempfile(fileext = ".pdf")
+
+  on.exit(unlink(c(typ_file, output_file), force = TRUE), add = TRUE)
+
   result <- tryCatch(
-    typst_compile(typ_file),
+    typst_compile(typ_file, output = output_file),
     error = function(e) {
       if (error_on_failure) {
         stop(e$message, call. = FALSE)
       }
-      return(NULL)
+      NULL
     }
   )
 

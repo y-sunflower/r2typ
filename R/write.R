@@ -16,14 +16,34 @@
 #'
 #' @export
 typst_write <- function(x, output = NULL) {
-  if (!is.null(output) && !grepl("\\.typ$", output, ignore.case = TRUE)) {
-    stop("`output` must have a .typ extension")
+  if (!requireNamespace("tynding", quietly = TRUE)) {
+    stop(
+      "`typst_write()` requires the optional `tynding` package.",
+      call. = FALSE
+    )
   }
 
-  if (is.null(output)) {
-    output <- tempfile(fileext = ".typ")
+  tynding::typst_write(x, output = output)
+}
+
+#' @title Compile a `.typ` file to a `.pdf` file and return the output path
+#'
+#' @description
+#' Compile a `.typ` file to a `.pdf` file and return the output path.
+#'
+#' @param file Path to an existing `.typ` file.
+#' @param output Optional output path. Defaults to the input path with `.pdf`.
+#'
+#' @return The path to the compiled PDF file.
+#'
+#' @export
+typst_compile <- function(file, output = NULL) {
+  if (!requireNamespace("tynding", quietly = TRUE)) {
+    stop(
+      "`typst_compile()` requires the optional `tynding` package.",
+      call. = FALSE
+    )
   }
 
-  writeLines(x, output)
-  invisible(output)
+  tynding::typst_compile(file, output = output)
 }
