@@ -1,6 +1,6 @@
 test_that("User defined functions", {
   hello <- function(...) typst_function("hello", ...)
-  out <- hello(fill = red, size = pt(10), other_arg = "world")
+  out <- hello(fill = red, size = pt_(10), other_arg = "world")
 
   expect_true(out |> inherits("typst_markup"))
   out <- unclass(out)

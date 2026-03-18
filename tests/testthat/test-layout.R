@@ -1,11 +1,11 @@
 test_that("Test layout functions", {
-  out <- place(top + left, dx = pt(-5), "hey")
+  out <- place(top + left, dx = pt_(-5), "hey")
   expect_true(out |> inherits("typst_markup"))
   out <- unclass(out)
   expect_equal(out, "#place(top + left, dx: -5pt)[hey]")
   expect_true(out |> is_valid_typst(error_on_failure = TRUE))
 
-  out <- set_place(dx = pt(-5))
+  out <- set_place(dx = pt_(-5))
   expect_true(out |> inherits("typst_markup"))
   out <- unclass(out)
   expect_equal(out, "#set place(dx: -5pt)")
@@ -13,8 +13,8 @@ test_that("Test layout functions", {
 
   out <- place(
     top + left,
-    dy = pt(15),
-    square(size = pt(35), fill = red)
+    dy = pt_(15),
+    square(size = pt_(35), fill = red)
   )
   expect_true(out |> inherits("typst_markup"))
   out <- unclass(out)
@@ -26,8 +26,8 @@ test_that("Test layout functions", {
 
   out <- place(
     top + left,
-    dy = pt(15),
-    square(size = pt(35), fill = rgb("#ffffff"))
+    dy = pt_(15),
+    square(size = pt_(35), fill = rgb_("#ffffff"))
   )
   expect_true(out |> inherits("typst_markup"))
   out <- unclass(out)
@@ -58,7 +58,7 @@ test_that("Test layout functions", {
   )
   expect_true(out |> is_valid_typst(error_on_failure = TRUE))
 
-  out <- box(
+  out <- box_(
     clip = FALSE,
     width = percent(50),
     height = auto,
@@ -85,10 +85,10 @@ test_that("Test layout functions", {
   expect_equal(out, "#stack(dir: ttb, \"hey\", \"you\", \"!\")")
   expect_true(out |> is_valid_typst(error_on_failure = TRUE))
 
-  out <- grid(
+  out <- grid_(
     columns = 2,
     rows = 2,
-    gutter = pt(3),
+    gutter = pt_(3),
     "hey",
     "cookies",
     "ice",
@@ -155,7 +155,7 @@ test_that("Test layout functions", {
   expect_equal(out, "#set stack(dir: ttb)")
   expect_true(out |> is_valid_typst(error_on_failure = TRUE))
 
-  out <- set_grid(columns = 2, rows = 2, gutter = pt(3))
+  out <- set_grid(columns = 2, rows = 2, gutter = pt_(3))
   expect_true(out |> inherits("typst_markup"))
   out <- unclass(out)
   expect_equal(out, "#set grid(columns: 2, rows: 2, gutter: 3pt)")
@@ -167,13 +167,13 @@ test_that("Test layout functions", {
   expect_equal(out, "#set pagebreak(weak: true)")
   expect_true(out |> is_valid_typst(error_on_failure = TRUE))
 
-  out <- set_move(dx = pt(3), dy = pt(5))
+  out <- set_move(dx = pt_(3), dy = pt_(5))
   expect_true(out |> inherits("typst_markup"))
   out <- unclass(out)
   expect_equal(out, "#set move(dx: 3pt, dy: 5pt)")
   expect_true(out |> is_valid_typst(error_on_failure = TRUE))
 
-  out <- set_pad(x = percent(0) + pt(5), y = percent(10) + pt(0))
+  out <- set_pad(x = percent(0) + pt_(5), y = percent(10) + pt_(0))
   expect_true(out |> inherits("typst_markup"))
   out <- unclass(out)
   expect_equal(out, "#set pad(x: 0% + 5pt, y: 10% + 0pt)")
@@ -185,7 +185,7 @@ test_that("Test layout functions", {
   expect_equal(out, "#set page(flipped: true, columns: 2, fill: red)")
   expect_true(out |> is_valid_typst(error_on_failure = TRUE))
 
-  out <- move(dx = pt(3), dy = pt(5), "pasta")
+  out <- move(dx = pt_(3), dy = pt_(5), "pasta")
   expect_true(out |> inherits("typst_markup"))
   out <- unclass(out)
   expect_equal(out, "#move(dx: 3pt, dy: 5pt, \"pasta\")")
@@ -203,7 +203,11 @@ test_that("Test layout functions", {
   expect_equal(out, "#set skew(ax: -12deg)")
   expect_true(out |> is_valid_typst(error_on_failure = TRUE))
 
-  out <- pad(x = percent(0) + pt(5), y = percent(10) + pt(0), image("file.svg"))
+  out <- pad(
+    x = percent(0) + pt_(5),
+    y = percent(10) + pt_(0),
+    image_("file.svg")
+  )
   expect_true(out |> inherits("typst_markup"))
   out <- unclass(out)
   expect_equal(out, "#pad(x: 0% + 5pt, y: 10% + 0pt, [#image(\"file.svg\")])")
@@ -215,8 +219,8 @@ test_that("Test layout functions", {
     fill = red,
     place(
       top + left,
-      dx = pt(-5),
-      rect(fill = blue, radius = pt(2), "yooooo")
+      dx = pt_(-5),
+      rect_(fill = blue, radius = pt_(2), "yooooo")
     )
   )
   expect_true(out |> inherits("typst_markup"))
@@ -233,7 +237,7 @@ test_that("Test layout functions", {
   expect_equal(out, "#pagebreak(weak: true)")
   expect_true(out |> is_valid_typst(error_on_failure = TRUE))
 
-  out <- rect(width = percent(100) - pt(50))
+  out <- rect_(width = percent(100) - pt_(50))
   expect_true(out |> inherits("typst_markup"))
   out <- unclass(out)
   expect_equal(out, "#rect(width: 100% - 50pt)")

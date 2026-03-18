@@ -26,6 +26,6 @@ Class names of expressions like.
 Function where positional arguments are in brackets.
 
 Function where additional arguments is not content.
-For example, image() usage must be image(height: 2in, "file.svg").
+For example, image_() usage must be image_(height: 2in, "file.svg").
 }
 \keyword{internal}

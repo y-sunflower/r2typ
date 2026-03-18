@@ -143,13 +143,13 @@ show_outline <- function(set_rule) typst_show("outline", set_rule)
 #' @rdname typst-function
 #' @export
 #' @examples
-#' par(
+#' par_(
 #'  `first-line-indent` = em(1),
 #'  spacing = em(0.65),
 #'  justify = TRUE,
 #'  "more cookies..."
 #')
-par <- function(...) typst_function("par", ...)
+par_ <- function(...) typst_function("par", ...)
 
 #' @rdname typst-set
 #' @export
@@ -214,7 +214,7 @@ show_strong <- function(set_rule) typst_show("strong", set_rule)
 #' @rdname typst-function
 #' @export
 #' @examples
-#' table_(align = center, inset = pt(10), "a", "b", "c", "d")
+#' table_(align = center, inset = pt_(10), "a", "b", "c", "d")
 #' data <- data.frame(
 #'   name = c("Alice", "Bob"),
 #'   score = c(12, 18)
@@ -266,7 +266,7 @@ table_ <- function(...) {
 #' @rdname typst-set
 #' @export
 #' @examples
-#' set_table(align = center, inset = pt(10))
+#' set_table(align = center, inset = pt_(10))
 set_table <- function(...) typst_set("table", ...)
 
 #' @rdname typst-show

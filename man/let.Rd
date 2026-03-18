@@ -19,8 +19,8 @@ A character string
 It allows to create reusable components.
 }
 \examples{
-let("yellow", rgb("#FFC300"))
+let("yellow", rgb_("#FFC300"))
 
-let("mycirc", circle(width=cm(3), fill=yellow, square(height=cm(1))))
+let("mycirc", circle(width=cm_(3), fill=yellow, square(height=cm_(1))))
 
 }

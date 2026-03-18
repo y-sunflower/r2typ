@@ -2,7 +2,7 @@
 #'
 #' @description
 #' These functions generate special objects representing alignment in Typst code.
-#' They can be used as arguments in functions like `text()` or `heading()` to
+#' They can be used as arguments in functions like `text_()` or `heading()` to
 #' produce properly formatted Typst code.
 #'
 #' @param left_align A typst alignment

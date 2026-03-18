@@ -124,7 +124,7 @@ test_that("Test model functions", {
   expect_equal(out, "#set outline(depth: 1)")
   expect_true(out |> is_valid_typst())
 
-  out <- par(
+  out <- par_(
     `first-line-indent` = em(1),
     spacing = em(0.65),
     justify = TRUE,
@@ -193,7 +193,7 @@ test_that("Test model functions", {
   expect_equal(out, "#table(gutter: 0.2em, [please], [more], [cookies])")
   expect_true(out |> is_valid_typst())
 
-  out <- table_(align = center, inset = pt(10), "a", "b", "c", "d")
+  out <- table_(align = center, inset = pt_(10), "a", "b", "c", "d")
   expect_true(out |> inherits("typst_markup"))
   out <- unclass(out)
   expect_equal(out, "#table(align: center, inset: 10pt, [a], [b], [c], [d])")
@@ -205,13 +205,13 @@ test_that("Test model functions", {
   expect_equal(out, "#table(align: center, inset: 10mm, [a], [b], [c], [d])")
   expect_true(out |> is_valid_typst())
 
-  out <- table_(align = center, inset = cm(10), "a", "b", "c", "d")
+  out <- table_(align = center, inset = cm_(10), "a", "b", "c", "d")
   expect_true(out |> inherits("typst_markup"))
   out <- unclass(out)
   expect_equal(out, "#table(align: center, inset: 10cm, [a], [b], [c], [d])")
   expect_true(out |> is_valid_typst())
 
-  out <- set_table(align = center, inset = pt(10))
+  out <- set_table(align = center, inset = pt_(10))
   expect_true(out |> inherits("typst_markup"))
   out <- unclass(out)
   expect_equal(out, "#set table(align: center, inset: 10pt)")

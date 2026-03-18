@@ -1,13 +1,13 @@
 #' @rdname typst-function
 #' @export
 #' @examples
-#' place(dx = pt(50), "pasta")
+#' place(dx = pt_(50), "pasta")
 place <- function(...) typst_function("place", ...)
 
 #' @rdname typst-set
 #' @export
 #' @examples
-#' set_place(dx = pt(50))
+#' set_place(dx = pt_(50))
 set_place <- function(...) typst_set("place", ...)
 
 #' @rdname typst-show
@@ -79,8 +79,8 @@ show_block <- function(set_rule) typst_show("block", set_rule)
 #' @rdname typst-function
 #' @export
 #' @examples
-#' box(clip = FALSE, width = percent(50), height = auto, fill = red, "ice cream")
-box <- function(...) typst_function("box", ...)
+#' box_(clip = FALSE, width = percent(50), height = auto, fill = red, "ice cream")
+box_ <- function(...) typst_function("box", ...)
 
 #' @rdname typst-set
 #' @export
@@ -127,13 +127,13 @@ show_stack <- function(set_rule) typst_show("stack", set_rule)
 #' @rdname typst-function
 #' @export
 #' @examples
-#' grid(columns = 2, rows = 2, gutter = pt(3), "hey", "cookies", "ice", "cream")
-grid <- function(...) typst_function("grid", ...)
+#' grid_(columns = 2, rows = 2, gutter = pt_(3), "hey", "cookies", "ice", "cream")
+grid_ <- function(...) typst_function("grid", ...)
 
 #' @rdname typst-set
 #' @export
 #' @examples
-#' set_grid(columns = 2, rows = 2, gutter = pt(3))
+#' set_grid(columns = 2, rows = 2, gutter = pt_(3))
 set_grid <- function(...) typst_set("grid", ...)
 
 #' @rdname typst-show
@@ -173,13 +173,13 @@ show_pagebreak <- function(set_rule) typst_show("pagebreak", set_rule)
 #' @rdname typst-function
 #' @export
 #' @examples
-#' move(dx = pt(3), dy = pt(5), "pasta")
+#' move(dx = pt_(3), dy = pt_(5), "pasta")
 move <- function(...) typst_function("move", ...)
 
 #' @rdname typst-set
 #' @export
 #' @examples
-#' set_move(dx = pt(3), dy = pt(5))
+#' set_move(dx = pt_(3), dy = pt_(5))
 set_move <- function(...) typst_set("move", ...)
 
 #' @rdname typst-show
@@ -189,13 +189,13 @@ show_move <- function(set_rule) typst_show("move", set_rule)
 #' @rdname typst-function
 #' @export
 #' @examples
-#' pad(x = percent(0) + pt(5), y = percent(10) + pt(0), image("file.svg"))
+#' pad(x = percent(0) + pt_(5), y = percent(10) + pt_(0), image_("file.svg"))
 pad <- function(...) typst_function("pad", ...)
 
 #' @rdname typst-set
 #' @export
 #' @examples
-#' set_pad(x = percent(0) + pt(5), y = percent(10) + pt(0))
+#' set_pad(x = percent(0) + pt_(5), y = percent(10) + pt_(0))
 set_pad <- function(...) typst_set("pad", ...)
 
 #' @rdname typst-show
@@ -211,8 +211,8 @@ show_pad <- function(set_rule) typst_show("pad", set_rule)
 #'  fill = red,
 #'  place(
 #'    top + left,
-#'    dx = pt(-5),
-#'    rect(fill = blue, radius = pt(2), "yooooo")
+#'    dx = pt_(-5),
+#'    rect_(fill = blue, radius = pt_(2), "yooooo")
 #'  )
 #')
 page <- function(...) typst_function("page", ...)

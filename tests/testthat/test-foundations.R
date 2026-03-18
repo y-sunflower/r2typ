@@ -29,7 +29,7 @@ test_that("Test foundations functions", {
   expect_equal(out, "#datetime(year: 2012, month: 8, day: 3)")
   expect_true(out |> is_valid_typst(error_on_failure = TRUE))
 
-  out <- text(
+  out <- text_(
     costs = list(hyphenation = percent(100), runt = percent(100)),
     "hey"
   )

@@ -4,12 +4,12 @@
 \alias{typst_compile}
 \title{Compile a \code{.typ} file to a \code{.pdf} file and return the output path}
 \usage{
-typst_compile(file, output = NULL)
+typst_compile(file, ...)
 }
 \arguments{
 \item{file}{Path to an existing \code{.typ} file.}
 
-\item{output}{Optional output path. Defaults to the input path with \code{.pdf}.}
+\item{...}{Additional arguments passed to \code{\link[tynding:typst_compile]{tynding::typst_compile()}}}
 }
 \value{
 The path to the compiled PDF file.

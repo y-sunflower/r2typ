@@ -23,10 +23,10 @@
 \alias{h}
 \alias{v}
 \alias{block}
-\alias{box}
+\alias{box_}
 \alias{colbreak}
 \alias{stack}
-\alias{grid}
+\alias{grid_}
 \alias{hide}
 \alias{pagebreak}
 \alias{move}
@@ -45,12 +45,12 @@
 \alias{heading}
 \alias{enum}
 \alias{outline}
-\alias{par}
+\alias{par_}
 \alias{parbreak}
 \alias{quote_}
 \alias{strong}
 \alias{table_}
-\alias{text}
+\alias{text_}
 \alias{linebreak}
 \alias{overline}
 \alias{smallcaps}
@@ -63,11 +63,11 @@
 \alias{raw_}
 \alias{highlight}
 \alias{lower}
-\alias{image}
+\alias{image_}
 \alias{circle}
 \alias{ellipse}
-\alias{line}
-\alias{rect}
+\alias{line_}
+\alias{rect_}
 \alias{square}
 \title{Create a Typst function}
 \usage{
@@ -109,13 +109,13 @@ v(...)
 
 block(...)
 
-box(...)
+box_(...)
 
 colbreak(...)
 
 stack(...)
 
-grid(...)
+grid_(...)
 
 hide(...)
 
@@ -153,7 +153,7 @@ enum(...)
 
 outline(...)
 
-par(...)
+par_(...)
 
 parbreak(...)
 
@@ -163,7 +163,7 @@ strong(...)
 
 table_(...)
 
-text(...)
+text_(...)
 
 linebreak(...)
 
@@ -189,15 +189,15 @@ highlight(...)
 
 lower(...)
 
-image(...)
+image_(...)
 
 circle(...)
 
 ellipse(...)
 
-line(...)
+line_(...)
 
-rect(...)
+rect_(...)
 
 square(...)
 }
@@ -238,27 +238,27 @@ decimal("10")
 type("10")
 version(1, 2, 3, 4)
 version(c(1, 2, 3, 4))
-place(dx = pt(50), "pasta")
+place(dx = pt_(50), "pasta")
 align(center + horizon, "hey")
 h(fr(3))
 v(percent(3), weak = TRUE)
 block(breakable = FALSE, width = percent(50), height = auto, fill = aqua, "cookies")
-box(clip = FALSE, width = percent(50), height = auto, fill = red, "ice cream")
+box_(clip = FALSE, width = percent(50), height = auto, fill = red, "ice cream")
 colbreak(weak = TRUE)
 stack(dir = ttb, "hey", "you", "!")
-grid(columns = 2, rows = 2, gutter = pt(3), "hey", "cookies", "ice", "cream")
+grid_(columns = 2, rows = 2, gutter = pt_(3), "hey", "cookies", "ice", "cream")
 hide("this is hidden")
 pagebreak("this is hidden")
-move(dx = pt(3), dy = pt(5), "pasta")
-pad(x = percent(0) + pt(5), y = percent(10) + pt(0), image("file.svg"))
+move(dx = pt_(3), dy = pt_(5), "pasta")
+pad(x = percent(0) + pt_(5), y = percent(10) + pt_(0), image_("file.svg"))
 page(
  flipped = TRUE,
  columns = 2,
  fill = red,
  place(
    top + left,
-   dx = pt(-5),
-   rect(fill = blue, radius = pt(2), "yooooo")
+   dx = pt_(-5),
+   rect_(fill = blue, radius = pt_(2), "yooooo")
  )
 )
 scale_(x = percent(-100), "This is mirrored")
@@ -273,7 +273,7 @@ footnote(numbering = "*", "Cheese")
 heading(level = 3, "Intro", "More text")
 enum(tight = FALSE, "I wonder", "if", "people", "will", "see", "this text")
 outline(depth = 1)
-par(
+par_(
  `first-line-indent` = em(1),
  spacing = em(0.65),
  justify = TRUE,
@@ -282,13 +282,13 @@ par(
 parbreak()
 quote_(block = TRUE, "more cookies...")
 strong("strong coffee")
-table_(align = center, inset = pt(10), "a", "b", "c", "d")
+table_(align = center, inset = pt_(10), "a", "b", "c", "d")
 data <- data.frame(
   name = c("Alice", "Bob"),
   score = c(12, 18)
 )
 table_(data, align = center)
-text(fill = silver, size = pt(20), "The most basic function in Typst...")
+text_(fill = silver, size = pt_(20), "The most basic function in Typst...")
 linebreak(justify = TRUE)
 overline(evade = FALSE, "not sure who even uses this function")
 smallcaps(all = TRUE, "Niche but useful func")
@@ -296,14 +296,14 @@ smartquote(double = FALSE)
 strike(offset = em(2), "strike function is kind of cool tbh!")
 sub_(typographic = FALSE, "not typographic")
 super(typographic = FALSE, "not typographic")
-underline(stroke = pt(3) + olive, "what a weird underline")
+underline(stroke = pt_(3) + olive, "what a weird underline")
 raw_("print('hello world')", lang = "python", block = TRUE)
-highlight(extent = pt(3), "hey")
+highlight(extent = pt_(3), "hey")
 lower("hey")
-\dontrun{image(width = percent(80), height = auto, "../docs/link.svg")}
+\dontrun{image_(width = percent(80), height = auto, "../docs/link.svg")}
 circle(fill = blue)
 ellipse(fill = green)
-line(length = percent(80), angle = deg(20))
-rect(fill = aqua, radius = pt(3))
-square(size = pt(5), fill = olive)
+line_(length = percent(80), angle = deg(20))
+rect_(fill = aqua, radius = pt_(3))
+square(size = pt_(5), fill = olive)
 }

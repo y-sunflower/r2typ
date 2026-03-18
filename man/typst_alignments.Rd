@@ -49,7 +49,7 @@ An object of class \code{typst_alignment}.
 }
 \description{
 These functions generate special objects representing alignment in Typst code.
-They can be used as arguments in functions like \code{text()} or \code{heading()} to
+They can be used as arguments in functions like \code{text_()} or \code{heading()} to
 produce properly formatted Typst code.
 }
 \examples{

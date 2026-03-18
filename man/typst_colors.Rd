@@ -3,7 +3,7 @@
 \docType{data}
 \name{typst_colors}
 \alias{typst_colors}
-\alias{rgb}
+\alias{rgb_}
 \alias{silver}
 \alias{grey}
 \alias{black}
@@ -61,7 +61,7 @@ An object of class \code{typst_color} (inherits from \code{typst_expression}) of
 An object of class \code{typst_color} (inherits from \code{typst_expression}) of length 1.
 }
 \usage{
-rgb(hex)
+rgb_(hex)
 
 silver
 
@@ -107,12 +107,12 @@ An object of class \code{typst_color} and \code{typst_expression}.
 }
 \description{
 These functions generate special objects representing colors in Typst code.
-They can be used as arguments in functions like \code{text()} or \code{heading()} to
+They can be used as arguments in functions like \code{text_()} or \code{heading()} to
 produce properly formatted Typst code.
 }
 \examples{
-rgb("#ffffff")
-text(font = "Roboto", fill = rgb("#ffffff"), "cookies are healthy!!")
+rgb_("#ffffff")
+text_(font = "Roboto", fill = rgb_("#ffffff"), "cookies are healthy!!")
 red
 blue
 black

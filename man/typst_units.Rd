@@ -2,9 +2,9 @@
 % Please edit documentation in R/units.R
 \name{typst_units}
 \alias{typst_units}
-\alias{pt}
+\alias{pt_}
 \alias{mm}
-\alias{cm}
+\alias{cm_}
 \alias{em}
 \alias{percent}
 \alias{fr}
@@ -12,11 +12,11 @@
 \alias{rad}
 \title{Typst Unit Values}
 \usage{
-pt(x)
+pt_(x)
 
 mm(x)
 
-cm(x)
+cm_(x)
 
 em(x)
 
@@ -38,16 +38,16 @@ appropriate unit string (e.g., \verb{12pt}, \verb{1.5em}, \verb{80\%}).
 }
 \description{
 These functions generate special objects representing units in Typst code.
-They can be used as arguments in functions like \code{text()} or \code{heading()} to
+They can be used as arguments in functions like \code{text_()} or \code{heading()} to
 produce properly formatted Typst code.
 }
 \examples{
-pt(12)       # Represents 12pt
 em(1.5)      # Represents 1.5em
 percent(80)  # Represents 80\%
 fr(2)        # Represents 2fr
+pt_(12)       # Represents 12pt
 rad(3.14)    # Represents 3.14rad
 
-text(size = pt(12), "Hello world")
+text_(size = pt_(12), "Hello world")
 
 }

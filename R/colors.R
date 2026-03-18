@@ -2,14 +2,14 @@
 #'
 #' @description
 #' These functions generate special objects representing colors in Typst code.
-#' They can be used as arguments in functions like `text()` or `heading()` to
+#' They can be used as arguments in functions like `text_()` or `heading()` to
 #' produce properly formatted Typst code.
 #'
 #' @return An object of class `typst_color` and `typst_expression`.
 #'
 #' @examples
-#' rgb("#ffffff")
-#' text(font = "Roboto", fill = rgb("#ffffff"), "cookies are healthy!!")
+#' rgb_("#ffffff")
+#' text_(font = "Roboto", fill = rgb_("#ffffff"), "cookies are healthy!!")
 #' red
 #' blue
 #' black
@@ -20,9 +20,9 @@ NULL
 #' @rdname typst_colors
 #' @export
 #' @param hex An hexadecimal color.
-rgb <- function(hex) {
+rgb_ <- function(hex) {
   structure(
-    paste0("rgb(\"", hex, "\")"),
+    paste0("rgb_(\"", hex, "\")"),
     class = c("typst_color", "typst_expression")
   )
 }

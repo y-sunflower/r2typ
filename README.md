@@ -42,19 +42,19 @@ library(r2typ)
 heading(level = 2, numbering = "1.1", "Hello world")
 #> #heading(level: 2, numbering: "1.1")[Hello world]
 
-text(size = pt(12), baseline = em(1.2), overhang = FALSE, "hey there")
+text_(size = pt_(12), baseline = em(1.2), overhang = FALSE, "hey there")
 #> #text(size: 12pt, baseline: 1.2em, overhang: false)[hey there]
 
-image(width = percent(80), height = auto, "link.svg")
+image_(width = percent(80), height = auto, "link.svg")
 #> #image(width: 80%, height: auto, "link.svg")
 
 circle(fill = blue, "hey")
 #> #circle(fill: blue)[hey]
 
-circle(radius = pt(100), "hey", linebreak(), "there")
+circle(radius = pt_(100), "hey", linebreak(), "there")
 #> #circle(radius: 100pt)[hey #linebreak() there]
 
-place(top + left, dy = pt(15), square(size = pt(35), fill = red))
+place(top + left, dy = pt_(15), square(size = pt_(35), fill = red))
 #> #place(top + left, dy: 15pt)[#square(size: 35pt, fill: red)]
 ```
 
@@ -65,7 +65,7 @@ place(top + left, dy = pt(15), square(size = pt(35), fill = red))
 - `NULL` becomes `none`
 
 ```r
-image("image.png", width = percent(80), alt = NULL)
+image_("image.png", width = percent(80), alt = NULL)
 #> #image(width: 80%, alt: none, \"image.png\")
 ```
 
@@ -79,24 +79,24 @@ list_(tight = FALSE, "hey", "you")
 - `c()` vectors and unnamed `list()` (such as `list("a", "b"`) become arrays:
 
 ```r
-text(`stylistic-set` = c(1, 2, 3), "10 years ago")
+text_(`stylistic-set` = c(1, 2, 3), "10 years ago")
 #> #text(stylistic-set: (1, 2, 3))[10 years ago]
 
-text(`stylistic-set` = list(1, 2, 3), "10 years ago") # equivalent
+text_(`stylistic-set` = list(1, 2, 3), "10 years ago") # equivalent
 #> #text(stylistic-set: (1, 2, 3))[10 years ago]
 ```
 
 - Named `list()` (such as `list(a = "hello", b = "world")`) become dictionnaries:
 
 ```r
-text(costs = list(hyphenation = percent(100), runt = percent(100)))
+text_(costs = list(hyphenation = percent(100), runt = percent(100)))
 #> #text(costs: (hyphenation: 100%, runt: 100%))
 ```
 
 #### Set and show rules
 
 ```r
-set_text(red, size = pt(20))
+set_text(red, size = pt_(20))
 #> #set text(size: 20pt, red)
 
 show_heading(set_text(fill = red))
@@ -108,10 +108,10 @@ show_heading(set_text(fill = red))
 You can use the `let()` function to define Typst variables, and easily reuse them:
 
 ```r
-let("yellow", rgb("#FFC300"))
-#> #let yellow = rgb("#FFC300")
+let("yellow", rgb_("#FFC300"))
+#> #let yellow = rgb_("#FFC300")
 
-let("mycirc", circle(fill = yellow, square(height = cm(1))))
+let("mycirc", circle(fill = yellow, square(height = cm_(1))))
 #> #let mycirc = circle(fill: yellow)[#square(height: 1cm)]
 ```
 
@@ -120,7 +120,7 @@ let("mycirc", circle(fill = yellow, square(height = cm(1))))
 ```r
 hello <- function(...) typst_function("hello", ...)
 
-hello(fill = red, size = pt(10), other_arg = "world")
+hello(fill = red, size = pt_(10), other_arg = "world")
 #> #hello(fill: red, size: 10pt, other_arg: "world")
 ```
 
@@ -139,16 +139,16 @@ It has a `is_valid_typst()` function that will return either `TRUE` or `FALSE` d
 ```r
 place(
   top + left,
-  dy = pt(15),
-  square(size = pt(35), fill = red)
+  dy = pt_(15),
+  square(size = pt_(35), fill = red)
 ) |>
   is_valid_typst()
 #> TRUE
 
 place(
   top + left,
-  dy = pt(15),
-  square(size = pt(35), fill = red)
+  dy = pt_(15),
+  square(size = pt_(35), fill = red)
 ) |>
   typst_write() |>
   typst_compile() # generate the PDF
@@ -165,17 +165,17 @@ library(r2typ)
 library(tynding) # typst_write() and typst_compile() functions
 
 c(
-  set_page(height = pt(400)),
+  set_page(height = pt_(400)),
   set_text(purple),
   set_circle(width = percent(50)),
   align(
     center + horizon,
     circle(
       fill = aqua,
-      stroke = pt(5) + red,
+      stroke = pt_(5) + red,
       align(
         right,
-        text(
+        text_(
           font = "Roboto",
           size = em(1.2),
           "My favorite food is cookies!"

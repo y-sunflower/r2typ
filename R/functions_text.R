@@ -1,13 +1,13 @@
 #' @rdname typst-function
 #' @export
 #' @examples
-#' text(fill = silver, size = pt(20), "The most basic function in Typst...")
-text <- function(...) typst_function("text", ...)
+#' text_(fill = silver, size = pt_(20), "The most basic function in Typst...")
+text_ <- function(...) typst_function("text", ...)
 
 #' @rdname typst-set
 #' @export
 #' @examples
-#' set_text(fill = silver, size = pt(20))
+#' set_text(fill = silver, size = pt_(20))
 set_text <- function(...) typst_set("text", ...)
 
 #' @rdname typst-show
@@ -129,13 +129,13 @@ show_super <- function(set_rule) typst_show("super", set_rule)
 #' @rdname typst-function
 #' @export
 #' @examples
-#' underline(stroke = pt(3) + olive, "what a weird underline")
+#' underline(stroke = pt_(3) + olive, "what a weird underline")
 underline <- function(...) typst_function("underline", ...)
 
 #' @rdname typst-set
 #' @export
 #' @examples
-#' set_underline(stroke = pt(3) + olive)
+#' set_underline(stroke = pt_(3) + olive)
 set_underline <- function(...) typst_set("underline", ...)
 
 #' @rdname typst-show
@@ -173,13 +173,13 @@ show_raw <- function(set_rule) typst_show("raw", set_rule)
 #' @rdname typst-function
 #' @export
 #' @examples
-#' highlight(extent = pt(3), "hey")
+#' highlight(extent = pt_(3), "hey")
 highlight <- function(...) typst_function("highlight", ...)
 
 #' @rdname typst-set
 #' @export
 #' @examples
-#' set_highlight(extent = pt(3))
+#' set_highlight(extent = pt_(3))
 set_highlight <- function(...) typst_set("highlight", ...)
 
 #' @rdname typst-show

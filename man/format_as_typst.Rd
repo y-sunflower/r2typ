@@ -23,7 +23,7 @@ equivalent in Typst. It works recursively.
 format_as_typst(c(1, 2, 3))
 format_as_typst(list(1, 2, 3))
 format_as_typst(list(a=1, b=2, c=3))
-format_as_typst(pt(20))
+format_as_typst(pt_(20))
 format_as_typst(TRUE)
 format_as_typst(FALSE)
 format_as_typst(NULL)

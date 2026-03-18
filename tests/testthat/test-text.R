@@ -1,30 +1,30 @@
 test_that("Test text functions", {
-  out <- text(font = "Libertinus Serif", "Hello world")
+  out <- text_(font = "Libertinus Serif", "Hello world")
   expect_true(out |> inherits("typst_markup"))
   out <- unclass(out)
   expect_equal(out, "#text(font: \"Libertinus Serif\")[Hello world]")
   expect_true(out |> is_valid_typst(error_on_failure = TRUE))
 
-  out <- text(`stylistic-set` = c(1, 2, 3), "10 years ago")
+  out <- text_(`stylistic-set` = c(1, 2, 3), "10 years ago")
   expect_true(out |> inherits("typst_markup"))
   out <- unclass(out)
   expect_equal(out, "#text(stylistic-set: (1, 2, 3))[10 years ago]")
   expect_true(out |> is_valid_typst(error_on_failure = TRUE))
 
-  out <- text("Just text")
+  out <- text_("Just text")
   expect_true(out |> inherits("typst_markup"))
   out <- unclass(out)
   expect_equal(out, "#text()[Just text]")
   expect_true(out |> is_valid_typst(error_on_failure = TRUE))
 
-  out <- set_text(red)
+  out <- set_text_(red)
   expect_true(out |> inherits("typst_markup"))
   out <- unclass(out)
   expect_equal(out, "#set text(red)")
   expect_true(out |> is_valid_typst(error_on_failure = TRUE))
 
-  out <- text(
-    size = pt(12),
+  out <- text_(
+    size = pt_(12),
     w = percent(80),
     a = TRUE,
     c = NULL,

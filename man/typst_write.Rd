@@ -4,12 +4,12 @@
 \alias{typst_write}
 \title{Write a Typst file from a character vector}
 \usage{
-typst_write(x, output = NULL)
+typst_write(x, ...)
 }
 \arguments{
 \item{x}{A character vector representing Typst code.}
 
-\item{output}{Optional output file path (must end with ".typ"). If NULL, a temporary file is created.}
+\item{...}{Additional arguments passed to \code{\link[tynding:typst_write]{tynding::typst_write()}}}
 }
 \value{
 The path to the written .typ file, invisibly.

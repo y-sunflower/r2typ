@@ -1,13 +1,13 @@
 #' @rdname typst-function
 #' @export
 #' @examples
-#' \dontrun{image(width = percent(80), height = auto, "../docs/link.svg")}
-image <- function(...) typst_function("image", ...)
+#' \dontrun{image_(width = percent(80), height = auto, "../docs/link.svg")}
+image_ <- function(...) typst_function("image", ...)
 
 #' @rdname typst-set
 #' @export
 #' @examples
-#' image(width = percent(80), height = auto)
+#' image_(width = percent(80), height = auto)
 set_image <- function(...) typst_set("image", ...)
 
 #' @rdname typst-show
@@ -49,8 +49,8 @@ show_ellipse <- function(set_rule) typst_show("ellipse", set_rule)
 #' @rdname typst-function
 #' @export
 #' @examples
-#' line(length = percent(80), angle = deg(20))
-line <- function(...) typst_function("line", ...)
+#' line_(length = percent(80), angle = deg(20))
+line_ <- function(...) typst_function("line", ...)
 
 #' @rdname typst-set
 #' @export
@@ -65,13 +65,13 @@ show_line <- function(set_rule) typst_show("line", set_rule)
 #' @rdname typst-function
 #' @export
 #' @examples
-#' rect(fill = aqua, radius = pt(3))
-rect <- function(...) typst_function("rect", ...)
+#' rect_(fill = aqua, radius = pt_(3))
+rect_ <- function(...) typst_function("rect", ...)
 
 #' @rdname typst-set
 #' @export
 #' @examples
-#' set_rect(fill = aqua, radius = pt(3))
+#' set_rect(fill = aqua, radius = pt_(3))
 set_rect <- function(...) typst_set("rect", ...)
 
 #' @rdname typst-show
@@ -81,13 +81,13 @@ show_rect <- function(set_rule) typst_show("rect", set_rule)
 #' @rdname typst-function
 #' @export
 #' @examples
-#' square(size = pt(5), fill = olive)
+#' square(size = pt_(5), fill = olive)
 square <- function(...) typst_function("square", ...)
 
 #' @rdname typst-set
 #' @export
 #' @examples
-#' set_square(size = pt(5), fill = olive)
+#' set_square(size = pt_(5), fill = olive)
 set_square <- function(...) typst_set("square", ...)
 
 #' @rdname typst-show

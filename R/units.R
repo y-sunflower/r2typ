@@ -2,7 +2,7 @@
 #'
 #' @description
 #' These functions generate special objects representing units in Typst code.
-#' They can be used as arguments in functions like `text()` or `heading()` to
+#' They can be used as arguments in functions like `text_()` or `heading()` to
 #' produce properly formatted Typst code.
 #'
 #' @param x Numeric value of the unit.
@@ -12,20 +12,20 @@
 #'   appropriate unit string (e.g., `12pt`, `1.5em`, `80%`).
 #'
 #' @examples
-#' pt(12)       # Represents 12pt
 #' em(1.5)      # Represents 1.5em
 #' percent(80)  # Represents 80%
 #' fr(2)        # Represents 2fr
+#' pt_(12)       # Represents 12pt
 #' rad(3.14)    # Represents 3.14rad
 #'
-#' text(size = pt(12), "Hello world")
+#' text_(size = pt_(12), "Hello world")
 #'
 #' @name typst_units
 NULL
 
 #' @rdname typst_units
 #' @export
-pt <- function(x) {
+pt_ <- function(x) {
   structure(
     as.character(x),
     class = c("typst_unit", "typst_expression"),
@@ -45,7 +45,7 @@ mm <- function(x) {
 
 #' @rdname typst_units
 #' @export
-cm <- function(x) {
+cm_ <- function(x) {
   structure(
     as.character(x),
     class = c("typst_unit", "typst_expression"),

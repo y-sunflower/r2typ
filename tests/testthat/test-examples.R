@@ -6,10 +6,10 @@ test_that("Advanced example 1", {
       center + horizon,
       circle(
         fill = aqua,
-        stroke = pt(5) + red,
+        stroke = pt_(5) + red,
         align(
           right,
-          text(
+          text_(
             font = "Roboto",
             size = em(1.2),
             "My favorite food is cookies!"

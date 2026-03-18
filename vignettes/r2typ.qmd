@@ -47,7 +47,7 @@ All functions accept any kind of positional or named arguments:
 
 ```{r}
 heading(level = 2, "A title")
-text(weight = 500, "Some text")
+text_(weight = 500, "Some text")
 ```
 
 However, in Typst, not all functions behave the same way regarding positional and named arguments. For this reason, `{r2typ}` automatically adjusts the behavior when necessary.
@@ -73,13 +73,13 @@ Typst uses a unique approach for units, as they are not quoted.
 `{r2typ}` provides several utility functions to make working with Typst units easy:
 
 ```{r}
-text(size = pt(20), "Ice cream")
+text_(size = pt_(20), "Ice cream")
 ```
 
 This works with all Typst units:
 
 ```{r}
-image("image.png", width = percent(80))
+image_("image.png", width = percent(80))
 ```
 
 ## Typst colors
@@ -87,15 +87,15 @@ image("image.png", width = percent(80))
 Typst offers a large set of predefined colors such as `red` or `blue`. `{r2typ}` provides the same:
 
 ```{r}
-text(fill = green, "Green text")
+text_(fill = green, "Green text")
 ```
 
 All built-in Typst colors are available in `{r2typ}`. You can find them [here](../reference/typst_colors.html).
 
-You can also use the `rgb()` function:
+You can also use the `rgb_()` function:
 
 ```{r}
-text(fill = rgb("#ffc300"), "Yellow-ish text")
+text_(fill = rgb_("#ffc300"), "Yellow-ish text")
 ```
 
 ## Typst alignment
@@ -105,7 +105,7 @@ Similarly to colors, Typst includes specific objects for alignment. They work we
 ```{r}
 place(
   center,
-  dy = pt(15),
+  dy = pt_(15),
   "hello"
 )
 ```
@@ -115,7 +115,7 @@ You can combine them to mimic Typst syntax:
 ```{r}
 place(
   top + left,
-  dy = pt(15),
+  dy = pt_(15),
   "hello"
 )
 ```
@@ -123,7 +123,7 @@ place(
 You can even combine them with colors, which is often useful for strokes:
 
 ```{r}
-line(stroke = pt(2) + blue)
+line(stroke = pt_(2) + blue)
 ```
 
 ## Convert R types to Typst types
@@ -133,7 +133,7 @@ line(stroke = pt(2) + blue)
 - `NULL` becomes `none`
 
 ```{r}
-image("image.png", width = percent(80), alt = NULL)
+image_("image.png", width = percent(80), alt = NULL)
 ```
 
 - `TRUE`/`FALSE` become `true`/`false`
@@ -145,15 +145,15 @@ list_(tight = FALSE, "hey", "you")
 - `c()` vectors and unnamed `list()` (such as `list("a", "b"`) become arrays:
 
 ```{r}
-text(`stylistic-set` = c(1, 2, 3), "10 years ago")
+text_(`stylistic-set` = c(1, 2, 3), "10 years ago")
 
-text(`stylistic-set` = list(1, 2, 3), "10 years ago") # equivalent
+text_(`stylistic-set` = list(1, 2, 3), "10 years ago") # equivalent
 ```
 
 - Named `list()` (such as `list(a = "hello", b = "world")`) become dictionnaries:
 
 ```{r}
-text(costs = list(hyphenation = percent(100), runt = percent(100)))
+text_(costs = list(hyphenation = percent(100), runt = percent(100)))
 ```
 
 > Note that the goal here is **only** to translate R data types that have an equivalent in Typst, **not to be exhaustive**.
@@ -189,8 +189,8 @@ Calling a function within another function works as well:
 ```{r}
 place(
   center + horizon,
-  dy = pt(15),
-  square(size = pt(35), fill = red)
+  dy = pt_(15),
+  square(size = pt_(35), fill = red)
 )
 
 page(
@@ -199,12 +199,38 @@ page(
   fill = red,
   place(
     top + left,
-    dx = pt(-5),
-    rect(
+    dx = pt_(-5),
+    rect_(
       fill = blue,
-      radius = pt(2),
+      radius = pt_(2),
       "yooooo"
     )
   )
 )
 ```
+
+## Tables
+
+You create tables manually:
+
+```{r}
+table_(
+  columns = 2,
+  "hey",
+  "folks!"
+)
+```
+
+Or from a data frame:
+
+```{r}
+df <- data.frame(x = c(1, 2, 3), y = c(4, 5, 6))
+
+table_(
+  `columns-gutter` = cm_(1),
+  align = right,
+  df
+)
+```
+
+It automatically detects the number of columns, but you can specify it yourself!

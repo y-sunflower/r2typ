@@ -16,7 +16,7 @@ pos_bracket_functions <- c("list", "enum", "table")
 #' @title Functions with no brackets.
 #' @description
 #' Function where additional arguments is not content.
-#' For example, image() usage must be image(height: 2in, "file.svg").
+#' For example, image_() usage must be image_(height: 2in, "file.svg").
 no_bracket_functions <- c(
   pos_bracket_functions,
   "image",
