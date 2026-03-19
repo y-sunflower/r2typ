@@ -5,5 +5,5 @@ test_that("User defined functions", {
   expect_true(out |> inherits("typst_markup"))
   out <- unclass(out)
   expect_equal(out, "#hello(fill: red, size: 10pt, other_arg: \"world\")")
-  expect_false(out |> is_valid_typst())
+  expect_false(out |> tynding::is_valid_typst())
 })

@@ -4,5 +4,5 @@ test_that("show rules", {
   expect_true(out |> inherits("typst_markup"))
   out <- unclass(out)
   expect_equal(out, "#show heading: set text(fill: red, size: 20pt)")
-  expect_true(out |> is_valid_typst(error_on_failure = TRUE))
+  expect_true(out |> tynding::is_valid_typst(error_on_failure = TRUE))
 })
