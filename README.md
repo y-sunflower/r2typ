@@ -137,8 +137,6 @@ If you want to compile and validate your Typst code, you can use the [`tynding`]
 
 Functions in `r2typ` accept **all positional and named arguments**! This means that you're responsible of making sure the arguments you're using are valid!
 
-It has a `is_valid_typst()` function that will return either `TRUE` or `FALSE` depending on whether your Typst can be compiled successfully.
-
 ```r
 library(tynding)
 
