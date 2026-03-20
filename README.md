@@ -1,5 +1,7 @@
 # r2typ (R to Typst): An R package for generating Typst markup
 
+<img src="https://github.com/JosephBARBIERDARNAL/static/blob/main/r-libs/r2typ/image.png?raw=true" alt="r2typ logo" align="right" width="150px"/>
+
 `r2typ` allows you to generate Typst markup using R and makes you much more efficient in creating PDF reports. Think of it as `htmltools`, but for Typst! It supports all of the following:
 
 - ✅ almost **all** Typst functions (+ an option to add yours)
