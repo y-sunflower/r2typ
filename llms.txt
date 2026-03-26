@@ -23,8 +23,7 @@ Check out the [documentation](https://y-sunflower.github.io/r2typ/).
 ## Installation
 
 ``` r
-# install.packages("pak")
-pak::pkg_install("y-sunflower/r2typ")
+install.packages("r2typ", repos = c("https://y-sunflower.r-universe.dev"))
 ```
 
   
